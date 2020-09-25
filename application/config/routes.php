@@ -404,3 +404,38 @@ $route['print-job-order/'.$data[2]] = "pdf_control/job_order";
 
 //-----------------employeapi----------------------
 // $route['employe/(:any)'] = "api/employe/$1";
+
+//---------------- Patients ---------------------
+//overview
+$route['patients-overview'] = "patient/overview";
+//employee
+$route['employees'] = "hrm/employee";
+$route['saveemployee'] = "hrm/saveemployee";
+$route['delEmp/'.$data[2]] = "hrm/delEmp";
+$route['edtEmp'] = "hrm/edtEmp";
+$route['uptEmp'] = "hrm/uptEmp";
+$route['viewEmp'] = "hrm/viewEmp";
+//Department
+$route['departments'] = "hrm/department";
+$route['saveDep'] = "hrm/saveDep";
+$route['delDep'] = "hrm/delDep";
+$route['edtDep'] = "hrm/edtDep";
+$route['uptDep'] = "hrm/uptDep";
+$route['showSubDep'] = "hrm/showSubDep";
+//designation
+$route['designations'] = "hrm/designation";
+$route['saveDes'] = "hrm/saveDes";
+$route['delDes/'.$data[2]] = "hrm/delDes";
+$route['edtDes'] = "hrm/edtDes";
+$route['uptDes'] = "hrm/uptDes";
+//announcement
+$route['announcement'] = "hrm/announcement";
+$route['saveAnn'] = "hrm/saveAnn";
+$route['delAnn'] = "hrm/delAnn";
+$route['edtAnn'] = "hrm/edtAnn";
+$route['uptAnn'] = "hrm/uptAnn";
+$route['showSelEmp'] = "hrm/showSelEmp";
+$route['delSel'] = "hrm/delSel";
+//reporting
+$route['hrm-report'] = "hrm/hrm_report";
+//------------- end HRM --------------------
