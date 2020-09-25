@@ -78,6 +78,8 @@
               </ul>
             </div>
           </li>
+
+          <?php if($this->session->userdata('health')!="Yes"){ ?>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#attendance" aria-expanded="false" aria-controls="attendance">
               <i class="menu-icon icon-calendar"></i>
@@ -98,7 +100,7 @@
             </div>
           </li>
 
-          <?php if($this->session->userdata('paket')=="Premium"){ ?>
+          <?php } if($this->session->userdata('paket')=="Premium"){ ?>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#recruitment" aria-expanded="false" aria-controls="recruitment">
               <i class="menu-icon icon-user-follow"></i>
@@ -121,7 +123,7 @@
               </ul>
             </div>
           </li>
-        <?php }?>
+        <?php } if($this->session->userdata('health')!="Yes"){ ?>
 
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#clients" aria-expanded="false" aria-controls="clients">
@@ -146,7 +148,7 @@
             </div>
           </li>
 
-          <?php if($this->session->userdata('paket')=="Premium"){ ?>
+          <?php } if($this->session->userdata('paket')=="Premium" || $this->session->userdata('health')=="Yes"){ ?>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#accounting" aria-expanded="false" aria-controls="accounting">
               <i class="menu-icon icon-calculator"></i>
@@ -211,6 +213,7 @@
               </ul>
             </div>
           </li>
+          <?php if($this->session->userdata('health') != "Yes"){?>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#assets" aria-expanded="false" aria-controls="assets">
               <i class="menu-icon icon-notebook"></i>
@@ -230,7 +233,7 @@
               </ul>
             </div>
           </li>
-        <?php } if($this->session->userdata('cargo') == "Yes"){?>
+        <?php } } if($this->session->userdata('cargo') == "Yes"){?>
 
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#cargo" aria-expanded="false" aria-controls="cargo">
@@ -322,12 +325,12 @@
           </li>
 
         <?php } if($this->session->userdata('health') == "Yes"){?>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#health" aria-expanded="false" aria-controls="health">
               <i class="menu-icon fa fa-medkit"></i>
               <span class="menu-title">Health</span>
             </a>
-            <!-- <div class="collapse <?php if($url_1 == "health"){echo "show"; } ?>" id="health">
+            <div class="collapse <?php if($url_1 == "health"){echo "show"; } ?>" id="health">
               <ul class="nav flex-column sub-menu">
                  <li class="nav-item <?php if($url_1 == "health"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>quotation">Quotation</a>
@@ -336,7 +339,117 @@
                   <a class="nav-link" href="<?php echo base_url() ?>job-order">Job Order</a>
                 </li>
               </ul>
+            </div>
+          </li> -->
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#patients" aria-expanded="false" aria-controls="patients">
+              <i class="menu-icon icon-user"></i>
+              <span class="menu-title">Patients</span>
+            </a>
+            <div class="collapse <?php if($url_1 == "patients-overview" ||$url_1 == "cases" ||$url_1 == "case-handlers" ||$url_1 == "patient-adminssions"){echo "show"; } ?>" id="patients">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item <?php if($url_1 == "patients-overview"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>patients-overview">Overview</a>
+                </li>
+                <li class="nav-item <?php if($url_1 == "cases"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>cases">Cases</a>
+                </li>
+                <li class="nav-item <?php if($url_1 == "case-handlers"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>case-handlers">Case Handlers</a>
+                </li>
+                <li class="nav-item <?php if($url_1 == "patient-adminssions"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>patient-adminssions">Patient Admissions</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#doctors" aria-expanded="false" aria-controls="doctors">
+              <i class="menu-icon fa fa-user-md"></i>
+              <span class="menu-title">Doctors</span>
+            </a>
+            <div class="collapse <?php if($url_1 == "doctors-overview" ||$url_1 == "doctor-departments" ||$url_1 == "schedules" ||$url_1 == "prescriptions"){echo "show"; } ?>" id="doctors">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item <?php if($url_1 == "doctors-overview"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>doctors-overview">Overview</a>
+                </li>
+                <li class="nav-item <?php if($url_1 == "doctor-departments"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>doctor-departments">Departments</a>
+                </li>
+                <li class="nav-item <?php if($url_1 == "schedules"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>schedules">Schedules</a>
+                </li>
+                <li class="nav-item <?php if($url_1 == "prescriptions"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>prescriptions">Prescriptions</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#nurse" aria-expanded="false" aria-controls="nurse">
+              <i class="menu-icon fa fa-stethoscope"></i>
+              <span class="menu-title">Nurse</span>
+            </a>
+            <!-- <div class="collapse <?php if($url_1 == "patients-overview" ||$url_1 == "cases" ||$url_1 == "case-handlers" ||$url_1 == "patient-adminssions"){echo "show"; } ?>" id="nurse">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item <?php if($url_1 == "patients-overview"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>patients-overview">Overview</a>
+                </li>
+                <li class="nav-item <?php if($url_1 == "cases"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>cases">Cases</a>
+                </li>
+                <li class="nav-item <?php if($url_1 == "case-handlers"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>case-handlers">Case Handlers</a>
+                </li>
+                <li class="nav-item <?php if($url_1 == "patient-adminssions"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>patient-adminssions">Patient Admissions</a>
+                </li>
+              </ul>
             </div> -->
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#medicines" aria-expanded="false" aria-controls="medicines">
+              <i class="menu-icon fa fa-medkit"></i>
+              <span class="menu-title">Medicines</span>
+            </a>
+            <div class="collapse <?php if($url_1 == "medicines-overview" ||$url_1 == "medicine-categories" ||$url_1 == "medicine-brands" ){echo "show"; } ?>" id="medicines">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item <?php if($url_1 == "medicines-overview"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>medicines-overview">Overview</a>
+                </li>
+                <li class="nav-item <?php if($url_1 == "medicine-categories"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>medicine-categories">Categories</a>
+                </li>
+                <li class="nav-item <?php if($url_1 == "medicine-brands"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>medicine-brands">Brands</a>
+                </li>
+                <!-- <li class="nav-item <?php if($url_1 == "prescriptions"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>prescriptions">Prescriptions</a>
+                </li> -->
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#beds" aria-expanded="false" aria-controls="beds">
+              <i class="menu-icon fa fa-h-square"></i>
+              <span class="menu-title">Beds</span>
+            </a>
+            <div class="collapse <?php if($url_1 == "beds-overview" ||$url_1 == "bed-types" ||$url_1 == "bed-assigns"){echo "show"; } ?>" id="beds">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item <?php if($url_1 == "beds-overview"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>beds-overview">Overview</a>
+                </li>
+                <li class="nav-item <?php if($url_1 == "bed-types"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>bed-types">Bed Types</a>
+                </li>
+                <li class="nav-item <?php if($url_1 == "bed-assigns"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>bed-assigns">Bed Assigns</a>
+                </li>
+                <!-- <li class="nav-item <?php if($url_1 == "prescriptions"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>prescriptions">Prescriptions</a>
+                </li> -->
+              </ul>
+            </div>
           </li>
         <?php } if($this->session->userdata('maintenance') == "Yes") {?>
           <li class="nav-item">
@@ -361,7 +474,7 @@
               </ul>
             </div>
           </li>
-        <?php } ?>
+        <?php } if($this->session->userdata('health') != "Yes") { ?>
           <li class="nav-item <?php if ($url_1 == "") { echo "active"; }?>">
             <a class="nav-link" href="#">
               <i class="menu-icon icon-key"></i>
@@ -402,6 +515,7 @@
               </ul>
             </div>
           </li>
+        <?php } ?>
           <li class="nav-item ">
             <a class="nav-link" href="<?= base_url('proout'); ?>">
               <i class="menu-icon icon-logout"></i>

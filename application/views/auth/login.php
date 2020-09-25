@@ -58,10 +58,11 @@
               <?php echo form_close(); ?>
             <?php }elseif ($url_1 == "su") { ?>
             	<?php echo form_open_multipart('prosu'); ?>
-            	<h4>Super Admin</h4>
+              <h4>Super Admin</h4>
             	<hr>
                 <div class="form-group">
                   <label class="label">Username</label>
+                  <!-- <?php echo password_hash("root123", PASSWORD_DEFAULT); ?> -->
                   <div class="input-group">
                     <input type="text" class="form-control" placeholder="Username" name="username" required value="<?php echo get_cookie('uname');?>">
                     <div class="input-group-append">
