@@ -406,17 +406,17 @@ $route['print-job-order/'.$data[2]] = "pdf_control/job_order";
 // $route['employe/(:any)'] = "api/employe/$1";
 
 //---------------- Patients ---------------------
-//overview
+//patient
 $route['patients-overview'] = "patient/overview";
-//employee
+//case
 $route['cases'] = "patient/cases";
 $route['saveemployee'] = "hrm/saveemployee";
 $route['delEmp/'.$data[2]] = "hrm/delEmp";
 $route['edtEmp'] = "hrm/edtEmp";
 $route['uptEmp'] = "hrm/uptEmp";
 $route['viewEmp'] = "hrm/viewEmp";
-//Department
-$route['departments'] = "hrm/department";
+//admission
+$route['patient-admissions'] = "patient/admissions";
 $route['saveDep'] = "hrm/saveDep";
 $route['delDep'] = "hrm/delDep";
 $route['edtDep'] = "hrm/edtDep";

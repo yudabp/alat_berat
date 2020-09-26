@@ -392,10 +392,11 @@ class Patient extends CI_Controller {
     // }
   }
 
-  public function designation(){
-    $data['info'] = $this->db->get_where('company',['idcompany'=>$this->session->userdata('idcompany')])->row();
-    $data['view'] = $this->ShowModel->getDataWHere('designation',['idcompany'=>$this->session->userdata('idcompany')])->result();
-    $this->load->view('hrm/designation',$data);
+  public function admissions(){
+    // $data['info'] = $this->db->get_where('company',['idcompany'=>$this->session->userdata('idcompany')])->row();
+    // $data['view'] = $this->ShowModel->getDataWHere('designation',['idcompany'=>$this->session->userdata('idcompany')])->result();
+    // $this->load->view('hrm/designation',$data);
+    $this->load->view('patient/admission');
   }
   public function saveDes(){
     $id = $this->uuid->v4();

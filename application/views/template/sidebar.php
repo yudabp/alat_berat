@@ -346,7 +346,7 @@
               <i class="menu-icon icon-user"></i>
               <span class="menu-title">Patients</span>
             </a>
-            <div class="collapse <?php if($url_1 == "patients-overview" ||$url_1 == "cases" ||$url_1 == "case-handlers" ||$url_1 == "patient-adminssions"){echo "show"; } ?>" id="patients">
+            <div class="collapse <?php if($url_1 == "patients-overview" ||$url_1 == "cases" ||$url_1 == "case-handlers" ||$url_1 == "patient-admissions"){echo "show"; } ?>" id="patients">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item <?php if($url_1 == "patients-overview"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>patients-overview">Overview</a>
@@ -357,8 +357,8 @@
                 <li class="nav-item <?php if($url_1 == "case-handlers"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>case-handlers">Case Handlers</a>
                 </li>
-                <li class="nav-item <?php if($url_1 == "patient-adminssions"){echo "active"; } ?>">
-                  <a class="nav-link" href="<?php echo base_url() ?>patient-adminssions">Patient Admissions</a>
+                <li class="nav-item <?php if($url_1 == "patient-admissions"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>patient-admissions">Patient Admissions</a>
                 </li>
               </ul>
             </div>
