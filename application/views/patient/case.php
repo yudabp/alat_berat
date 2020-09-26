@@ -11,7 +11,7 @@
         <div class="content-wrapper">
           <div class="row mb-4">
             <div class="col-12 d-flex align-items-center justify-content-between">
-              <h4 class="page-title">Patients</h4>
+              <h4 class="page-title">Case</h4>
               <div class="d-flex align-items-center">
                 <div class="wrapper mr-4 d-none d-sm-block">
                   <!-- <p class="mb-0">Summary for
@@ -40,13 +40,13 @@
                         <thead>
                           <tr class="text-center">
                             <!-- <th>No</th> -->
-                            <th style="width: 25%">Patient Name</th>
-                            <th style="width: 30%">BPJS No.</th>
-                            <th style="width: 15%">Blood Type</th>
-                            <th style="width: 15%">Registration Date</th>
-                            <!-- <th style="width: 15%">Joined</th> -->
+                            <th style="width: 15%">Case ID</th>
+                            <th style="width: 10%">Case Date</th>
+                            <th style="width: 25%">Patient</th>
+                            <th style="width: 25%">Doctor</th>
+                            <th style="width: 15%">Fee</th>
                             <!-- <th style="width: 15%">Status</th> -->
-                            <th style="width: 15%">Actions</th>
+                            <th style="width: 10%">Actions</th>
                           </tr>
                         </thead>
                         <tbody>

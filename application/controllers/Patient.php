@@ -11,22 +11,23 @@ class Patient extends CI_Controller {
   }
 
   //overview
-  public function hrm_overview(){
-    $data['emnum'] = $this->db->get_where('employee',['idcompany'=>$this->session->userdata('idcompany')])->num_rows();
-    $data['depnum'] = $this->db->get_where('department',['idcompany'=>$this->session->userdata('idcompany')])->num_rows();
-    $data['desnum'] = $this->db->get_where('designation',['idcompany'=>$this->session->userdata('idcompany')])->num_rows();
-    $data['announ'] = $this->db->order_by('id','desc')->get_where('announcement',['idcompany'=>$this->session->userdata('idcompany')])->result();
-    $data['info'] = $this->db->get_where('company',['idcompany'=>$this->session->userdata('idcompany')])->row();
-    $this->load->view('hrm/overview',$data);
-  }
+  // public function hrm_overview(){
+  //   $data['emnum'] = $this->db->get_where('employee',['idcompany'=>$this->session->userdata('idcompany')])->num_rows();
+  //   $data['depnum'] = $this->db->get_where('department',['idcompany'=>$this->session->userdata('idcompany')])->num_rows();
+  //   $data['desnum'] = $this->db->get_where('designation',['idcompany'=>$this->session->userdata('idcompany')])->num_rows();
+  //   $data['announ'] = $this->db->order_by('id','desc')->get_where('announcement',['idcompany'=>$this->session->userdata('idcompany')])->result();
+  //   $data['info'] = $this->db->get_where('company',['idcompany'=>$this->session->userdata('idcompany')])->row();
+  //   $this->load->view('hrm/overview',$data);
+  // }
 
   //department
-  public function department()
+  public function cases()
   {
-    $data['view'] = $this->ShowModel->getDataWHere('department',['departmentstatus'=>'0','idcompany'=>$this->session->userdata('idcompany')])->result();
-    $data['employe'] = $this->db->get_where('employee',['idcompany'=>$this->session->userdata('idcompany')])->result();
-    $data['info'] = $this->db->get_where('company',['idcompany'=>$this->session->userdata('idcompany')])->row();
-    $this->load->view('hrm/department',$data);
+    // $data['view'] = $this->ShowModel->getDataWHere('department',['departmentstatus'=>'0','idcompany'=>$this->session->userdata('idcompany')])->result();
+    // $data['employe'] = $this->db->get_where('employee',['idcompany'=>$this->session->userdata('idcompany')])->result();
+    // $data['info'] = $this->db->get_where('company',['idcompany'=>$this->session->userdata('idcompany')])->row();
+    // $this->load->view('hrm/department',$data);
+    $this->load->view('patient/case');
   }
   public function saveDep(){
     $id = $this->uuid->v4();

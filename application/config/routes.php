@@ -409,7 +409,7 @@ $route['print-job-order/'.$data[2]] = "pdf_control/job_order";
 //overview
 $route['patients-overview'] = "patient/overview";
 //employee
-$route['employees'] = "hrm/employee";
+$route['cases'] = "patient/cases";
 $route['saveemployee'] = "hrm/saveemployee";
 $route['delEmp/'.$data[2]] = "hrm/delEmp";
 $route['edtEmp'] = "hrm/edtEmp";
