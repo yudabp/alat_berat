@@ -98,42 +98,13 @@
               <?php echo form_open_multipart('saveemployee',['class'=>'form-sample','id'=>'tambah']); ?>
               <div class="modal-body">
                 <div class="row">
-                  <!-- <div class="col-md-4">
-                    <div class="row grid-margin">
-                      <div class="card col-md-12">
-                        <div class="card-body">
-                          <h4 class="card-title d-flex">Photo
-                          </h4>
-                          <input type="file" class="dropify" name="photo"  />
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row grid-margin">
-                      <div class="card col-md-12">
-                        <div class="card-body">
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input type="checkbox" class="form-check-input" name="allow" value="yes" id="allow"> Allow Application Login
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div> -->
                   <div class="col-md-12">
                     <div class="card">
                       <div class="card-body">
-                        <!-- <h4 class="card-title">Basic form</h4>
-                        <p class="card-description">
-                          Basic form elements
-                        </p> -->
                         <ul class="nav nav-tabs tab-basic" role="tablist">
                           <li class="nav-item">
                             <a class="nav-link active" id="basic-tab" data-toggle="tab" href="#basic" role="tab">Basic</a>
                           </li>
-                          <!-- <li class="nav-item">
-                            <a class="nav-link" id="work-tab" data-toggle="tab" href="#work" role="tab">Work</a>
-                          </li> -->
                           <li class="nav-item">
                             <a class="nav-link" id="personal-tab" data-toggle="tab" href="#personal" role="tab">Personal Details</a>
                           </li>
@@ -276,119 +247,7 @@
                               <button type="button" class="btn btn-rounded btn-primary" onclick="next_personal()">Next >></button>
                             </div>
                           </div>
-                          <!-- <div class="tab-pane fade" id="work" role="tabpanel">
-                            <div class="row" style="margin-bottom: 10px;">
-                              <div class="col-md-12">
-                                <h5>
-                                  WORK
-                                </h5>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label for="department">Department</label>
-                                  <select name="department" id="department" class="single-select form-control" >
-                                    <option selected="selected" disabled="disabled"> - Select Department - </option>
-                                    <?php foreach ($viewdep as $vdep ) {?>
-                                        <option value="<?php echo $vdep->iddepartment; ?>"><?php echo $vdep->departmenttitle; ?></option>
-                                    <?php } ?>
-                                  </select>
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label for="job_title">Job Tittle</label>
-                                  <select name="job_title" id="job_title" class="single-select form-control" >
-                                    <option selected="selected" disabled="disabled"> - Select Tittle - </option>
-                                    <?php foreach ($viewdes as $vdes ) {?>
-                                      <option value="<?php echo $vdes->iddesignation; ?>"><?php echo $vdes->designationtitle;?></option>
-                                    <?php } ?>
-                                  </select>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label for="location">Location</label>
-                                  <select name="location" id="location" class="single-select form-control" >
-                                    <option selected="selected" disabled="disabled"> - Select Location - </option>
-                                    <option value="Full Time">Full Time</option>
-                                    <option value="Part Time">Part Time</option>
-                                    <option value="Contract">Contract</option>
-                                    <option value="Trainee">Trainee</option>
-                                  </select>
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label for="reporting_to">Reporting To</label>
-                                  <select name="reporting_to" id="reporting_to" class="single-select form-control" >
-                                    <option selected="selected" disabled="disabled"> - Select - </option>
-                                    <?php foreach ($viewlead as $vlead ) {?>
-                                        <option value="<?php echo $vlead->iddepartment; ?>"><?php echo $vlead->departmentlead; ?></option>
-                                    <?php } ?>
-                                  </select>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label for="source_of_hire">Source of Hire</label>
-                                  <select name="source_of_hire" id="source_of_hire" class="single-select form-control" >
-                                    <option selected="selected" disabled="disabled"> - Select - </option>
-                                    <option value="Direct">Direct</option>
-                                    <option value="Referral">Referral</option>
-                                    <option value="Web">Web</option>
-                                    <option value="Newspaper">Newspaper</option>
-                                    <option value="Social Media">Social Media</option>
-                                    <option value="Advertisement">Advertisement</option>
-                                  </select>
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label for="payrate">Payrate</label>
-                                  <input type="text" name="payrate" id="payrate" class="form-control" >
-                                </div>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label for="pay_type">Pay Type</label>
-                                  <select name="pay_type" id="pay_type" class="single-select form-control" >
-                                    <option selected="selected" disabled="disabled"> - Select - </option>
-                                    <option value="Daily">Daily</option>
-                                    <option value="Weekly">Weekly</option>
-                                    <option value="Biweekly">Biweekly</option>
-                                    <option value="Monthly">Monthly</option>
-                                    <option value="Contract">Contract</option>
-                                  </select>
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label for="work_phone">Work Phone</label>
-                                  <input type="text" name="work_phone" id="work_phone" class="form-control" placeholder="(+62)8__-____-____" >
-                                </div>
-                              </div>
-                            </div>
-                            <div class="float-right">
-                              <button type="button" class="btn btn-rounded btn-warning" onclick="back_basic()"><< Back</button>
-                              <button type="button" class="btn btn-rounded btn-primary" onclick="next_personal()">Next >></button>
-                            </div>
-                          </div> -->
                           <div class="tab-pane fade" id="personal" role="tabpanel">
-                            <!-- <div class="row" style="margin-bottom: 10px;">
-                              <div class="col-md-12">
-                                <h5>
-                                  PERSONAL DETAILS
-                                </h5>
-                              </div>
-                            </div> -->
                             <div class="row">
                               <div class="col-md-12">
                                 <div class="form-group">
@@ -454,39 +313,6 @@
                                   <label for="kecamatan">Kecamatan</label>
                                   <select name="kecamatan" id="kecamatan" class="single-select form-control">
                                     <option selected="selected" disabled="disabled"> - Select Kecamatan - </option>
-                                    <!-- <option value="Aceh">Aceh</option>
-                                    <option value="Bali">Bali</option>
-                                    <option value="Banten">Banten</option>
-                                    <option value="Bengkulu">Bengkulu</option>
-                                    <option value="Gorontalo">Gorontalo</option>
-                                    <option value="Jakarta">Jakarta</option>
-                                    <option value="Jambi">Jambi</option>
-                                    <option value="Jawa Barat">Jawa Barat</option>
-                                    <option value="Jawa Tengah">Jawa Tengah</option>
-                                    <option value="Jawa Timur">Jawa Timur</option>
-                                    <option value="Kalimantan Barat">Kalimantan Barat</option>
-                                    <option value="Kalimantan Selatan">Kalimantan Selatan</option>
-                                    <option value="Kalimantan Tengah">Kalimantan Tengah</option>
-                                    <option value="Kalimantan Timur">Kalimantan Timur</option>
-                                    <option value="Kalimantan Utara">Kalimantan Utara</option>
-                                    <option value="Kepulauan Bangka Belitung">Kepulauan Bangka Belitung</option>
-                                    <option value="Kepulauan Riau">Kepulauan Riau</option>
-                                    <option value="Lampung">Lampung</option>
-                                    <option value="Maluku">Maluku</option>
-                                    <option value="Maluku Utara">Maluku Utara</option>
-                                    <option value="Nusa Tenggara Timur">Nusa Tenggara Timur</option>
-                                    <option value="Nusa Tenggara Barat">Nusa Tenggara Barat</option>
-                                    <option value="Papua">Papua</option>
-                                    <option value="Papua Barat">Papua Barat</option>
-                                    <option value="Sulawesi Barat">Sulawesi Barat</option>
-                                    <option value="Sulawesi Selatan">Sulawesi Selatan</option>
-                                    <option value="Sulawesi Tengah">Sulawesi Tengah</option>
-                                    <option value="Sulawesi Tenggara">Sulawesi Tenggara</option>
-                                    <option value="Sulawesi Utara">Sulawesi Utara</option>
-                                    <option value="Sumatera Barat">Sumatera Barat</option>
-                                    <option value="Sumatera Selatan">Sumatera Selatan</option>
-                                    <option value="Sumatera Utara">Sumatera Utara</option>
-                                    <option value="Yogyakarta">Yogyakarta</option> -->
                                   </select>
                                 </div>
                               </div>
@@ -875,62 +701,6 @@ if ($(".datepicker").length) {
       format: "dd/mm/yyyy"
     });
   }
-  // $(".single-select").select2({
-  //   width: '100%',
-  //   dropdownParent: $('#formPatient'),
-  // });
-
-  // $('#employee_type').select2({
-  //   width: '100%',
-  //   dropdownParent: $('#formPatient')
-  // });
-  // $('#employee_status').select2({
-  //   width: '100%',
-  //   dropdownParent: $('#formPatient')
-  // });
-  // $('#department').select2({
-  //   width: '100%',
-  //   dropdownParent: $('#formPatient')
-  // });
-  // $('#job_title').select2({
-  //   width: '100%',
-  //   dropdownParent: $('#formPatient')
-  // });
-  // $('#location').select2({
-  //   width: '100%',
-  //   dropdownParent: $('#formPatient')
-  // });
-  // $('#reporting_to').select2({
-  //   width: '100%',
-  //   dropdownParent: $('#formPatient')
-  // });
-  // $('#source_of_hire').select2({
-  //   width: '100%',
-  //   dropdownParent: $('#formPatient')
-  // });
-  // $('#pay_type').select2({
-  //   width: '100%',
-  //   dropdownParent: $('#formPatient')
-  // });
-  // $('#gender').select2({
-  //   width: '100%',
-  //   dropdownParent: $('#formPatient')
-  // });
-  // $('#marital_status').select2({
-  //   width: '100%',
-  //   dropdownParent: $('#formPatient')
-  // });
-  // $('#state').select2({
-  //   width: '100%',
-  //   dropdownParent: $('#formPatient')
-  // });
-
-  // if ($(".select-employee").length) {
-  //   $(".select-employee").select2({
-  //     width: '100%',
-  //     dropdownParent: $('#formPatient')
-  //   });
-  // }
   $(document).ready(function() {
         $('#buttonModal').click(function() {
             $('html').css('overflow', 'hidden');
