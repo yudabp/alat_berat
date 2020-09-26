@@ -440,8 +440,8 @@ $route['delEmp/'.$data[2]] = "hrm/delEmp";
 $route['edtEmp'] = "hrm/edtEmp";
 $route['uptEmp'] = "hrm/uptEmp";
 $route['viewEmp'] = "hrm/viewEmp";
-//admission
-$route['patient-admissions'] = "patient/admissions";
+//schedule
+$route['schedules'] = "doctor/schedule";
 $route['saveDep'] = "hrm/saveDep";
 $route['delDep'] = "hrm/delDep";
 $route['edtDep'] = "hrm/edtDep";
