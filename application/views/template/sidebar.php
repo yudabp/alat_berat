@@ -434,20 +434,42 @@
               <i class="menu-icon fa fa-h-square"></i>
               <span class="menu-title">Beds</span>
             </a>
-            <div class="collapse <?php if($url_1 == "beds-overview" ||$url_1 == "bed-types" ||$url_1 == "bed-assigns"){echo "show"; } ?>" id="beds">
+            <div class="collapse <?php if($url_1 == "beds-overview" ||$url_1 == "bed-list" ||$url_1 == "bed-assigns" ||$url_1 == "bed-tranfer" ||$url_1 == "report"){echo "show"; } ?>" id="beds">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item <?php if($url_1 == "beds-overview"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>beds-overview">Overview</a>
                 </li>
-                <li class="nav-item <?php if($url_1 == "bed-types"){echo "active"; } ?>">
-                  <a class="nav-link" href="<?php echo base_url() ?>bed-types">Bed Types</a>
+                <li class="nav-item <?php if($url_1 == "bed-list"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>bed-list">Bed List</a>
                 </li>
                 <li class="nav-item <?php if($url_1 == "bed-assigns"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>bed-assigns">Bed Assigns</a>
                 </li>
-                <!-- <li class="nav-item <?php if($url_1 == "prescriptions"){echo "active"; } ?>">
-                  <a class="nav-link" href="<?php echo base_url() ?>prescriptions">Prescriptions</a>
-                </li> -->
+                <li class="nav-item <?php if($url_1 == "bed-tranfer"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>bed-tranfer">Bed Transfer</a>
+                </li>
+                <li class="nav-item <?php if($url_1 == "report"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>report">Report</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#hospital-activities" aria-expanded="false" aria-controls="hospital-activities">
+              <i class="menu-icon fa fa-random"></i>
+              <span class="menu-title">Hospital Activities</span>
+            </a>
+            <div class="collapse <?php if($url_1 == "birth" ||$url_1 == "death" ||$url_1 == "operation"){echo "show"; } ?>" id="hospital-activities">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item <?php if($url_1 == "birth"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>birth">Birth</a>
+                </li>
+                <li class="nav-item <?php if($url_1 == "death"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>death">Death</a>
+                </li>
+                <li class="nav-item <?php if($url_1 == "operation"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>operation">operation</a>
+                </li>
               </ul>
             </div>
           </li>
