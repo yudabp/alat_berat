@@ -428,14 +428,29 @@ $route['saveDes'] = "hrm/saveDes";
 $route['delDes/'.$data[2]] = "hrm/delDes";
 $route['edtDes'] = "hrm/edtDes";
 $route['uptDes'] = "hrm/uptDes";
-//announcement
-$route['announcement'] = "hrm/announcement";
-$route['saveAnn'] = "hrm/saveAnn";
-$route['delAnn'] = "hrm/delAnn";
-$route['edtAnn'] = "hrm/edtAnn";
-$route['uptAnn'] = "hrm/uptAnn";
-$route['showSelEmp'] = "hrm/showSelEmp";
-$route['delSel'] = "hrm/delSel";
-//reporting
-$route['hrm-report'] = "hrm/hrm_report";
-//------------- end HRM --------------------
+//------------- end Patients --------------------
+
+//---------------- Doctors ---------------------
+//doctor
+$route['doctors-overview'] = "doctor/overview";
+//case
+$route['cases'] = "patient/cases";
+$route['saveemployee'] = "hrm/saveemployee";
+$route['delEmp/'.$data[2]] = "hrm/delEmp";
+$route['edtEmp'] = "hrm/edtEmp";
+$route['uptEmp'] = "hrm/uptEmp";
+$route['viewEmp'] = "hrm/viewEmp";
+//admission
+$route['patient-admissions'] = "patient/admissions";
+$route['saveDep'] = "hrm/saveDep";
+$route['delDep'] = "hrm/delDep";
+$route['edtDep'] = "hrm/edtDep";
+$route['uptDep'] = "hrm/uptDep";
+$route['showSubDep'] = "hrm/showSubDep";
+//designation
+$route['designations'] = "hrm/designation";
+$route['saveDes'] = "hrm/saveDes";
+$route['delDes/'.$data[2]] = "hrm/delDes";
+$route['edtDes'] = "hrm/edtDes";
+$route['uptDes'] = "hrm/uptDes";
+//------------- end Doctors --------------------
