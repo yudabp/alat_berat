@@ -479,3 +479,22 @@ $route['delDes/'.$data[2]] = "hrm/delDes";
 $route['edtDes'] = "hrm/edtDes";
 $route['uptDes'] = "hrm/uptDes";
 //------------- end Beds --------------------
+
+//---------------- Activity ---------------------
+//birth
+$route['birth'] = "activity/birth";
+//death
+$route['death'] = "activity/death";
+$route['saveemployee'] = "hrm/saveemployee";
+$route['delEmp/'.$data[2]] = "hrm/delEmp";
+$route['edtEmp'] = "hrm/edtEmp";
+$route['uptEmp'] = "hrm/uptEmp";
+$route['viewEmp'] = "hrm/viewEmp";
+//operation
+$route['operation'] = "activity/operation";
+$route['saveDep'] = "hrm/saveDep";
+$route['delDep'] = "hrm/delDep";
+$route['edtDep'] = "hrm/edtDep";
+$route['uptDep'] = "hrm/uptDep";
+$route['showSubDep'] = "hrm/showSubDep";
+//------------- end Activity --------------------
