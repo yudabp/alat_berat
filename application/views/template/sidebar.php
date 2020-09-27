@@ -468,7 +468,7 @@
                   <a class="nav-link" href="<?php echo base_url() ?>death">Death</a>
                 </li>
                 <li class="nav-item <?php if($url_1 == "operation"){echo "active"; } ?>">
-                  <a class="nav-link" href="<?php echo base_url() ?>operation">operation</a>
+                  <a class="nav-link" href="<?php echo base_url() ?>operation">Operation</a>
                 </li>
               </ul>
             </div>
