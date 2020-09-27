@@ -24,11 +24,11 @@ class Bed extends CI_Controller {
     //                          ->result();
     // $data['info'] = $this->db->get_where('company',['idcompany'=>$this->session->userdata('idcompany')])->row();
     // $this->load->view('hrm/employee',$data);
-    $this->load->view('doctor/overview');
+    $this->load->view('bed/overview');
   }
 
-  // schedule
-  public function schedule()
+  // list
+  public function bed_list()
   {
     // $data['viewdep'] = $this->ShowModel->getDataWHere('department',['departmentstatus'=>'0','idcompany'=>$this->session->userdata('idcompany')])->result();
     // $data['viewdes'] = $this->ShowModel->getDataWHere('designation',['idcompany'=>$this->session->userdata('idcompany')])->result();
@@ -41,8 +41,8 @@ class Bed extends CI_Controller {
     //                          ->result();
     // $data['info'] = $this->db->get_where('company',['idcompany'=>$this->session->userdata('idcompany')])->row();
     // $this->load->view('hrm/employee',$data);
-    $this->load->view('doctor/schedule');
-  }
+    $this->load->view('bed/list');
+  }  
 
   // assign
   public function assign()

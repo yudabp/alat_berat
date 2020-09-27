@@ -126,7 +126,7 @@
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
-                                  <label for="rigistration_date">Resgistration Date</label>
+                                  <label for="rigistration_date">Registration Date</label>
                                   <div class="input-group date datepicker">
                                     <input type="text" id="rigistration_date" name="rigistration_date" class="form-control" >
                                     <span class="input-group-addon input-group-append border-left">

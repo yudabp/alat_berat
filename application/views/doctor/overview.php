@@ -140,9 +140,9 @@
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
-                                  <label for="designation">Marital Designation</label>
+                                  <label for="designation">Marital Designations</label>
                                   <select name="designation" id="designation" class="single-select form-control" >
-                                    <option selected="selected" disabled="disabled"> - Select Designation - </option>
+                                    <option selected="selected" disabled="disabled"> - Select Designations - </option>
                                     <!-- <option value="single">Single</option> -->
                                     <!-- <option value="maried">Maried</option> -->
                                     <!-- <option value="divorced">Divorced</option> -->

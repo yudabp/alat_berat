@@ -457,9 +457,9 @@ $route['uptDes'] = "hrm/uptDes";
 
 //---------------- Beds ---------------------
 //doctor
-$route['doctors-overview'] = "doctor/overview";
+$route['beds-overview'] = "bed/overview";
 //case
-$route['cases'] = "patient/cases";
+$route['bed-list'] = "bed/bed_list";
 $route['saveemployee'] = "hrm/saveemployee";
 $route['delEmp/'.$data[2]] = "hrm/delEmp";
 $route['edtEmp'] = "hrm/edtEmp";

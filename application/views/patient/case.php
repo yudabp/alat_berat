@@ -85,7 +85,7 @@
         <!-- content-wrapper ends -->
 
         <div class="modal fade" id="formPatient" tabindex="-1" role="dialog" aria-labelledby="formPatientLabel" data-backdrop="static" data-keyboard="false">
-          <div class="modal-dialog modal-lg" role="document" style="margin-top: 15px;margin-bottom: 0">
+          <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="formPatientLabel">Cases</h5>
@@ -161,7 +161,7 @@
                             <div class="row">
                               <div class="col-md-6">
                                 <div class="form-group">
-                                  <label for="patient">Pantient</label>
+                                  <label for="patient">Patient</label>
                                   <select name="patient" id="patient" class="single-select form-control" >
                                     <option selected="selected" disabled="disabled"> - Select Pantient - </option>
                                     <!-- <option value="male">Male</option> -->
@@ -548,7 +548,7 @@ if ($(".datepicker").length) {
             $('body').unbind('touchmove');
         });
         // $("#payrate").inputmask({ alias : "currency", mask : "Rp 0.00" });
-        $('#payrate').inputmask({
+        $('#fee').inputmask({
           alias: 'currency',
           prefix: 'Rp ',
         });

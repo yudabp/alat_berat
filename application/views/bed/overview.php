@@ -11,7 +11,7 @@
         <div class="content-wrapper">
           <div class="row mb-4">
             <div class="col-12 d-flex align-items-center justify-content-between">
-              <h4 class="page-title">Bed Assign</h4>
+              <h4 class="page-title">Beds</h4>
               <div class="d-flex align-items-center">
                 <div class="wrapper mr-4 d-none d-sm-block">
                   <!-- <p class="mb-0">Summary for
@@ -40,10 +40,10 @@
                         <thead>
                           <tr class="text-center">
                             <!-- <th>No</th> -->
-                            <th style="width: 25%">Patient</th>
                             <th style="width: 20%">Room Name</th>
-                            <th style="width: 20%">Assign Date</th>
-                            <th style="width: 20%">Discharge Data</th>
+                            <th style="width: 25%">Description</th>
+                            <th style="width: 20%">Bed Capacity</th>
+                            <th style="width: 20%">Charge</th>
                             <!-- <th style="width: 15%">Joined</th> -->
                             <!-- <th style="width: 15%">Status</th> -->
                             <th style="width: 15%">Actions</th>
@@ -85,10 +85,10 @@
         <!-- content-wrapper ends -->
 
         <div class="modal fade" id="formBed" tabindex="-1" role="dialog" aria-labelledby="formBedLabel" data-backdrop="static" data-keyboard="false">
-          <div class="modal-dialog" role="document" >
+          <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="formBedLabel">Bed Assign</h5>
+                <h5 class="modal-title" id="formBedLabel">Bed List</h5>
                 <button type="button" class="close btn-close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -105,7 +105,7 @@
                         </p> -->
                         <ul class="nav nav-tabs tab-basic" role="tablist">
                           <li class="nav-item">
-                            <a class="nav-link active" id="basic-tab" data-toggle="tab" href="#basic" role="tab">Add New Bed</a>
+                            <a class="nav-link active" id="basic-tab" data-toggle="tab" href="#basic" role="tab">Add Room</a>
                           </li>
                         </ul>
                         <div class="tab-content tab-content-basic">
@@ -113,64 +113,8 @@
                             <div class="row">
                               <div class="col-md-12">
                                 <div class="form-group">
-                                  <label for="doctor">Doctor</label>
-                                  <select name="doctor" id="doctor" class="single-select form-control" >
-                                    <option selected="selected" disabled="disabled"> - Select Doctor - </option>
-                                    <!-- <option value="male">Male</option> -->
-                                    <!-- <option value="female">Female</option> -->
-                                    <!-- <option value="Contract">Contract</option> -->
-                                    <!-- <option value="trainee">Trainee</option> -->
-                                  </select>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col-md-6">
-                                <div class="form-group">
                                   <label for="room">Room Name</label>
-                                  <select name="room" id="room" class="single-select form-control" >
-                                    <option selected="selected" disabled="disabled"> - Select Room - </option>
-                                    <!-- <option value="male">Male</option> -->
-                                    <!-- <option value="female">Female</option> -->
-                                    <!-- <option value="Contract">Contract</option> -->
-                                    <!-- <option value="trainee">Trainee</option> -->
-                                  </select>
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label for="bed">Bed Number</label>
-                                  <select name="bed" id="bed" class="single-select form-control" >
-                                    <option selected="selected" disabled="disabled"> - Select Bed - </option>
-                                    <!-- <option value="male">Male</option> -->
-                                    <!-- <option value="female">Female</option> -->
-                                    <!-- <option value="Contract">Contract</option> -->
-                                    <!-- <option value="trainee">Trainee</option> -->
-                                  </select>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label for="assign">Assign Date</label>
-                                  <div class="input-group date datepicker">
-                                    <input type="text" id="assign" name="assign" class="form-control" >
-                                    <span class="input-group-addon input-group-append border-left">
-                                      <span class="mdi mdi-calendar input-group-text"></span>
-                                    </span>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label for="discharge">Discharge</label>
-                                  <div class="input-group date datepicker">
-                                    <input type="text" id="discharge" name="discharge" class="form-control" >
-                                    <span class="input-group-addon input-group-append border-left">
-                                      <span class="mdi mdi-calendar input-group-text"></span>
-                                    </span>
-                                  </div>
+                                  <input type="text" name="room" id="room" class="form-control" placeholder="Room Name">
                                 </div>
                               </div>
                             </div>
@@ -179,6 +123,22 @@
                                 <div class="form-group">
                                   <label for="description">Description</label>
                                   <textarea name="description" id="description" class="form-control" placeholder="Description" ></textarea>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-12">
+                                <div class="form-group">
+                                  <label for="bed_capacity">Bed Capacity</label>
+                                  <input type="number" name="bed_capacity" id="bed_capacity" class="form-control" placeholder="Bed Capacity">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-12">
+                                <div class="form-group">
+                                  <label for="charge">Charge</label>
+                                  <input type="text" name="charge" id="charge" class="form-control" placeholder="Charge">
                                 </div>
                               </div>
                             </div>
