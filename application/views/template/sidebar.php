@@ -390,22 +390,6 @@
               <i class="menu-icon fa fa-stethoscope"></i>
               <span class="menu-title">Nurse</span>
             </a>
-            <!-- <div class="collapse <?php if($url_1 == "patients-overview" ||$url_1 == "cases" ||$url_1 == "case-handlers" ||$url_1 == "patient-adminssions"){echo "show"; } ?>" id="nurse">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item <?php if($url_1 == "patients-overview"){echo "active"; } ?>">
-                  <a class="nav-link" href="<?php echo base_url() ?>patients-overview">Overview</a>
-                </li>
-                <li class="nav-item <?php if($url_1 == "cases"){echo "active"; } ?>">
-                  <a class="nav-link" href="<?php echo base_url() ?>cases">Cases</a>
-                </li>
-                <li class="nav-item <?php if($url_1 == "case-handlers"){echo "active"; } ?>">
-                  <a class="nav-link" href="<?php echo base_url() ?>case-handlers">Case Handlers</a>
-                </li>
-                <li class="nav-item <?php if($url_1 == "patient-adminssions"){echo "active"; } ?>">
-                  <a class="nav-link" href="<?php echo base_url() ?>patient-adminssions">Patient Admissions</a>
-                </li>
-              </ul>
-            </div> -->
           </li>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#medicines" aria-expanded="false" aria-controls="medicines">
