@@ -423,7 +423,7 @@ $route['edtDep'] = "hrm/edtDep";
 $route['uptDep'] = "hrm/uptDep";
 $route['showSubDep'] = "hrm/showSubDep";
 //designation
-$route['designations'] = "hrm/designation";
+$route['case-handlers'] = "patient/case_handlers";
 $route['saveDes'] = "hrm/saveDes";
 $route['delDes/'.$data[2]] = "hrm/delDes";
 $route['edtDes'] = "hrm/edtDes";
@@ -434,7 +434,7 @@ $route['uptDes'] = "hrm/uptDes";
 //doctor
 $route['doctors-overview'] = "doctor/overview";
 //case
-$route['cases'] = "patient/cases";
+$route['doctor-departments'] = "doctor/department";
 $route['saveemployee'] = "hrm/saveemployee";
 $route['delEmp/'.$data[2]] = "hrm/delEmp";
 $route['edtEmp'] = "hrm/edtEmp";
@@ -448,12 +448,22 @@ $route['edtDep'] = "hrm/edtDep";
 $route['uptDep'] = "hrm/uptDep";
 $route['showSubDep'] = "hrm/showSubDep";
 //designation
-$route['designations'] = "hrm/designation";
+$route['prescriptions'] = "doctor/prescription";
 $route['saveDes'] = "hrm/saveDes";
 $route['delDes/'.$data[2]] = "hrm/delDes";
 $route['edtDes'] = "hrm/edtDes";
 $route['uptDes'] = "hrm/uptDes";
 //------------- end Doctors --------------------
+
+//-------------- Nurse ------------------------
+$route['nurse'] = "nurse";
+//-------------- End Nurse --------------------
+
+//-------------- Medicine ------------------------
+$route['medicines-overview'] = "medicine/overview";
+$route['medicine-categories'] = "medicine/category";
+$route['medicine-brands'] = "medicine/brand";
+//-------------- End Medicine --------------------
 
 //---------------- Beds ---------------------
 //doctor

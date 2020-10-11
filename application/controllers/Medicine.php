@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Doctor extends CI_Controller {
+class Medicine extends CI_Controller {
 
   public function __construct(){
     parent::__construct();
@@ -24,11 +24,11 @@ class Doctor extends CI_Controller {
     //                          ->result();
     // $data['info'] = $this->db->get_where('company',['idcompany'=>$this->session->userdata('idcompany')])->row();
     // $this->load->view('hrm/employee',$data);
-    $this->load->view('doctor/overview');
+    $this->load->view('medicine/overview');
   }
 
   //department
-  public function department()
+  public function category()
   {
     // $data['viewdep'] = $this->ShowModel->getDataWHere('department',['departmentstatus'=>'0','idcompany'=>$this->session->userdata('idcompany')])->result();
     // $data['viewdes'] = $this->ShowModel->getDataWHere('designation',['idcompany'=>$this->session->userdata('idcompany')])->result();
@@ -41,11 +41,11 @@ class Doctor extends CI_Controller {
     //                          ->result();
     // $data['info'] = $this->db->get_where('company',['idcompany'=>$this->session->userdata('idcompany')])->row();
     // $this->load->view('hrm/employee',$data);
-    $this->load->view('doctor/department');
+    $this->load->view('medicine/category');
   }
 
   // schedule
-  public function schedule()
+  public function brand()
   {
     // $data['viewdep'] = $this->ShowModel->getDataWHere('department',['departmentstatus'=>'0','idcompany'=>$this->session->userdata('idcompany')])->result();
     // $data['viewdes'] = $this->ShowModel->getDataWHere('designation',['idcompany'=>$this->session->userdata('idcompany')])->result();
@@ -58,24 +58,7 @@ class Doctor extends CI_Controller {
     //                          ->result();
     // $data['info'] = $this->db->get_where('company',['idcompany'=>$this->session->userdata('idcompany')])->row();
     // $this->load->view('hrm/employee',$data);
-    $this->load->view('doctor/schedule');
-  }
-
-  //prescription
-  public function prescription()
-  {
-    // $data['viewdep'] = $this->ShowModel->getDataWHere('department',['departmentstatus'=>'0','idcompany'=>$this->session->userdata('idcompany')])->result();
-    // $data['viewdes'] = $this->ShowModel->getDataWHere('designation',['idcompany'=>$this->session->userdata('idcompany')])->result();
-    // $data['viewlead'] = $this->ShowModel->getDataWHere('department',['departmentstatus'=>'1','idcompany'=>$this->session->userdata('idcompany')])->result();
-    // $data['view'] = $this->db->select('*')
-    //                          ->join('department','department.iddepartment = employee.department')
-    //                          ->join('designation','designation.iddesignation = employee.jobtitle')
-    //                          ->join('employee_access','employee_access.mainid = employee.mainid')
-    //                          ->get_where('employee',['employee.idcompany'=>$this->session->userdata('idcompany')])
-    //                          ->result();
-    // $data['info'] = $this->db->get_where('company',['idcompany'=>$this->session->userdata('idcompany')])->row();
-    // $this->load->view('hrm/employee',$data);
-    $this->load->view('doctor/prescription');
+    $this->load->view('medicine/brand');
   }
 
 }

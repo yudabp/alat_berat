@@ -385,8 +385,8 @@
               </ul>
             </div>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#nurse" aria-expanded="false" aria-controls="nurse">
+          <li class="nav-item <?php if ($url_1 == "nurse") { echo "active"; }?>">
+            <a class="nav-link" href="<?php echo base_url() ?>nurse" aria-expanded="false" aria-controls="nurse">
               <i class="menu-icon fa fa-stethoscope"></i>
               <span class="menu-title">Nurse</span>
             </a>

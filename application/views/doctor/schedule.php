@@ -173,6 +173,29 @@
                                 </div>
                               </div>
                             </div>
+                            <div class="row repeater">
+                              <div data-repeater-list="group-a">
+                                <div class="col-md-12">
+                                  <div data-repeater-item class="d-flex mb-2">
+                                    <!-- <label class="sr-only" for="inlineFormInputGroup1">Users</label> -->
+                                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text">@</span>
+                                      </div>
+                                      <input type="text" class="form-control form-control-sm" id="inlineFormInputGroup1" placeholder="Add user">
+                                    </div>
+                                    <label class="sr-only">Password</label>
+                                    <!-- <button type="submit" class="btn btn-success btn-sm">Submit</button> -->
+                                    <button data-repeater-delete type="button" class="btn btn-danger btn-sm icon-btn ml-2">
+                                      <i class="mdi mdi-delete"></i>
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+                              <button data-repeater-create type="button" class="btn btn-info btn-sm icon-btn ml-2 mb-2">
+                                <i class="mdi mdi-plus"></i>
+                              </button>
+                            </div>
                             <!-- <div class="float-right"> -->
                               <!-- <button type="button" class="btn btn-rounded btn-success">Submit</button> -->
                               <!-- <button type="button" class="btn btn-rounded btn-primary" onclick="next_personal()">Next >></button> -->

@@ -431,13 +431,14 @@ class Patient extends CI_Controller {
     ],['iddesignation'=>$id_des]);
   }
 
-  public function announcement(){
-    $data['view'] = $this->db->order_by('id','desc')->get_where('announcement',['idcompany'=>$this->session->userdata('idcompany')])->result();
-    $data['dept'] = $this->ShowModel->getDataWHere('department',['idcompany'=>$this->session->userdata('idcompany')])->result();
-    $data['desg'] = $this->ShowModel->getDataWHere('designation',['idcompany'=>$this->session->userdata('idcompany')])->result();
-    $data['emp'] = $this->ShowModel->getDataWHere('employee',['idcompany'=>$this->session->userdata('idcompany')])->result();
-    $data['info'] = $this->db->get_where('company',['idcompany'=>$this->session->userdata('idcompany')])->row();
-    $this->load->view('hrm/announcement',$data);
+  public function case_handlers(){
+    // $data['view'] = $this->db->order_by('id','desc')->get_where('announcement',['idcompany'=>$this->session->userdata('idcompany')])->result();
+    // $data['dept'] = $this->ShowModel->getDataWHere('department',['idcompany'=>$this->session->userdata('idcompany')])->result();
+    // $data['desg'] = $this->ShowModel->getDataWHere('designation',['idcompany'=>$this->session->userdata('idcompany')])->result();
+    // $data['emp'] = $this->ShowModel->getDataWHere('employee',['idcompany'=>$this->session->userdata('idcompany')])->result();
+    // $data['info'] = $this->db->get_where('company',['idcompany'=>$this->session->userdata('idcompany')])->row();
+    // $this->load->view('hrm/announcement',$data);
+    $this->load->view('patient/case-handlers');
   }
 
   public function saveAnn(){
