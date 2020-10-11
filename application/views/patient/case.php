@@ -185,14 +185,14 @@
                               </div>
                             </div>
                             <div class="row">
-                              <div class="col-md-3"></div>
-                              <div class="col-md-6">
+                              <!-- <div class="col-md-3"></div> -->
+                              <div class="col-md-12">
                                 <div class="form-group">
                                   <label for="fee">Fee</label>
                                   <input type="text" name="fee" id="fee" class="form-control" placeholder="Fee" >
                                 </div>
                               </div>
-                              <div class="col-md-3"></div>
+                              <!-- <div class="col-md-3"></div> -->
                             </div>
                             <div class="float-right">
                               <!-- <button type="button" class="btn btn-rounded btn-success">Submit</button> -->
