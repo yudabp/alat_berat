@@ -182,10 +182,10 @@
                                   <label for="employee_type">Employee Type</label>
                                   <select name="employee_type" id="employee_type" class="single-select form-control" >
                                     <option selected="selected" disabled="disabled"> - Select Type - </option>
-                                    <option value="fulltime">Full Time</option>
-                                    <option value="parttime">Part Time</option>
+                                    <option value="Full Time">Full Time</option>
+                                    <option value="Part Time">Part Time</option>
                                     <option value="Contract">Contract</option>
-                                    <option value="trainee">Trainee</option>
+                                    <option value="Trainee">Trainee</option>
                                   </select>
                                 </div>
                               </div>

@@ -213,6 +213,31 @@
               </ul>
             </div>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#product" aria-expanded="false" aria-controls="product">
+              <i class="menu-icon icon-layers"></i>
+              <span class="menu-title">Product</span>
+            </a>
+            <div class="collapse <?php if($url_1 == "product-overview" ||$url_1 == "sparepart" ||$url_1 == "alat-berat"){echo "show"; } ?>" id="product">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item <?php if($url_1 == "product-overview"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>product-overview">Overview</a>
+                </li>
+                 <li class="nav-item <?php if($url_1 == "alat-berat"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>alat-berat">Alat Berat</a>
+                </li>
+                <li class="nav-item <?php if($url_1 == "sparepart"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>sparepart">Spare Part</a>
+                </li>
+                <!-- <li class="nav-item <?php if($url_1 == "payroll-report"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>payroll-report">Reports</a>
+                </li> -->
+              <!--   <li class="nav-item">
+                  <a class="nav-link" href="#">Setting</a>
+                </li> -->
+              </ul>
+            </div>
+          </li>
           <?php if($this->session->userdata('health') == "Yes"){?>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#assets" aria-expanded="false" aria-controls="assets">
