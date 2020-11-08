@@ -508,3 +508,21 @@ $route['edtDep'] = "hrm/edtDep";
 $route['uptDep'] = "hrm/uptDep";
 $route['showSubDep'] = "hrm/showSubDep";
 //------------- end Activity --------------------
+
+//---------------- Product ---------------------
+//overview
+$route['product-overview'] = "product/overview";
+//alat berat
+$route['alat-berat'] = "product/alat_berat";
+//overview
+$route['sparepart'] = "product/sparepart";
+//------------- end Product --------------------
+
+//---------------- Services ---------------------
+//overview
+$route['service-overview'] = "services/overview";
+//alat berat
+$route['sewa-alat-berat'] = "services/sewa_alat_berat";
+//overview
+$route['jasa-tambang'] = "services/jasa_tambang";
+//------------- end Services --------------------
