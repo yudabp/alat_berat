@@ -23,7 +23,8 @@ class Hrm extends CI_Controller {
   //department
   public function department()
   {
-    $data['view'] = $this->ShowModel->getDataWHere('department',['departmentstatus'=>'0','idcompany'=>$this->session->userdata('idcompany')])->result();
+    $data['view'] = $this->ShowModel->getDataWHere('department',['idcompany'=>$this->session->userdata('idcompany')])->result();
+    // $data['view'] = $this->ShowModel->getDataWHere('department',['departmentstatus'=>'0','idcompany'=>$this->session->userdata('idcompany')])->result();
     $data['employe'] = $this->db->get_where('employee',['idcompany'=>$this->session->userdata('idcompany')])->result();
     $data['info'] = $this->db->get_where('company',['idcompany'=>$this->session->userdata('idcompany')])->row();
     $this->load->view('hrm/department',$data);
