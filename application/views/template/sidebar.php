@@ -265,11 +265,11 @@
           </li>
           <?php if($this->session->userdata('health') == "Yes"){?>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#assets" aria-expanded="false" aria-controls="assets">
+            <a class="nav-link" data-toggle="collapse" href="#asset" aria-expanded="false" aria-controls="asset">
               <i class="menu-icon icon-notebook"></i>
               <span class="menu-title">Assets</span>
             </a>
-            <div class="collapse <?php if($url_1 == "warehouse" ||$url_1 == "stok" ||$url_1 == "assets-requests"){echo "show"; } ?>" id="assets">
+            <div class="collapse <?php if($url_1 == "warehouse" ||$url_1 == "stok" ||$url_1 == "assets-requests"){echo "show"; } ?>" id="asset">
               <ul class="nav flex-column sub-menu">
                  <li class="nav-item <?php if($url_1 == "warehouse"){echo "active"; } ?>warehouse">
                   <a class="nav-link" href="<?php echo base_url() ?>warehouse">Warehouse</a>
