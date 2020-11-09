@@ -239,20 +239,20 @@
                   </div>
                 </div>
               </div>
-              <div class="row grid-margin">
+              <!-- <div class="row grid-margin">
                 <div class="col-md-12">
                   <div class="card">
                     <div class="card-body">
                       <h4 class="card-title">Attendance</h4>
-                      <!-- <div class="chart-container">
+                      <div class="chart-container">
                         <canvas class="mt-4" id="sales-status" height="150"></canvas>
                         <div id="sales-status-legend" class="legend-con mt-4 mb-0"></div>
-                      </div> -->
+                      </div>
                       <div id="donut-absensi"></div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
             <!-- End Right Content -->
           </div>
