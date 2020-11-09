@@ -47,9 +47,9 @@
                 <li class="nav-item <?php if($url_1 == "announcement"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>announcement">Announcement</a>
                 </li>
-                <li class="nav-item <?php if($url_1 == "hrm-report"){echo "active"; } ?>">
+                <!-- <li class="nav-item <?php if($url_1 == "hrm-report"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>hrm-report">Reports</a>
-                </li>
+                </li> -->
               </ul>
             </div>
           </li>
@@ -72,9 +72,9 @@
                 <li class="nav-item <?php if($url_1 == "leave-calendar"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>leave-calendar">Calendar</a>
                 </li>
-                <li class="nav-item <?php if($url_1 == "leave-report"){echo "active"; } ?>">
+                <!-- <li class="nav-item <?php if($url_1 == "leave-report"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>leave-report">Report</a>
-                </li>
+                </li> -->
               </ul>
             </div>
           </li>
@@ -204,9 +204,9 @@
                 <li class="nav-item <?php if($url_1 == "pay-calendar"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>pay-calendar">Pay Calendar</a>
                 </li>
-                <li class="nav-item <?php if($url_1 == "payroll-report"){echo "active"; } ?>">
+                <!-- <li class="nav-item <?php if($url_1 == "payroll-report"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>payroll-report">Reports</a>
-                </li>
+                </li> -->
               <!--   <li class="nav-item">
                   <a class="nav-link" href="#">Setting</a>
                 </li> -->
