@@ -101,7 +101,7 @@
           </li>
 
           <?php } if($this->session->userdata('paket')=="Premium"){ ?>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#recruitment" aria-expanded="false" aria-controls="recruitment">
               <i class="menu-icon icon-user-follow"></i>
               <span class="menu-title">Recruitment</span>
@@ -122,7 +122,7 @@
                 </li>
               </ul>
             </div>
-          </li>
+          </li> -->
         <?php } if($this->session->userdata('health')!="Yes"){ ?>
 
           <li class="nav-item">
