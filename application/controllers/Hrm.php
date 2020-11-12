@@ -147,7 +147,7 @@ class Hrm extends CI_Controller {
       $allowed = "no";
     }
 
-    $inCheck = $this->db->get_where('employee_access',['username'=>$username]);
+    $inCheck = $this->db->get_where('employee_access',['username'=>$username,'idcompany'=>$this->session->userdata('idcompany')]);
     if($inCheck->num_rows() > 0){
       $this->session->set_flashdata('item','Username sudah ada');
       redirect('employees');
