@@ -50,6 +50,7 @@ error_reporting(0);
 |		my-controller/my-method	-> my_controller/my_method
 */
 $data = explode("/",$_SERVER['REQUEST_URI']);
+$uri2 = $this->uri->segment(2);
 
 $route['default_controller'] = 'auth';
 $route['404_override'] = 'not_found';
@@ -102,7 +103,7 @@ $route['hrm-overview'] = "hrm/hrm_overview";
 //employee
 $route['employees'] = "hrm/employee";
 $route['saveemployee'] = "hrm/saveemployee";
-$route['delEmp/'.$data[2]] = "hrm/delEmp";
+$route['delEmp/'.$uri2] = "hrm/delEmp";
 $route['edtEmp'] = "hrm/edtEmp";
 $route['uptEmp'] = "hrm/uptEmp";
 $route['viewEmp'] = "hrm/viewEmp";
@@ -116,7 +117,7 @@ $route['showSubDep'] = "hrm/showSubDep";
 //designation
 $route['designations'] = "hrm/designation";
 $route['saveDes'] = "hrm/saveDes";
-$route['delDes/'.$data[2]] = "hrm/delDes";
+$route['delDes/'.$uri2] = "hrm/delDes";
 $route['edtDes'] = "hrm/edtDes";
 $route['uptDes'] = "hrm/uptDes";
 //announcement
