@@ -30,7 +30,7 @@
               <i class="menu-icon icon-people"></i>
               <span class="menu-title">HR Management</span>
             </a>
-            <div class="collapse <?php if($url_1 == "hrm-overview" ||$url_1 == "employees" ||$url_1 == "departments" ||$url_1 == "designations" ||$url_1 == "announcement" ||$url_1 == "hrm-report"){echo "show"; } ?>" id="hr_management">
+            <div class="collapse <?php if($url_1 == "hrm-overview" ||$url_1 == "employees" ||$url_1 == "departments" ||$url_1 == "designations" ||$url_1 == "announcement" ||$url_1 == "setting-hrm"){echo "show"; } ?>" id="hr_management">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item <?php if($url_1 == "hrm-overview"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>hrm-overview">Overview</a>
@@ -47,9 +47,9 @@
                 <li class="nav-item <?php if($url_1 == "announcement"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>announcement">Announcement</a>
                 </li>
-                <!-- <li class="nav-item <?php if($url_1 == "hrm-report"){echo "active"; } ?>">
-                  <a class="nav-link" href="<?php echo base_url() ?>hrm-report">Reports</a>
-                </li> -->
+                <li class="nav-item <?php if($url_1 == "setting-hrm"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>setting-hrm">Setting</a>
+                </li>
               </ul>
             </div>
           </li>
@@ -302,9 +302,9 @@
                 <li class="nav-item <?php if($url_1 == "settings"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>settings">Settings</a>
                 </li>
-                <li class="nav-item <?php if($url_1 == "setting-hrm"){echo "active"; } ?>">
+                <!-- <li class="nav-item <?php if($url_1 == "setting-hrm"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>setting-hrm">HR Management</a>
-                </li>
+                </li> -->
                 <!-- <li class="nav-item <?php if($url_1 == "setting-payroll"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>setting-payroll">Payroll (HR)</a>
                 </li>

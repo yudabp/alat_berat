@@ -112,10 +112,49 @@
                     <div class="row grid-margin">
                       <div class="card col-md-12">
                         <div class="card-body">
-                          <div class="form-check">
+                          <h4 class="card-title d-flex">User Access</h4>
+                          <!-- <div class="form-check">
                             <label class="form-check-label">
                               <input type="checkbox" class="form-check-input" name="allow" value="yes" id="allow"> Allow Application Login
                             </label>
+                          </div> -->
+                          <div class="form-group">
+                            <div class="form-radio">
+                              <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="user_access" id="hrd" value="hrd"> HRD
+                                <i class="input-helper"></i>
+                              </label>
+                            </div>
+                            <div class="form-radio">
+                              <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="user_access" id="purchasing" value="purchasing"> Purchasing
+                                <i class="input-helper"></i>
+                              </label>
+                            </div>
+                            <div class="form-radio">
+                              <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="user_access" id="sales" value="sales"> Sales
+                                <i class="input-helper"></i>
+                              </label>
+                            </div>
+                            <div class="form-radio">
+                              <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="user_access" id="accounting_manager" value="accounting_manager"> Accounting Manager
+                                <i class="input-helper"></i>
+                              </label>
+                            </div>
+                            <div class="form-radio">
+                              <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="user_access" id="warehouse" value="warehouse"> Warehouse
+                                <i class="input-helper"></i>
+                              </label>
+                            </div>
+                            <div class="form-radio">
+                              <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="user_access" id="administrator" value="administrator"> Administrator
+                                <i class="input-helper"></i>
+                              </label>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -536,11 +575,63 @@
               <div class="modal-body">
                 <div class="row">
                   <div class="col-md-4">
-                    <div class="card">
-                      <div class="card-body">
-                        <h4 class="card-title d-flex">Photo
-                        </h4>
-                        <center><img src="<?php echo base_url(); ?>assets/staffprofil/defuser.png" class="img-lg rounded-circle" id="userimg"></center>
+                    <div class="row gird-margin">
+                      <div class="card col-md-12">
+                        <div class="card-body">
+                          <h4 class="card-title d-flex">Photo
+                          </h4>
+                          <center><img src="<?php echo base_url(); ?>assets/staffprofil/defuser.png" class="img-lg rounded-circle" id="userimg"></center>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row grid-margin">
+                      <div class="card col-md-12">
+                        <div class="card-body">
+                          <h4 class="card-title d-flex">User Access</h4>
+                          <!-- <div class="form-check">
+                            <label class="form-check-label">
+                              <input type="checkbox" class="form-check-input" name="allow" value="yes" id="allow"> Allow Application Login
+                            </label>
+                          </div> -->
+                          <div class="form-group">
+                            <div class="form-radio">
+                              <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="user_access" id="hrd" value="hrd"> HRD
+                                <i class="input-helper"></i>
+                              </label>
+                            </div>
+                            <div class="form-radio">
+                              <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="user_access" id="purchasing" value="purchasing"> Purchasing
+                                <i class="input-helper"></i>
+                              </label>
+                            </div>
+                            <div class="form-radio">
+                              <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="user_access" id="sales" value="sales"> Sales
+                                <i class="input-helper"></i>
+                              </label>
+                            </div>
+                            <div class="form-radio">
+                              <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="user_access" id="accounting_manager" value="accounting_manager"> Accounting Manager
+                                <i class="input-helper"></i>
+                              </label>
+                            </div>
+                            <div class="form-radio">
+                              <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="user_access" id="warehouse" value="warehouse"> Warehouse
+                                <i class="input-helper"></i>
+                              </label>
+                            </div>
+                            <div class="form-radio">
+                              <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="user_access" id="administrator" value="administrator"> Administrator
+                                <i class="input-helper"></i>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -552,10 +643,13 @@
                             <a class="nav-link active" id="debasic-tab" data-toggle="tab" href="#debasic" role="tab">Basic</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" id="dework-tab" data-toggle="tab" href="#dework" role="tab">Work</a>
+                            <a class="nav-link" id="dework-tab" data-toggle="tab" href="#dework" role="tab">Job</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" id="depersonal-tab" data-toggle="tab" href="#depersonal" role="tab">Personal Details</a>
+                            <a class="nav-link" id="depersonal-tab" data-toggle="tab" href="#depersonal" role="tab">Leave</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="depayroll-tab" data-toggle="tab" href="#depayroll" role="tab">Payroll</a>
                           </li>
                         </ul>
                         <div class="tab-content tab-content-basic">
@@ -603,18 +697,10 @@
                                     <td>:</td>
                                     <td><span id="date_of_hired"></span></td>
                                   </tr>
-                                </table>
+                                <!-- </table>
                               </div>
-                            </div>
-
-                            <div class="float-right">
-                              <button type="button" class="btn btn-rounded btn-primary" onclick="next_workd()">Next >></button>
-                            </div>
-                          </div>
-                          <div class="tab-pane fade" id="dework" role="tabpanel">
-                            <div class="row">
                               <div class="col-md-12">
-                                <table class="table">
+                                <table class="table"> -->
                                   <tr>
                                     <td>Department</td>
                                     <td>:</td>
@@ -655,20 +741,10 @@
                                     <td>:</td>
                                     <td><span id="work_phoned"></span></td>
                                   </tr>
-                                </table>
+                                <!-- </table>
                               </div>
-
-
-                            <div class="float-right">
-                              <button type="button" class="btn btn-rounded btn-warning" onclick="back_basicd()"><< Back</button>
-                              <button type="button" class="btn btn-rounded btn-primary" onclick="next_personald()">Next >></button>
-                            </div>
-                          </div>
-                        </div>
-                          <div class="tab-pane fade" id="depersonal" role="tabpanel">
-                            <div class="row">
                               <div class="col-md-12">
-                                <table class="table">
+                                <table class="table"> -->
                                   <tr>
                                     <td>Phone</td>
                                     <td>:</td>
@@ -732,10 +808,37 @@
                                 </table>
                               </div>
                             </div>
-                            <div class="float-right">
-                              <button type="button" class="btn btn-rounded btn-warning" onclick="back_workd()"><< Back</button>
-                              <!-- <button type="button" class="btn btn-rounded btn-primary" onclick="next_personal()">Next >></button> -->
+
+<!--                             <div class="float-right">
+                              <button type="button" class="btn btn-rounded btn-primary" onclick="next_workd()">Next >></button>
+                            </div> -->
+                          </div>
+                          <div class="tab-pane fade" id="dework" role="tabpanel">
+                            <div class="row">
+
                             </div>
+                              <!-- <div class="float-right">
+                                <button type="button" class="btn btn-rounded btn-warning" onclick="back_basicd()"><< Back</button>
+                                <button type="button" class="btn btn-rounded btn-primary" onclick="next_personald()">Next >></button>
+                              </div> -->
+                          </div>
+                          <div class="tab-pane fade" id="depersonal" role="tabpanel">
+                            <div class="row">
+                              
+                            </div>
+                            <!-- <div class="float-right">
+                              <button type="button" class="btn btn-rounded btn-warning" onclick="back_workd()"><< Back</button>
+                              <button type="button" class="btn btn-rounded btn-primary" onclick="next_payrolld()">Next >></button>
+                            </div> -->
+                          </div>
+                          <div class="tab-pane fade" id="depayroll" role="tabpanel">
+                            <div class="row">
+                              
+                            </div>
+                            <!-- <div class="float-right">
+                              <button type="button" class="btn btn-rounded btn-warning" onclick="back_workd()"><< Back</button>
+                              <button type="button" class="btn btn-rounded btn-primary" onclick="next_personal()">Next >></button>
+                            </div> -->
                           </div>
                         </div>
                       </div>

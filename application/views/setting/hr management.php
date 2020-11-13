@@ -39,14 +39,26 @@
                       <li class="nav-item mb-4">
                         <a class="nav-link active" id="tab-6-1" data-toggle="tab" href="#home-6-1" role="tab" aria-controls="home-6-1" aria-selected="true">Attendace</a>
                       </li>
-                      <li class="nav-item mb-4">
+                      <!-- <li class="nav-item mb-4">
                         <a class="nav-link" id="tab-6-2" data-toggle="tab" href="#profile-6-2" role="tab" aria-controls="profile-6-2" aria-selected="false">Company</a>
-                      </li>
+                      </li> -->
                       <li class="nav-item mb-4">
                         <a class="nav-link" id="tab-6-3" data-toggle="tab" href="#contact-6-3" role="tab" aria-controls="contact-6-3" aria-selected="false">Payroll</a>
                       </li>
-                      <li class="nav-item">
+                      <li class="nav-item mb-4">
                         <a class="nav-link" id="tab-6-4" data-toggle="tab" href="#work-6-4" role="tab" aria-controls="work-6-4" aria-selected="false">Work Days</a>
+                      </li>
+                      <li class="nav-item mb-4">
+                        <a class="nav-link" id="tab-6-5" data-toggle="tab" href="#work-6-5" role="tab" aria-controls="work-6-5" aria-selected="false">Trip</a>
+                      </li>
+                      <li class="nav-item mb-4">
+                        <a class="nav-link" id="tab-6-6" data-toggle="tab" href="#work-6-6" role="tab" aria-controls="work-6-6" aria-selected="false">Shift</a>
+                      </li>
+                      <li class="nav-item mb-4">
+                        <a class="nav-link" id="tab-6-7" data-toggle="tab" href="#work-6-7" role="tab" aria-controls="work-6-7" aria-selected="false">Jam Kerja Mesin</a>
+                      </li>
+                      <li class="nav-item mb-4">
+                        <a class="nav-link" id="tab-6-8" data-toggle="tab" href="#work-6-8" role="tab" aria-controls="work-6-8" aria-selected="false">Jam Kerja</a>
                       </li>
                     </ul>
                     <div class="tab-content col-md-10">
@@ -277,6 +289,26 @@
                                   <i class="mdi mdi-content-save mr-1"></i>Save Changes</button>
                                 </div>
                         </form>
+                      </div>
+                      <div class="tab-pane fade" id="work-6-5" role="tabpanel" aria-labelledby="tab-6-5">
+                        <div class="row">
+                          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="work-6-6" role="tabpanel" aria-labelledby="tab-6-6">
+                        <div class="row">
+                          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="work-6-7" role="tabpanel" aria-labelledby="tab-6-7">
+                        <div class="row">
+                          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="work-6-8" role="tabpanel" aria-labelledby="tab-6-8">
+                        <div class="row">
+                          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                        </div>
                       </div>
                     </div>
                   </div>
