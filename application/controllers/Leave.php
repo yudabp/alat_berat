@@ -13,7 +13,7 @@ class Leave extends CI_Controller{
   {
     $idcompany = $this->session->userdata('idcompany');
     $data['view'] = $this->db->get_where('employee',['idcompany'=>$this->session->userdata('idcompany')])->result();
-    $data['req'] = $this->db->query("SELECT *, sum(leavereq.days) as tot FROM `leavereq` JOIN employee on (employee.employeid = leavereq.mainid) where leavereq.idcompany='$idcompany' GROUP BY leavereq.mainid ")->result();
+    $data['req'] = $this->db->query("SELECT *, sum(leavereq.days) as tot FROM `leavereq` JOIN employee on (employee.employeid = leavereq.mainid) where leavereq.idcompany='$idcompany' GROUP BY leavereq.mainid DESC")->result();
     $data['info'] = $this->db->get_where('company',['idcompany'=>$this->session->userdata('idcompany')])->row();
     $this->load->view('leave/request',$data);
   }
@@ -354,6 +354,7 @@ class Leave extends CI_Controller{
     $department = $this->input->get('department');
     $designation = $this->input->get('designation');
     $idcompany = $this->session->userdata('idcompany');
+    $data['leaves'] = NULL;
     if(isset($department) || isset($designation)){
         if(isset($department )){
           $data['cal'] = $this->db->query("select * from employee join department on(department.iddepartment=employee.department) join leavereq on(leavereq.mainid=employee.employeid) where employee.idcompany='$idcompany' and department.iddepartment='$department' ")->result();
@@ -364,7 +365,7 @@ class Leave extends CI_Controller{
         }
     }else{
         $data['cal'] = $this->db->get_where('holidays',['idcompany'=>$this->session->userdata('idcompany')])->result();
-        
+        $data['leaves'] = $this->db->query("select * from employee join designation on(designation.iddesignation=employee.jobtitle) join leavereq on(leavereq.mainid=employee.employeid) where employee.idcompany='$idcompany'")->result();
     }
     $this->load->view('leave/calendar',$data);
   }

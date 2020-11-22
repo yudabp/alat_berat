@@ -17,6 +17,12 @@ class Hrm extends CI_Controller {
     $data['desnum'] = $this->db->get_where('designation',['idcompany'=>$this->session->userdata('idcompany')])->num_rows();
     $data['announ'] = $this->db->order_by('id','desc')->get_where('announcement',['idcompany'=>$this->session->userdata('idcompany')])->result();
     $data['info'] = $this->db->get_where('company',['idcompany'=>$this->session->userdata('idcompany')])->row();
+    $data['birthdays'] = $this->db->select("fname, mname, lname, str_to_date(birth, '%d/%m/%Y') as birthday")->from('employee')->where(['idcompany'=>$this->session->userdata('idcompany')])->where('month(str_to_date(birth, "%d/%m/%Y")) = month(NOW())')->get()->result();
+    $data['leavesThisMonth'] = $this->db->query("SELECT * FROM `leavereq` JOIN employee on (employee.employeid = leavereq.mainid) LEFT JOIN department on (department.iddepartment=employee.department) where leavereq.idcompany='".$this->session->userdata('idcompany')."' and month(str_to_date(fromdate, '%d/%m/%Y'))=month(now()) GROUP BY leavereq.mainid")->result();
+    $data['leavesNextMonth'] = $this->db->query("SELECT * FROM `leavereq` JOIN employee on (employee.employeid = leavereq.mainid) LEFT JOIN department on (department.iddepartment=employee.department) where leavereq.idcompany='".$this->session->userdata('idcompany')."' and month(str_to_date(fromdate, '%d/%m/%Y'))=month(now() + INTERVAL 1 MONTH) GROUP BY leavereq.mainid")->result();
+    // var_dump($this->db->last_query());
+    // var_dump($data['birthday']);
+    // exit;
     $this->load->view('hrm/overview',$data);
   }
 
