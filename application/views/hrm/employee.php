@@ -171,12 +171,12 @@
                           <li class="nav-item">
                             <a class="nav-link active" id="basic-tab" data-toggle="tab" href="#basic" role="tab">Basic</a>
                           </li>
-                          <li class="nav-item">
+                          <!-- <li class="nav-item">
                             <a class="nav-link" id="work-tab" data-toggle="tab" href="#work" role="tab">Work</a>
                           </li>
                           <li class="nav-item">
                             <a class="nav-link" id="personal-tab" data-toggle="tab" href="#personal" role="tab">Personal Details</a>
-                          </li>
+                          </li> -->
                         </ul>
                         <div class="tab-content tab-content-basic">
                           <div class="tab-pane fade show active" id="basic" role="tabpanel">
@@ -274,19 +274,6 @@
                                 </div>
                               </div>
                             </div>
-                            <div class="float-right">
-                              <!-- <button type="button" class="btn btn-rounded btn-success">Submit</button> -->
-                              <button type="button" class="btn btn-rounded btn-primary" onclick="next_work()">Next >></button>
-                            </div>
-                          </div>
-                          <div class="tab-pane fade" id="work" role="tabpanel">
-                            <!-- <div class="row" style="margin-bottom: 10px;">
-                              <div class="col-md-12">
-                                <h5>
-                                  WORK
-                                </h5>
-                              </div>
-                            </div> -->
                             <div class="row">
                               <div class="col-md-6">
                                 <div class="form-group">
@@ -379,19 +366,6 @@
                                 </div>
                               </div>
                             </div>
-                            <div class="float-right">
-                              <button type="button" class="btn btn-rounded btn-warning" onclick="back_basic()"><< Back</button>
-                              <button type="button" class="btn btn-rounded btn-primary" onclick="next_personal()">Next >></button>
-                            </div>
-                          </div>
-                          <div class="tab-pane fade" id="personal" role="tabpanel">
-                            <!-- <div class="row" style="margin-bottom: 10px;">
-                              <div class="col-md-12">
-                                <h5>
-                                  PERSONAL DETAILS
-                                </h5>
-                              </div>
-                            </div> -->
                             <div class="row">
                               <div class="col-md-6">
                                 <div class="form-group">
@@ -540,10 +514,38 @@
                                 </div>
                               </div>
                             </div>
+                            <!-- <div class="float-right">
+                              <button type="button" class="btn btn-rounded btn-success">Submit</button>
+                              <button type="button" class="btn btn-rounded btn-primary" onclick="next_work()">Next >></button>
+                            </div> -->
+                          </div>
+                          <div class="tab-pane fade" id="work" role="tabpanel">
+                            <!-- <div class="row" style="margin-bottom: 10px;">
+                              <div class="col-md-12">
+                                <h5>
+                                  WORK
+                                </h5>
+                              </div>
+                            </div> -->
+                            
                             <div class="float-right">
-                              <button type="button" class="btn btn-rounded btn-warning" onclick="back_work()"><< Back</button>
-                              <!-- <button type="button" class="btn btn-rounded btn-primary" onclick="next_personal()">Next >></button> -->
+                              <button type="button" class="btn btn-rounded btn-warning" onclick="back_basic()"><< Back</button>
+                              <button type="button" class="btn btn-rounded btn-primary" onclick="next_personal()">Next >></button>
                             </div>
+                          </div>
+                          <div class="tab-pane fade" id="personal" role="tabpanel">
+                            <!-- <div class="row" style="margin-bottom: 10px;">
+                              <div class="col-md-12">
+                                <h5>
+                                  PERSONAL DETAILS
+                                </h5>
+                              </div>
+                            </div> -->
+                            
+                            <!-- <div class="float-right">
+                              <button type="button" class="btn btn-rounded btn-warning" onclick="back_work()"><< Back</button>
+                              <button type="button" class="btn btn-rounded btn-primary" onclick="next_personal()">Next >></button>
+                            </div> -->
                           </div>
                         </div>
                           <!-- <div class="row" style="border: solid 0.5px #ECECEC; margin-bottom: 10px;"></div> -->
@@ -815,7 +817,7 @@
                           </div>
                           <div class="tab-pane fade" id="dework" role="tabpanel">
                             <div class="row">
-
+                              
                             </div>
                               <!-- <div class="float-right">
                                 <button type="button" class="btn btn-rounded btn-warning" onclick="back_basicd()"><< Back</button>

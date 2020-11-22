@@ -123,7 +123,7 @@
                   </div>
                 </div>
               </div>
-              <div class="row grid-margin">
+              <!-- <div class="row grid-margin">
                 <div class="col-md-12">
                   <div class="card">
                     <div class="card-body">
@@ -132,7 +132,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
             <!-- End Left Content -->
             <!-- Start Right Content -->
