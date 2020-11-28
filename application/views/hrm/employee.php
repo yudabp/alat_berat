@@ -973,7 +973,40 @@
                               <div class="col-md-6 grid-margin">
                                 <div class="card">
                                   <div class="card-body">
-                                    <h3 class="card-title">Detail information at a glance</h3>
+                                    <h3 class="card-title mb-4">Detail information at a glance</h3>
+                                    <h3 style="font-size: 16px;">Fixed Allowance</h2>
+                                    <div class="row pt-2 mb-4" style="background-color: #DDDDDD">
+                                      <label class="col-sm-3" style="font-size: 10px;">Pay Item</label>
+                                      <div class="col-sm-3">
+                                          
+                                      </div>
+                                      <label class="col-sm-4" style="font-size: 10px;">Pay Item Amount</label>
+                                      <div class="col-sm-2">
+                                          
+                                      </div>
+                                    </div>
+                                    <h3 style="font-size: 16px;">Fixed Deduction</h2>
+                                    <div class="row pt-2 mb-4" style="background-color: #DDDDDD">
+                                      <label class="col-sm-3" style="font-size: 10px;">Deduction Item</label>
+                                      <div class="col-sm-3">
+                                          
+                                      </div>
+                                      <label class="col-sm-4" style="font-size: 10px;">Deduction Amount</label>
+                                      <div class="col-sm-2">
+                                          
+                                      </div>
+                                    </div>
+                                    <h3 style="font-size: 16px;">Fixed Tax</h2>
+                                    <div class="row pt-2 mb-4" style="background-color: #DDDDDD">
+                                      <label class="col-sm-3" style="font-size: 10px;">Tax Caption</label>
+                                      <div class="col-sm-3">
+                                          
+                                      </div>
+                                      <label class="col-sm-4" style="font-size: 10px;">Tax Amount</label>
+                                      <div class="col-sm-2">
+                                          
+                                      </div>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
