@@ -10,7 +10,7 @@
         font-family: 'Play', sans-serif !important;
     }*/
   .modal-content, .content-wrapper{
-    background: #F9FBFC;
+    background: #F8F8F8;
   }
   .dataTables_wrapper .dataTable .btn-icons{
     padding: 0.1rem 0.1rem;

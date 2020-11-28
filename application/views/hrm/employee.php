@@ -4,7 +4,9 @@
     $this->load->view('template/sidebar');
 ?>
 <style type="text/css">
-
+  .tab-pane{
+    background-color: #FAFAFA;
+  }
 </style>
       <!-- partial -->
       <div class="main-panel">
@@ -929,9 +931,38 @@
                               </div> -->
                           </div>
                           <div class="tab-pane fade" id="depersonal" role="tabpanel">
-                            <div class="row">
-                              
-                            </div>
+                            <!-- <div class="row"> -->
+                                <div class="row mb-2">
+                                  <h2 class="col-sm-9" style="font-size: 18px;" >History</h2>
+                                  <!-- <button type="submit" class="col-sm-3 btn btn-success">Update Job Information</button> -->
+                                </div>
+                                <div class="table-responsive mb-5">
+                                  <table class="table table-bordered">
+                                    <thead>
+                                      <tr>
+                                        <th>
+                                          Date
+                                        </th>
+                                        <!-- <th>
+                                          Policy
+                                        </th> -->
+                                        <th>
+                                          Description
+                                        </th>
+                                        <th>
+                                          Request
+                                        </th>
+                                        <th>
+                                          Status
+                                        </th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      
+                                    </tbody>
+                                  </table>
+                                </div>
+                            <!-- </div> -->
                             <!-- <div class="float-right">
                               <button type="button" class="btn btn-rounded btn-warning" onclick="back_workd()"><< Back</button>
                               <button type="button" class="btn btn-rounded btn-primary" onclick="next_payrolld()">Next >></button>
@@ -939,7 +970,40 @@
                           </div>
                           <div class="tab-pane fade" id="depayroll" role="tabpanel">
                             <div class="row">
-                              
+                              <div class="col-md-6 grid-margin">
+                                <div class="card">
+                                  <div class="card-body">
+                                    <h3 class="card-title">Detail information at a glance</h3>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-md-6 grid-margin">
+                                <div class="card grid-margin">
+                                  <div class="card-body">
+                                    <h3 class="card-title">Payroll Basic and Tax Info</h3>
+                                  </div>
+                                </div>
+                                <div class="card grid-margin">
+                                  <div class="card-body">
+                                    <h3 class="card-title">Fixed Allowance Payments</h3>
+                                  </div>
+                                </div>
+                                <div class="card grid-margin">
+                                  <div class="card-body">
+                                    <h3 class="card-title">Fixed Deductions Payments</h3>
+                                  </div>
+                                </div>
+                                <div class="card grid-margin">
+                                  <div class="card-body">
+                                    <h3 class="card-title">Tax</h3>
+                                  </div>
+                                </div>
+                                <div class="card grid-margin">
+                                  <div class="card-body">
+                                    <h3 class="card-title">Payment Detail</h3>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
                             <!-- <div class="float-right">
                               <button type="button" class="btn btn-rounded btn-warning" onclick="back_workd()"><< Back</button>
