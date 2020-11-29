@@ -300,7 +300,7 @@
             <div class="collapse <?php if($url_1 == "settings" ||$url_1 == "settings-hrm" ||$url_1 == "setting-payroll" ||$url_1 == "setting-attendance" ||$url_1 == "setting-company" ||$url_1 == "work-days" ||$url_1 == "add-ons"){echo "show"; } ?>" id="setting">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item <?php if($url_1 == "settings"){echo "active"; } ?>">
-                  <a class="nav-link" href="<?php echo base_url() ?>settings">Settings</a>
+                  <a class="nav-link" href="<?php echo base_url() ?>settings">Company</a>
                 </li>
                 <!-- <li class="nav-item <?php if($url_1 == "setting-hrm"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>setting-hrm">HR Management</a>
@@ -317,9 +317,9 @@
                 <li class="nav-item <?php if($url_1 == "work-days"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>work-days">Work Days (HR)</a>
                 </li> -->
-                <li class="nav-item <?php if($url_1 == "add-ons"){echo "active"; } ?>">
+                <!-- <li class="nav-item <?php if($url_1 == "add-ons"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>add-ons">Add-ons </a>
-                </li>
+                </li> -->
                 <li class="nav-item <?php if($url_1 == "setting-cargo"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>setting-cargo">Branch Office</a>
                 </li>

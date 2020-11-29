@@ -4,7 +4,9 @@
     $this->load->view('template/sidebar');
 ?>
 <style type="text/css">
-
+  .tab-pane{
+    background-color: #FAFAFA;
+  }
 </style>
       <!-- partial -->
       <div class="main-panel">
@@ -816,18 +818,151 @@
                             </div> -->
                           </div>
                           <div class="tab-pane fade" id="dework" role="tabpanel">
-                            <div class="row">
-                              
-                            </div>
+                            <!-- <div class="card"> -->
+                              <!-- <div class="card-body"> -->
+                                <h2 style="font-size: 18px;">Employee Main Status</h2>
+                                <form class="forms-sample mb-4">
+                                  <div class="form-group row">
+                                    <label for="employeestatus" class="col-sm-1 col-form-label">Status</label>
+                                    <div class="col-sm-3">
+                                      <select name="employee-status" id="employee-status" class="single-select form-control" >
+                                        <option selected="selected" disabled="disabled"> - Select Status - </option>
+                                        <option value="Active">Active</option>
+                                        <option value="Terminated">Terminated</option>
+                                        <option value="Deceased">Deceased</option>
+                                        <option value="Resigned">Resigned</option>
+                                      </select>
+                                    </div>
+                                    <div class="col-sm-2">
+                                      <button type="submit" class="btn btn-success btn-block mr-2">Update</button>
+                                    </div>
+                                  </div>
+                                  <!-- <button class="btn btn-light">Cancel</button> -->
+                                </form>
+                                <div class="row mb-2">
+                                  <h2 class="col-sm-10" style="font-size: 18px;" >Employee Status</h2>
+                                  <button type="submit" class="col-sm-2 btn btn-success">Update Status</button>
+                                </div>
+                                <div class="table-responsive mb-5">
+                                  <table class="table table-bordered">
+                                    <thead>
+                                      <tr>
+                                        <th>
+                                          Date
+                                        </th>
+                                        <th>
+                                          Employe Status
+                                        </th>
+                                        <th>
+                                          Comment
+                                        </th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      
+                                    </tbody>
+                                  </table>
+                                </div>
+                                <div class="row mb-2">
+                                  <h2 class="col-sm-9" style="font-size: 18px;" >Compensation</h2>
+                                  <button type="submit" class="col-sm-3 btn btn-success">Update Compensation</button>
+                                </div>
+                                <div class="table-responsive mb-5">
+                                  <table class="table table-bordered">
+                                    <thead>
+                                      <tr>
+                                        <th>
+                                          Date
+                                        </th>
+                                        <th>
+                                          Pay Rate
+                                        </th>
+                                        <th>
+                                          Pay Time
+                                        </th>
+                                        <th>
+                                          Change Reason
+                                        </th>
+                                        <th>
+                                          Comment
+                                        </th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      
+                                    </tbody>
+                                  </table>
+                                </div>
+                                <div class="row mb-2">
+                                  <h2 class="col-sm-9" style="font-size: 18px;" >Job Information</h2>
+                                  <button type="submit" class="col-sm-3 btn btn-success">Update Job Information</button>
+                                </div>
+                                <div class="table-responsive mb-5">
+                                  <table class="table table-bordered">
+                                    <thead>
+                                      <tr>
+                                        <th>
+                                          Date
+                                        </th>
+                                        <th>
+                                          Location
+                                        </th>
+                                        <th>
+                                          Department
+                                        </th>
+                                        <th>
+                                          Job Title
+                                        </th>
+                                        <th>
+                                          Reports To
+                                        </th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      
+                                    </tbody>
+                                  </table>
+                                </div>
+                              <!-- </div> -->
+                            <!-- </div> -->
                               <!-- <div class="float-right">
                                 <button type="button" class="btn btn-rounded btn-warning" onclick="back_basicd()"><< Back</button>
                                 <button type="button" class="btn btn-rounded btn-primary" onclick="next_personald()">Next >></button>
                               </div> -->
                           </div>
                           <div class="tab-pane fade" id="depersonal" role="tabpanel">
-                            <div class="row">
-                              
-                            </div>
+                            <!-- <div class="row"> -->
+                                <div class="row mb-2">
+                                  <h2 class="col-sm-9" style="font-size: 18px;" >History</h2>
+                                  <!-- <button type="submit" class="col-sm-3 btn btn-success">Update Job Information</button> -->
+                                </div>
+                                <div class="table-responsive mb-5">
+                                  <table class="table table-bordered">
+                                    <thead>
+                                      <tr>
+                                        <th>
+                                          Date
+                                        </th>
+                                        <!-- <th>
+                                          Policy
+                                        </th> -->
+                                        <th>
+                                          Description
+                                        </th>
+                                        <th>
+                                          Request
+                                        </th>
+                                        <th>
+                                          Status
+                                        </th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      
+                                    </tbody>
+                                  </table>
+                                </div>
+                            <!-- </div> -->
                             <!-- <div class="float-right">
                               <button type="button" class="btn btn-rounded btn-warning" onclick="back_workd()"><< Back</button>
                               <button type="button" class="btn btn-rounded btn-primary" onclick="next_payrolld()">Next >></button>
@@ -835,7 +970,73 @@
                           </div>
                           <div class="tab-pane fade" id="depayroll" role="tabpanel">
                             <div class="row">
-                              
+                              <div class="col-md-6 grid-margin">
+                                <div class="card">
+                                  <div class="card-body">
+                                    <h3 class="card-title mb-4">Detail information at a glance</h3>
+                                    <h3 style="font-size: 16px;">Fixed Allowance</h2>
+                                    <div class="row pt-2 mb-4" style="background-color: #DDDDDD">
+                                      <label class="col-sm-3" style="font-size: 10px;">Pay Item</label>
+                                      <div class="col-sm-3">
+                                          
+                                      </div>
+                                      <label class="col-sm-4" style="font-size: 10px;">Pay Item Amount</label>
+                                      <div class="col-sm-2">
+                                          
+                                      </div>
+                                    </div>
+                                    <h3 style="font-size: 16px;">Fixed Deduction</h2>
+                                    <div class="row pt-2 mb-4" style="background-color: #DDDDDD">
+                                      <label class="col-sm-3" style="font-size: 10px;">Deduction Item</label>
+                                      <div class="col-sm-3">
+                                          
+                                      </div>
+                                      <label class="col-sm-4" style="font-size: 10px;">Deduction Amount</label>
+                                      <div class="col-sm-2">
+                                          
+                                      </div>
+                                    </div>
+                                    <h3 style="font-size: 16px;">Fixed Tax</h2>
+                                    <div class="row pt-2 mb-4" style="background-color: #DDDDDD">
+                                      <label class="col-sm-3" style="font-size: 10px;">Tax Caption</label>
+                                      <div class="col-sm-3">
+                                          
+                                      </div>
+                                      <label class="col-sm-4" style="font-size: 10px;">Tax Amount</label>
+                                      <div class="col-sm-2">
+                                          
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-md-6 grid-margin">
+                                <div class="card grid-margin">
+                                  <div class="card-body">
+                                    <h3 class="card-title">Payroll Basic and Tax Info</h3>
+                                  </div>
+                                </div>
+                                <div class="card grid-margin">
+                                  <div class="card-body">
+                                    <h3 class="card-title">Fixed Allowance Payments</h3>
+                                  </div>
+                                </div>
+                                <div class="card grid-margin">
+                                  <div class="card-body">
+                                    <h3 class="card-title">Fixed Deductions Payments</h3>
+                                  </div>
+                                </div>
+                                <div class="card grid-margin">
+                                  <div class="card-body">
+                                    <h3 class="card-title">Tax</h3>
+                                  </div>
+                                </div>
+                                <div class="card grid-margin">
+                                  <div class="card-body">
+                                    <h3 class="card-title">Payment Detail</h3>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
                             <!-- <div class="float-right">
                               <button type="button" class="btn btn-rounded btn-warning" onclick="back_workd()"><< Back</button>
