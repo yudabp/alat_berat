@@ -286,8 +286,8 @@
         <?php } } ?>
 
         <?php  if($this->session->userdata('paket')=="Premium" && $this->session->userdata('health') == "Yes") { ?>
-          <li class="nav-item <?php if ($url_1 == "") { echo "active"; }?>">
-            <a class="nav-link" href="#">
+          <li class="nav-item <?php if ($url_1 == "log-user") { echo "active"; }?>">
+            <a class="nav-link" href="<?php echo base_url('log-user')?>">
               <i class="menu-icon icon-key"></i>
               <span class="menu-title">Log User</span>
             </a>

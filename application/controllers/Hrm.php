@@ -21,7 +21,8 @@ class Hrm extends CI_Controller {
     $data['leavesThisMonth'] = $this->db->query("SELECT * FROM `leavereq` JOIN employee on (employee.employeid = leavereq.mainid) LEFT JOIN department on (department.iddepartment=employee.department) where leavereq.idcompany='".$this->session->userdata('idcompany')."' and month(str_to_date(fromdate, '%d/%m/%Y'))=month(now()) GROUP BY leavereq.mainid")->result();
     $data['leavesNextMonth'] = $this->db->query("SELECT * FROM `leavereq` JOIN employee on (employee.employeid = leavereq.mainid) LEFT JOIN department on (department.iddepartment=employee.department) where leavereq.idcompany='".$this->session->userdata('idcompany')."' and month(str_to_date(fromdate, '%d/%m/%Y'))=month(now() + INTERVAL 1 MONTH) GROUP BY leavereq.mainid")->result();
     // var_dump($this->db->last_query());
-    // var_dump($data['birthday']);
+    // echo "<pre>";
+    // var_dump($this->session->userdata());
     // exit;
     $this->load->view('hrm/overview',$data);
   }
