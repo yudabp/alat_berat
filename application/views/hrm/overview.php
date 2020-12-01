@@ -154,12 +154,16 @@
                               </tr>
                             </thead>
                             <tbody>
+                            <?php foreach($birthdays as $birth){?>
                               <tr>
-                                <td colspan="2" class="text-center">No Data</td>
+                                <!-- <td colspan="2" class="text-center">No Data</td> -->
+                                <td><?php echo $birth->fname." ".$birth->mname." ".$birth->lname ?></td>
+                                <td><?php echo date("d M", strtotime($birth->birthday)) ?></td>
                                 <!-- <td></td> -->
                                 <!-- <td></td> -->
                                 <!-- <td></td> -->
                               </tr>
+                            <?php } ?>
                             </tbody>
                           </table>
                         </div>
@@ -192,17 +196,21 @@
                                       <tr>
                                         <th>Name</th>
                                         <th>Department</th>
+                                        <th>From</th>
+                                        <th>To</th>
                                         <!-- <th>Department</th> -->
                                         <!-- <th>Ship to</th> -->
                                       </tr>
                                     </thead>
                                     <tbody>
+                                    <?php foreach($leavesThisMonth as $ltm){?>
                                       <tr>
-                                        <td colspan="2" class="text-center">No Data</td>
-                                        <!-- <td></td> -->
-                                        <!-- <td></td> -->
-                                        <!-- <td></td> -->
+                                        <td><?php echo $ltm->fname." ".$ltm->mname." ".$ltm->lname?></td>
+                                        <td><?php echo $ltm->departmenttitle ?></td>
+                                        <td><?php echo $ltm->fromdate ?></td>
+                                        <td><?php echo $ltm->todate ?></td>
                                       </tr>
+                                    <?php } ?>
                                     </tbody>
                                   </table>
                                 </div>
@@ -215,18 +223,20 @@
                                     <thead>
                                       <tr>
                                         <th>Nama</th>
-                                        <th>Departemen</th>
-                                        <!-- <th>Department</th> -->
-                                        <!-- <th>Ship to</th> -->
+                                        <th>Departement</th>
+                                        <th>From</th>
+                                        <th>To</th>
                                       </tr>
                                     </thead>
                                     <tbody>
+                                    <?php foreach($leavesNextMonth as $lnm){?>
                                       <tr>
-                                        <td colspan="2" class="text-center">No Data</td>
-                                        <!-- <td></td> -->
-                                        <!-- <td></td> -->
-                                        <!-- <td></td> -->
+                                        <td><?php echo $lnm->fname." ".$lnm->mname." ".$lnm->lname?></td>
+                                        <td><?php echo $lnm->departmenttitle ?></td>
+                                        <td><?php echo $lnm->fromdate ?></td>
+                                        <td><?php echo $lnm->todate ?></td>
                                       </tr>
+                                    <?php } ?>
                                     </tbody>
                                   </table>
                                 </div>

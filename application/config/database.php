@@ -76,8 +76,13 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
-	'username' => 'xavaxx',
-	'password' => 'yudabudipratama',
+    // DB ONLINE
+    // 'username' => 'xavaxx',
+    // 'password' => 'yudabudipratama',
+    
+    // DB OFFLINE
+    'username' => 'root',
+	'password' => '',
 	'database' => 'xavaxx_erp',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',

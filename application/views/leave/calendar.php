@@ -108,6 +108,17 @@
               color: style.getPropertyValue('--warning')
             },
           <?php } }?>
+          <?php 
+          if(!empty($leaves)){
+            foreach ($leaves as $lv) {
+            ?>
+            {
+              title: '<?php echo $lv->fname." ".$lv->mname." ".$lv->lname." - ".$lv->leavereson; ?>',
+              start: '<?php $dt = explode('/',$lv->fromdate); echo $dt[2]."-".$dt[1]."-".$dt[0]; ?>',
+              end: '<?php $dt = explode('/',$lv->todate); echo $dt[2]."-".$dt[1]."-".$dt[0]; ?>',
+              color: style.getPropertyValue('--warning')
+            },
+          <?php }}?>
         ]
       })
     }
