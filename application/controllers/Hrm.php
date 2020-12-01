@@ -94,6 +94,7 @@ class Hrm extends CI_Controller {
   {
     $data['viewdep'] = $this->ShowModel->getDataWHere('department',['departmentstatus'=>'0','idcompany'=>$this->session->userdata('idcompany')])->result();
     $data['viewdes'] = $this->ShowModel->getDataWHere('designation',['idcompany'=>$this->session->userdata('idcompany')])->result();
+    $data['viewloc'] = $this->ShowModel->getDataWHere('branch_office',['idcompany'=>$this->session->userdata('idcompany')])->result();
     $data['viewlead'] = $this->ShowModel->getDataWHere('department',['departmentstatus'=>'1','idcompany'=>$this->session->userdata('idcompany')])->result();
     $data['view'] = $this->db->select('*')
                              ->join('department','department.iddepartment = employee.department')
