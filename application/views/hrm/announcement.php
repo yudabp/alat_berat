@@ -59,7 +59,7 @@
                                 <div class="dropdown-menu">
                                   <button class="btn btn-link" onclick="edtItem('<?php echo $value->idann; ?>');"><i class="fa fa-pencil"></i></button>
                                   <button class="btn btn-link" onclick="delItem('<?php echo $value->idann; ?>');"><i class="fa fa-trash-o"></i></button>
-                                  <?php if($value->annsendto=="selected"){ ?><button class="btn btn-link" onclick="viewItem('<?php echo $value->idann; ?>');"><i class="fa fa-user"></i></button><?php } ?>
+                                  <!-- <?php if($value->annsendto=="selected"){ ?><button class="btn btn-link" onclick="viewItem('<?php echo $value->idann; ?>');"><i class="fa fa-user"></i></button><?php } ?> -->
                                 </div>
                               </div>
                             </td>
