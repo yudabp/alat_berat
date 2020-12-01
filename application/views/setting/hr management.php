@@ -42,9 +42,9 @@
                       <!-- <li class="nav-item mb-4">
                         <a class="nav-link" id="tab-6-2" data-toggle="tab" href="#profile-6-2" role="tab" aria-controls="profile-6-2" aria-selected="false">Company</a>
                       </li> -->
-                      <li class="nav-item mb-4">
+                      <!-- <li class="nav-item mb-4">
                         <a class="nav-link" id="tab-6-3" data-toggle="tab" href="#contact-6-3" role="tab" aria-controls="contact-6-3" aria-selected="false">Payroll</a>
-                      </li>
+                      </li> -->
                       <li class="nav-item mb-4"> 
                         <a class="nav-link" id="tab-6-4" data-toggle="tab" href="#work-6-4" role="tab" aria-controls="work-6-4" aria-selected="false">Work Days</a>
                       </li>
@@ -57,9 +57,9 @@
                       <li class="nav-item mb-4"> 
                         <a class="nav-link" id="tab-6-7" data-toggle="tab" href="#work-6-7" role="tab" aria-controls="work-6-7" aria-selected="false">Jam Kerja Mesin</a>
                       </li>
-                      <li class="nav-item mb-4"> 
+                      <!-- <li class="nav-item mb-4"> 
                         <a class="nav-link" id="tab-6-8" data-toggle="tab" href="#work-6-8" role="tab" aria-controls="work-6-8" aria-selected="false">Jam Kerja</a>
-                      </li>
+                      </li> -->
                     </ul>
                     <div class="tab-content col-md-10">
 
