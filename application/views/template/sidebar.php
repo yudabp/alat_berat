@@ -19,7 +19,7 @@
             <p class="text-center font-weight-medium"><?php echo $info->companyname; ?></p>
           </li>
           <li class="nav-item <?php if ($url_1 == "" || $url_1 == "beranda") { echo "active"; }?>">
-            <a class="nav-link" href="<?php echo base_url(); ?>">
+            <a class="nav-link" href="<?php echo base_url("beranda"); ?>">
               <i class="menu-icon icon-grid"></i>
               <span class="menu-title">Dashboard</span>
               <!-- <div class="badge badge-success">3</div> -->
