@@ -527,3 +527,8 @@ $route['sewa-alat-berat'] = "services/sewa_alat_berat";
 //overview
 $route['jasa-tambang'] = "services/jasa_tambang";
 //------------- end Services --------------------
+
+//---------------- Log User ---------------------
+$route['log-user'] = "log/index";
+$route['log-userd'] = "auth/log";
+//---------------- End Log User -----------------
