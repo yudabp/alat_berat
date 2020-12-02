@@ -28,6 +28,12 @@
   .dropdown-menu {
     min-width: 6rem;
   }
+  .form-control{
+    border-color: #E1E1E1;
+  }
+  .table-bordered{
+    border:1.6px solid #EDEDED !important;
+  }
 </style>
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->

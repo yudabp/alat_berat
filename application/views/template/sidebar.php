@@ -320,8 +320,8 @@
                 <!-- <li class="nav-item <?php if($url_1 == "add-ons"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>add-ons">Add-ons </a>
                 </li> -->
-                <li class="nav-item <?php if($url_1 == "setting-cargo"){echo "active"; } ?>">
-                  <a class="nav-link" href="<?php echo base_url() ?>setting-cargo">Branch Office</a>
+                <li class="nav-item <?php if($url_1 == "branch-office"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>branch-office">Branch Office</a>
                 </li>
               </ul>
             </div>

@@ -501,9 +501,13 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="zip">Zip</label>
-                                <input type="text" name="zip" id="zip" class="form-control form-control-lg" placeholder="Zip">
-                              </div>
+                              <label for="address">Address</label>
+                              <textarea name="address" id="address" class="form-control form-control-lg"></textarea>
+                            </div>
+                            <div class="form-group">
+                              <label for="zip">Zip</label>
+                              <input type="text" name="zip" id="zip" class="form-control form-control-lg" placeholder="Zip">
+                            </div>
                             <div class="float-right">
                               <button class="btn btn-inverse-success btn-primary" type="submit">Submit</button>
                               <button class="btn btn-inverse-default btn-default" type="reset">Reset</button>

@@ -292,12 +292,164 @@
                       </div>
                       <div class="tab-pane fade" id="work-6-5" role="tabpanel" aria-labelledby="tab-6-5">
                         <div class="row">
-                          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                          <!-- <div class="row"> -->
+                          <div class="col-md-4">
+                            <h5>Add Trip</h5>
+                            <br>
+                            <!-- <form action="branch_office_add" method="post" enctype="multipart/form-data" id="branch_office_form"> -->
+                            <form id="trip_form">
+                              <input type="hidden" name="trip_id" id="trip_id">
+                              <div class="form-group">
+                                <label for="trip_name">Trip Name</label>
+                                <input type="text" class="form-control" name="trip_name" id="trip_name" placeholder="Trip Name" required>
+                              </div>
+                              <div class="row">
+                                <div class="col-sm-6">
+                                  <div class="form-group">
+                                    <label for="start-trip">Start Trip</label>
+                                    <div class="input-group date" id="start-trip" data-target-input="nearest">
+                                      <div class="input-group" data-target="#start-trip" data-toggle="datetimepicker">
+                                        <input type="text" name="trip_start" id="trip_start" class="form-control datetimepicker-input" data-target="#start-trip" value="<?php echo $gracetime->office_start; ?>" />
+                                        <div class="input-group-addon input-group-append">
+                                          <i class="mdi mdi-clock input-group-text"></i>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-sm-6">
+                                  <div class="form-group">
+                                    <label for="end-trip">End Trip</label>
+                                    <div class="input-group date" id="end-trip" data-target-input="nearest">
+                                      <div class="input-group" data-target="#end-trip" data-toggle="datetimepicker">
+                                        <input type="text" name="trip_end" id="trip_end" class="form-control datetimepicker-input" data-target="#end-trip" value="<?php echo $gracetime->office_start; ?>" />
+                                        <div class="input-group-addon input-group-append">
+                                          <i class="mdi mdi-clock input-group-text"></i>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="float-right">
+                                <button class="btn btn-inverse-success btn-primary" type="submit">Submit</button>
+                                <button class="btn btn-inverse-default btn-default" type="reset">Reset</button>
+                              </div>
+                              
+                            </form>
+                          </div>
+                          <div class="col-md-8">
+                            <div class="table responsive">
+                              <table class="table table-hover table-bordered table-striped" id="trip_table">
+                                <thead>
+                                  <tr>
+                                    <th>Trip Name</th>
+                                    <th>Trip Start</th>
+                                    <th>Trip End</th>
+                                    <th>Action</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                      <td></td>
+                                      <td></td>
+                                      <td></td>
+                                      <td>
+                                        <div class="dropdown">
+                                          <button type="button" class="btn btn-icons btn-rounded text-center" data-toggle="dropdown">
+                                            <i class="ti-more-alt"></i>
+                                          </button>
+                                          <div class="dropdown-menu">
+                                            <button class="btn btn-link" ><i class="fa fa-pencil"></i></button>
+                                            <button class="btn btn-link" ><i class="fa fa-trash-o"></i></button>
+                                        </div>
+                                      </td>
+                                    </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        <!-- </div> -->
                         </div>
                       </div>
                       <div class="tab-pane fade" id="work-6-6" role="tabpanel" aria-labelledby="tab-6-6">
                         <div class="row">
-                          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                          <div class="col-md-4">
+                            <h5>Add Trip</h5>
+                            <br>
+                            <!-- <form action="branch_office_add" method="post" enctype="multipart/form-data" id="branch_office_form"> -->
+                            <form id="trip_form">
+                              <input type="hidden" name="shift_id" id="shift_id">
+                              <div class="form-group">
+                                <label for="shift_name">Shift Name</label>
+                                <input type="text" class="form-control" name="shift_name" id="shift_name" placeholder="Shift Name" required>
+                              </div>
+                              <div class="row">
+                                <div class="col-sm-6">
+                                  <div class="form-group">
+                                    <label for="start-shift">Start Shift</label>
+                                    <div class="input-group date" id="start-shift" data-target-input="nearest">
+                                      <div class="input-group" data-target="#start-shift" data-toggle="datetimepicker">
+                                        <input type="text" name="shift_start" id="shift_start" class="form-control datetimepicker-input" data-target="#start-shift" value="<?php echo $gracetime->office_start; ?>" />
+                                        <div class="input-group-addon input-group-append">
+                                          <i class="mdi mdi-clock input-group-text"></i>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-sm-6">
+                                  <div class="form-group">
+                                    <label for="end-shift">End Shift</label>
+                                    <div class="input-group date" id="end-shift" data-target-input="nearest">
+                                      <div class="input-group" data-target="#end-shift" data-toggle="datetimepicker">
+                                        <input type="text" name="shift_end" id="shift_end" class="form-control datetimepicker-input" data-target="#end-shift" value="<?php echo $gracetime->office_start; ?>" />
+                                        <div class="input-group-addon input-group-append">
+                                          <i class="mdi mdi-clock input-group-text"></i>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="float-right">
+                                <button class="btn btn-inverse-success btn-primary" type="submit">Submit</button>
+                                <button class="btn btn-inverse-default btn-default" type="reset">Reset</button>
+                              </div>
+                              
+                            </form>
+                          </div>
+                          <div class="col-md-8">
+                            <div class="table responsive">
+                              <table class="table table-hover table-bordered table-striped" id="shift_table">
+                                <thead>
+                                  <tr>
+                                    <th>Shift Name</th>
+                                    <th>Shift Start</th>
+                                    <th>Shift End</th>
+                                    <th>Action</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                      <td></td>
+                                      <td></td>
+                                      <td></td>
+                                      <td>
+                                        <div class="dropdown">
+                                          <button type="button" class="btn btn-icons btn-rounded text-center" data-toggle="dropdown">
+                                            <i class="ti-more-alt"></i>
+                                          </button>
+                                          <div class="dropdown-menu">
+                                            <button class="btn btn-link" ><i class="fa fa-pencil"></i></button>
+                                            <button class="btn btn-link" ><i class="fa fa-trash-o"></i></button>
+                                        </div>
+                                      </td>
+                                    </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
                         </div>
                       </div>
                       <div class="tab-pane fade" id="work-6-7" role="tabpanel" aria-labelledby="tab-6-7">
@@ -341,6 +493,14 @@
     });
 
     $('#end-picker').datetimepicker({
+      format: 'LT'
+    });
+
+    $('#start-trip').datetimepicker({
+      format: 'LT'
+    });
+
+    $('#end-trip').datetimepicker({
       format: 'LT'
     });
 

@@ -166,6 +166,12 @@
                                 <i class="input-helper"></i>
                               </label>
                             </div>
+                            <div class="form-radio">
+                              <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="user_access" id="employee" value="employee"> Employee
+                                <i class="input-helper"></i>
+                              </label>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -640,6 +646,12 @@
                             <div class="form-radio">
                               <label class="form-check-label">
                                 <input type="radio" class="form-check-input" name="user_access" id="administrator" value="administrator"> Administrator
+                                <i class="input-helper"></i>
+                              </label>
+                            </div>
+                            <div class="form-radio">
+                              <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="user_access" id="employee" value="employee"> Employee
                                 <i class="input-helper"></i>
                               </label>
                             </div>
