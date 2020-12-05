@@ -270,6 +270,11 @@ class Hrm extends CI_Controller {
     echo json_encode($data);
   }
 
+  public function detailEmp()
+  {
+    $this->load->view('hrm/detail employee');
+  }
+
   public function uptEmp(){
     $mainid = $this->input->post('id');
     $first_name = $this->input->post('first_name');
