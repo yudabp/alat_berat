@@ -262,12 +262,14 @@ class Hrm extends CI_Controller {
   }
 
   public function viewEmp(){
+    // $id = $this->input->get('id');
     $id = $this->input->post('id');
     $data = $this->db->join('department','department.iddepartment = employee.department')
                             ->join('designation','designation.iddesignation = employee.jobtitle')
                             ->get_where('employee',['employee.mainid'=>$id])
                             ->row_array();
     echo json_encode($data);
+    // $this->load->view('hrm/detail employee');
   }
 
   public function detailEmp()

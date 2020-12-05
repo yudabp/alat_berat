@@ -106,7 +106,7 @@ $route['saveemployee'] = "hrm/saveemployee";
 $route['delEmp/'.$uri2] = "hrm/delEmp";
 $route['edtEmp'] = "hrm/edtEmp";
 $route['uptEmp'] = "hrm/uptEmp";
-$route['viewEmp'] = "hrm/viewEmp";
+$route['detail-employee'] = "hrm/detailEmp";
 $route['detail-staff'] = "hrm/detailEmp";
 //Department
 $route['departments'] = "hrm/department";

@@ -79,7 +79,7 @@
                                     <button class="btn btn-link" onclick="edtItem('<?php echo $value->mainid; ?>');"><i class="fa fa-pencil"></i></button>
                                     <button class="btn btn-link" onclick="delItem('<?php echo $value->mainid; ?>');"><i class="fa fa-trash-o"></i></button>
                                     <!-- <button class="btn btn-link" onclick="viewItem('<?php echo $value->mainid; ?>');"><i class="fa  fa-user-circle-o"></i></button> -->
-                                    <a class="btn btn-link" href="<?php echo base_url('detail-staff?id='.$value->mainid); ?>" target="_blank"><i class="fa  fa-user-circle-o"></i></a>
+                                    <a class="btn btn-link" href="<?php echo base_url('detail-employee?id='.$value->mainid); ?>" target="_blank"><i class="fa  fa-user-circle-o"></i></a>
                                   </div>
                                 </div>
                               </td>

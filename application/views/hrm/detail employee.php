@@ -661,8 +661,8 @@
       }
     }
 
+    function viewItem(){
     var id = getUrlVars("id");
-    function viewItem(id){
       $.ajax({
         url : "<?php echo base_url(); ?>viewEmp",
         type: "POST",
@@ -670,46 +670,46 @@
         data: {
             id : id
         },
-        success : function(data){
+        success : function(view){
                 // $("#detailStaff").modal("show");
-                $("#first_named").html(data.fname);
-                $("#middle_named").html(data.mname);
-                $("#last_named").html(data.lname);
-                $("#employee_idd").html(data.employeid);
-                $("#emaild").html(data.email);
-                $("#employee_typed").html(data.employetype);
-                $("#employee_statusd").html(data.employestatus);
-                $("#date_of_hired").html(data.datehire);
-                $("#departmentd").html(data.departmenttitle);
-                $("#job_titled").html(data.designationtitle);
-                $("#locationd").html(data.location);
-                $("#reporting_tod").html(data.departmentlead);
-                $("#source_of_hired").html(data.sourceofhire);
-                $("#payrated").html(data.payrate);
-                $("#pay_typed").html(data.paytype);
-                $("#work_phoned").html(data.workphone);
-                $("#phoned").html(data.phone);
-                $("#hand_phoned").html(data.handphone);
-                $("#other_emaild").html(data.otheremail);
-                $("#date_of_birthd").html(data.birth);
-                $("#nationalityd").html(data.nationality);
-                $("#genderd").html(data.gender);
-                $("#marital_statusd").html(data.status);
-                $("#driving_licensed").html(data.drivinglicense);
-                $("#addressd").html(data.address);
-                $("#cityd").html(data.city);
-                $("#stated").html(data.state);
-                $("#zip_coded").html(data.zipcode);
-                $("#mainid").html(data.mainid);
-                var cek = data.sendnotif;
-                var cekimg = data.photo;
+                $("#first_named").html(view.fname);
+                $("#middle_named").html(view.mname);
+                $("#last_named").html(view.lname);
+                $("#employee_idd").html(view.employeid);
+                $("#emaild").html(view.email);
+                $("#employee_typed").html(view.employetype);
+                $("#employee_statusd").html(view.employestatus);
+                $("#date_of_hired").html(view.datehire);
+                $("#departmentd").html(view.departmenttitle);
+                $("#job_titled").html(view.designationtitle);
+                $("#locationd").html(view.location);
+                $("#reporting_tod").html(view.departmentlead);
+                $("#source_of_hired").html(view.sourceofhire);
+                $("#payrated").html(view.payrate);
+                $("#pay_typed").html(view.paytype);
+                $("#work_phoned").html(view.workphone);
+                $("#phoned").html(view.phone);
+                $("#hand_phoned").html(view.handphone);
+                $("#other_emaild").html(view.otheremail);
+                $("#date_of_birthd").html(view.birth);
+                $("#nationalityd").html(view.nationality);
+                $("#genderd").html(view.gender);
+                $("#marital_statusd").html(view.status);
+                $("#driving_licensed").html(view.drivinglicense);
+                $("#addressd").html(view.address);
+                $("#cityd").html(view.city);
+                $("#stated").html(view.state);
+                $("#zip_coded").html(view.zipcode);
+                $("#mainid").html(view.mainid);
+                var cek = view.sendnotif;
+                var cekimg = view.photo;
                 if(cekimg !=""){
                   $("#userimg").attr('src','<?php echo base_url(); ?>assets/staffprofil/'+cekimg);
                 }
                 if(cek == "yes"){
                   $("#notification").attr('checked','checked');
                 }
-                alert(data.mname)
+                // alert(data.fname);
         },
         error : function(jqXHR, textStatus, errorThrown){
           swal({
@@ -723,5 +723,6 @@
       });
     }
     viewItem(); 
+    // alert(id);
   });
 </script>
