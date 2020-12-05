@@ -694,8 +694,9 @@
     function branch_office_add(){
       var branch_office = $("#branch_office").val();
       var state = $("#state").val();
+      var address = $("#address").val();
       var zip = $("#zip").val();
-      if(branch_office == "" || state == "" || zip == ""){
+      if(branch_office == "" || state == "" || address == "" || zip == ""){
         swal({
           title : "Oops!",
           text : "All data must be filled",
@@ -706,7 +707,7 @@
         $.ajax({
           type: "POST",
           url: "<?php echo base_url(); ?>branch_office_add",
-          data: { branch_office : branch_office, state : state, zip : zip },
+          data: { branch_office : branch_office, state : state, address : address, zip : zip },
           dataType: "JSON",
           success: function (data) {
             swal({
@@ -777,6 +778,7 @@
           $("#branch_office").val(data.branch);
           $("#branch_id").val(data.branch_id);
           $("#state").val(data.state);
+          $("#address").val(data.address);
           $("#zip").val(data.zip);
         },
         error : function(){
@@ -793,8 +795,9 @@
       var branch_office = $("#branch_office").val();
       var branch_id = $("#branch_id").val();
       var state = $("#state").val();
+      var address = $("#address").val();
       var zip = $("#zip").val();
-      if(branch_office == "" || branch_id == "" || state == "" || zip == ""){
+      if(branch_office == "" || branch_id == "" || state == "" || address == "" || zip == ""){
         swal({
           title : "Oops!",
           text : "All data must be filled",
@@ -805,7 +808,7 @@
         $.ajax({
           type: "POST",
           url: "<?php echo base_url(); ?>branch_office_update",
-          data: { branch_office : branch_office, branch_id : branch_id, state : state, zip : zip },
+          data: { branch_office : branch_office, branch_id : branch_id, state : state, address : address, zip : zip },
           dataType: "JSON",
           success: function (data) {
             swal({
