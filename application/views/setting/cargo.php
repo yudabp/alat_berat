@@ -688,6 +688,7 @@
       $("#branch_id").val("");
       $("#branch").val("");
       $("#state").val("");
+      $("#address").val("");
       $("#zip").val("");
     });
 

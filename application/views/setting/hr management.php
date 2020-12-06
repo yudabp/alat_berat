@@ -455,7 +455,7 @@
                       <div class="tab-pane fade" id="work-6-7" role="tabpanel" aria-labelledby="tab-6-7">
                         <div class="row">
                           <div class="col-md-4">
-                            <h5>Add Trip</h5>
+                            <h5>Machine</h5>
                             <br>
                             <!-- <form action="branch_office_add" method="post" enctype="multipart/form-data" id="branch_office_form"> -->
                             <form id="trip_form">
@@ -467,7 +467,7 @@
                               <div class="row">
                                 <div class="col-sm-6">
                                   <div class="form-group">
-                                    <label for="start-machine">Start /label>
+                                    <label for="start-machine">Start </label>
                                     <div class="input-group date" id="start-machine" data-target-input="nearest">
                                       <div class="input-group" data-target="#start-machine" data-toggle="datetimepicker">
                                         <input type="text" name="machine_start" id="machine_start" class="form-control datetimepicker-input" data-target="#start-machine" value="<?php echo $gracetime->office_start; ?>" />
@@ -480,7 +480,7 @@
                                 </div>
                                 <div class="col-sm-6">
                                   <div class="form-group">
-                                    <label for="end-machine">End /label>
+                                    <label for="end-machine">End </label>
                                     <div class="input-group date" id="end-machine" data-target-input="nearest">
                                       <div class="input-group" data-target="#end-machine" data-toggle="datetimepicker">
                                         <input type="text" name="machine_end" id="machine_end" class="form-control datetimepicker-input" data-target="#end-machine" value="<?php echo $gracetime->office_start; ?>" />
