@@ -64,6 +64,7 @@ class Hrm extends CI_Controller {
         $this->DeleteModel->delItem('department',['parentdepartment'=>$inGet->departmenttitle,'idcompany'=>$this->session->userdata('idcompany')]);
     }
     $this->DeleteModel->delItem('department',['iddepartment'=>$id]);
+    $this->session->set_flashdata('suc','Data has been deleted');
   }
   public function edtDep(){
     $id = $this->input->post('id');
@@ -492,9 +493,14 @@ class Hrm extends CI_Controller {
         }
         $save = $this->db->insert_batch('annsendto',$value);
     }
+    // $data['title'] = "Success!";
+    // $data['text'] = "Data has been added!";
+    // $data['type'] = "success";
+    // $data['confirmButtonClass'] = "btn btn-success";
 
-    $this->session->set_flashdata('suc','Date has been added');
+    $this->session->set_flashdata('suc','Data has been added');
     redirect('announcement');
+    // json_encode($data);
   }
   public function delAnn(){
     $id = $this->input->post('id');
@@ -554,7 +560,7 @@ class Hrm extends CI_Controller {
           $save = $this->db->insert_batch('annsendto',$value);
       }
     }
-    $this->session->set_flashdata('suc','Date has been updated');
+    $this->session->set_flashdata('suc','Data has been updated');
     redirect('announcement');
   }
   public function delSel(){

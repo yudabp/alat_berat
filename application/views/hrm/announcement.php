@@ -26,7 +26,7 @@
                 <div class="card-body">
                   <div class="card-title row">
                     <div class="col-md-12 text-right">
-                      <button class="btn btn-icons btn-inverse-success" id="buttonModal" data-toggle="modal" data-target="#formAdd"><i class="fa fa-plus"></i></button>
+                      <button class="btn btn-icons btn-inverse-success" id="buttonModal" data-toggle="modal" data-target="#formAdd" onclick="clearModal()"><i class="fa fa-plus"></i></button>
                     </div>
                   </div>
                   <div class="row">
@@ -84,7 +84,7 @@
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <form class="saveAnn form" method="post" action="<?php echo base_url(); ?>saveAnn" id="tambah" enctype="multipart/form-data">
+              <form class="saveAnn form" method="post" name="addForm" action="<?php echo base_url(); ?>saveAnn" id="tambah" enctype="multipart/form-data">
               <div class="modal-body">
                 <div class="row">
                   <div class="col-md-12">
@@ -119,7 +119,7 @@
                   <div id="employees" data="1">
                     <div class="employees1">
                       <div class="row" id="selected_employees">
-                        <div class="col-md-10" >
+                        <div class="col-md-12" >
                           <input type="text" list="browsers" name="selected_employee[]" id="selected_employee" class="form-control form-control-lg" placeholder="Employee name or ID">
                           <datalist id="browsers">
                             <?php foreach ($emp as $vemp) { ?>
@@ -127,9 +127,9 @@
                             <?php } ?>
                           </datalist>
                         </div>
-                        <div class="col-md-2">
+                        <!-- <div class="col-md-2">
                           <button type="button" id="btnselect" class="btn btn-success btn-sm"><i class="fa fa-plus"></i></button>
-                        </div>
+                        </div> -->
                       </div>
                     </div>
                   </div>
@@ -298,6 +298,5 @@
       $('.'+id_div).remove();
     });
   });
-
 
 </script>

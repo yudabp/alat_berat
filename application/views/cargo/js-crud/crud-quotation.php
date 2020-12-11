@@ -9,7 +9,7 @@ function delItem(id){
             confirmButtonClass: 'btn btn-success',
             cancelButtonClass: 'btn btn-danger',
             confirmButtonText: 'Ya, Hapus!',
-            cancelButtonText: 'Batal',
+            cancelButtonText: 'Cancel',
             buttonsStyling: false
         },function(){
           window.location.href="<?php echo base_url(); ?>delQuo/"+id;
@@ -206,7 +206,7 @@ function delRate(id){
             confirmButtonClass: 'btn btn-success',
             cancelButtonClass: 'btn btn-danger',
             confirmButtonText: 'Ya, Hapus!',
-            cancelButtonText: 'Batal',
+            cancelButtonText: 'Cancel',
             buttonsStyling: false
         },function(){
           window.location.href="<?php echo base_url(); ?>delRate/"+id;
@@ -353,7 +353,7 @@ function delEst(id){
             confirmButtonClass: 'btn btn-success',
             cancelButtonClass: 'btn btn-danger',
             confirmButtonText: 'Ya, Hapus!',
-            cancelButtonText: 'Batal',
+            cancelButtonText: 'Cancel',
             buttonsStyling: false
         },function(){
           window.location.href="<?php echo base_url(); ?>delEst/"+id;

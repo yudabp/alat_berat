@@ -123,8 +123,6 @@
               </ul>
             </div>
           </li> -->
-        <?php } if($this->session->userdata('health')!="Yes"){ ?>
-
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#clients" aria-expanded="false" aria-controls="clients">
               <i class="menu-icon icon-briefcase"></i>
@@ -147,6 +145,8 @@
               </ul>
             </div>
           </li>
+        <?php } if($this->session->userdata('health')!="Yes"){ ?>
+
 
           <?php } if($this->session->userdata('paket')=="Premium" || $this->session->userdata('health')=="Yes"){ ?>
           <li class="nav-item">

@@ -13,6 +13,19 @@
     }
   });
 });*/
+function clearModal() {
+  $("form").attr("id",'tambah');
+  $("form").attr("data-id",'');
+  // document.getElementById('tambah').reset();
+  $("#id_ann").val('');
+  $("#announcement_title").val('');
+  $("#description").val('');
+  $("#tipeSelection").val('-- Choose --');
+  $("#formStaffLabel.modal-title").html('New Announcement');
+  $("#btnok.btn.btn-success").text("Save Announcement");
+
+  // $("#tamabh.saveAnn.form")[0].reset();
+}
 
 function tambah_ann(){
   var announcement_title = $("#announcement_title").val();
@@ -45,7 +58,7 @@ function tambah_ann(){
                 selected_employee : selected_employee
             }
     });
-    $("#formAdd").modal("hide");
+      $("#formAdd").modal("hide");
       swal({
           title: "Congratulation!",
           text: "Designation has been added",
@@ -67,8 +80,8 @@ function delItem(id){
             showCancelButton: true,
             confirmButtonClass: 'btn btn-success',
             cancelButtonClass: 'btn btn-danger',
-            confirmButtonText: 'Ya, Hapus!',
-            cancelButtonText: 'Batal',
+            confirmButtonText: 'Delete!',
+            cancelButtonText: 'Cancel',
             buttonsStyling: false
         },function(){
                 $.ajax({
@@ -103,7 +116,7 @@ function edtItem(id){
     },
     success : function(data){
             $("#formAdd").modal("show");
-            $("#formStaffLabel").text("Edit Announcement");
+            $("#formStaffLabel.modal-title").text("Edit Announcement");
             $("form").attr("data-id", data.idann);
             $("form").attr("id",'update');
             $("form").attr("action",'<?php echo base_url(); ?>uptAnn');
@@ -125,7 +138,8 @@ function edtItem(id){
               $("#by_designation").css("display", "none");
               $("#by_dept").css("display", "none");
             }
-            $("#btnok").text("Update Announcement");
+            $("#btnok.btn.btn-success").text("Update Announcement");
+            console.log(data);
     },
     error : function(jqXHR, textStatus, errorThrown){
       swal({

@@ -44,7 +44,7 @@ function tambah_dep(){
         });
         $("#formAdd").modal("hide");
           swal({
-              title: "Congratulation!",
+              title: "Success!",
               text: "Department has been added",
               type: "success",
               icon: 'success',
@@ -66,8 +66,8 @@ function delItem(id){
             showCancelButton: true,
             confirmButtonClass: 'btn btn-success',
             cancelButtonClass: 'btn btn-danger',
-            confirmButtonText: 'Ya, Hapus!',
-            cancelButtonText: 'Batal',
+            confirmButtonText: 'Delete!',
+            cancelButtonText: 'Cancel',
             buttonsStyling: false
             /*buttons: {
                 cancel: {
@@ -96,7 +96,6 @@ function delItem(id){
                           id : id
                         }
                         });
-
                           swal({
                               title: 'Congratulation',
                               text: 'Data has been deleted',
