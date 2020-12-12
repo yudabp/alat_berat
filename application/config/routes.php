@@ -106,7 +106,8 @@ $route['saveemployee'] = "hrm/saveemployee";
 $route['delEmp/'.$uri2] = "hrm/delEmp";
 $route['edtEmp'] = "hrm/edtEmp";
 $route['uptEmp'] = "hrm/uptEmp";
-$route['viewEmp'] = "hrm/viewEmp";
+$route['detail-employee'] = "hrm/detailEmp";
+$route['detail-staff'] = "hrm/detailEmp";
 //Department
 $route['departments'] = "hrm/department";
 $route['saveDep'] = "hrm/saveDep";
@@ -354,7 +355,7 @@ $route['get_consignee'] = "cargo/get_consignee";
 $route['updated_consignee'] = "cargo/updated_consignee";
 $route['deleted_consignee'] = "cargo/deleted_consignee";
 //setting
-$route['setting-cargo'] = "cargo/setting";
+$route['branch-office'] = "cargo/setting";
 $route['branch_office_add'] = "cargo/branch_office_adding";
 $route['branch_office_deleting'] = "cargo/branch_office_delete";
 $route['branch_office_edit'] = "cargo/branch_office_edit";

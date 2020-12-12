@@ -10,7 +10,7 @@
         font-family: 'Play', sans-serif !important;
     }*/
   .modal-content, .content-wrapper{
-    background: #F8F8F8;
+    background: #FFFFFF;
   }
   .dataTables_wrapper .dataTable .btn-icons{
     padding: 0.1rem 0.1rem;
@@ -27,6 +27,12 @@
   }
   .dropdown-menu {
     min-width: 6rem;
+  }
+  .form-control{
+    border-color: #E1E1E1;
+  }
+  .table-bordered{
+    border:1.6px solid #EDEDED !important;
   }
 </style>
   <div class="container-scroller">

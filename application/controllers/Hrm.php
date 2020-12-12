@@ -64,6 +64,7 @@ class Hrm extends CI_Controller {
         $this->DeleteModel->delItem('department',['parentdepartment'=>$inGet->departmenttitle,'idcompany'=>$this->session->userdata('idcompany')]);
     }
     $this->DeleteModel->delItem('department',['iddepartment'=>$id]);
+    $this->session->set_flashdata('suc','Data has been deleted');
   }
   public function edtDep(){
     $id = $this->input->post('id');
@@ -263,12 +264,19 @@ class Hrm extends CI_Controller {
   }
 
   public function viewEmp(){
+    // $id = $this->input->get('id');
     $id = $this->input->post('id');
     $data = $this->db->join('department','department.iddepartment = employee.department')
                             ->join('designation','designation.iddesignation = employee.jobtitle')
                             ->get_where('employee',['employee.mainid'=>$id])
                             ->row_array();
     echo json_encode($data);
+    // $this->load->view('hrm/detail employee');
+  }
+
+  public function detailEmp()
+  {
+    $this->load->view('hrm/detail employee');
   }
 
   public function uptEmp(){
@@ -486,9 +494,14 @@ class Hrm extends CI_Controller {
         }
         $save = $this->db->insert_batch('annsendto',$value);
     }
+    // $data['title'] = "Success!";
+    // $data['text'] = "Data has been added!";
+    // $data['type'] = "success";
+    // $data['confirmButtonClass'] = "btn btn-success";
 
-    $this->session->set_flashdata('suc','Date has been added');
+    $this->session->set_flashdata('suc','Data has been added');
     redirect('announcement');
+    // json_encode($data);
   }
   public function delAnn(){
     $id = $this->input->post('id');
@@ -548,7 +561,7 @@ class Hrm extends CI_Controller {
           $save = $this->db->insert_batch('annsendto',$value);
       }
     }
-    $this->session->set_flashdata('suc','Date has been updated');
+    $this->session->set_flashdata('suc','Data has been updated');
     redirect('announcement');
   }
   public function delSel(){

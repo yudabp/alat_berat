@@ -19,7 +19,7 @@
             <p class="text-center font-weight-medium"><?php echo $info->companyname; ?></p>
           </li>
           <li class="nav-item <?php if ($url_1 == "" || $url_1 == "beranda") { echo "active"; }?>">
-            <a class="nav-link" href="<?php echo base_url(); ?>">
+            <a class="nav-link" href="<?php echo base_url("beranda"); ?>">
               <i class="menu-icon icon-grid"></i>
               <span class="menu-title">Dashboard</span>
               <!-- <div class="badge badge-success">3</div> -->
@@ -123,8 +123,6 @@
               </ul>
             </div>
           </li> -->
-        <?php } if($this->session->userdata('health')!="Yes"){ ?>
-
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#clients" aria-expanded="false" aria-controls="clients">
               <i class="menu-icon icon-briefcase"></i>
@@ -147,6 +145,8 @@
               </ul>
             </div>
           </li>
+        <?php } if($this->session->userdata('health')!="Yes"){ ?>
+
 
           <?php } if($this->session->userdata('paket')=="Premium" || $this->session->userdata('health')=="Yes"){ ?>
           <li class="nav-item">
@@ -320,8 +320,8 @@
                 <!-- <li class="nav-item <?php if($url_1 == "add-ons"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>add-ons">Add-ons </a>
                 </li> -->
-                <li class="nav-item <?php if($url_1 == "setting-cargo"){echo "active"; } ?>">
-                  <a class="nav-link" href="<?php echo base_url() ?>setting-cargo">Branch Office</a>
+                <li class="nav-item <?php if($url_1 == "branch-office"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>branch-office">Branch Office</a>
                 </li>
               </ul>
             </div>
