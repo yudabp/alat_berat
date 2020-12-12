@@ -835,9 +835,10 @@ class Cargo extends CI_Controller {
     $branch_id = $this->uuid->v4();
     $branch_office = $this->input->post("branch_office");
     $state = $this->input->post("state");
+    $address = $this->input->post("address");
     $zip = $this->input->post("zip");
 
-    $this->db->insert("branch_office", ['branch_id' => $branch_id, "idcompany" => $idcompany, "branch" => $branch_office, "state" => $state, "zip" => $zip]);
+    $this->db->insert("branch_office", ['branch_id' => $branch_id, "idcompany" => $idcompany, "branch" => $branch_office, "state" => $state, "address" => $address, "zip" => $zip]);
 
     $data = array("callback" => "yes");
     echo json_encode($data);
@@ -857,9 +858,10 @@ class Cargo extends CI_Controller {
     $idcompany = $this->session->userdata("idcompany");
     $branch_office = $this->input->post("branch_office");
     $state = $this->input->post("state");
+    $address = $this->input->post("address");
     $zip = $this->input->post("zip");
 
-    $this->db->update("branch_office", ['branch' => $branch_office, "state" => $state, "zip" => $zip], ['branch_id' => $branch_id, 'idcompany' => $idcompany]);
+    $this->db->update("branch_office", ['branch' => $branch_office, "state" => $state, "address" => $address, "zip" => $zip], ['branch_id' => $branch_id, 'idcompany' => $idcompany]);
 
     $data = array("callback" => "yes");
     echo json_encode($data);

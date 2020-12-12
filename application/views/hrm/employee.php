@@ -78,7 +78,8 @@
                                   <div class="dropdown-menu">
                                     <button class="btn btn-link" onclick="edtItem('<?php echo $value->mainid; ?>');"><i class="fa fa-pencil"></i></button>
                                     <button class="btn btn-link" onclick="delItem('<?php echo $value->mainid; ?>');"><i class="fa fa-trash-o"></i></button>
-                                    <button class="btn btn-link" onclick="viewItem('<?php echo $value->mainid; ?>');"><i class="fa  fa-user-circle-o"></i></button>
+                                    <!-- <button class="btn btn-link" onclick="viewItem('<?php echo $value->mainid; ?>');"><i class="fa  fa-user-circle-o"></i></button> -->
+                                    <a class="btn btn-link" href="<?php echo base_url('detail-employee?id='.$value->mainid); ?>" target="_blank"><i class="fa  fa-user-circle-o"></i></a>
                                   </div>
                                 </div>
                               </td>
@@ -163,6 +164,12 @@
                             <div class="form-radio">
                               <label class="form-check-label">
                                 <input type="radio" class="form-check-input" name="user_access" id="administrator" value="administrator"> Administrator
+                                <i class="input-helper"></i>
+                              </label>
+                            </div>
+                            <div class="form-radio">
+                              <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="user_access" id="employee" value="employee"> Employee
                                 <i class="input-helper"></i>
                               </label>
                             </div>
@@ -640,6 +647,12 @@
                             <div class="form-radio">
                               <label class="form-check-label">
                                 <input type="radio" class="form-check-input" name="user_access" id="administrator" value="administrator"> Administrator
+                                <i class="input-helper"></i>
+                              </label>
+                            </div>
+                            <div class="form-radio">
+                              <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="user_access" id="employee" value="employee"> Employee
                                 <i class="input-helper"></i>
                               </label>
                             </div>

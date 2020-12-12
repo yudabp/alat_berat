@@ -501,9 +501,13 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="zip">Zip</label>
-                                <input type="text" name="zip" id="zip" class="form-control form-control-lg" placeholder="Zip">
-                              </div>
+                              <label for="address">Address</label>
+                              <textarea name="address" id="address" class="form-control form-control-lg"></textarea>
+                            </div>
+                            <div class="form-group">
+                              <label for="zip">Zip</label>
+                              <input type="text" name="zip" id="zip" class="form-control form-control-lg" placeholder="Zip">
+                            </div>
                             <div class="float-right">
                               <button class="btn btn-inverse-success btn-primary" type="submit">Submit</button>
                               <button class="btn btn-inverse-default btn-default" type="reset">Reset</button>
@@ -684,14 +688,16 @@
       $("#branch_id").val("");
       $("#branch").val("");
       $("#state").val("");
+      $("#address").val("");
       $("#zip").val("");
     });
 
     function branch_office_add(){
       var branch_office = $("#branch_office").val();
       var state = $("#state").val();
+      var address = $("#address").val();
       var zip = $("#zip").val();
-      if(branch_office == "" || state == "" || zip == ""){
+      if(branch_office == "" || state == "" || address == "" || zip == ""){
         swal({
           title : "Oops!",
           text : "All data must be filled",
@@ -702,7 +708,7 @@
         $.ajax({
           type: "POST",
           url: "<?php echo base_url(); ?>branch_office_add",
-          data: { branch_office : branch_office, state : state, zip : zip },
+          data: { branch_office : branch_office, state : state, address : address, zip : zip },
           dataType: "JSON",
           success: function (data) {
             swal({
@@ -773,6 +779,7 @@
           $("#branch_office").val(data.branch);
           $("#branch_id").val(data.branch_id);
           $("#state").val(data.state);
+          $("#address").val(data.address);
           $("#zip").val(data.zip);
         },
         error : function(){
@@ -789,8 +796,9 @@
       var branch_office = $("#branch_office").val();
       var branch_id = $("#branch_id").val();
       var state = $("#state").val();
+      var address = $("#address").val();
       var zip = $("#zip").val();
-      if(branch_office == "" || branch_id == "" || state == "" || zip == ""){
+      if(branch_office == "" || branch_id == "" || state == "" || address == "" || zip == ""){
         swal({
           title : "Oops!",
           text : "All data must be filled",
@@ -801,7 +809,7 @@
         $.ajax({
           type: "POST",
           url: "<?php echo base_url(); ?>branch_office_update",
-          data: { branch_office : branch_office, branch_id : branch_id, state : state, zip : zip },
+          data: { branch_office : branch_office, branch_id : branch_id, state : state, address : address, zip : zip },
           dataType: "JSON",
           success: function (data) {
             swal({

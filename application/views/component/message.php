@@ -12,10 +12,10 @@
 <?php }else if($this->session->flashdata('suc')==TRUE){ ?>
   $(document).ready(function(){
                   swal({
-                      title: 'success!',
+                      title: 'Success!',
                       text: '<?php echo $this->session->flashdata('suc'); ?>',
                       type: 'success',
-                      confirmButtonClass: "btn btn-danger",
+                      confirmButtonClass: "btn btn-success",
                       buttonsStyling: false
                   })
   });

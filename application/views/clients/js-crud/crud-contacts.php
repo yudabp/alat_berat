@@ -8,8 +8,8 @@ function delItem(id){
             showCancelButton: true,
             confirmButtonClass: 'btn btn-success',
             cancelButtonClass: 'btn btn-danger',
-            confirmButtonText: 'Ya, Hapus!',
-            cancelButtonText: 'Batal',
+            confirmButtonText: 'Delete!',
+            cancelButtonText: 'Cancel',
             buttonsStyling: false
         },function(){
           window.location.href="<?php echo base_url(); ?>delCon/"+id;
@@ -87,8 +87,8 @@ function edtItem(id){
               },
               error : function(jqXHR, textStatus, errorThrown){
                 swal({
-                      title: 'Gagal!',
-                      text: 'Gagal mengambil data.',
+                      title: 'Failed!',
+                      text: 'Failed to get data.',
                       type: 'error',
                       confirmButtonClass: "btn btn-danger",
                       buttonsStyling: false
@@ -98,8 +98,8 @@ function edtItem(id){
     },
     error : function(jqXHR, textStatus, errorThrown){
       swal({
-            title: 'Gagal!',
-            text: 'Gagal mengambil data.',
+            title: 'Failed!',
+            text: 'Failed to get data.',
             type: 'error',
             confirmButtonClass: "btn btn-danger",
             buttonsStyling: false
@@ -151,8 +151,8 @@ function viewItem(id){
               },
               error : function(jqXHR, textStatus, errorThrown){
                 swal({
-                      title: 'Gagal!',
-                      text: 'Gagal mengambil data.',
+                      title: 'Failed!',
+                      text: 'Failed to get data.',
                       type: 'error',
                       confirmButtonClass: "btn btn-danger",
                       buttonsStyling: false
@@ -162,8 +162,8 @@ function viewItem(id){
     },
     error : function(jqXHR, textStatus, errorThrown){
       swal({
-            title: 'Gagal!',
-            text: 'Gagal mengambil data.',
+            title: 'Failed!',
+            text: 'Failed to get data.',
             type: 'error',
             confirmButtonClass: "btn btn-danger",
             buttonsStyling: false
