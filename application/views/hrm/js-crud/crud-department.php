@@ -14,6 +14,19 @@ $(document).ready(function(){
   });
 });
 
+function clearModal() {
+  $("form").attr("id",'tambah');
+  $("form").attr("data-id",'');
+  // $("#department_title").val('');
+  // $("#description").val('');
+  // $("#parent_department").val('');
+  // $("#department_lead").val('');
+  $("#tambah.saveDep.form")[0].reset();
+  // document.getElementById("tambah").reset();
+  $("#btnok.btn.btn-success").text("Create Department");
+  $("#formStaffLabel.modal-title").text("New Department");
+}
+
 function tambah_dep(){
   //alert('ok');
       var department_title = $("#department_title").val();
@@ -97,7 +110,7 @@ function delItem(id){
                         }
                         });
                           swal({
-                              title: 'Congratulation',
+                              title: 'Success!',
                               text: 'Data has been deleted',
                               type: 'success',
                               confirmButtonClass: "btn btn-success",
@@ -123,7 +136,7 @@ function edtItem(id){
     },
     success : function(data){
             $("#formAdd").modal("show");
-            $("#formStaffLabel").text("Edit Department");
+            $("#formStaffLabel.modal-title").text("Edit Department");
             //$("form").attr('action','<?php echo base_url('uptDep'); ?>');
 
             $("form").attr("data-id", data.iddepartment);
@@ -132,7 +145,7 @@ function edtItem(id){
             $("#description").val(data.departmentdesc);
             $("#parent_department").val(data.parentdepartment);
             $("#department_lead").val(data.departmentlead);
-            $("#btnok").text("Update Department");
+            $("#btnok.btn.btn-success").text("Update Department");
     },
     error : function(jqXHR, textStatus, errorThrown){
       swal({
@@ -177,8 +190,8 @@ function update_dep(id_dep){
     });
     $("#formAdd").modal("hide");
       swal({
-          title: "Congratulation!",
-          text: "Department has been updated",
+          title: "Success!",
+          text: "Data has been updated",
           type: "success",
           icon: 'success',
           buttonsStyling: false,

@@ -21,6 +21,9 @@ function clearModal() {
   $("#announcement_title").val('');
   $("#description").val('');
   $("#tipeSelection").val('-- Choose --');
+  $("#selected_employees").css("display", "none");
+  $("#by_dept").css("display", "none");
+  $("#by_designation").css("display", "none");
   $("#formStaffLabel.modal-title").html('New Announcement');
   $("#btnok.btn.btn-success").text("Save Announcement");
 
