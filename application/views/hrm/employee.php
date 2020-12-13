@@ -322,6 +322,9 @@
                                   <label for="location">Location</label>
                                   <select name="location" id="location" class="single-select form-control" >
                                     <option selected="selected" disabled="disabled"> - Select Location - </option>
+                                    <?php foreach ($viewloc as $vloc ) {?>
+                                      <option value="<?php echo $vloc->branch_id; ?>"><?php echo $vloc->branch;?></option>
+                                    <?php } ?>
                                     <!-- <option value="Full Time">Full Time</option>
                                     <option value="Part Time">Part Time</option>
                                     <option value="Contract">Contract</option>
