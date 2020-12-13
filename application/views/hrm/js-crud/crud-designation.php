@@ -20,8 +20,8 @@ function tambah_des(){
   var description = $("#description").val();
   if(designation_title == "" ){
       swal({
-        title: "Data ada yang kosong!",
-          text: "Tolong lengkapi data.",
+        title: "Empty field!",
+          text: "Please check again.",
           type: "warning",
           icon: 'warning',
           buttonsStyling: false,
@@ -122,8 +122,8 @@ function update_des(id_des){
   var description = $("#description").val();
   if(designation_title == "" || description == "" ){
       swal({
-        title: "Data ada yang kosong!",
-          text: "Tolong lengkapi data.",
+        title: "Empty field!",
+          text: "Please check again.",
           type: "warning",
           icon: 'warning',
           buttonsStyling: false,

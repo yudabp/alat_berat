@@ -35,8 +35,8 @@ function tambah_dep(){
       var parent_department = $("#parent_department").val();
       if(department_title == "" ){
           swal({
-            title: "Data ada yang kosong!",
-              text: "Tolong lengkapi data.",
+            title: "Empty field!",
+              text: "Please check again.",
               type: "warning",
               icon: 'warning',
               buttonsStyling: false,
@@ -58,7 +58,7 @@ function tambah_dep(){
         $("#formAdd").modal("hide");
           swal({
               title: "Success!",
-              text: "Department has been added",
+              text: "Data has been added",
               type: "success",
               icon: 'success',
               buttonsStyling: false,
@@ -149,8 +149,8 @@ function edtItem(id){
     },
     error : function(jqXHR, textStatus, errorThrown){
       swal({
-            title: 'Gagal!',
-            text: 'Gagal mengambil data.',
+            title: 'Failed!',
+            text: 'Cannot get data.',
             type: 'error',
             confirmButtonClass: "btn btn-danger",
             buttonsStyling: false
@@ -167,8 +167,8 @@ function update_dep(id_dep){
   var parent_department = $("#parent_department").val();
   if(department_title == ""  ){
       swal({
-        title: "Data ada yang kosong!",
-          text: "Tolong lengkapi data.",
+        title: "Empty field!",
+          text: "Please check again.",
           type: "warning",
           icon: 'warning',
           buttonsStyling: false,

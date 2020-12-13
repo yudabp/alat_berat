@@ -39,8 +39,8 @@ function tambah_ann(){
   var selected_employee = $("#selected_employee").val();
   if(announcement_title == "" || description == "" || tipeSelection == ""){
       swal({
-        title: "Data ada yang kosong!",
-          text: "Tolong lengkapi data.",
+        title: "Empty field!",
+          text: "Please check again.",
           type: "warning",
           icon: 'warning',
           buttonsStyling: false,
@@ -63,8 +63,8 @@ function tambah_ann(){
     });
       $("#formAdd").modal("hide");
       swal({
-          title: "Congratulation!",
-          text: "Designation has been added",
+          title: "Success!",
+          text: "Data has been added",
           type: "success",
           icon: 'success',
           buttonsStyling: false,
@@ -97,7 +97,7 @@ function delItem(id){
                         });
 
                           swal({
-                              title: 'Congratulation',
+                              title: 'Success!',
                               text: 'Data has been deleted',
                               type: 'success',
                               confirmButtonClass: "btn btn-success",
@@ -146,8 +146,8 @@ function edtItem(id){
     },
     error : function(jqXHR, textStatus, errorThrown){
       swal({
-            title: 'Gagal!',
-            text: 'Gagal mengambil data.',
+            title: 'Failed!',
+            text: 'Cannot get data.',
             type: 'error',
             confirmButtonClass: "btn btn-danger",
             buttonsStyling: false
@@ -166,8 +166,8 @@ function update_ann(id_ann){
   var selected_employee = $("#selected_employee").val();
   if(announcement_title == "" || description == "" || tipeSelection == ""){
       swal({
-        title: "Data ada yang kosong!",
-          text: "Tolong lengkapi data.",
+        title: "Empty field!",
+          text: "Please check again.",
           type: "warning",
           icon: 'warning',
           buttonsStyling: false,
@@ -191,8 +191,8 @@ function update_ann(id_ann){
     });
     $("#formAdd").modal("hide");
       swal({
-          title: "Congratulation!",
-          text: "Announcement has been updated",
+          title: "Success!",
+          text: "Data has been updated",
           type: "success",
           icon: 'success',
           buttonsStyling: false,
@@ -229,8 +229,8 @@ function viewItem(id){
     },
     error : function(jqXHR, textStatus, errorThrown){
       swal({
-            title: 'Gagal!',
-            text: 'Gagal mengambil data.',
+            title: 'Failed!',
+            text: 'Cannot get data.',
             type: 'error',
             confirmButtonClass: "btn btn-danger",
             buttonsStyling: false
@@ -247,8 +247,8 @@ function delSel(id){
             showCancelButton: true,
             confirmButtonClass: 'btn btn-success',
             cancelButtonClass: 'btn btn-danger',
-            confirmButtonText: 'Ya, Hapus!',
-            cancelButtonText: 'Batal',
+            confirmButtonText: 'Delete!',
+            cancelButtonText: 'Cancel',
             buttonsStyling: false
         },function(){
                 $.ajax({
@@ -261,7 +261,7 @@ function delSel(id){
                         });
 
                           swal({
-                              title: 'Congratulation',
+                              title: 'Success',
                               text: 'Data has been deleted',
                               type: 'success',
                               confirmButtonClass: "btn btn-success",
