@@ -242,6 +242,22 @@ $route['saveGrace'] = "setting/saveGrace";
 //work
 $route['work-days'] = "setting/work_days";
 $route['uptWork'] = "setting/uptWork";
+//trip
+$route['trip_add'] = "setting/trip_adding";
+$route['trip_deleting'] = "setting/trip_delete";
+$route['trip_edit'] = "setting/trip_edit";
+$route['trip_update'] = "setting/trip_update"; 
+//shift
+$route['shift_add'] = "setting/shift_adding";
+$route['shift_deleting'] = "setting/shift_delete";
+$route['shift_edit'] = "setting/shift_edit";
+$route['shift_update'] = "setting/shift_update"; 
+//machine
+$route['machine_add'] = "setting/machine_adding";
+$route['machine_deleting'] = "setting/machine_delete";
+$route['machine_edit'] = "setting/machine_edit";
+$route['machine_update'] = "setting/machine_update"; 
+
 
 //------------- accounting --------------------------
 //Overview

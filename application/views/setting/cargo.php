@@ -820,7 +820,8 @@
               location.reload();
             })
           },
-          error : function(){
+          error : function(err){
+            console.log(err);
             swal({
               title : "Oops!",
               text : "Failed to updating branch office",

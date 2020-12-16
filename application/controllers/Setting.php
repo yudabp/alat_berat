@@ -18,8 +18,14 @@ class Setting extends CI_Controller {
   public function set_hrm()
   {
     $data['info'] = $this->db->get_where('company',['idcompany'=>$this->session->userdata('idcompany')])->row();
-    $data['work'] = $this->db->get_where('work_days',['idcompany'=>$this->session->userdata('idcompany')])->row();
-    $data['gracetime'] = $this->db->get_where('grace_time',['idcompany'=>$this->session->userdata('idcompany')])->row();
+    $data['workdays'] = $this->db->get_where('hrm_setting_workdays',['idcompany'=>$this->session->userdata('idcompany')])->row();
+    $data['trips'] = $this->db->get_where('hrm_setting_trip',['idcompany'=>$this->session->userdata('idcompany')])->result();
+    $data['shifts'] = $this->db->get_where('hrm_setting_shift',['idcompany'=>$this->session->userdata('idcompany')])->result();
+    $data['machines'] = $this->db->get_where('hrm_setting_machine',['idcompany'=>$this->session->userdata('idcompany')])->result();
+    // var_dump($data['trips']);
+    // exit;
+    $data['gracetime'] = $this->db->get_where('hrm_setting_gracetime',['idcompany'=>$this->session->userdata('idcompany')])->row();
+    // $data['view_attendance'] = $this->load->view('setting/hr-setting-attendance',$data);
     $this->load->view('setting/hr management',$data);
   }
 
@@ -121,9 +127,9 @@ class Setting extends CI_Controller {
     $ostart = $this->input->post('office_start');
     $oend = $this->input->post('office_end');
     $idcom = $this->session->userdata('idcompany');
-    $inCheck = $this->db->get_where('grace_time',['idcompany'=>$idcom]);
+    $inCheck = $this->db->get_where('hrm_setting_gracetime',['idcompany'=>$idcom]);
     if($inCheck->num_rows() > 0){
-      $inUpt = $this->InsertModel->uptdata('grace_time',[
+      $inUpt = $this->InsertModel->uptdata('hrm_setting_gracetime',[
         'before_check_in'=>$bcheckin,
         'after_check_in'=>$acheckin,
         'before_check_out'=>$bcheckout,
@@ -134,7 +140,7 @@ class Setting extends CI_Controller {
         'office_end'=>$oend,
       ],['idcompany'=>$idcom]);
     }else{
-      $inSave = $this->InsertModel->indata('grace_time',[
+      $inSave = $this->InsertModel->indata('hrm_setting_gracetime',[
         'idgracetime'=>$id,
         'idcompany'=>$idcom,
         'before_check_in'=>$bcheckin,
@@ -163,37 +169,93 @@ class Setting extends CI_Controller {
 
   public function uptWork(){
     $id = $this->uuid->v4();
+    
     $sun = $this->input->post('sunday');
-    $mon = $this->input->post('monday');
-    $tue = $this->input->post('tuesday');
-    $wed = $this->input->post('wednesday');
-    $thu = $this->input->post('thursday');
-    $fri = $this->input->post('friday');
-    $sat = $this->input->post('saturday');
+    $sun_start = $this->input->post('sunday_start');
+    $sun_end = $this->input->post('sunday_end');
+    if($sun==="non"){$sun_start = $sun_end=0;}
 
-    $inGet = $this->db->get_where('work_days',['idcompany'=>$this->session->userdata('idcompany')]);
+    $mon = $this->input->post('monday');
+    $mon_start = $this->input->post('monday_start');
+    $mon_end = $this->input->post('monday_end');
+    if($mon==="non"){$mon_start = $mon_end=0;}
+
+    $tue = $this->input->post('tuesday');
+    $tue_start = $this->input->post('tuesday_start');
+    $tue_end = $this->input->post('tuesday_end');
+    if($tue==="non"){$tue_start = $tue_end=0;}
+
+    $wed = $this->input->post('wednesday');
+    $wed_start = $this->input->post('wednesday_start');
+    $wed_end = $this->input->post('wednesday_end');
+    if($wed==="non"){$wed_start = $wed_end=0;}
+
+    $thu = $this->input->post('thursday');
+    $thu_start = $this->input->post('thursday_start');
+    $thu_end = $this->input->post('thursday_end');
+    if($thu==="non"){$thu_start = $thu_end=0;}
+
+    $fri = $this->input->post('friday');
+    $fri_start = $this->input->post('friday_start');
+    $fri_end = $this->input->post('friday_end');
+    if($fri==="non"){$fri_start = $fri_end=0;}
+
+    $sat = $this->input->post('saturday');
+    $sat_start = $this->input->post('saturday_start');
+    $sat_end = $this->input->post('saturday_end');
+    if($sat==="non"){$sat_start = $sat_end=0;}
+
+    $inGet = $this->db->get_where('hrm_setting_workdays',['idcompany'=>$this->session->userdata('idcompany')]);
     if($inGet->num_rows() > 0){
         $inSave = $this->db->where(['idcompany'=>$this->session->userdata('idcompany')])
-                          ->update('work_days',[
+                          ->update('hrm_setting_workdays',[
                             'sun'=>$sun,
+                            'sun_start'=>$sun_start,
+                            'sun_end'=>$sun_end,
                             'mon'=>$mon,
+                            'mon_start'=>$mon_start,
+                            'mon_end'=>$mon_end,
                             'tue'=>$tue,
+                            'tue_start'=>$tue_start,
+                            'tue_end'=>$tue_end,
                             'wed'=>$wed,
+                            'wed_start'=>$wed_start,
+                            'wed_end'=>$wed_end,
                             'thu'=>$thu,
+                            'thu_start'=>$thu_start,
+                            'thu_end'=>$thu_end,
                             'fri'=>$fri,
+                            'fri_start'=>$fri_start,
+                            'fri_end'=>$fri_end,
                             'sat'=>$sat,
+                            'sat_start'=>$sat_start,
+                            'sat_end'=>$sat_end,
                           ]);
     }else{
-      $inSave = $this->db->insert('work_days',[
+      $inSave = $this->db->insert('hrm_setting_workdays',[
                           'idwork' =>$id,
                           'idcompany'=>$this->session->userdata('idcompany'),
                           'sun'=>$sun,
-                          'mon'=>$mon,
-                          'tue'=>$tue,
-                          'wed'=>$wed,
-                          'thu'=>$thu,
-                          'fri'=>$fri,
-                          'sat'=>$sat,
+                            'sun_start'=>$sun_start,
+                            'sun_end'=>$sun_end,
+                            'mon'=>$mon,
+                            'mon_start'=>$mon_start,
+                            'mon_end'=>$mon_end,
+                            'tue'=>$tue,
+                            'tue_start'=>$tue_start,
+                            'tue_end'=>$tue_end,
+                            'wed'=>$wed,
+                            'wed_start'=>$wed_start,
+                            'wed_end'=>$wed_end,
+                            'thu'=>$thu,
+                            'thu_start'=>$thu_start,
+                            'thu_end'=>$thu_end,
+                            'fri'=>$fri,
+                            'fri_start'=>$fri_start,
+                            'fri_end'=>$fri_end,
+                            'sat'=>$sat,
+                            'sat_start'=>$sat_start,
+                            'sat_end'=>$sat_end,
                         ]);
     }
 
@@ -202,6 +264,153 @@ class Setting extends CI_Controller {
       redirect('setting-hrm');
     }
   }
+
+  // TRIP
+  public function trip_adding(){
+    $idcompany = $this->session->userdata("idcompany");
+    $idtrip = $this->uuid->v4();
+    $trip_name = $this->input->post("trip_name");
+    $trip_start = $this->input->post("trip_start");
+    $trip_end = $this->input->post("trip_end");
+
+    $this->db->insert("hrm_setting_trip", ['idtrip' => $idtrip, "idcompany" => $idcompany, "trip_name" => $trip_name, "trip_start" => $trip_start, "trip_end" => $trip_end]);
+
+    $data = array("callback" => "yes");
+    echo json_encode($data);
+  }
+
+  public function trip_edit(){
+    $idtrip = $this->input->post("trip_id");
+    $idcompany = $this->session->userdata("idcompany");
+
+    $data = $this->db->get_where("hrm_setting_trip", ['idtrip' => $idtrip, "idcompany" => $idcompany])->row_array();
+
+    echo json_encode($data);
+  }
+  
+  public function trip_update(){
+    $idtrip = $this->input->post("trip_id");
+    $idcompany = $this->session->userdata("idcompany");
+    $trip_name = $this->input->post("trip_name");
+    $trip_start = $this->input->post("trip_start");
+    $trip_end = $this->input->post("trip_end");
+
+    $this->db->update("hrm_setting_trip", ['trip_name' => $trip_name, "trip_start" => $trip_start, "trip_end" => $trip_end], ['idtrip' => $idtrip, 'idcompany' => $idcompany]);
+
+    $data = array("callback" => "yes");
+    echo json_encode($data);
+  }
+
+  public function trip_delete(){
+    $idtrip = $this->input->post("trip_id");
+    // echo $idtrip;
+    // exit;
+    $idcompany = $this->session->userdata("idcompany");
+
+    $this->db->delete("hrm_setting_trip", ['idtrip' => $idtrip, 'idcompany' => $idcompany]);
+
+    $data= array("callback" => "yes");
+    echo json_encode($data);
+  }
+  // END TRIP
+
+  // SHIFT
+  public function shift_adding(){
+    $idcompany = $this->session->userdata("idcompany");
+    $idshift = $this->uuid->v4();
+    $shift_name = $this->input->post("shift_name");
+    $shift_start = $this->input->post("shift_start");
+    $shift_end = $this->input->post("shift_end");
+
+    $this->db->insert("hrm_setting_shift", ['idshift' => $idshift, "idcompany" => $idcompany, "shift_name" => $shift_name, "shift_start" => $shift_start, "shift_end" => $shift_end]);
+
+    $data = array("callback" => "yes");
+    echo json_encode($data);
+  }
+
+  public function shift_edit(){
+    $idshift = $this->input->post("shift_id");
+    $idcompany = $this->session->userdata("idcompany");
+
+    $data = $this->db->get_where("hrm_setting_shift", ['idshift' => $idshift, "idcompany" => $idcompany])->row_array();
+
+    echo json_encode($data);
+  }
+  
+  public function shift_update(){
+    $idshift = $this->input->post("idshift");
+    $idcompany = $this->session->userdata("idcompany");
+    $shift_name = $this->input->post("shift_name");
+    $shift_start = $this->input->post("shift_start");
+    $shift_end = $this->input->post("shift_end");
+
+    $this->db->update("hrm_setting_shift", ['shift_name' => $shift_name, "shift_start" => $shift_start, "shift_end" => $shift_end], ['idshift' => $idshift, 'idcompany' => $idcompany]);
+
+    $data = array("callback" => "yes");
+    echo json_encode($data);
+  }
+
+  public function shift_delete(){
+    $idshift = $this->input->post("shift_id");
+    // echo $idshift;
+    // exit;
+    $idcompany = $this->session->userdata("idcompany");
+
+    $this->db->delete("hrm_setting_shift", ['idshift' => $idshift, 'idcompany' => $idcompany]);
+
+    $data= array("callback" => "yes");
+    echo json_encode($data);
+  }
+  // END SHIFT
+
+  // MACHINE
+  public function machine_adding(){
+    $idcompany = $this->session->userdata("idcompany");
+    $idmachine = $this->uuid->v4();
+    $machine_name = $this->input->post("machine_name");
+    $machine_start = $this->input->post("machine_start");
+    $machine_end = $this->input->post("machine_end");
+
+    $this->db->insert("hrm_setting_machine", ['idmachine' => $idmachine, "idcompany" => $idcompany, "machine_name" => $machine_name, "machine_start" => $machine_start, "machine_end" => $machine_end]);
+
+    $data = array("callback" => "yes");
+    echo json_encode($data);
+  }
+
+  public function machine_edit(){
+    $idmachine = $this->input->post("machine_id");
+    $idcompany = $this->session->userdata("idcompany");
+
+    $data = $this->db->get_where("hrm_setting_machine", ['idmachine' => $idmachine, "idcompany" => $idcompany])->row_array();
+
+    echo json_encode($data);
+  }
+  
+  public function machine_update(){
+    $idmachine = $this->input->post("machine_id");
+    $idcompany = $this->session->userdata("idcompany");
+    $machine_name = $this->input->post("machine_name");
+    $machine_start = $this->input->post("machine_start");
+    $machine_end = $this->input->post("machine_end");
+
+    $this->db->update("hrm_setting_machine", ['machine_name' => $machine_name, "machine_start" => $machine_start, "machine_end" => $machine_end], ['idmachine' => $idmachine, 'idcompany' => $idcompany]);
+
+    $data = array("callback" => "yes");
+    echo json_encode($data);
+  }
+
+  public function machine_delete(){
+    $idmachine = $this->input->post("machine_id");
+    // echo $idmachine;
+    // exit;
+    $idcompany = $this->session->userdata("idcompany");
+
+    $this->db->delete("hrm_setting_machine", ['idmachine' => $idmachine, 'idcompany' => $idcompany]);
+
+    $data= array("callback" => "yes");
+    echo json_encode($data);
+  }
+  // END SHIFT
 
   public function add_on()
   {
