@@ -1,5 +1,5 @@
   <!-- plugins:js -->
-  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
   <script src="<?php echo base_url(); ?>assets/chroma/vendors/js/vendor.bundle.base.js"></script>
   <script src="<?php echo base_url(); ?>assets/chroma/vendors/js/vendor.bundle.addons.js"></script>
   <!-- <script src="<?php echo base_url(); ?>assets/chroma/vendors/js/vendor.addons1.js"></script>
