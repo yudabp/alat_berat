@@ -21,8 +21,8 @@ function tambah(){
       var end_date = $("#end_date").val();
       if(holiday_name == "" || start_date =="" || end_date==""){
           swal({
-            title: "Data ada yang kosong!",
-              text: "Tolong lengkapi data.",
+            title: "Empty Field!",
+              text: "Please check again.",
               type: "warning",
               icon: 'warning',
               buttonsStyling: false,
@@ -42,8 +42,8 @@ function tambah(){
         });
         $("#formAdd").modal("hide");
           swal({
-              title: "Congratulation!",
-              text: "Holiday has been added",
+              title: "Success!",
+              text: "Data has been added",
               type: "success",
               icon: 'success',
               buttonsStyling: false,
@@ -62,8 +62,8 @@ function delItem(id){
             showCancelButton: true,
             confirmButtonClass: 'btn btn-success',
             cancelButtonClass: 'btn btn-danger',
-            confirmButtonText: 'Ya, Hapus!',
-            cancelButtonText: 'Batal',
+            confirmButtonText: 'Delete!',
+            cancelButtonText: 'Cancel',
             buttonsStyling: false
         },function(){
           window.location.href="<?php echo base_url(); ?>delHoli/"+id;
@@ -77,7 +77,7 @@ function delItem(id){
                         });
 
                           swal({
-                              title: 'Congratulation',
+                              title: 'Success',
                               text: 'Data has been deleted',
                               type: 'success',
                               confirmButtonClass: "btn btn-success",
@@ -109,8 +109,8 @@ function edtItem(id){
     },
     error : function(jqXHR, textStatus, errorThrown){
       swal({
-            title: 'Gagal!',
-            text: 'Gagal mengambil data.',
+            title: 'Failed!',
+            text: 'Cannot get data.',
             type: 'error',
             confirmButtonClass: "btn btn-danger",
             buttonsStyling: false
@@ -126,8 +126,8 @@ function update(keyword){
       var end_date = $("#end_date").val();
       if(holiday_name == "" || start_date =="" || end_date==""){
           swal({
-            title: "Data ada yang kosong!",
-              text: "Tolong lengkapi data.",
+            title: "Empty Field!",
+              text: "Please check again.",
               type: "warning",
               icon: 'warning',
               buttonsStyling: false,
@@ -148,7 +148,7 @@ function update(keyword){
               });
               $("#formAdd").modal("hide");
                 swal({
-                    title: "Congratulation!",
+                    title: "Success!",
                     text: "Data has been updated",
                     type: "success",
                     icon: 'success',
