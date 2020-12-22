@@ -218,20 +218,20 @@
               <i class="menu-icon icon-layers"></i>
               <span class="menu-title">Product</span>
             </a>
-            <div class="collapse <?php if($url_1 == "product-overview" ||$url_1 == "sparepart" ||$url_1 == "alat-berat"){echo "show"; } ?>" id="product">
+            <div class="collapse <?php if($url_1 == "product-setting" ||$url_1 == "sparepart" ||$url_1 == "heavy-equipment"){echo "show"; } ?>" id="product">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item <?php if($url_1 == "product-overview"){echo "active"; } ?>">
+                <!-- <li class="nav-item <?php if($url_1 == "product-overview"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>product-overview">Overview</a>
-                </li>
-                 <li class="nav-item <?php if($url_1 == "alat-berat"){echo "active"; } ?>">
-                  <a class="nav-link" href="<?php echo base_url() ?>alat-berat">Alat Berat</a>
+                </li> -->
+                 <li class="nav-item <?php if($url_1 == "heavy-equipment"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>heavy-equipment">Alat Berat</a>
                 </li>
                 <li class="nav-item <?php if($url_1 == "sparepart"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>sparepart">Spare Part</a>
                 </li>
-                <!-- <li class="nav-item <?php if($url_1 == "payroll-report"){echo "active"; } ?>">
-                  <a class="nav-link" href="<?php echo base_url() ?>payroll-report">Reports</a>
-                </li> -->
+                <li class="nav-item <?php if($url_1 == "product-setting"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>product-setting">Product Setting</a>
+                </li>
               <!--   <li class="nav-item">
                   <a class="nav-link" href="#">Setting</a>
                 </li> -->
@@ -245,10 +245,10 @@
             </a>
             <div class="collapse <?php if($url_1 == "service-overview" ||$url_1 == "jasa-tambang" ||$url_1 == "sewa-alat-berat"){echo "show"; } ?>" id="service">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item <?php if($url_1 == "service-overview"){echo "active"; } ?>">
+                <!-- <li class="nav-item <?php if($url_1 == "service-overview"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>service-overview">Overview</a>
-                </li>
-                 <li class="nav-item <?php if($url_1 == "sewa-alat-berat"){echo "active"; } ?>">
+                </li> -->
+                <li class="nav-item <?php if($url_1 == "sewa-alat-berat"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>sewa-alat-berat">Sewa Alat Berat</a>
                 </li>
                 <li class="nav-item <?php if($url_1 == "jasa-tambang"){echo "active"; } ?>">

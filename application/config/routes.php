@@ -77,6 +77,7 @@ $route['setting-company'] = "app/set_company";
 $route['prolog'] = "auth/proLogSystem";
 $route['prosu'] = "auth/proSuSystem";
 $route['proout'] = "auth/proOutSystem";
+$route['proout-su'] = "auth/proOutSu";
 $route['getPass'] = "auth/getPass";
 $route['uptPass'] = "auth/uptPass";
 $route['getUser'] = "auth/getUser";
@@ -531,7 +532,7 @@ $route['showSubDep'] = "hrm/showSubDep";
 //overview
 $route['product-overview'] = "product/overview";
 //alat berat
-$route['alat-berat'] = "product/alat_berat";
+$route['heavy-equipment'] = "product/alat_berat";
 //overview
 $route['sparepart'] = "product/sparepart";
 //------------- end Product --------------------
