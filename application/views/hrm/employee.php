@@ -217,7 +217,8 @@
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label for="last_name">Last Name</label>
-                                  <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Last Name" required>
+                                  <!-- <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Last Name" required> -->
+                                  <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Last Name">
                                 </div>
                               </div>
                               <div class="col-md-6">
@@ -276,7 +277,8 @@
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label for="username">Username</label>
-                                  <input type="text" name="username" id="username" class="form-control" placeholder="Username" required>
+                                  <!-- <input type="text" name="username" id="username" class="form-control" placeholder="Username" required> -->
+                                  <input type="text" name="username" id="username" class="form-control" placeholder="Username">
 
                                 </div>
                               </div>
@@ -284,7 +286,8 @@
                                 <div class="form-group">
                                   <label for="password">Password</label>
                                   <div class="input-group">
-                                    <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
+                                    <!-- <input type="password" name="password" id="password" class="form-control" placeholder="Password" required> -->
+                                    <input type="password" name="password" id="password" class="form-control" placeholder="Password">
                                     <span class="input-group-addon input-group-append border-left" style="cursor: pointer;" onclick="showpass()">
                                       <span id="eye" class="fa fa-eye-slash input-group-text"></span>
                                     </span>
