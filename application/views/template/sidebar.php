@@ -269,13 +269,13 @@
               <i class="menu-icon icon-notebook"></i>
               <span class="menu-title">Assets</span>
             </a>
-            <div class="collapse <?php if($url_1 == "warehouse" ||$url_1 == "stok" ||$url_1 == "assets-requests"){echo "show"; } ?>" id="asset">
+            <div class="collapse <?php if($url_1 == "warehouse" ||$url_1 == "stock" ||$url_1 == "assets-requests"){echo "show"; } ?>" id="asset">
               <ul class="nav flex-column sub-menu">
                  <li class="nav-item <?php if($url_1 == "warehouse"){echo "active"; } ?>warehouse">
                   <a class="nav-link" href="<?php echo base_url() ?>warehouse">Warehouse</a>
                 </li>
-                <li class="nav-item <?php if($url_1 == "stok"){echo "active"; } ?>">
-                  <a class="nav-link" href="<?php echo base_url() ?>stok">Stock</a>
+                <li class="nav-item <?php if($url_1 == "stock"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>stock">Stock</a>
                 </li><!-- 
                 <li class="nav-item <?php if($url_1 == "assets-requests"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>assets-requests">Requests</a>

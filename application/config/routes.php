@@ -547,6 +547,13 @@ $route['sewa-alat-berat'] = "services/sewa_alat_berat";
 $route['jasa-tambang'] = "services/jasa_tambang";
 //------------- end Services --------------------
 
+//---------------- Assets ---------------------
+//warehouse
+$route['warehouse'] = "asset/warehouse";
+//stock
+$route['stock'] = "asset/stock";
+//------------- end Assets --------------------
+
 //---------------- Log User ---------------------
 $route['log-user'] = "log/index";
 $route['log-userd'] = "auth/log";
