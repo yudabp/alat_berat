@@ -530,9 +530,10 @@ $route['showSubDep'] = "hrm/showSubDep";
 
 //---------------- Product ---------------------
 //overview
-$route['product-overview'] = "product/overview";
+$route['product'] = "product/product";
+$route['p-setting'] = "product/setting";
 //alat berat
-$route['heavy-equipment'] = "product/alat_berat";
+$route['heavy-equipment'] = "product/product";
 //overview
 $route['sparepart'] = "product/sparepart";
 //------------- end Product --------------------

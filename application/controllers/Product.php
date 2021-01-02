@@ -27,14 +27,14 @@ class Product extends CI_Controller {
     $this->load->view('product/overview');
   }
 
-  public function alat_berat()
+  public function product()
   {
-    $this->load->view('product/alat-berat');
+    $this->load->view('product/product');
   }
 
-  public function sparepart()
+  public function setting()
   {
-    $this->load->view('product/sparepart');
+    $this->load->view('product/product-setting');
   }
 
 }

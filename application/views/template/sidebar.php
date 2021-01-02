@@ -218,19 +218,19 @@
               <i class="menu-icon icon-layers"></i>
               <span class="menu-title">Product</span>
             </a>
-            <div class="collapse <?php if($url_1 == "product-setting" ||$url_1 == "sparepart" ||$url_1 == "heavy-equipment"){echo "show"; } ?>" id="product">
+            <div class="collapse <?php if($url_1 == "p-setting" ||$url_1 == "sparepart" ||$url_1 == "product"){echo "show"; } ?>" id="product">
               <ul class="nav flex-column sub-menu">
                 <!-- <li class="nav-item <?php if($url_1 == "product-overview"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>product-overview">Overview</a>
                 </li> -->
-                 <li class="nav-item <?php if($url_1 == "heavy-equipment"){echo "active"; } ?>">
-                  <a class="nav-link" href="<?php echo base_url() ?>heavy-equipment">Alat Berat</a>
+                 <li class="nav-item <?php if($url_1 == "product"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>product">Product</a>
                 </li>
-                <li class="nav-item <?php if($url_1 == "sparepart"){echo "active"; } ?>">
+                <!-- <li class="nav-item <?php if($url_1 == "sparepart"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>sparepart">Spare Part</a>
-                </li>
-                <li class="nav-item <?php if($url_1 == "product-setting"){echo "active"; } ?>">
-                  <a class="nav-link" href="<?php echo base_url() ?>product-setting">Product Setting</a>
+                </li> -->
+                <li class="nav-item <?php if($url_1 == "p-setting"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>p-setting">Product Setting</a>
                 </li>
               <!--   <li class="nav-item">
                   <a class="nav-link" href="#">Setting</a>

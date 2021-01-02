@@ -37,12 +37,12 @@
                       <table id="tableVendors" class="table">
                         <thead>
                           <tr class="text-center">
-                            <th>Vendors Name</th>
-                            <th>Company</th>
-                            <th>Email</th>
-                            <th>Phone No</th>
-                            <th>Joined</th>
-                            <th>Status</th>
+                            <th>Product Name</th>
+                            <th>SKU</th>
+                            <th>Category</th>
+                            <th>Manufacture</th>
+                            <!-- <th>Joined</th> -->
+                            <!-- <th>Status</th> -->
                             <th>Action</th>
                           </tr>
                         </thead>
@@ -53,8 +53,8 @@
                             <td><?php echo $value->vendor_company; ?></td>
                             <td><?php echo $value->vendor_email;?></td>
                             <td><?php echo $value->vendor_phone;?></td>
-                            <td><?php echo $value->vendor_joined; ?></td>
-                            <td>-</td>
+                            <!-- <td><?php echo $value->vendor_joined; ?></td> -->
+                            <!-- <td>-</td> -->
                             <td>
                               <button class="btn btn-link" onclick="edtItem('<?php echo $value->idvendors; ?>');"><i class="fa fa-pencil"></i></button>
                               <button class="btn btn-link" onclick="delItem('<?php echo $value->idvendors; ?>');"><i class="fa fa-trash-o"></i></button>
