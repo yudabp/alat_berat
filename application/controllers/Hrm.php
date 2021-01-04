@@ -103,6 +103,10 @@ class Hrm extends CI_Controller {
                              ->join('employee_access','employee_access.mainid = employee.mainid')
                              ->get_where('employee',['employee.idcompany'=>$this->session->userdata('idcompany')])
                              ->result();
+    $data['view'] = $this->db->select('*')
+                             ->join('employee_access','employee_access.mainid = employee.mainid')
+                             ->get_where('employee',['employee.idcompany'=>$this->session->userdata('idcompany')])
+                             ->result();
     $data['info'] = $this->db->get_where('company',['idcompany'=>$this->session->userdata('idcompany')])->row();
     $this->load->view('hrm/employee',$data);
   }
@@ -157,7 +161,7 @@ class Hrm extends CI_Controller {
     }
 
     $inCheck = $this->ShowModel->getDataWHere('employee_access',['username'=>$username,'idcompany'=>$this->session->userdata('idcompany')]);
-    if($inCheck->num_rows() > 0){
+    if(!empty($username) && $inCheck->num_rows() > 0){
       $this->session->set_flashdata('item','Username sudah ada');
       redirect('employees');
     }else{
