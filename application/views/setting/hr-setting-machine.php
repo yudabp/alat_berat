@@ -140,7 +140,7 @@
     }
 
     function del_machine(machine_id){
-      alert(machine_id);
+      // alert(machine_id);
       swal({
             title: 'Are you sure ?',
             text: "You will not be able to recover this data!",
