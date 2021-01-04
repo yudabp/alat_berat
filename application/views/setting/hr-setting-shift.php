@@ -140,7 +140,7 @@
     }
 
     function del_shift(shift_id){
-      alert(shift_id);
+      // alert(shift_id);
       swal({
             title: 'Are you sure ?',
             text: "You will not be able to recover this data!",
