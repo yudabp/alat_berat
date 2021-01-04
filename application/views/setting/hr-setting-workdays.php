@@ -253,7 +253,7 @@
                 <option value="non" <?php if($workdays->sat=="non"){echo"selected";} ?>>Not-Working Day</option>
               </select>
             </div>
-            <div class="row <?php if($workdays->mon=="non"){echo"d-none";} ?>" id="time-saturday">
+            <div class="row <?php if($workdays->sat=="non"){echo"d-none";} ?>" id="time-saturday">
               <div class="col-sm-6">
                 <div class="form-group">
                   <label for="start-saturday">Start</label>
