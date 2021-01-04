@@ -94,12 +94,13 @@ class Root extends CI_Controller {
   }
 
   public function edtCom(){
+      // $id = $this->uri->segment(3);
     $id = $this->input->post('id');
     $data = $this->db->join('superakses','superakses.idcompany=company.idcompany')
                      ->get_where('company',['company.idcompany'=>$id])
                      ->row_array();
-    $password = $this->encrypt->decode($data_siswa['pass_encrypted']);
-    $data['password_de'] = $password;
+    $password = $this->encrypt->decode($data['password']);
+    // $data['password_de'] = $password;
     echo json_encode($data);
   }
 

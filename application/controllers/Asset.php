@@ -9,15 +9,15 @@ class Asset extends CI_Controller {
      date_default_timezone_set("Asia/Jakarta");
   }
 
-  public function allotment()
+  public function warehouse()
   {
     $data['info'] = $this->db->get_where('company',['idcompany'=>$this->session->userdata('idcompany')])->row();
-    $this->load->view('assets/allotment',$data);
+    $this->load->view('assets/warehouse',$data);
   }
 
-  public function assets_request()
+  public function stock()
   {
     $data['info'] = $this->db->get_where('company',['idcompany'=>$this->session->userdata('idcompany')])->row();
-    $this->load->view('assets/request',$data);
+    $this->load->view('assets/stock',$data);
   }
 }

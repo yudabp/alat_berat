@@ -162,6 +162,17 @@ class Auth extends CI_Controller{
     }
   }
 
+  public function proOutSu(){
+    $akses = $this->session->userdata('level');
+    // $this->log("Logout");
+    session_destroy();
+    if($akses=="root"){
+        redirect('su');
+    }else{
+        redirect('');
+    }
+  }
+
   public function getPass(){
     $oldpass = $this->input->post('old_pass');
     $newpass = password_hash($this->input->post('new_pass'),PASSWORD_DEFAULT);

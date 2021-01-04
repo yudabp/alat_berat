@@ -77,6 +77,7 @@ $route['setting-company'] = "app/set_company";
 $route['prolog'] = "auth/proLogSystem";
 $route['prosu'] = "auth/proSuSystem";
 $route['proout'] = "auth/proOutSystem";
+$route['proout-su'] = "auth/proOutSu";
 $route['getPass'] = "auth/getPass";
 $route['uptPass'] = "auth/uptPass";
 $route['getUser'] = "auth/getUser";
@@ -529,9 +530,10 @@ $route['showSubDep'] = "hrm/showSubDep";
 
 //---------------- Product ---------------------
 //overview
-$route['product-overview'] = "product/overview";
+$route['product'] = "product/product";
+$route['p-setting'] = "product/setting";
 //alat berat
-$route['alat-berat'] = "product/alat_berat";
+$route['heavy-equipment'] = "product/product";
 //overview
 $route['sparepart'] = "product/sparepart";
 //------------- end Product --------------------
@@ -544,6 +546,13 @@ $route['sewa-alat-berat'] = "services/sewa_alat_berat";
 //overview
 $route['jasa-tambang'] = "services/jasa_tambang";
 //------------- end Services --------------------
+
+//---------------- Assets ---------------------
+//warehouse
+$route['warehouse'] = "asset/warehouse";
+//stock
+$route['stock'] = "asset/stock";
+//------------- end Assets --------------------
 
 //---------------- Log User ---------------------
 $route['log-user'] = "log/index";

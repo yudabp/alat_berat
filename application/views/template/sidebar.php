@@ -218,20 +218,20 @@
               <i class="menu-icon icon-layers"></i>
               <span class="menu-title">Product</span>
             </a>
-            <div class="collapse <?php if($url_1 == "product-overview" ||$url_1 == "sparepart" ||$url_1 == "alat-berat"){echo "show"; } ?>" id="product">
+            <div class="collapse <?php if($url_1 == "p-setting" ||$url_1 == "sparepart" ||$url_1 == "product"){echo "show"; } ?>" id="product">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item <?php if($url_1 == "product-overview"){echo "active"; } ?>">
+                <!-- <li class="nav-item <?php if($url_1 == "product-overview"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>product-overview">Overview</a>
-                </li>
-                 <li class="nav-item <?php if($url_1 == "alat-berat"){echo "active"; } ?>">
-                  <a class="nav-link" href="<?php echo base_url() ?>alat-berat">Alat Berat</a>
-                </li>
-                <li class="nav-item <?php if($url_1 == "sparepart"){echo "active"; } ?>">
-                  <a class="nav-link" href="<?php echo base_url() ?>sparepart">Spare Part</a>
-                </li>
-                <!-- <li class="nav-item <?php if($url_1 == "payroll-report"){echo "active"; } ?>">
-                  <a class="nav-link" href="<?php echo base_url() ?>payroll-report">Reports</a>
                 </li> -->
+                 <li class="nav-item <?php if($url_1 == "product"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>product">Product</a>
+                </li>
+                <!-- <li class="nav-item <?php if($url_1 == "sparepart"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>sparepart">Spare Part</a>
+                </li> -->
+                <li class="nav-item <?php if($url_1 == "p-setting"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>p-setting">Product Setting</a>
+                </li>
               <!--   <li class="nav-item">
                   <a class="nav-link" href="#">Setting</a>
                 </li> -->
@@ -245,10 +245,10 @@
             </a>
             <div class="collapse <?php if($url_1 == "service-overview" ||$url_1 == "jasa-tambang" ||$url_1 == "sewa-alat-berat"){echo "show"; } ?>" id="service">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item <?php if($url_1 == "service-overview"){echo "active"; } ?>">
+                <!-- <li class="nav-item <?php if($url_1 == "service-overview"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>service-overview">Overview</a>
-                </li>
-                 <li class="nav-item <?php if($url_1 == "sewa-alat-berat"){echo "active"; } ?>">
+                </li> -->
+                <li class="nav-item <?php if($url_1 == "sewa-alat-berat"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>sewa-alat-berat">Sewa Alat Berat</a>
                 </li>
                 <li class="nav-item <?php if($url_1 == "jasa-tambang"){echo "active"; } ?>">
@@ -269,13 +269,13 @@
               <i class="menu-icon icon-notebook"></i>
               <span class="menu-title">Assets</span>
             </a>
-            <div class="collapse <?php if($url_1 == "warehouse" ||$url_1 == "stok" ||$url_1 == "assets-requests"){echo "show"; } ?>" id="asset">
+            <div class="collapse <?php if($url_1 == "warehouse" ||$url_1 == "stock" ||$url_1 == "assets-requests"){echo "show"; } ?>" id="asset">
               <ul class="nav flex-column sub-menu">
                  <li class="nav-item <?php if($url_1 == "warehouse"){echo "active"; } ?>warehouse">
                   <a class="nav-link" href="<?php echo base_url() ?>warehouse">Warehouse</a>
                 </li>
-                <li class="nav-item <?php if($url_1 == "stok"){echo "active"; } ?>">
-                  <a class="nav-link" href="<?php echo base_url() ?>stok">Stock</a>
+                <li class="nav-item <?php if($url_1 == "stock"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>stock">Stock</a>
                 </li><!-- 
                 <li class="nav-item <?php if($url_1 == "assets-requests"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>assets-requests">Requests</a>

@@ -106,8 +106,8 @@ function edtItem(id){
     },
     error : function(jqXHR, textStatus, errorThrown){
       swal({
-            title: 'Gagal!',
-            text: 'Gagal mengambil data.',
+            title: 'Failed!',
+            text: 'Cannot get data.',
             type: 'error',
             confirmButtonClass: "btn btn-danger",
             buttonsStyling: false
@@ -143,8 +143,8 @@ function update_des(id_des){
     });
     $("#formAdd").modal("hide");
       swal({
-          title: "Congratulation!",
-          text: "Department has been updated",
+          title: "Success!",
+          text: "Data has been updated",
           type: "success",
           icon: 'success',
           buttonsStyling: false,

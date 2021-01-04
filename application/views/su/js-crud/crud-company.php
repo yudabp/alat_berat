@@ -12,6 +12,7 @@ $(document).ready(function(){
       update(keyword);
     }
   });
+  // console.log('ini log');
 });
 
 function tambah(){
@@ -88,8 +89,9 @@ function delItem(id){
 }
 
 function edtItem(id){
+  
   $.ajax({
-      url : "<?php echo base_url(); ?>edtCom",
+      url : "<?php echo base_url(); ?>edtCom/",
     type: "POST",
     dataType: "JSON",
     data: {
@@ -139,7 +141,7 @@ function edtItem(id){
             if(maintenance == "Yes"){
               $('#maintenance').attr('checked','checked');
             }
-
+            // console.log(data);
             $.ajax({
                 url : "<?php echo base_url(); ?>showAddCom",
               type: "POST",
@@ -200,6 +202,11 @@ function edtItem(id){
         }).catch(swal.noop)
     }
   });
+  // $.ajaxSetup({
+  //   headers: {
+  //   ‘X-CSRF-TOKEN’: $(‘meta[name=”csrf-token”]’).attr(‘content’)
+  //   }
+  // });
 }
 
 function update(keyword){

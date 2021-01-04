@@ -317,7 +317,13 @@
               <a class="dropdown-item" onclick="changeuser();" >
                 Change Username
               </a>
-              <a class="dropdown-item" href="<?php echo base_url('proout'); ?>">
+              <a class="dropdown-item" href="<?php
+                if($this->session->userdata('level')=='root'){
+                echo base_url('proout-su'); 
+                }else{
+                echo base_url('proout'); 
+                }
+               ?>">
                 Sign Out
               </a>
             </div>

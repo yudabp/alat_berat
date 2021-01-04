@@ -13,7 +13,7 @@
         <div class="content-wrapper">
           <div class="row mb-4">
             <div class="col-12 d-flex align-items-center justify-content-between">
-              <h4 class="page-title">Alat Berat</h4>
+              <h4 class="page-title">Stock</h4>
               <div class="d-flex align-items-center">
                 <div class="wrapper mr-4 d-none d-sm-block">
                   <!-- <p class="mb-0">Summary for
