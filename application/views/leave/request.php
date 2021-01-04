@@ -99,15 +99,15 @@
                   <div class="col-md-12">
                     <div class="form-group">
                       <label for="employee_name">Employee Name</label>
-                      <input type="text" list="browsers" name="employee_name" id="employee_name" class="form-control form-control-lg" placeholder="Employee Name">
-                      <datalist id="browsers">
+                      <!-- <input type="text" list="browsers" name="employee_name" id="employee_name" class="form-control form-control-lg" placeholder="Employee Name"> -->
+                      <select class="form-control form-control-lg select2" style="width:100%">
                         <?php foreach ($view as $vemp) {
                           $sql = $this->db->query("select sum(days) as tal from leavereq")->row();
                           if($sql->tal <=12 ){
                           ?>
-                        <option value="<?php echo $vemp->employeid." - ".$vemp->fname." ".$vemp->mname." ".$vemp->lname; ?>"><?php echo $vemp->fname." ".$vemp->mname." ".$vemp->lname; ?></option>
+                        <option value="<?php echo $vemp->employeid." - ".$vemp->fname." ".$vemp->mname." ".$vemp->lname; ?>"><?php echo $vemp->employeid." - ".$vemp->fname." ".$vemp->mname." ".$vemp->lname; ?></option>
                       <?php } }?>
-                      </datalist>
+                      </select>
                     </div>
                   </div>
                 </div>
@@ -235,6 +235,7 @@
         autoclose: true,
         format: "dd/mm/yyyy"
     });
+    $(".select2").select2();
   });
 
 </script>

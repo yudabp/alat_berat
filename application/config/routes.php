@@ -138,7 +138,7 @@ $route['hrm-report'] = "hrm/hrm_report";
 //request
 $route['leave-request'] = "leave/request";
 $route['saveReq'] = "leave/saveReq";
-$route['delReq/'.$data[2]] = "leave/delReq";
+$route['delReq/'.$uri2] = "leave/delReq";
 $route['edtReq'] = "leave/edtReq";
 $route['uptReq'] = "leave/uptReq";
 $route['showReq'] = "leave/showReq";
