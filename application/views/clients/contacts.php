@@ -166,20 +166,6 @@
                             <div class="col-md-12">
                               <div class="form-group">
                                 <label for="address">Address</label>
-
-                                <!--<div class="form-inline repeater">
-                                  <div data-repeater-list="address" style="width: 90%;">
-                                    <div data-repeater-item class="d-flex mb-2"  >
-                                      <textarea class="form-control" rows="2" id="address" name="address" style="width: 100%;"></textarea>
-                                      <button data-repeater-delete type="button" class="btn btn-danger btn-sm icon-btn ml-2">
-                                        <i class="mdi mdi-delete"></i>
-                                      </button>
-                                    </div>
-                                  </div>
-                                  <button data-repeater-create type="button" class="btn btn-info btn-sm icon-btn ml-4 mb-2">
-                                    <i class="mdi mdi-plus"></i>
-                                  </button>
-                                </div>-->
                                 <div id="employees" data="1">
                                   <div class="employees1">
 

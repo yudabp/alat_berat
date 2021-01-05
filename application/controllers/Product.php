@@ -27,9 +27,19 @@ class Product extends CI_Controller {
     $this->load->view('product/overview');
   }
 
-  public function product()
+  public function truck()
   {
-    $this->load->view('product/product');
+    $this->load->view('product/truck');
+  }
+
+  public function heavy_equipment()
+  {
+    $this->load->view('product/h-equipment');
+  }
+
+  public function sparepart()
+  {
+    $this->load->view('product/sparepart');
   }
 
   public function setting()
