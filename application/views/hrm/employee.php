@@ -309,7 +309,7 @@
                               </div>
                               <div class="col-md-6">
                                 <div class="form-group">
-                                  <label for="job_title">Job Tittle</label>
+                                  <label for="job_title">Job Title</label>
                                   <select name="job_title" id="job_title" class="single-select form-control" >
                                     <option selected="selected" disabled="disabled"> - Select Tittle - </option>
                                     <?php foreach ($viewdes as $vdes ) {?>
