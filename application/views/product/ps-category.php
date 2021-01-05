@@ -39,7 +39,7 @@
       <table class="table table-hover table-bordered table-striped" id="trip_table">
         <thead>
           <tr>
-            <th>Category Name</th>
+            <th>Type Name</th>
             <!-- <th>Trip Start</th> -->
             <!-- <th>Trip End</th> -->
             <th>Action</th>
