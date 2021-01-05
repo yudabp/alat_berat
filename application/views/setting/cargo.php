@@ -813,7 +813,7 @@
           dataType: "JSON",
           success: function (data) {
             swal({
-              title : "Berhasil!",
+              title : "Success!",
               text : "Branch office has been updated",
               type : "success"
             }, function(){

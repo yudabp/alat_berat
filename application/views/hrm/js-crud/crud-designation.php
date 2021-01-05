@@ -40,7 +40,7 @@ function tambah_des(){
     });
     $("#formAdd").modal("hide");
       swal({
-          title: "Congratulation!",
+          title: "Success!",
           text: "Designation has been added",
           type: "success",
           icon: 'success',
