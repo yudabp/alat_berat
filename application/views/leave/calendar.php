@@ -95,7 +95,7 @@
           <?php foreach ($cal as $cl) {
             if(isset($cl->idholidays)){?>
           {
-            title: '<?php echo $cl->holidayname." - ".$cl->holidaysdesc; ?>',
+            title: '<?php echo addslashes($cl->holidayname." - ".$cl->holidaysdesc); ?>',
             start: '<?php $dt = explode('/',$cl->holidaystart); echo $dt[2]."-".$dt[1]."-".$dt[0]; ?>',
             end: '<?php $dt = explode('/',$cl->holidaysend); echo $dt[2]."-".$dt[1]."-".$dt[0]; ?>',
             color: style.getPropertyValue('--<?php echo $cl->holidayscolor; ?>')
