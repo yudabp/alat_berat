@@ -712,7 +712,7 @@
           dataType: "JSON",
           success: function (data) {
             swal({
-              title : "Berhasil!",
+              title : "Success!",
               text : "Branch office has been added",
               type : "success"
             }, function(){
@@ -738,8 +738,8 @@
             showCancelButton: true,
             confirmButtonClass: 'btn btn-success',
             cancelButtonClass: 'btn btn-danger',
-            confirmButtonText: 'Ya, Hapus!',
-            cancelButtonText: 'Batal',
+            confirmButtonText: 'Yes, Delete!',
+            cancelButtonText: 'Cancel',
             buttonsStyling: false
         },function(){
           $.ajax({
