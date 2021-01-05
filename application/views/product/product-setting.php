@@ -37,10 +37,10 @@
                   <div class="vertical-tab">
                     <ul class="nav nav-tabs tab-solid tab-solid-info mr-2 col-md-2" role="tablist">
                       <li class="nav-item mb-4">
-                        <a class="nav-link active" id="tab-6-1" data-toggle="tab" href="#home-6-1" role="tab" aria-controls="home-6-1" aria-selected="true">Category</a>
+                        <a class="nav-link active" id="tab-6-1" data-toggle="tab" href="#home-6-1" role="tab" aria-controls="home-6-1" aria-selected="true">Type</a>
                       </li>
                       <li class="nav-item mb-4"> 
-                        <a class="nav-link" id="tab-6-4" data-toggle="tab" href="#work-6-4" role="tab" aria-controls="work-6-4" aria-selected="false">Manufacture</a>
+                        <a class="nav-link" id="tab-6-4" data-toggle="tab" href="#work-6-4" role="tab" aria-controls="work-6-4" aria-selected="false">Brand</a>
                       </li>
                     </ul>
                     <div class="tab-content col-md-10">
