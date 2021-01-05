@@ -13,7 +13,7 @@
         <div class="content-wrapper">
           <div class="row mb-4">
             <div class="col-12 d-flex align-items-center justify-content-between">
-              <h4 class="page-title">Sparepart</h4>
+              <h4 class="page-title">Heavy Equipment</h4>
               <div class="d-flex align-items-center">
                 <div class="wrapper mr-4 d-none d-sm-block">
                   <!-- <p class="mb-0">Summary for
@@ -34,33 +34,42 @@
                   </div>
                   <div class="row">
                     <div class="col-12 table-responsive">
-                      <table id="SparePart" class="table">
+                      <table id="heavyEquipment" class="table">
                         <thead>
                           <tr class="text-center">
-                            <th>Sparepart Name</th>
+                            <th>Description</th>
                             <th>Type</th>
                             <th>Brand</th>
                             <th>Reg. Date</th>
-                            <th>Stock</th>
+                            <th>Last Service</th>
+                            <th>Working Hours</th>
+                            <th>Status</th>
                             <!-- <th>Status</th> -->
                             <th>Action</th>
                           </tr>
                         </thead>
                         <tbody>
-                          <?php foreach ($views as $key => $value) { ?>
+                          
                           <tr class="text-center">
-                            <td><span class="btn btn-link" onclick="viewItem('<?php echo $value->idvendors; ?>');"><?php echo $value->vendor_first_name." ".$value->vendor_last_name; ?></span></td>
-                            <td><?php echo $value->vendor_company; ?></td>
-                            <td><?php echo $value->vendor_email;?></td>
-                            <td><?php echo $value->vendor_phone;?></td>
-                            <td><?php echo $value->vendor_joined; ?></td>
+                            <td><span class="btn btn-link" onclick="viewItem('<?php echo $value->idvendors; ?>');"> - </span></td>
+                            <td> - </td>
+                            <td> - </td>
+                            <td> - </td>
+                            <td>
+                              <button class="btn btn-link" onclick="addService('<?php echo $value->idvendors; ?>');"><i class="fa fa-plus-circle"></i></button>
+                            </td>
+                            <td>
+                              <button class="btn btn-link" onclick="addWorktime('<?php echo $value->idvendors; ?>');"><i class="fa fa-plus-circle"></i></button>
+                            </td>
+                            <td> - </td>
+                            <!-- <td> - </td> -->
                             <!-- <td>-</td> -->
                             <td>
                               <button class="btn btn-link" onclick="edtItem('<?php echo $value->idvendors; ?>');"><i class="fa fa-pencil"></i></button>
                               <button class="btn btn-link" onclick="delItem('<?php echo $value->idvendors; ?>');"><i class="fa fa-trash-o"></i></button>
                             </td>
                           </tr>
-                          <?php } ?>
+                          
                         </tbody>
                       </table>
                     </div>
@@ -76,7 +85,7 @@
           <div class="modal-dialog" role="document" style="margin-top: 15px;margin-bottom: 0">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="formProductLabel">New Sparepart</h5>
+                <h5 class="modal-title" id="formProductLabel">New Heavy Equipment</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -86,10 +95,21 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group">
-                      <label for="sparepart_name">Sparepart Name</label>
-                      <input type="text" name="sparepart_name" id="sparepart_name" class="form-control form-control-lg" placeholder="Sparepart Name">
+                      <label for="description">Description</label>
+                      <input type="text" name="description" id="description" class="form-control form-control-lg" placeholder="Description">
                     </div>
                   </div>
+                  <!-- <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="reg_date">Reg. Date</label>
+                      <div class="input-group date datepicker">
+                        <input type="text" id="reg_date" name="reg_date" class="form-control form-control-lg" >
+                        <span class="input-group-addon input-group-append border-left">
+                          <span class="mdi mdi-calendar input-group-text"></span>
+                        </span>
+                      </div>
+                    </div>
+                  </div> -->
                 </div>
                 <div class="row">
                   <div class="col-md-6">
@@ -129,9 +149,15 @@
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="stock">Stock</label>
-                      <input type="number" name="stock" id="stock" class="form-control form-control-lg" placeholder="Stock">
-                      <!-- <select name="stock" id="stock" class="single-select form-control">
+                      <label for="operator">Operator</label>
+                      <!-- <input type="number" name="stock" id="stock" class="form-control form-control-lg" placeholder="Stock"> -->
+                      <input type="text" list="browsers" name="operator" id="operator" class="form-control form-control-lg" placeholder="Operator">
+                      <!-- <datalist id="browsers">
+                        <?php foreach ($view as $key => $val) { ?>
+                        <option value="<?php echo $val->departmenttitle; ?>">
+                        <?php } ?>
+                      </datalist> -->
+                      <!-- <select name="driver" id="driver" class="single-select form-control">
                         <option disabled="" selected="">-- Select Status --</option>
                         <option>Available</option>
                         <option>Not Available</option>
@@ -139,9 +165,35 @@
                     </div>
                   </div>
                 </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="chassis_no">Chassis No</label>
+                      <input type="text" name="chassis_no" id="chassis_no" class="form-control form-control-lg" placeholder="Chassis No">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="machine_no">Machine No</label>
+                      <input type="text" name="machine_no" id="machine_no" class="form-control form-control-lg" placeholder="Machine No">
+                    </div>
+                  </div>
+                </div>
+                <hr/>
+                <div class="row">
+                  <div class="col-md-12">
+                    <h3>Service</h3>
+                  </div>
+                </div>
+                <hr/>
+                <div class="row">
+                  <div class="col-md-12">
+                    <h3>Working Hours</h3>
+                  </div>
+                </div>
               </div>
               <div class="modal-footer">
-                <button type="submit" class="btn btn-success" id="btnok">Add Sparepart</button>
+                <button type="submit" class="btn btn-success" id="btnok">Add Heavy Equipment</button>
                 <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
               </div>
             </form>
@@ -157,7 +209,7 @@
 ?>
 
 <script type="text/javascript">
-  $('#SparePart').DataTable({
+  $('#heavyEquipment').DataTable({
       "aLengthMenu": [
         [5, 10, 15, -1],
         [5, 10, 15, "All"]
