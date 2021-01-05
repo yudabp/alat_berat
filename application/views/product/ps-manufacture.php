@@ -1,13 +1,13 @@
 <div class="row">
   <!-- <div class="row"> -->
   <div class="col-md-4">
-    <h5>Add Manufacture</h5>
+    <h5>Add Brand</h5>
     <br />
-    <form id="category_form" method="POST" action="category_add">
-      <input type="hidden" name="manufacture_id" id="manufacture_id" />
+    <form id="brand_form" method="POST" action="brand_add">
+      <input type="hidden" name="brand_id" id="brand_id" />
       <div class="form-group">
-        <label for="manufacture_name">Manufacture Name</label>
-        <input type="text" class="form-control" name="manufacture_name" id="manufacture_name" placeholder="Manufacture Name" required />
+        <label for="brand_name">Brand Name</label>
+        <input type="text" class="form-control" name="brand_name" id="brand_name" placeholder="Brand Name" required />
       </div>
       <br/>
       <div class="float-right">
@@ -21,7 +21,7 @@
       <table class="table table-hover table-bordered table-striped" id="trip_table">
         <thead>
           <tr>
-            <th>Manufacture Name</th>
+            <th>Brand Name</th>
             <!-- <th>Trip Start</th> -->
             <!-- <th>Trip End</th> -->
             <th>Action</th>

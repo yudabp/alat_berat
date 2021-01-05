@@ -1,15 +1,15 @@
 <div class="row">
   <!-- <div class="row"> -->
   <div class="col-md-4">
-    <h5>Add Category</h5>
+    <h5>Add Type</h5>
     <br />
-    <form id="category_form" method="POST" action="category_add">
-      <input type="hidden" name="category_id" id="category_id" />
+    <form id="type_form" method="POST" action="type_add">
+      <input type="hidden" name="type_id" id="type_id" />
       <div class="form-group">
-        <label for="category_name">Category Name</label>
-        <input type="text" class="form-control" name="category_name" id="category_name" placeholder="Category Name" required />
+        <label for="type_name">Type Name</label>
+        <input type="text" class="form-control" name="type_name" id="type_name" placeholder="Type Name" required />
       </div>
-      <div class="row">
+      <!-- <div class="row">
       	<div class="col-md-6">
       		<div class="form-check">
                 <label class="form-check-label">
@@ -26,7 +26,7 @@
                 </label>
             </div>
       	</div>
-      </div>
+      </div> -->
       <br/>
       <div class="float-right">
         <button class="btn btn-inverse-success btn-primary" type="submit">Submit</button>

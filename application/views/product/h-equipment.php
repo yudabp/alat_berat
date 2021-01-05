@@ -182,13 +182,13 @@
                 <hr/>
                 <div class="row">
                   <div class="col-md-12">
-                    <h3>Service</h3>
+                    <h5>Service</h5>
                   </div>
                 </div>
                 <hr/>
                 <div class="row">
                   <div class="col-md-12">
-                    <h3>Working Hours</h3>
+                    <h5>Working Hours</h5>
                   </div>
                 </div>
               </div>
