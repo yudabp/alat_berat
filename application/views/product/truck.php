@@ -183,13 +183,13 @@
                 <hr/>
                 <div class="row">
                   <div class="col-md-12">
-                    <h3>Service</h3>
+                    <h5>Service</h5>
                   </div>
                 </div>
                 <hr/>
                 <div class="row">
                   <div class="col-md-12">
-                    <h3>Trips</h3>
+                    <h5>Trips</h5>
                   </div>
                 </div>
               </div>
@@ -242,70 +242,32 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group">
-                      <label for="plat_no">Plat No.</label>
-                      <input type="text" name="plat_no" id="plat_no" class="form-control form-control-lg" placeholder="Plat No.">
+                      <label for="driver_note">Driver's Note</label>
+                      <textarea name="driver_note" id="driver_note" class="form-control form-control-lg" placeholder="Driver's Note"></textarea>
                     </div>
                   </div>
-                  <!-- <div class="col-md-6">
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
                     <div class="form-group">
-                      <label for="reg_date">Reg. Date</label>
-                      <div class="input-group date datepicker">
-                        <input type="text" id="reg_date" name="reg_date" class="form-control form-control-lg" >
-                        <span class="input-group-addon input-group-append border-left">
-                          <span class="mdi mdi-calendar input-group-text"></span>
-                        </span>
+                      <label for="action">Action</label>
+                      <div id="p_action" data="1">
+                        <div class="p_action1">
+
+                          <div class="row" id="selected_action">
+                            <div class="col-md-10" >
+                              <input type="text" class="form-control" rows="2" id="action" name="action[]" style="width: 100%;">
+                            </div>
+                            <div class="col-md-2">
+                              <button type="button" id="btnselect" class="btn btn-info btn-sm icon-btn ml-4 mb-2"><i class="mdi mdi-plus"></i></button>
+                            </div>
+                          </div>
+
+                        </div>
+                        <div id="ulang" data="1"></div>
                       </div>
+
                     </div>
-                  </div> -->
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="type">Type</label>
-                      <input type="text" list="emp" name="type" id="type" class="form-control form-control-lg" placeholder="Type">
-                      <!-- <datalist id="emp">
-                        <?php foreach ($employe as $emp) { ?>
-                        <option value="<?php echo $emp->fname." ".$emp->mname." ".$emp->lname; ?>">
-                        <?php } ?>
-                      </datalist> -->
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="brand">Brand</label>
-                      <input type="text" list="browsers" name="brand" id="brand" class="form-control form-control-lg" placeholder="Brand">
-                      <!-- <datalist id="browsers">
-                        <?php foreach ($view as $key => $val) { ?>
-                        <option value="<?php echo $val->departmenttitle; ?>">
-                        <?php } ?>
-                      </datalist> -->
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="chassis_no">Chassis No</label>
-                      <input type="text" name="chassis_no" id="chassis_no" class="form-control form-control-lg" placeholder="Chassis No">
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="machine_no">Machine No</label>
-                      <input type="text" name="machine_no" id="machine_no" class="form-control form-control-lg" placeholder="Machine No">
-                    </div>
-                  </div>
-                </div>
-                <hr/>
-                <div class="row">
-                  <div class="col-md-12">
-                    <h3>Service</h3>
-                  </div>
-                </div>
-                <hr/>
-                <div class="row">
-                  <div class="col-md-12">
-                    <h3>Trips</h3>
                   </div>
                 </div>
               </div>
@@ -362,7 +324,36 @@
       });
       $("#phone_no").inputmask({"mask": "(+62)8##-####-####"});
     });
+
+  var btnaddselect = $('#btnselect');
+      var btnDelete;
+      var loopID = 1;
+      btnaddselect.on('click', function(){
+        //console.log("ok");
+      loopID++;
+      var headHtml = $('#p_action');
+      var html = `
+      <div class="p_action`+loopID+`">
+        <div class="row mt-2">
+          <div class="col-md-10">
+            <input type="text" class="form-control" rows="2" id="action" name="action[]" style="width: 100%;">
+          </div>
+          <div class="col-md-2">
+            <button type="button"  class="btn btn-danger btn-just-icon add btn-sm btnDelete" data="p_action`+loopID+`"><i class="fa fa-minus"></i></button>
+          </div>
+        </div>
+      </div>
+      `;
+      headHtml.append(html);
+      btnDelete = $('.btnDelete')
+      btnDelete.click(function(){
+        var id_div = $(this).attr('data');
+        console.log(id_div);
+        $('.'+id_div).remove();
+      });
+    });
+
   function addService() {
-    
+    $("#formService").modal("show");
   }
 </script>
