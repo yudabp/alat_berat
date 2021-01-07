@@ -67,7 +67,7 @@
                                 </button>
                                 <div class="dropdown-menu">
                                   <!--<button class="btn btn-link" onclick="edtItem('<?php echo $value->idann; ?>');"><i class="fa fa-pencil"></i></button>-->
-                                  <button class="btn btn-link" onclick="delItem('<?php echo $value->employeid; ?>');"><i class="fa fa-trash-o"></i></button>
+                                  <!-- <button class="btn btn-link" onclick="delItem('<?php echo $value->employeid; ?>');"><i class="fa fa-trash-o"></i></button> -->
                                   <button class="btn btn-link" onclick="viewItem('<?php  echo $value->employeid; ?>');"><i class="fa fa-list-alt"></i></button>
                                 </div>
                               </div>

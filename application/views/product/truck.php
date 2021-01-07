@@ -270,10 +270,19 @@
                     </div>
                   </div>
                 </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="mechanic_note">Mechanic's Note</label>
+                      <textarea name="mechanic_note" id="mechanic_note" class="form-control form-control-lg" placeholder="Mechanic's Note"></textarea>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="modal-footer">
-                <button type="submit" class="btn btn-success" id="btnok">Add Truck</button>
                 <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-success" id="btnok">Save</button>
+                <button type="submit" class="btn btn-success" id="btnok">Done</button>
               </div>
             </form>
             </div>
