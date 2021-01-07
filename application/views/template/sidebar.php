@@ -246,20 +246,23 @@
               <i class="menu-icon ti-package"></i>
               <span class="menu-title">Services</span>
             </a>
-            <div class="collapse <?php if($url_1 == "service-overview" ||$url_1 == "jasa-tambang" ||$url_1 == "sewa-alat-berat"){echo "show"; } ?>" id="service">
+            <div class="collapse <?php if($url_1 == "service-overview" ||$url_1 == "services-report" ||$url_1 == "minning" ||$url_1 == "equipment-service"){echo "show"; } ?>" id="service">
               <ul class="nav flex-column sub-menu">
                 <!-- <li class="nav-item <?php if($url_1 == "service-overview"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>service-overview">Overview</a>
                 </li> -->
-                <li class="nav-item <?php if($url_1 == "sewa-alat-berat"){echo "active"; } ?>">
-                  <a class="nav-link" href="<?php echo base_url() ?>sewa-alat-berat">Sewa Alat Berat</a>
+                <li class="nav-item <?php if($url_1 == "equipment-service"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>equipment-service">Heavy Equipment</a>
                 </li>
-                <li class="nav-item <?php if($url_1 == "jasa-tambang"){echo "active"; } ?>">
-                  <a class="nav-link" href="<?php echo base_url() ?>jasa-tambang">Jasa Tambang</a>
+                <li class="nav-item <?php if($url_1 == "minning"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>minning">Minning</a>
                 </li>
-                <!-- <li class="nav-item <?php if($url_1 == "payroll-report"){echo "active"; } ?>">
-                  <a class="nav-link" href="<?php echo base_url() ?>payroll-report">Reports</a>
-                </li> -->
+                <li class="nav-item <?php if($url_1 == "price"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>price">Price</a>
+                </li>
+                <li class="nav-item <?php if($url_1 == "services-report"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>services-report">Reports</a>
+                </li>
               <!--   <li class="nav-item">
                   <a class="nav-link" href="#">Setting</a>
                 </li> -->

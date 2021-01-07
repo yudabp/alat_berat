@@ -545,9 +545,9 @@ $route['p-setting'] = "product/setting";
 //overview
 $route['service-overview'] = "services/overview";
 //alat berat
-$route['sewa-alat-berat'] = "services/sewa_alat_berat";
+$route['equipment-service'] = "services/sewa_alat_berat";
 //overview
-$route['jasa-tambang'] = "services/jasa_tambang";
+$route['minning'] = "services/jasa_tambang";
 //------------- end Services --------------------
 
 //---------------- Assets ---------------------
