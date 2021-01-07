@@ -56,7 +56,7 @@
                             <td> - </td>
                             <td> - </td>
                             <td> - </td>
-                            <!-- <td> - </td> -->
+                            <td> - </td>
                             <!-- <td>-</td> -->
                             <td>
                               <button class="btn btn-link" onclick="edtItem('<?php echo $value->idvendors; ?>');"><i class="fa fa-pencil"></i></button>
