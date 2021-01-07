@@ -267,7 +267,7 @@
             </div>
           </li>
           <?php if($this->session->userdata('health') == "Yes"){?>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#asset" aria-expanded="false" aria-controls="asset">
               <i class="menu-icon icon-notebook"></i>
               <span class="menu-title">Assets</span>
@@ -279,13 +279,13 @@
                 </li>
                 <li class="nav-item <?php if($url_1 == "stock"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>stock">Stock</a>
-                </li><!-- 
+                </li>
                 <li class="nav-item <?php if($url_1 == "assets-requests"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>assets-requests">Requests</a>
-                </li> -->
+                </li>
               </ul>
             </div>
-          </li>
+          </li> -->
         <?php } } ?>
 
         <?php  if($this->session->userdata('paket')=="Premium" && $this->session->userdata('health') == "Yes") { ?>
