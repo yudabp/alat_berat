@@ -58,9 +58,7 @@
                             <td>
                               <button class="btn btn-link" onclick="addService();"><i class="fa fa-plus-circle"></i></button>
                             </td>
-                            <td>
-                              <button class="btn btn-link" onclick="addTrip('<?php echo $value->idvendors; ?>');"><i class="fa fa-plus-circle"></i></button>
-                            </td>
+                            <td> - </td>
                             <td> - </td>
                             <!-- <td> </td> -->
                             <!-- <td>-</td> -->
@@ -281,7 +279,7 @@
                 </div>
                 <!-- end service -->
                 <!-- repair -->
-                <div class="row d-none repair-type_service">
+                <!-- <div class="row d-none repair-type_service">
                   <div class="col-md-12">
                     <div class="form-group">
                       <label for="description">Description</label>
@@ -319,7 +317,7 @@
                       <textarea name="mechanic_note" id="mechanic_note" class="form-control form-control-lg" placeholder="Mechanic's Note"></textarea>
                     </div>
                   </div>
-                </div>
+                </div> -->
                 <!-- end repair -->
               </div>
               <div class="modal-footer">
@@ -379,12 +377,12 @@
       $(".services").change(function(){
         let el = $(this);
         let id = el.attr("id");
-        if(el.val()=="service")
+        if(el.val()!="")
         {
           $(".service-"+id).removeClass("d-none");
-          $(".repair-"+id).addClass("d-none");
+          // $(".repair-"+id).addClass("d-none");
         }else{
-          $(".repair-"+id).removeClass("d-none");
+          // $(".repair-"+id).removeClass("d-none");
           $(".service-"+id).addClass("d-none");
         }
       });
