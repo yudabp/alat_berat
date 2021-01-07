@@ -229,17 +229,18 @@
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="type_service">Driver</label>
-                      <select name="type_service" id="type_service" class="single-select form-control">
+                      <label for="type_service">Type of Service</label>
+                      <select name="type_service" id="type_service" class="single-select form-control services">
                         <option disabled="" selected="">-- Type of Service --</option>
-                        <option>Service</option>
-                        <option>Repair</option>
+                        <option value="service">Service</option>
+                        <option value="repair">Repair</option>
                       </select>
                     </div>
                   </div>
                 </div>
                 <hr/>
-                <div class="row">
+                <!-- service -->
+                <div class="row d-none service-type_service">
                   <div class="col-md-12">
                     <div class="form-group">
                       <label for="driver_note">Driver's Note</label>
@@ -247,7 +248,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="row">
+                <div class="row d-none service-type_service">
                   <div class="col-md-12">
                     <div class="form-group">
                       <label for="action">Action</label>
@@ -270,7 +271,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="row">
+                <div class="row d-none service-type_service">
                   <div class="col-md-12">
                     <div class="form-group">
                       <label for="mechanic_note">Mechanic's Note</label>
@@ -278,11 +279,53 @@
                     </div>
                   </div>
                 </div>
+                <!-- end service -->
+                <!-- repair -->
+                <div class="row d-none repair-type_service">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="description">Description</label>
+                      <textarea name="description" id="description" class="form-control form-control-lg" placeholder="Description"></textarea>
+                    </div>
+                  </div>
+                </div>
+                <div class="row d-none repair-type_service">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="action">Action</label>
+                      <div id="p_action" data="1">
+                        <div class="p_action1">
+
+                          <div class="row" id="selected_action">
+                            <div class="col-md-10" >
+                              <input type="text" class="form-control" rows="2" id="action" name="action[]" style="width: 100%;">
+                            </div>
+                            <div class="col-md-2">
+                              <button type="button" id="btnselect" class="btn btn-info btn-sm icon-btn ml-4 mb-2"><i class="mdi mdi-plus"></i></button>
+                            </div>
+                          </div>
+
+                        </div>
+                        <div id="ulang" data="1"></div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="row d-none repair-type_service">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="mechanic_note">Mechanic's Note</label>
+                      <textarea name="mechanic_note" id="mechanic_note" class="form-control form-control-lg" placeholder="Mechanic's Note"></textarea>
+                    </div>
+                  </div>
+                </div>
+                <!-- end repair -->
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
                 <button type="submit" class="btn btn-success" id="btnok">Save</button>
-                <button type="submit" class="btn btn-success" id="btnok">Done</button>
+                <button type="submit" class="btn btn-primary" id="btnok">Done</button>
               </div>
             </form>
             </div>
@@ -332,6 +375,19 @@
           $('body').unbind('touchmove');
       });
       $("#phone_no").inputmask({"mask": "(+62)8##-####-####"});
+
+      $(".services").change(function(){
+        let el = $(this);
+        let id = el.attr("id");
+        if(el.val()=="service")
+        {
+          $(".service-"+id).removeClass("d-none");
+          $(".repair-"+id).addClass("d-none");
+        }else{
+          $(".repair-"+id).removeClass("d-none");
+          $(".service-"+id).addClass("d-none");
+        }
+      });
     });
 
   var btnaddselect = $('#btnselect');
