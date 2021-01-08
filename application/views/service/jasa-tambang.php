@@ -39,7 +39,7 @@
                           <tr class="text-center">
                             <th>Delivery Order No.</th>
                             <th>Client</th>
-                            <th>PLat No.</th>
+                            <th>Plat No.</th>
                             <th>Date</th>
                             <!-- <th>Last Service</th> -->
                             <th>Working Hours</th>
@@ -87,74 +87,49 @@
               <form class="saveDep form" method="post" action="#" id="tambah" enctype="multipart/form-data">
               <div class="modal-body">
                 <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="client">Client</label>
+                      <select name="client" id="client" class="single-select form-control">
+                        <option disabled="" selected="">-- Select Client --</option>
+                        <!-- <option>Available</option> -->
+                        <!-- <option>Not Available</option> -->
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="date">Date</label>
+                      <label for="do_no">Delivery Order No.</label>
+                      <input type="text" name="do_no" id="do_no" class="form-control form-control-lg" placeholder="Delivery Order No.">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="plat_no">Plat No.</label>
+                      <input type="text" name="plat_no" id="plat_no" class="form-control form-control-lg" placeholder="Plat No.">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="delivery_date">Delivery Date</label>
                       <div class="input-group date datepicker">
-                        <input type="text" id="date" name="date" class="form-control form-control-lg" >
+                        <input type="text" id="delivery_date" name="delivery_date" class="form-control form-control-lg" >
                         <span class="input-group-addon input-group-append border-left">
                           <span class="mdi mdi-calendar input-group-text"></span>
                         </span>
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="operator">Operator</label>
-                      <input type="text" list="browsers" name="operator" id="operator" class="form-control form-control-lg" placeholder="Operator">
-                      <!-- <datalist id="browsers">
-                        <?php foreach ($view as $key => $val) { ?>
-                        <option value="<?php echo $val->departmenttitle; ?>">
-                        <?php } ?>
-                      </datalist> -->
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="brand">Brand</label>
-                      <input type="text" list="browsers" name="brand" id="brand" class="form-control form-control-lg" placeholder="Brand">
-                      <!-- <datalist id="browsers">
-                        <?php foreach ($view as $key => $val) { ?>
-                        <option value="<?php echo $val->departmenttitle; ?>">
-                        <?php } ?>
-                      </datalist> -->
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="type">Type</label>
-                      <input type="text" list="emp" name="type" id="type" class="form-control form-control-lg" placeholder="Type">
-                      <!-- <datalist id="emp">
-                        <?php foreach ($employe as $emp) { ?>
-                        <option value="<?php echo $emp->fname." ".$emp->mname." ".$emp->lname; ?>">
-                        <?php } ?>
-                      </datalist> -->
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <!-- <label for="working_hour">Working Hour</label> -->
                   <div class="col-sm-6">
                     <div class="form-group">
-                      <label for="start-working">Working Hour</label>
-                      <div class="input-group date" id="start-working" data-target-input="nearest">
-                        <div class="input-group" data-target="#start-working" data-toggle="datetimepicker">
-                          <input type="text" name="working_start" id="working_start" class="form-control datetimepicker-input" data-target="#start-working" value="" />
-                          <div class="input-group-addon input-group-append">
-                            <i class="mdi mdi-clock input-group-text"></i>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-6">
-                    <div class="form-group">
-                      <label for="end-working"></label>
-                      <div class="input-group date" id="end-working" data-target-input="nearest">
-                        <div class="input-group" data-target="#end-working" data-toggle="datetimepicker">
-                          <input type="text" name="working_end" id="working_end" class="form-control datetimepicker-input" data-target="#end-working" value="" />
+                      <label for="delivery-time">Working Hour</label>
+                      <div class="input-group date" id="delivery-time" data-target-input="nearest">
+                        <div class="input-group" data-target="#delivery-time" data-toggle="datetimepicker">
+                          <input type="text" name="delivery_time" id="delivery_time" class="form-control datetimepicker-input" data-target="#delivery-time" value="" />
                           <div class="input-group-addon input-group-append">
                             <i class="mdi mdi-clock input-group-text"></i>
                           </div>
@@ -164,10 +139,16 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-md-12">
+                  <div class="col-md-6">
                     <div class="form-group">
-                      <label for="price">Price per Hour</label>
-                      <input type="text" name="price" id="price" class="form-control form-control-lg" placeholder="Price per Hour" disabled="">
+                      <label for="tonage_estimation">Tonage Estimation</label>
+                      <input type="text" name="tonage_estimation" id="tonage_estimation" class="form-control form-control-lg" placeholder="Tonage Estimation">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="exact_tonage">Exact Tonage</label>
+                      <input type="text" name="exact_tonage" id="exact_tonage" class="form-control form-control-lg" placeholder="Exact Tonage" disabled="">
                     </div>
                   </div>
                 </div>
@@ -190,3 +171,35 @@
   // $this->load->view('template/fixed-plugin');
   $this->load->view('template/js');
 ?>
+<script type="text/javascript">
+  $(document).ready(function () {
+    if ($(".datepicker").length) {
+      $('.datepicker').datepicker({
+        enableOnReadonly: true,
+        todayHighlight: true,
+        autoclose: true,
+        format: "dd/mm/yyyy"
+      });
+    }
+
+    $('#delivery-time').datetimepicker({
+      format: 'LT'
+    });
+
+    $('#heavyEquipment').DataTable({
+      "aLengthMenu": [
+        [5, 10, 15, -1],
+        [5, 10, 15, "All"]
+      ],
+      "iDisplayLength": 10,
+      "language": {
+        search: ""
+      },
+      // "bSort" : false,
+      // "dom": 'Bfrtip',
+      // "buttons": [
+      //   'copy', 'csv', 'excel', 'pdf', 'print'
+      // ]
+    });
+  });
+</script>
