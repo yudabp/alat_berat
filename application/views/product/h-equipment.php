@@ -114,22 +114,22 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="type">Type</label>
-                      <input type="text" list="emp" name="type" id="type" class="form-control form-control-lg" placeholder="Type">
-                      <!-- <datalist id="emp">
-                        <?php foreach ($employe as $emp) { ?>
-                        <option value="<?php echo $emp->fname." ".$emp->mname." ".$emp->lname; ?>">
+                      <label for="brand">Brand</label>
+                      <input type="text" list="browsers" name="brand" id="brand" class="form-control form-control-lg" placeholder="Brand">
+                      <!-- <datalist id="browsers">
+                        <?php foreach ($view as $key => $val) { ?>
+                        <option value="<?php echo $val->departmenttitle; ?>">
                         <?php } ?>
                       </datalist> -->
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="brand">Brand</label>
-                      <input type="text" list="browsers" name="brand" id="brand" class="form-control form-control-lg" placeholder="Brand">
-                      <!-- <datalist id="browsers">
-                        <?php foreach ($view as $key => $val) { ?>
-                        <option value="<?php echo $val->departmenttitle; ?>">
+                      <label for="type">Type</label>
+                      <input type="text" list="emp" name="type" id="type" class="form-control form-control-lg" placeholder="Type">
+                      <!-- <datalist id="emp">
+                        <?php foreach ($employe as $emp) { ?>
+                        <option value="<?php echo $emp->fname." ".$emp->mname." ".$emp->lname; ?>">
                         <?php } ?>
                       </datalist> -->
                     </div>
