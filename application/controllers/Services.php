@@ -37,5 +37,10 @@ class Services extends CI_Controller {
     $this->load->view('service/jasa-tambang');
   }
 
+  public function price()
+  {
+    $this->load->view('service/price');
+  }
+
 }
 ?>
