@@ -121,7 +121,7 @@
           </div>
         </div>
         <!-- Modal Ends -->
-          </div>
+          </div> 
         </div>
         <!-- content-wrapper ends -->
 
