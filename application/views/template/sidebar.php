@@ -139,9 +139,9 @@
                 <li class="nav-item <?php if($url_1 == "companies"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>companies">Companies</a>
                 </li>
-                <li class="nav-item <?php if($url_1 == "activities"){echo "active"; } ?>">
+                <!-- <li class="nav-item <?php if($url_1 == "activities"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>activities">Activities</a>
-                </li>
+                </li> -->
               </ul>
             </div>
           </li>
