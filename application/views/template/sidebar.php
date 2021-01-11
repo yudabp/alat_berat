@@ -246,7 +246,7 @@
               <i class="menu-icon ti-package"></i>
               <span class="menu-title">Services</span>
             </a>
-            <div class="collapse <?php if($url_1 == "service-overview" ||$url_1 == "services-report" ||$url_1 == "minning" ||$url_1 == "equipment-service"){echo "show"; } ?>" id="service">
+            <div class="collapse <?php if($url_1 == "service-overview" ||$url_1 == "services-report" ||$url_1 == "mining" ||$url_1 == "equipment-service"){echo "show"; } ?>" id="service">
               <ul class="nav flex-column sub-menu">
                 <!-- <li class="nav-item <?php if($url_1 == "service-overview"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>service-overview">Overview</a>
@@ -254,8 +254,8 @@
                 <li class="nav-item <?php if($url_1 == "equipment-service"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>equipment-service">Heavy Equipment</a>
                 </li>
-                <li class="nav-item <?php if($url_1 == "minning"){echo "active"; } ?>">
-                  <a class="nav-link" href="<?php echo base_url() ?>minning">Minning</a>
+                <li class="nav-item <?php if($url_1 == "mining"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>mining">Mining</a>
                 </li>
                 <li class="nav-item <?php if($url_1 == "price"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>price">Price</a>

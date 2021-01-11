@@ -13,7 +13,7 @@
         <div class="content-wrapper">
           <div class="row mb-4">
             <div class="col-12 d-flex align-items-center justify-content-between">
-              <h4 class="page-title">Minning</h4>
+              <h4 class="page-title">Mining</h4>
               <div class="d-flex align-items-center">
                 <div class="wrapper mr-4 d-none d-sm-block">
                   <!-- <p class="mb-0">Summary for
@@ -79,7 +79,7 @@
           <div class="modal-dialog" role="document" style="margin-top: 15px;margin-bottom: 0">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="formProductLabel">Minning</h5>
+                <h5 class="modal-title" id="formProductLabel">Mining</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -154,7 +154,7 @@
                 </div>
               </div>
               <div class="modal-footer">
-                <button type="submit" class="btn btn-success" id="btnok">Add Minning</button>
+                <button type="submit" class="btn btn-success" id="btnok">Add Mining</button>
                 <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
               </div>
             </form>
