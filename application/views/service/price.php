@@ -70,7 +70,7 @@
           <div class="modal-dialog" role="document" style="margin-top: 15px;margin-bottom: 0">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="formProductLabel">Minning</h5>
+                <h5 class="modal-title" id="formProductLabel">Price</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
