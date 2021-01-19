@@ -547,7 +547,7 @@ $route['service-overview'] = "services/overview";
 //alat berat
 $route['equipment-service'] = "services/sewa_alat_berat";
 //jasa tambang
-$route['minning'] = "services/jasa_tambang";
+$route['mining'] = "services/jasa_tambang";
 //price
 $route['price'] = "services/price";
 //------------- end Services --------------------
