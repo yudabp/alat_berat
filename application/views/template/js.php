@@ -118,6 +118,12 @@
     $uri_2 = $this->uri->segment(2);
     $uri_3 = $this->uri->segment(3);
     ?>
+    $(document).ready(function(){
+      $(".select2").select2();
+      $(".select2-nosearch").select2({
+        minimumResultsForSearch: -1
+      });
+    });
 
     function changepass(){
     $('#formpass').modal('show');

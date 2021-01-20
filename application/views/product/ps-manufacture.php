@@ -3,7 +3,7 @@
   <div class="col-md-4">
     <h5>Add Brand</h5>
     <br />
-    <form id="brand_form" method="POST" action="brand_add">
+    <form id="brand_form" method="POST" action="p-setting-brand_add">
       <input type="hidden" name="brand_id" id="brand_id" />
       <div class="form-group">
         <label for="brand_name">Brand Name</label>
@@ -29,20 +29,18 @@
         </thead>
         <tbody>
           <?php 
-          foreach($trips as $trip){
+          foreach($brands as $brand){
           ?>
           <tr>
-            <td><?php echo $trip->trip_name ?></td>
-            <!-- <td><?php echo $trip->trip_start ?></td> -->
-            <!-- <td><?php echo $trip->trip_end ?></td> -->
+            <td><?php echo $brand->brand_name ?></td>
             <td>
               <div class="dropdown">
                 <button type="button" class="btn btn-icons btn-rounded text-center" data-toggle="dropdown">
                   <i class="ti-more-alt"></i>
                 </button>
                 <div class="dropdown-menu">
-                  <button class="btn btn-link" onclick="edit_trip('<?php echo $trip->idtrip; ?>')"><i class="fa fa-pencil"></i></button>
-                  <button class="btn btn-link" onclick="del_trip('<?php echo $trip->idtrip; ?>')"><i class="fa fa-trash-o"></i></button>
+                  <button class="btn btn-link" onclick="edit_brand('<?php echo $brand->idbrand; ?>')"><i class="fa fa-pencil"></i></button>
+                  <button class="btn btn-link" onclick="del_brand('<?php echo $brand->idbrand; ?>')"><i class="fa fa-trash-o"></i></button>
                 </div>
               </div>
             </td>
@@ -54,161 +52,3 @@
   </div>
   <!-- </div> -->
 </div>
-<script>
-    window.onload=function(){
-      $("#trip_form").submit(function (e) { 
-        e.preventDefault();
-
-        var action = $(this).attr("action");
-        if(action == "trip_add"){
-          trip_add();
-        }
-        else if(action == "trip_update"){
-          trip_update();
-        }
-      });
-
-      $("#trip_form [type='reset']").click(function(){
-        $("#trip_form").attr("action", "trip_add");
-        $("#trip_name").val("");
-        $("#trip_start").val("");
-        $("#trip_end").val("");
-      });
-    }
-
-    function trip_add(){
-      var trip_name = $("#trip_name").val();
-      var trip_start = $("#trip_start").val();
-      var trip_end = $("#trip_end").val();
-      if(trip_name == "" || trip_start == "" || trip_end == ""){
-        swal({
-          title : "Oops!",
-          text : "All data must be filled",
-          type : "error"
-        })
-      }
-      else{
-        $.ajax({
-          type: "POST",
-          url: "<?php echo base_url(); ?>trip_add",
-          data: { trip_name, trip_start, trip_end },
-          dataType: "JSON",
-          success: function (data) {
-            swal({
-              title : "Berhasil!",
-              text : "Trip has been added",
-              type : "success"
-            }, function(){
-              location.reload();
-            })
-          },
-          error : function(){
-            swal({
-              title : "Oops!",
-              text : "Failed to Add Trip",
-              type : "error"
-            })
-          }
-        });
-      }
-    }
-
-    function del_trip(trip_id){
-      alert(trip_id);
-      swal({
-            title: 'Are you sure ?',
-            text: "You will not be able to recover this data!",
-            type: 'warning',
-            showCancelButton: true,
-            confirmButtonClass: 'btn btn-success',
-            cancelButtonClass: 'btn btn-danger',
-            confirmButtonText: 'Ya, Hapus!',
-            cancelButtonText: 'Batal',
-            buttonsStyling: false
-        },function(){
-          $.ajax({
-            type: "POST",
-            url: "<?php echo base_url() ?>trip_deleting",
-            data: {trip_id:trip_id},
-            dataType: "JSON",
-            success: function (data) {
-              swal({
-                title : "Success!",
-                text : "Your data has been deleted",
-                type : "success"
-              }, function(){
-                location.reload();
-              });   
-            },
-            error : function(){
-              swal({
-                title : "Oops!",
-                text : "Failed to delete Trip",
-                type : "error"
-              })
-            }
-          });
-        });
-      
-    }
-
-    function edit_trip(trip_id){
-      $.ajax({
-        type: "POST",
-        url: "<?php echo base_url(); ?>trip_edit",
-        data: {trip_id},
-        dataType: "JSON",
-        success: function (data) {
-          $("#trip_form").attr("action", "trip_update");
-          $("#trip_name").val(data.trip_name);
-          $("#trip_start").val(data.trip_start);
-          $("#trip_end").val(data.trip_end);
-        },
-        error : function(){
-          swal({
-            title : "Oops!",
-            text : "Failed to get data",
-            type : "error"
-          });
-        }
-      });
-    }
-
-    function trip_update(){
-      var trip_name = $("#trip_name").val();
-      var trip_start = $("#trip_start").val();
-      var trip_end = $("#trip_end").val();
-      if(trip_name == "" || trip_start == "" || trip_end == ""){
-        swal({
-          title : "Oops!",
-          text : "All data must be filled",
-          type : "error"
-        })
-      }
-      else{
-        $.ajax({
-          type: "POST",
-          url: "<?php echo base_url(); ?>trip_update",
-          data: { trip_name, trip_start, trip_end },
-          dataType: "JSON",
-          success: function (data) {
-            swal({
-              title : "Berhasil!",
-              text : "Trip has been updated",
-              type : "success"
-            }, function(){
-              location.reload();
-            })
-          },
-          error : function(err){
-            console.log(err);
-            swal({
-              title : "Oops!",
-              text : "Failed to updating Trip",
-              type : "error"
-            })
-          }
-        });
-      }
-    }
-</script>

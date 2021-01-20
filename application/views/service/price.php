@@ -37,24 +37,24 @@
                       <table id="heavyEquipment" class="table">
                         <thead>
                           <tr class="text-center">
-                            <th>Delivery Order No.</th>
-                            <th>Client</th>
-                            <th>Plat No.</th>
+                            <th>Brand</th>
+                            <th>Type</th>
+                            <th>Price</th>
                             <th>Action</th>
                           </tr>
                         </thead>
                         <tbody>
-                          
+                          <?php foreach ($prices as $key => $price) { ?>
                           <tr class="text-center">
-                            <td><span class="btn btn-link" onclick="viewItem('<?php echo $value->idvendors; ?>');"> - </span></td>
-                            <td> - </td>
-                            <td> - </td>
+                            <td> <?php echo $price->brand_name ?> </td>
+                            <td> <?php echo $price->type_name ?> </td>
+                            <td> <?php echo $price->price ?> </td>
                             <td>
-                              <button class="btn btn-link" onclick="edtItem('<?php echo $value->idvendors; ?>');"><i class="fa fa-pencil"></i></button>
-                              <button class="btn btn-link" onclick="delItem('<?php echo $value->idvendors; ?>');"><i class="fa fa-trash-o"></i></button>
+                              <button class="btn btn-link" onclick="edtItem('<?php echo $price->idprice; ?>');"><i class="fa fa-pencil"></i></button>
+                              <button class="btn btn-link" onclick="delItem('<?php echo $price->idprice; ?>');"><i class="fa fa-trash-o"></i></button>
                             </td>
                           </tr>
-                          
+                          <?php } ?>
                         </tbody>
                       </table>
                     </div>
@@ -66,27 +66,31 @@
         </div>
         <!-- content-wrapper ends -->
 
-        <div class="modal fade" id="formAdd" tabindex="-1" role="dialog" aria-labelledby="formStaffLabel" data-backdrop="static" data-keyboard="false">
+        <div class="modal fade" id="formAdd" tabindex="-1" role="dialog" aria-labelledby="formPriceLabel" data-backdrop="static" data-keyboard="false">
           <div class="modal-dialog" role="document" style="margin-top: 15px;margin-bottom: 0">
             <div class="modal-content">
               <div class="modal-header">
+<<<<<<< HEAD
                 <h5 class="modal-title" id="formProductLabel">Price</h5>
+=======
+                <h5 class="modal-title" id="formPriceLabel">New Price</h5>
+>>>>>>> 5d666575ec68bd1bee15ac29ab8383e2a1e01eb2
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <form class="saveDep form" method="post" action="#" id="tambah" enctype="multipart/form-data">
+              <form class="savePrice form" method="post" action="#" id="tambah" enctype="multipart/form-data">
               <div class="modal-body">
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group">
                       <label for="brand">Brand</label>
-                      <input type="text" list="emp" name="brand" id="brand" class="form-control form-control-lg" placeholder="Brand">
-                      <!-- <datalist id="emp">
-                        <?php foreach ($employe as $emp) { ?>
-                        <option value="<?php echo $emp->fname." ".$emp->mname." ".$emp->lname; ?>">
+                      <select name="brand" id="brand" class="single-select form-control select2" style="width:100%;">
+                        <option disabled="" selected="">-- Select Brand --</option>
+                        <?php foreach ($brands as $key => $brand) { ?>
+                          <option value="<?php echo $brand->idbrand?>"><?php echo $brand->brand_name ?></option>
                         <?php } ?>
-                      </datalist> -->
+                      </select>
                     </div>
                   </div>
                 </div>
@@ -94,12 +98,12 @@
                   <div class="col-md-12">
                     <div class="form-group">
                       <label for="type">Type</label>
-                      <input type="text" list="emp" name="type" id="type" class="form-control form-control-lg" placeholder="Type">
-                      <!-- <datalist id="emp">
-                        <?php foreach ($employe as $emp) { ?>
-                        <option value="<?php echo $emp->fname." ".$emp->mname." ".$emp->lname; ?>">
+                      <select name="type" id="type" class="single-select form-control select2" style="width:100%;">
+                        <option disabled="" selected="">-- Select Type --</option>
+                        <?php foreach ($types as $key => $type) { ?>
+                          <option value="<?php echo $type->idtype?>"><?php echo $type->type_name ?></option>
                         <?php } ?>
-                      </datalist> -->
+                      </select>
                     </div>
                   </div>
                 </div>
@@ -113,7 +117,7 @@
                 </div>
               </div>
               <div class="modal-footer">
-                <button type="submit" class="btn btn-success" id="btnok">Add Price</button>
+                <button type="submit" class="btn btn-success" id="btnprice">Add Price</button>
                 <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
               </div>
             </form>
@@ -130,6 +134,7 @@
   $this->load->view('template/footer');
   // $this->load->view('template/fixed-plugin');
   $this->load->view('template/js');
+  $this->load->view("service/js-crud/crud-price");
 ?>
 <script type="text/javascript">
   $(document).ready(function () {
@@ -164,7 +169,7 @@
 
     $('#price').inputmask({
       alias: 'currency',
-      prefix: 'Rp ',
+      prefix: 'Rp. ',
     });
   });
 </script>

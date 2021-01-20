@@ -69,6 +69,8 @@
   $this->load->view('template/footer');
   // $this->load->view('template/fixed-plugin');
   $this->load->view('template/js');
+  $this->load->view('product/js-crud/crud-type');
+  $this->load->view('product/js-crud/crud-brand');
   require_once(APPPATH."views/component/message.php");
 ?>
 <script type="text/javascript">

@@ -17,7 +17,7 @@
                 <div class="form-group">
                   <label class="label">Username</label>
                   <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Username" name="username" required value="<?php echo get_cookie('uname');?>">
+                    <input type="text" class="form-control" autofocus placeholder="Username" name="username" required value="<?php echo get_cookie('uname');?>">
                     <div class="input-group-append">
                       <span class="input-group-text">
                         <i class="mdi mdi-check-circle-outline"></i>
