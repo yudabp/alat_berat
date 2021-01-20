@@ -587,13 +587,13 @@ $route['uptServiceHEQ'] = "services/uptServiceHEQ";
 $route['getServicePrice'] = "services/getServicePrice";
 //jasa tambang
 $route['mining'] = "services/jasa_tambang";
-<<<<<<< HEAD
-=======
+// <<<<<<< HEAD
+// =======
 $route['saveMining'] = "services/saveMining";
 $route['delMining'] = "services/delMining";
 $route['edtMining'] = "services/edtMining";
 $route['uptMining'] = "services/uptMining";
->>>>>>> 5d666575ec68bd1bee15ac29ab8383e2a1e01eb2
+// >>>>>>> 5d666575ec68bd1bee15ac29ab8383e2a1e01eb2
 //price
 $route['price'] = "services/price";
 $route['savePrice'] = "services/savePrice";
