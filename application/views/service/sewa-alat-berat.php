@@ -37,6 +37,7 @@
                       <table id="heavyEquipment" class="table">
                         <thead>
                           <tr class="text-center">
+                            <th>Heavy Equipment</th>
                             <th>Date</th>
                             <th>Type</th>
                             <th>Brand</th>
@@ -49,21 +50,24 @@
                           </tr>
                         </thead>
                         <tbody>
-                          
+                          <?php
+                          foreach($heqs as $key=>$heq){
+                          ?>
                           <tr class="text-center">
-                            <td><span class="btn btn-link" onclick="viewItem('<?php echo $value->idvendors; ?>');"> - </span></td>
-                            <td> - </td>
-                            <td> - </td>
-                            <td> - </td>
-                            <td> - </td>
+                            <td><?php echo $heq->description ?></td>
+                            <td><?php echo $heq->date ?></td>
+                            <td><?php echo $heq->type_name ?></td>
+                            <td><?php echo $heq->brand_name ?></td>
+                            <td><?php echo $heq->total_hour ?></td>
+                            <td>Rp. <?php echo number_format($heq->total_price,2,'.',',') ?></td>
                             <!-- <td> - </td> -->
                             <!-- <td>-</td> -->
                             <td>
-                              <button class="btn btn-link" onclick="edtItem('<?php echo $value->idvendors; ?>');"><i class="fa fa-pencil"></i></button>
-                              <button class="btn btn-link" onclick="delItem('<?php echo $value->idvendors; ?>');"><i class="fa fa-trash-o"></i></button>
+                              <button class="btn btn-link" onclick="edtItem('<?php echo $heq->idshequipment; ?>');"><i class="fa fa-pencil"></i></button>
+                              <button class="btn btn-link" onclick="delItem('<?php echo $heq->idshequipment; ?>');"><i class="fa fa-trash-o"></i></button>
                             </td>
                           </tr>
-                          
+                          <?php } ?>
                         </tbody>
                       </table>
                     </div>
@@ -75,17 +79,30 @@
         </div>
         <!-- content-wrapper ends -->
 
-        <div class="modal fade" id="formAdd" tabindex="-1" role="dialog" aria-labelledby="formStaffLabel" data-backdrop="static" data-keyboard="false">
+        <div class="modal fade" id="formAdd" tabindex="-1" role="dialog" aria-labelledby="formHEqLabel" data-backdrop="static" data-keyboard="false">
           <div class="modal-dialog" role="document" style="margin-top: 15px;margin-bottom: 0">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="formProductLabel">Heavy Equipment</h5>
+                <h5 class="modal-title" id="formHEqLabel">Heavy Equipment</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <form class="saveDep form" method="post" action="#" id="tambah" enctype="multipart/form-data">
+              <form class="saveServiceHEQ form" method="post" action="#" id="tambah" enctype="multipart/form-data">
               <div class="modal-body">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="description">Heavy Equipment</label>
+                      <select name="h_equipment" id="h_equipment" class="single-select form-control select2" style="width:100%;">
+                        <option disabled="" selected="">-- Select Heavy Equipment --</option>
+                        <?php foreach ($prod_heqs as $key => $prod_heq) { ?>
+                          <option value="<?php echo $prod_heq->idhequipment?>"><?php echo $prod_heq->description ?></option>
+                        <?php } ?>
+                      </select>
+                    </div>
+                  </div>
+                </div>
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
@@ -101,12 +118,12 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="operator">Operator</label>
-                      <input type="text" list="browsers" name="operator" id="operator" class="form-control form-control-lg" placeholder="Operator">
-                      <!-- <datalist id="browsers">
-                        <?php foreach ($view as $key => $val) { ?>
-                        <option value="<?php echo $val->departmenttitle; ?>">
+                      <select name="operator" id="operator" class="single-select form-control select2" style="width:100%;">
+                        <option disabled="" selected="">-- Select Operator --</option>
+                        <?php foreach ($operators as $key => $operator) { ?>
+                          <option value="<?php echo $operator->mainid?>"><?php echo "{$operator->fname} {$operator->mname} {$operator->lname}" ?></option>
                         <?php } ?>
-                      </datalist> -->
+                      </select>
                     </div>
                   </div>
                 </div>
@@ -114,23 +131,23 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="brand">Brand</label>
-                      <input type="text" list="browsers" name="brand" id="brand" class="form-control form-control-lg" placeholder="Brand">
-                      <!-- <datalist id="browsers">
-                        <?php foreach ($view as $key => $val) { ?>
-                        <option value="<?php echo $val->departmenttitle; ?>">
+                      <select name="brand" id="brand" class="single-select form-control select2" style="width:100%;">
+                        <option disabled="" selected="" value="">-- Select Brand --</option>
+                        <?php foreach ($brands as $key => $brand) { ?>
+                          <option value="<?php echo $brand->idbrand?>"><?php echo $brand->brand_name ?></option>
                         <?php } ?>
-                      </datalist> -->
+                      </select>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="type">Type</label>
-                      <input type="text" list="emp" name="type" id="type" class="form-control form-control-lg" placeholder="Type">
-                      <!-- <datalist id="emp">
-                        <?php foreach ($employe as $emp) { ?>
-                        <option value="<?php echo $emp->fname." ".$emp->mname." ".$emp->lname; ?>">
+                      <select name="type" id="type" class="single-select form-control select2" style="width:100%;">
+                        <option disabled="" selected="" value="">-- Select Type --</option>
+                        <?php foreach ($types as $key => $type) { ?>
+                          <option value="<?php echo $type->idtype?>"><?php echo $type->type_name ?></option>
                         <?php } ?>
-                      </datalist> -->
+                      </select>
                     </div>
                   </div>
                 </div>
@@ -141,7 +158,7 @@
                       <label for="start-working">Working Hour</label>
                       <div class="input-group date" id="start-working" data-target-input="nearest">
                         <div class="input-group" data-target="#start-working" data-toggle="datetimepicker">
-                          <input type="text" name="working_start" id="working_start" class="form-control datetimepicker-input" data-target="#start-working" value="" />
+                          <input type="text" name="work_start" id="work_start" class="form-control datetimepicker-input" data-target="#start-working" value="" />
                           <div class="input-group-addon input-group-append">
                             <i class="mdi mdi-clock input-group-text"></i>
                           </div>
@@ -154,7 +171,7 @@
                       <label for="end-working"></label>
                       <div class="input-group date" id="end-working" data-target-input="nearest">
                         <div class="input-group" data-target="#end-working" data-toggle="datetimepicker">
-                          <input type="text" name="working_end" id="working_end" class="form-control datetimepicker-input" data-target="#end-working" value="" />
+                          <input type="text" name="work_end" id="work_end" class="form-control datetimepicker-input" data-target="#end-working" value="" />
                           <div class="input-group-addon input-group-append">
                             <i class="mdi mdi-clock input-group-text"></i>
                           </div>
@@ -167,13 +184,13 @@
                   <div class="col-md-12">
                     <div class="form-group">
                       <label for="price">Price per Hour</label>
-                      <input type="text" name="price" id="price" class="form-control form-control-lg" placeholder="Price per Hour" disabled="">
+                      <input type="text" name="price" id="price" class="form-control form-control-lg" placeholder="-" disabled="" style="font-size:24px;color:#44cc22;background:transparent;border:none;font-weight: bold;">
                     </div>
                   </div>
                 </div>
               </div>
               <div class="modal-footer">
-                <button type="submit" class="btn btn-success" id="btnok">Add Heavy Equipment</button>
+                <button type="submit" class="btn btn-success" id="btnheq">Add Heavy Equipment</button>
                 <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
               </div>
             </form>
@@ -186,6 +203,7 @@
   $this->load->view('template/footer');
   // $this->load->view('template/fixed-plugin');
   $this->load->view('template/js');
+  $this->load->view("service/js-crud/crud-h-equipment");
 ?>
 <script type="text/javascript">
   $(document).ready(function () {

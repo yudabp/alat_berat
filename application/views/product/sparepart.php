@@ -47,17 +47,17 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <?php foreach ($views as $key => $value) { ?>
+                          <?php foreach ($sparts as $key => $spart) { ?>
                           <tr class="text-center">
-                            <td><span class="btn btn-link" onclick="viewItem('<?php echo $value->idvendors; ?>');"><?php echo $value->vendor_first_name." ".$value->vendor_last_name; ?></span></td>
-                            <td><?php echo $value->vendor_company; ?></td>
-                            <td><?php echo $value->vendor_email;?></td>
-                            <td><?php echo $value->vendor_phone;?></td>
-                            <td><?php echo $value->vendor_joined; ?></td>
+                            <td><span class="btn btn-link" onclick="viewItem('<?php echo $spart->idsparepart; ?>');"><?php echo $spart->name ?></span></td>
+                            <td><?php echo $spart->type_name; ?></td>
+                            <td><?php echo $spart->brand_name;?></td>
+                            <td><?php echo $spart->reg_date;?></td>
+                            <td><?php echo $spart->stock; ?></td>
                             <!-- <td>-</td> -->
                             <td>
-                              <button class="btn btn-link" onclick="edtItem('<?php echo $value->idvendors; ?>');"><i class="fa fa-pencil"></i></button>
-                              <button class="btn btn-link" onclick="delItem('<?php echo $value->idvendors; ?>');"><i class="fa fa-trash-o"></i></button>
+                              <button class="btn btn-link" onclick="edtItem('<?php echo $spart->idsparepart; ?>');"><i class="fa fa-pencil"></i></button>
+                              <button class="btn btn-link" onclick="delItem('<?php echo $spart->idsparepart; ?>');"><i class="fa fa-trash-o"></i></button>
                             </td>
                           </tr>
                           <?php } ?>
@@ -81,7 +81,7 @@
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <form class="saveDep form" method="post" action="#" id="tambah" enctype="multipart/form-data">
+              <form class="saveSPart form" method="post" action="#" id="tambah" enctype="multipart/form-data">
               <div class="modal-body">
                 <div class="row">
                   <div class="col-md-12">
@@ -95,23 +95,23 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="type">Type</label>
-                      <input type="text" list="emp" name="type" id="type" class="form-control form-control-lg" placeholder="Type">
-                      <!-- <datalist id="emp">
-                        <?php foreach ($employe as $emp) { ?>
-                        <option value="<?php echo $emp->fname." ".$emp->mname." ".$emp->lname; ?>">
+                      <select name="type" id="type" class="single-select form-control select2" style="width:100%;">
+                        <option disabled="" selected="">-- Select Type --</option>
+                        <?php foreach ($types as $key => $type) { ?>
+                          <option value="<?php echo $type->idtype?>"><?php echo $type->type_name ?></option>
                         <?php } ?>
-                      </datalist> -->
+                      </select>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="brand">Brand</label>
-                      <input type="text" list="browsers" name="brand" id="brand" class="form-control form-control-lg" placeholder="Brand">
-                      <!-- <datalist id="browsers">
-                        <?php foreach ($view as $key => $val) { ?>
-                        <option value="<?php echo $val->departmenttitle; ?>">
+                      <select name="brand" id="brand" class="single-select form-control select2" style="width:100%;">
+                        <option disabled="" selected="">-- Select Brand --</option>
+                        <?php foreach ($brands as $key => $brand) { ?>
+                          <option value="<?php echo $brand->idbrand?>"><?php echo $brand->brand_name ?></option>
                         <?php } ?>
-                      </datalist> -->
+                      </select>
                     </div>
                   </div>
                 </div>
@@ -141,7 +141,7 @@
                 </div>
               </div>
               <div class="modal-footer">
-                <button type="submit" class="btn btn-success" id="btnok">Add Sparepart</button>
+                <button type="submit" class="btn btn-success" id="btnspart">Add Sparepart</button>
                 <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
               </div>
             </form>
@@ -154,6 +154,7 @@
   $this->load->view('template/footer');
   // $this->load->view('template/fixed-plugin');
   $this->load->view('template/js');
+  $this->load->view("product/js-crud/crud-sparepart");
 ?>
 
 <script type="text/javascript">

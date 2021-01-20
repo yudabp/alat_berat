@@ -35,7 +35,7 @@
                         <i class="fa fa-truck"></i>
                       </div>
                       <div class="inner d-flex align-items-center">
-                        <h1 class="text-info font-weight-bold"><?php echo $contnum; ?></h1>
+                        <h1 class="text-info font-weight-bold"><?php echo $count_truck; ?></h1>
                       </div>
                       <a href="<?php echo base_url() ?>truck">
                         <small class="text-gray">View All Truck.... <!-- <i class="ti-angle-double-right"></i> --></small>
@@ -51,7 +51,7 @@
                         <i class="fa fa-anchor"></i>
                       </div>
                       <div class="inner d-flex align-items-center">
-                        <h1 class="text-primary font-weight-bold"><?php echo $contnum; ?></h1>
+                        <h1 class="text-primary font-weight-bold"><?php echo $count_heq; ?></h1>
                       </div>
                       <a href="<?php echo base_url() ?>heavy-equipment">
                         <small class="text-gray">View All Heavy Equipment.... <!-- <i class="ti-angle-double-right"></i> --></small>
@@ -67,7 +67,7 @@
                         <i class="fa fa-wrench"></i>
                       </div>
                       <div class="inner d-flex align-items-center">
-                        <h1 class="text-primary font-weight-bold"><?php echo $contnum; ?></h1>
+                        <h1 class="text-primary font-weight-bold"><?php echo $count_sparepart; ?></h1>
                       </div>
                       <a href="<?php echo base_url() ?>sparepart">
                         <small class="text-gray">View All Sparepart.... <!-- <i class="ti-angle-double-right"></i> --></small>

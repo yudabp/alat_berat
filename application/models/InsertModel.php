@@ -5,14 +5,16 @@ class InsertModel extends CI_Model{
     parent::__construct();
   }
 
-  public function indata($table,$data){
+  public function indata($table,$data,$doReturn=true){
     $a = $this->db->insert($table,$data);
-    return $a;
+    if($doReturn)
+      return $a;
   }
 
-  public function uptdata($table,$data,$where){
+  public function uptdata($table,$data,$where, $doReturn=true){
     $a = $this->db->where($where)
                   ->update($table,$data);
-    return $a;
+    if($doReturn)
+      return $a;
   }
 }

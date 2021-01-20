@@ -533,12 +533,46 @@ $route['showSubDep'] = "hrm/showSubDep";
 $route['product-overview'] = "product/overview";
 //truck
 $route['truck'] = "product/truck";
+$route['saveTruck'] = "product/saveTruck";
+$route['delTruck'] = "product/delTruck";
+$route['edtTruck'] = "product/edtTruck";
+$route['uptTruck'] = "product/uptTruck";
+//truck service
+$route['saveTruckService'] = "product/saveTruckService";
+$route['delTruckService'] = "product/delTruckService";
+$route['edtTruckService'] = "product/edtTruckService";
+$route['uptTruckService'] = "product/uptTruckService";
+$route['doneTruckService'] = "product/doneTruckService";
 //alat berat
 $route['heavy-equipment'] = "product/heavy_equipment";
+$route['saveHEquipment'] = "product/saveHEquipment";
+$route['delHEquipment'] = "product/delHEquipment";
+$route['edtHEquipment'] = "product/edtHEquipment";
+$route['uptHEquipment'] = "product/uptHEquipment";
+// alat berat service
+$route['saveHEqService'] = "product/saveHEqService";
+$route['delHEqService'] = "product/delHEqService";
+$route['edtHEqService'] = "product/edtHEqService";
+$route['uptHEqService'] = "product/uptHEqService";
+$route['doneHEqService'] = "product/doneHEqService";
 //sparepart
 $route['sparepart'] = "product/sparepart";
+$route['saveSPart'] = "product/saveSPart";
+$route['delSPart'] = "product/delSPart";
+$route['edtSPart'] = "product/edtSPart";
+$route['uptSPart'] = "product/uptSPart";
 //setting
 $route['p-setting'] = "product/setting";
+// setting type
+$route['p-setting-type_add'] = "product/type_adding";
+$route['p-setting-type_deleting'] = "product/type_delete";
+$route['p-setting-type_edit'] = "product/type_edit";
+$route['p-setting-type_update'] = "product/type_update";
+// setting brand
+$route['p-setting-brand_add'] = "product/brand_adding";
+$route['p-setting-brand_deleting'] = "product/brand_delete";
+$route['p-setting-brand_edit'] = "product/brand_edit";
+$route['p-setting-brand_update'] = "product/brand_update"; 
 //------------- end Product --------------------
 
 //---------------- Services ---------------------
@@ -546,10 +580,23 @@ $route['p-setting'] = "product/setting";
 $route['service-overview'] = "services/overview";
 //alat berat
 $route['equipment-service'] = "services/sewa_alat_berat";
+$route['saveServiceHEQ'] = "services/saveServiceHEQ";
+$route['delServiceHEQ'] = "services/delServiceHEQ";
+$route['edtServiceHEQ'] = "services/edtServiceHEQ";
+$route['uptServiceHEQ'] = "services/uptServiceHEQ";
+$route['getServicePrice'] = "services/getServicePrice";
 //jasa tambang
-$route['minning'] = "services/jasa_tambang";
+$route['mining'] = "services/jasa_tambang";
+$route['saveMining'] = "services/saveMining";
+$route['delMining'] = "services/delMining";
+$route['edtMining'] = "services/edtMining";
+$route['uptMining'] = "services/uptMining";
 //price
 $route['price'] = "services/price";
+$route['savePrice'] = "services/savePrice";
+$route['delPrice'] = "services/delPrice";
+$route['edtPrice'] = "services/edtPrice";
+$route['uptPrice'] = "services/uptPrice";
 //------------- end Services --------------------
 
 //---------------- Assets ---------------------
