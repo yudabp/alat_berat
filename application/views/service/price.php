@@ -70,11 +70,8 @@
           <div class="modal-dialog" role="document" style="margin-top: 15px;margin-bottom: 0">
             <div class="modal-content">
               <div class="modal-header">
-<<<<<<< HEAD
-                <h5 class="modal-title" id="formProductLabel">Price</h5>
-=======
+                <!-- <h5 class="modal-title" id="formProductLabel">Price</h5> -->
                 <h5 class="modal-title" id="formPriceLabel">New Price</h5>
->>>>>>> 5d666575ec68bd1bee15ac29ab8383e2a1e01eb2
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -124,11 +121,7 @@
             </div>
           </div>
         </div>
-        
         <!-- Modal Ends -->
-          </div> 
-        </div>
-        <!-- content-wrapper ends -->
 
 <?php 
   $this->load->view('template/footer');

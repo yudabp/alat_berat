@@ -147,18 +147,18 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-md-6">
+                  <div class="col-md-12">
                     <div class="form-group">
                       <label for="est_tonage">Tonage Estimation</label>
                       <input type="text" name="est_tonage" id="est_tonage" class="form-control form-control-lg" placeholder="Tonage Estimation">
                     </div>
                   </div>
-                  <div class="col-md-6">
+                  <!-- <div class="col-md-6">
                     <div class="form-group">
                       <label for="exact_tonage">Exact Tonage</label>
                       <input type="text" name="exact_tonage" id="exact_tonage" class="form-control form-control-lg" placeholder="Exact Tonage" disabled="">
                     </div>
-                  </div>
+                  </div> -->
                 </div>
               </div>
               <div class="modal-footer">
@@ -170,9 +170,6 @@
           </div>
         </div>
         <!-- Modal Ends -->
-          </div>
-        </div>
-        <!-- content-wrapper ends -->
 
 <?php 
   $this->load->view('template/footer');
