@@ -51,9 +51,9 @@
                       <li class="nav-item mb-4"> 
                         <a class="nav-link" id="tab-6-5" data-toggle="tab" href="#work-6-5" role="tab" aria-controls="work-6-5" aria-selected="false">Trip</a>
                       </li>
-                      <li class="nav-item mb-4"> 
+                      <!-- <li class="nav-item mb-4"> 
                         <a class="nav-link" id="tab-6-6" data-toggle="tab" href="#work-6-6" role="tab" aria-controls="work-6-6" aria-selected="false">Shift</a>
-                      </li>
+                      </li> -->
                       <li class="nav-item mb-4"> 
                         <a class="nav-link text-left" id="tab-6-7" data-toggle="tab" href="#work-6-7" role="tab" aria-controls="work-6-7" aria-selected="false">Machine Working Time</a>
                       </li>
