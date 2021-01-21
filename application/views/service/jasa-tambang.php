@@ -147,18 +147,22 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-md-12">
+                  <div class="col-md-6">
                     <div class="form-group">
                       <label for="est_tonage">Tonage Estimation</label>
                       <input type="text" name="est_tonage" id="est_tonage" class="form-control form-control-lg" placeholder="Tonage Estimation">
                     </div>
                   </div>
-                  <!-- <div class="col-md-6">
+                  <div class="col-md-6">
                     <div class="form-group">
-                      <label for="exact_tonage">Exact Tonage</label>
-                      <input type="text" name="exact_tonage" id="exact_tonage" class="form-control form-control-lg" placeholder="Exact Tonage" disabled="">
+                      <label for="exact_tonage">Quary</label>
+                      <select name="plat_no" id="plat_no" class="single-select form-control select2" style="width:100%;">
+                        <option disabled="" selected="">-- Select Quary --</option>
+                        <option value="quary_1">Quary 1</option>
+                        <option value="quary_2">Quary 2</option>
+                      </select>
                     </div>
-                  </div> -->
+                  </div>
                 </div>
               </div>
               <div class="modal-footer">
