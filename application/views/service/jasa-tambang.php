@@ -54,7 +54,7 @@
                           ?>
                           <tr class="text-center">
                             <td><?= $mining->delivery_no ?></td>
-                            <td><?= $mining->first_name; ?> <?= $mining->last_name; ?></td>
+                            <td><?= $mining->first_name." ".$mining->last_name; ?></td>
                             <td><?= $mining->plat_no ?></td>
                             <td><?= $mining->delivery_date ?></td>
                             <td><?= $mining->working_hour ?></td>
