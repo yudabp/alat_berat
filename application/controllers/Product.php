@@ -22,7 +22,7 @@ class Product extends CI_Controller {
     //                          ->join('employee_access','employee_access.mainid = employee.mainid')
     //                          ->get_where('employee',['employee.idcompany'=>$this->session->userdata('idcompany')])
     //                          ->result();
-    // $data['info'] = $this->db->get_where('company',['idcompany'=>$this->session->userdata('idcompany')])->row();
+    $data['info'] = $this->db->get_where('company',['idcompany'=>$this->session->userdata('idcompany')])->row();
     // $this->load->view('hrm/employee',$data);
     $data['count_truck'] = $this->db->get_where('product_truck',['idcompany'=>$this->session->userdata('idcompany')])->num_rows();
     $data['count_heq'] = $this->db->get_where('product_h_equipment',['idcompany'=>$this->session->userdata('idcompany')])->num_rows();
@@ -37,6 +37,7 @@ class Product extends CI_Controller {
       'idcompany' => $this->session->userdata('idcompany'), 'designationtitle'=>'Driver'
     ])->result();
     // var_dump($designation[0]->designationtitle);
+    $data['info'] = $this->db->get_where('company',['idcompany'=>$this->session->userdata('idcompany')])->row();
     $data['drivers'] = $this->ShowModel->getDataWHere('employee', [
       'idcompany' => $this->session->userdata('idcompany'), 'jobtitle'=>$driver[0]->iddesignation
     ])->result();
@@ -233,6 +234,7 @@ class Product extends CI_Controller {
       'idcompany' => $this->session->userdata('idcompany'), 'designationtitle'=>'Operator'
     ])->result();
     // var_dump($designation[0]->designationtitle);
+    $data['info'] = $this->db->get_where('company',['idcompany'=>$this->session->userdata('idcompany')])->row();
     $data['operators'] = $this->ShowModel->getDataWHere('employee', [
       'idcompany' => $this->session->userdata('idcompany'), 'jobtitle'=>$operator[0]->iddesignation
     ])->result();
@@ -407,6 +409,7 @@ class Product extends CI_Controller {
   // SPAREPART
   public function sparepart()
   {
+    $data['info'] = $this->db->get_where('company',['idcompany'=>$this->session->userdata('idcompany')])->row();
     $data['types'] = $this->ShowModel->getDataWHere('product_setting_type', [
       'idcompany' => $this->session->userdata('idcompany')
     ])->result();
@@ -479,6 +482,7 @@ class Product extends CI_Controller {
 
   public function setting()
   {
+    $data['info'] = $this->db->get_where('company',['idcompany'=>$this->session->userdata('idcompany')])->row();
     $data['types'] = $this->ShowModel->getDataWHere('product_setting_type', [
       'idcompany' => $this->session->userdata('idcompany')
     ])->result();

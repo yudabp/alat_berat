@@ -33,6 +33,7 @@ class Services extends CI_Controller {
       'idcompany' => $this->session->userdata('idcompany'), 'designationtitle'=>'Operator'
     ])->result();
     // var_dump($designation[0]->designationtitle);
+    $data['info'] = $this->db->get_where('company',['idcompany'=>$this->session->userdata('idcompany')])->row();
     $data['operators'] = $this->ShowModel->getDataWHere('employee', [
       'idcompany' => $this->session->userdata('idcompany'), 'jobtitle'=>$operator[0]->iddesignation
     ])->result();
@@ -162,6 +163,7 @@ class Services extends CI_Controller {
 
   public function jasa_tambang()
   {
+    $data['info'] = $this->db->get_where('company',['idcompany'=>$this->session->userdata('idcompany')])->row();
     $data['clients'] = $this->ShowModel->getDataWHere('contacts', [
       'idcompany' => $this->session->userdata('idcompany')
     ])->result();
@@ -242,6 +244,7 @@ class Services extends CI_Controller {
 
   public function price()
   {
+    $data['info'] = $this->db->get_where('company',['idcompany'=>$this->session->userdata('idcompany')])->row();
     $data['types'] = $this->ShowModel->getDataWHere('product_setting_type', [
       'idcompany' => $this->session->userdata('idcompany')
     ])->result();
