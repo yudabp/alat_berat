@@ -11,6 +11,7 @@ class Log extends CI_Controller{
     $iduser       = $this->session->userdata('iduser');
     $idcompany    = $this->session->userdata('idcompany');
     
+    $data['info'] = $this->db->get_where('company',['idcompany'=>$this->session->userdata('idcompany')])->row();
     $data['current_log'] = $this->db->query("SELECT * from log_user where id_user='$iduser' and idcompany='$idcompany' and type='Login' and month(waktu)=month(now()) order by waktu desc limit 1")->row();
     $data['all_log'] = $this->db->query("SELECT * from log_user join superakses on(log_user.id_user=superakses.iduser) where log_user.idcompany='$idcompany' and month(log_user.waktu)=month(now())")->result();
     // var_dump($data['current_log']);
