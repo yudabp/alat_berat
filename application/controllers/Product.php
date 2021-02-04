@@ -145,6 +145,15 @@ class Product extends CI_Controller {
   }
   // END TRUCK
 
+  // SERVICE TRUCK
+  public function service_truck()
+  {
+    $id = $this->uri->segment(2);
+    $data['trucks'] = $this->ShowModel->getDataWHere('product_truck',['idtruck'=>$id])->result();
+    $this->load->view('product/service-truck',$data);
+  }
+  // END SERVICE TRUCK
+
   // TRUCK SERVICE
   public function saveTruckService(){
     

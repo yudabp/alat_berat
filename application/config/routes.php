@@ -537,6 +537,8 @@ $route['saveTruck'] = "product/saveTruck";
 $route['delTruck'] = "product/delTruck";
 $route['edtTruck'] = "product/edtTruck";
 $route['uptTruck'] = "product/uptTruck";
+// service truck
+$route['service-truck/'.$uri2] = "product/service_truck";
 //truck service
 $route['saveTruckService'] = "product/saveTruckService";
 $route['delTruckService'] = "product/delTruckService";

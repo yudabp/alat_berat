@@ -185,4 +185,9 @@ function update_truck(idtruck){
       });
   }
 }
+
+function serviceItem(id) {
+  var url = "<?php base_url(); ?>service-truck/"+id;
+  window.open(url);
+}
 </script>

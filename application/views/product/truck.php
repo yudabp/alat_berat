@@ -37,11 +37,11 @@
                       <table id="Truck" class="table">
                         <thead>
                           <tr class="text-center">
+                            <th>Truck Name</th>
                             <th>Plat No.</th>
                             <th>Type</th>
-                            <th>Brand</th>
                             <th>Reg. Date</th>
-                            <th>Last Service</th>
+                            <!-- <th>Last Service</th> -->
                             <th>Trips</th>
                             <th>Status</th>
                             <!-- <th>Status</th> -->
@@ -57,7 +57,7 @@
                             <td> <?php echo $truck->type_name ?> </td>
                             <td> <?php echo $truck->brand_name ?> </td>
                             <td> <?php echo $truck->reg_date ?> </td>
-                            <td>
+                            <!-- <td>
                               <?php 
                                 if(empty($last_service) || $last_service[0]->isDone){
                               ?>
@@ -71,7 +71,7 @@
                               ?>
                               <button class="btn" onclick="edtService('<?php echo $truck->idtruck; ?>', '<?php echo $last_service[0]->idservice?>');"><?php echo $last_service[0]->service_date ?></button>
                               <?php } ?>
-                            </td>
+                            </td> -->
                             <td>
                               <?php 
                                 $countTrips = $this->db->get_where('service_mining',['plat_no'=>$truck->idtruck,'idcompany'=>$this->session->userdata('idcompany')])->num_rows();
@@ -84,6 +84,7 @@
                             <td>
                               <button class="btn btn-link" onclick="edtItem('<?php echo $truck->idtruck; ?>');"><i class="fa fa-pencil"></i></button>
                               <button class="btn btn-link" onclick="delItem('<?php echo $truck->idtruck; ?>');"><i class="fa fa-trash-o"></i></button>
+                              <button class="btn btn-link" onclick="serviceItem('<?php echo $truck->idtruck; ?>');"><i class="fa fa-wrench"></i></button>
                             </td>
                           </tr>
                           <?php } ?>
@@ -191,11 +192,11 @@
                     </div>
                   </div>
                 </div>
-                <hr/>
+                <!-- <hr/>
                 <div class="row">
                   <div class="col-md-12">
                     <h5>Service</h5>
-                    <!-- <table>
+                    <table>
                       <thead>
                         <tr>
                           <th>Date</th>
@@ -206,7 +207,7 @@
                           <td>20/01/2021</td>
                         </tr>
                       </tbody>
-                    </table> -->
+                    </table>
                   </div>
                 </div>
                 <hr/>
@@ -214,7 +215,7 @@
                   <div class="col-md-12">
                     <h5>Trips</h5>
                   </div>
-                </div>
+                </div> -->
               </div>
               <div class="modal-footer">
                 <button type="submit" class="btn btn-success" id="btntruck">Add Truck</button>
