@@ -218,7 +218,7 @@
               <i class="menu-icon icon-layers"></i>
               <span class="menu-title">Product</span>
             </a>
-            <div class="collapse <?php if($url_1 == "p-setting" ||$url_1 == "sparepart" ||$url_1 == "truck" ||$url_1 == "service-truck" ||$url_1 == "heavy-equipment" ||$url_1 == "product-overview"){echo "show"; } ?>" id="product">
+            <div class="collapse <?php if($url_1 == "p-setting" ||$url_1 == "sparepart" ||$url_1 == "truck" ||$url_1 == "service-truck" ||$url_1 == "service-h-equipment" ||$url_1 == "heavy-equipment" ||$url_1 == "product-overview"){echo "show"; } ?>" id="product">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item <?php if($url_1 == "product-overview"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>product-overview">Overview</a>
@@ -226,7 +226,7 @@
                 <li class="nav-item <?php if($url_1 == "truck"|| $url_1 == "service-truck" ){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>truck">Truck</a>
                 </li>
-                <li class="nav-item <?php if($url_1 == "heavy-equipment"){echo "active"; } ?>">
+                <li class="nav-item <?php if($url_1 == "heavy-equipment" ||$url_1 == "service-h-equipment"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>heavy-equipment">Heavy Equipment</a>
                 </li>
                 <li class="nav-item <?php if($url_1 == "sparepart"){echo "active"; } ?>">

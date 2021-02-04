@@ -332,12 +332,20 @@ class Product extends CI_Controller {
   }
   // END HEAVY EQUIPMENT
 
+  // SERVICE HEAVY EQUIPMENT
+  public function service_h_equipment()
+  {
+    $id = $this->uri->segment(2);
+    $data['equipments'] = $this->ShowModel->getDataWHere('product_h_equipment',['idhequipment'=>$id])->result();
+    $this->load->view('product/service-h-equipment',$data);
+  }
+  // END SERVICE HEAVY EQUIPMENT
 
   // HEAVY EQUIPMENT SERVICE
   public function saveHEqService(){
     
     // ambil request
-    $idhequipment        = $this->input->post('idhequipment');
+    $idhequipment   = $this->input->post('idhequipment');
     $service_date   = $this->input->post('service_date');
     $service_type   = $this->input->post('service_type');
     $description    = $this->input->post('description');

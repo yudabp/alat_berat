@@ -551,6 +551,8 @@ $route['saveHEquipment'] = "product/saveHEquipment";
 $route['delHEquipment'] = "product/delHEquipment";
 $route['edtHEquipment'] = "product/edtHEquipment";
 $route['uptHEquipment'] = "product/uptHEquipment";
+// service alat berat
+$route['service-h-equipment/'.$uri2] = "product/service_h_equipment";
 // alat berat service
 $route['saveHEqService'] = "product/saveHEqService";
 $route['delHEqService'] = "product/delHEqService";

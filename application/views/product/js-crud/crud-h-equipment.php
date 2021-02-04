@@ -181,4 +181,10 @@ function update_heq(idhequipment){
       });
   }
 }
+
+function serviceItem(id) {
+  var url = "<?php base_url(); ?>service-h-equipment/"+id;
+  window.open(url);
+}
+
 </script>

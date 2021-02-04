@@ -91,6 +91,7 @@
                             <td>
                               <button class="btn btn-link" onclick="edtItem('<?php echo $heq->idhequipment; ?>');"><i class="fa fa-pencil"></i></button>
                               <button class="btn btn-link" onclick="delItem('<?php echo $heq->idhequipment; ?>');"><i class="fa fa-trash-o"></i></button>
+                              <button class="btn btn-link" onclick="serviceItem('<?php echo $heq->idhequipment; ?>');"><i class="fa fa-wrench"></i></button>
                             </td>
                           </tr>
                           <?php }?>
