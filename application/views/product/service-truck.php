@@ -33,7 +33,7 @@
                       <div class="row">
                         <div class="col-md-6">
                           <div class="row">
-                            <div class="col-md-5">Description</div>
+                            <div class="col-md-5">Truck Name</div>
                             <div class="col-md-1">:</div>
                             <div class="col-md-6"><?php echo $truck->name; ?></div>
                           </div>
@@ -54,13 +54,13 @@
                           </div>
                         </div>
                         <div class="col-md-6">
-                          <!-- <div class="row">
+                          <div class="row">
                             <div class="col-md-5">Plat No.</div>
                             <div class="col-md-1">:</div>
                             <div class="col-md-6"><?php echo $truck->plat_no; ?></div>
-                          </div> -->
+                          </div>
                           <div class="row">
-                            <div class="col-md-5">Operator</div>
+                            <div class="col-md-5">Driver</div>
                             <div class="col-md-1">:</div>
                             <div class="col-md-6"><?php echo $truck->driver; ?></div>
                           </div>
