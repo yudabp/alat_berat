@@ -112,13 +112,13 @@
               <form class="saveTruck form" method="post" action="#" id="tambah" enctype="multipart/form-data">
               <div class="modal-body">
                 <div class="row">
-                  <div class="col-md-12">
+                  <div class="col-md-6">
                     <div class="form-group">
-                      <label for="truck_name">Plat No.</label>
+                      <label for="truck_name">Truck Name</label>
                       <input type="text" name="truck_name" id="truck_name" class="form-control form-control-lg" placeholder="Truck Name">
                     </div>
                   </div>
-                  <div class="col-md-12">
+                  <div class="col-md-6">
                     <div class="form-group">
                       <label for="plat_no">Plat No.</label>
                       <input type="text" name="plat_no" id="plat_no" class="form-control form-control-lg" placeholder="Plat No.">
