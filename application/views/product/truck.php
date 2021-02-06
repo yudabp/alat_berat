@@ -114,6 +114,12 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group">
+                      <label for="truck_name">Plat No.</label>
+                      <input type="text" name="truck_name" id="truck_name" class="form-control form-control-lg" placeholder="Truck Name">
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
                       <label for="plat_no">Plat No.</label>
                       <input type="text" name="plat_no" id="plat_no" class="form-control form-control-lg" placeholder="Plat No.">
                     </div>

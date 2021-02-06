@@ -41,7 +41,7 @@
                             <th>Type</th>
                             <th>Brand</th>
                             <th>Reg. Date</th>
-                            <th>Last Service</th>
+                            <!-- <th>Last Service</th> -->
                             <th>Working Hours</th>
                             <th>Status</th>
                             <!-- <th>Status</th> -->
@@ -57,7 +57,7 @@
                             <td> <?php echo $heq->type_name ?> </td>
                             <td> <?php echo $heq->brand_name ?> </td>
                             <td> <?php echo $heq->reg_date ?> </td>
-                            <td>
+                            <!-- <td>
                               <?php 
                                 if(empty($last_service) || $last_service[0]->isDone){
                               ?>
@@ -71,7 +71,7 @@
                               ?>
                               <button class="btn " onclick="edtService('<?php echo $heq->idhequipment; ?>', '<?php echo $last_service[0]->idservice?>');"><?php echo $last_service[0]->service_date ?></button>
                               <?php } ?>
-                            </td>
+                            </td> -->
                             <td>
                               <?php 
                               $work_hours = $this->ShowModel->getDataWHere('service_h_equipment', [
