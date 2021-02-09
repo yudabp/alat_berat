@@ -212,7 +212,7 @@
                 </div> -->
               </div>
               <div class="modal-footer">
-                <button type="submit" class="btn btn-success" id="btnheq">Add Heavy Equipment</button>
+                <button type="submit" class="btn btn-success" id="btnheq">Save</button>
                 <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
               </div>
             </form>

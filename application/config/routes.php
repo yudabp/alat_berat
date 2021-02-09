@@ -592,7 +592,7 @@ $route['edtServiceHEQ'] = "services/edtServiceHEQ";
 $route['uptServiceHEQ'] = "services/uptServiceHEQ";
 $route['getServicePrice'] = "services/getServicePrice";
 //jasa tambang
-$route['mining'] = "services/jasa_tambang";
+$route['p-truck'] = "services/jasa_tambang";
 // <<<<<<< HEAD
 // =======
 $route['saveMining'] = "services/saveMining";
