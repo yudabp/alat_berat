@@ -497,6 +497,15 @@ class Product extends CI_Controller {
   }
   // END SPAREPART
 
+  // MECHANICS
+  public function mechanics()
+  {
+    // $id = $this->uri->segment(2);
+    // $data['trucks'] = $this->ShowModel->getDataWHere('product_truck',['idtruck'=>$id])->result();
+    $this->load->view('product/mechanics');
+  }
+  // END MECHANICS
+
   public function setting()
   {
     $data['info'] = $this->db->get_where('company',['idcompany'=>$this->session->userdata('idcompany')])->row();

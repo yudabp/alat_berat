@@ -199,7 +199,7 @@
                   </div>
                 </div>
                 <hr/>
-                <div class="row">
+                <!-- <div class="row">
                   <div class="col-md-12">
                     <h5>Service</h5>
                   </div>
@@ -209,7 +209,7 @@
                   <div class="col-md-12">
                     <h5>Working Hours</h5>
                   </div>
-                </div>
+                </div> -->
               </div>
               <div class="modal-footer">
                 <button type="submit" class="btn btn-success" id="btnheq">Add Heavy Equipment</button>

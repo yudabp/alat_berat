@@ -83,7 +83,7 @@ $db['default'] = array(
     // DB OFFLINE
     'username' => 'root',
 	'password' => '',
-	'database' => 'xavaxx_erp',
+	'database' => 'alat_berat',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

@@ -124,17 +124,6 @@
                       <input type="text" name="plat_no" id="plat_no" class="form-control form-control-lg" placeholder="Plat No.">
                     </div>
                   </div>
-                  <!-- <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="reg_date">Reg. Date</label>
-                      <div class="input-group date datepicker">
-                        <input type="text" id="reg_date" name="reg_date" class="form-control form-control-lg" >
-                        <span class="input-group-addon input-group-append border-left">
-                          <span class="mdi mdi-calendar input-group-text"></span>
-                        </span>
-                      </div>
-                    </div>
-                  </div> -->
                 </div>
                 <div class="row">
                   <div class="col-md-6">

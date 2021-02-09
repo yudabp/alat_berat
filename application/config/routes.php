@@ -565,6 +565,8 @@ $route['saveSPart'] = "product/saveSPart";
 $route['delSPart'] = "product/delSPart";
 $route['edtSPart'] = "product/edtSPart";
 $route['uptSPart'] = "product/uptSPart";
+//mechanics
+$route['mechanics'] = "product/mechanics";
 //setting
 $route['p-setting'] = "product/setting";
 // setting type
