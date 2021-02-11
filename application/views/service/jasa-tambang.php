@@ -13,7 +13,7 @@
         <div class="content-wrapper">
           <div class="row mb-4">
             <div class="col-12 d-flex align-items-center justify-content-between">
-              <h4 class="page-title">Mining</h4>
+              <h4 class="page-title">Truck</h4>
               <div class="d-flex align-items-center">
                 <div class="wrapper mr-4 d-none d-sm-block">
                   <!-- <p class="mb-0">Summary for
@@ -81,7 +81,7 @@
           <div class="modal-dialog" role="document" style="margin-top: 15px;margin-bottom: 0">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="formMiningLabel">Mining</h5>
+                <h5 class="modal-title" id="formMiningLabel">Truck</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -134,15 +134,8 @@
                   </div>
                   <div class="col-sm-6">
                     <div class="form-group">
-                      <label for="delivery-time">Working Hour</label>
-                      <div class="input-group date" id="working-hour" data-target-input="nearest">
-                        <div class="input-group" data-target="#working-hour" data-toggle="datetimepicker">
-                          <input type="text" name="working_hour" id="working_hour" class="form-control datetimepicker-input" data-target="#working-hour" value="" />
-                          <div class="input-group-addon input-group-append">
-                            <i class="mdi mdi-clock input-group-text"></i>
-                          </div>
-                        </div>
-                      </div>
+                      <label for="total_trip">Total Trip</label>
+                      <input type="number" name="total_trip" id="total_trip" class="form-control form-control-lg" placeholder="Total Trip">
                     </div>
                   </div>
                 </div>

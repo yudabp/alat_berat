@@ -91,7 +91,7 @@
               <form class="saveServiceHEQ form" method="post" action="#" id="tambah" enctype="multipart/form-data">
               <div class="modal-body">
                 <div class="row">
-                  <div class="col-md-12">
+                  <div class="col-md-6">
                     <div class="form-group">
                       <label for="description">Heavy Equipment</label>
                       <select name="h_equipment" id="h_equipment" class="single-select form-control select2" style="width:100%;">
@@ -102,8 +102,6 @@
                       </select>
                     </div>
                   </div>
-                </div>
-                <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="date">Date</label>
@@ -115,6 +113,8 @@
                       </div>
                     </div>
                   </div>
+                </div>
+                <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="operator">Operator</label>
@@ -124,6 +124,21 @@
                           <option value="<?php echo $operator->mainid?>"><?php echo "{$operator->fname} {$operator->mname} {$operator->lname}" ?></option>
                         <?php } ?>
                       </select>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="working_hours">Working Hours</label>
+                      <!-- <div class="row">
+                        <input type="number" name="working_hours" id="working_hours" class="form-control form-control-lg col-sm-9" placeholder="Working Hours">
+                        <input type="text" name="jam" value="Jam" class="form-control form-control-lg col-sm-3" disabled="">
+                      </div> -->
+                      <div class="input-group">
+                        <input type="number" id="working_hours" name="working_hours" class="form-control form-control-lg" >
+                        <span class="input-group-addon input-group-append border-left">
+                          <span class="input-group-text">Jam</span>
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -152,35 +167,6 @@
                   </div>
                 </div>
                 <div class="row">
-                  <!-- <label for="working_hour">Working Hour</label> -->
-                  <div class="col-sm-6">
-                    <div class="form-group">
-                      <label for="start-working">Working Hour</label>
-                      <div class="input-group date" id="start-working" data-target-input="nearest">
-                        <div class="input-group" data-target="#start-working" data-toggle="datetimepicker">
-                          <input type="text" name="work_start" id="work_start" class="form-control datetimepicker-input" data-target="#start-working" value="" />
-                          <div class="input-group-addon input-group-append">
-                            <i class="mdi mdi-clock input-group-text"></i>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-6">
-                    <div class="form-group">
-                      <label for="end-working"></label>
-                      <div class="input-group date" id="end-working" data-target-input="nearest">
-                        <div class="input-group" data-target="#end-working" data-toggle="datetimepicker">
-                          <input type="text" name="work_end" id="work_end" class="form-control datetimepicker-input" data-target="#end-working" value="" />
-                          <div class="input-group-addon input-group-append">
-                            <i class="mdi mdi-clock input-group-text"></i>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
                   <div class="col-md-12">
                     <div class="form-group">
                       <label for="price">Price per Hour</label>
@@ -190,7 +176,7 @@
                 </div>
               </div>
               <div class="modal-footer">
-                <button type="submit" class="btn btn-success" id="btnheq">Add Heavy Equipment</button>
+                <button type="submit" class="btn btn-success" id="btnheq">Save</button>
                 <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
               </div>
             </form>
@@ -238,5 +224,8 @@
       //   'copy', 'csv', 'excel', 'pdf', 'print'
       // ]
     });
+
+    // $('#working_hours').inputmask({"mask": "Jam"});
+
   });
 </script>
