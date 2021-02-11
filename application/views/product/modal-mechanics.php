@@ -83,7 +83,7 @@
                               <input type="text" class="form-control" rows="2" id="action" name="action[]" style="width: 100%;">
                             </div>
                             <div class="col-md-2">
-                              <button type="button" onclick="addAction()" id="btnselect" class="btn btn-info btn-sm icon-btn mb-2" style="width:100% !important"><i class="mdi mdi-plus" style="margin:0"></i></button>
+                              <button type="button" onclick="addActionT()" id="btnselect" class="btn btn-info btn-sm icon-btn mb-2" style="width:100% !important"><i class="mdi mdi-plus" style="margin:0"></i></button>
                             </div>
                           </div>
 
@@ -194,20 +194,20 @@
                   <div class="col-md-12">
                     <div class="form-group">
                       <label for="action">Action</label>
-                      <div id="p_action" data="1">
-                        <div class="p_action1">
+                      <div id="p_action_h" data="1">
+                        <div class="p_action_h1">
 
                           <div class="row" id="selected_action">
                             <div class="col-md-10" >
                               <input type="text" class="form-control" rows="2" id="action" name="action[]" style="width: 100%;">
                             </div>
                             <div class="col-md-2">
-                              <button type="button" onclick="addAction()" id="btnselect" class="btn btn-info btn-sm icon-btn mb-2" style="width:100% !important"><i class="mdi mdi-plus" style="margin:0"></i></button>
+                              <button type="button" onclick="addActionH()" id="btnselect" class="btn btn-info btn-sm icon-btn mb-2" style="width:100% !important"><i class="mdi mdi-plus" style="margin:0"></i></button>
                             </div>
                           </div>
 
                         </div>
-                        <div id="ulang" data="1"></div>
+                        <div id="ulang_h" data="1"></div>
                       </div>
 
                     </div>
