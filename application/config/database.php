@@ -77,13 +77,13 @@ $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
     // DB ONLINE
-    // 'username' => 'xavaxx',
-    // 'password' => 'yudabudipratama',
+    'username' => 'ptmakbda',
+    'password' => 'telp 0222012640',
     
     // DB OFFLINE
-    'username' => 'root',
-	'password' => '',
-	'database' => 'alat_berat',
+    // 'username' => 'root',
+	// 'password' => '',
+	'database' => 'ptmakbda_erp',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
