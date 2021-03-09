@@ -42,6 +42,9 @@
                       <li class="nav-item mb-4"> 
                         <a class="nav-link" id="tab-6-4" data-toggle="tab" href="#work-6-4" role="tab" aria-controls="work-6-4" aria-selected="false">Brand</a>
                       </li>
+                      <li class="nav-item mb-4"> 
+                        <a class="nav-link" id="tab-6-5" data-toggle="tab" href="#unit-tab" role="tab" aria-controls="unit_tab" aria-selected="false">Unit</a>
+                      </li>
                     </ul>
                     <div class="tab-content col-md-10">
 
@@ -55,6 +58,12 @@
                         <?php
                           // Load View Workdays
                           $this->load->view('product/ps-manufacture');
+                        ?>
+                      </div>
+                      <div class="tab-pane fade" id="unit-tab" role="tabpanel" aria-labelledby="tab-6-5">
+                        <?php
+                          // Load View Unit
+                          $this->load->view('product/ps-unit');
                         ?>
                       </div>
                     </div>
@@ -71,6 +80,7 @@
   $this->load->view('template/js');
   $this->load->view('product/js-crud/crud-type');
   $this->load->view('product/js-crud/crud-brand');
+  $this->load->view('product/js-crud/crud-unit');
   require_once(APPPATH."views/component/message.php");
 ?>
 <script type="text/javascript">

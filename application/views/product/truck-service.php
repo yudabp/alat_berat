@@ -117,7 +117,7 @@
         <!-- end repair -->
       </div>
       <div class="modal-footer">
-        <input type="hidden" name="idtruck" id="idtruck">
+        <input type="hidden" name="idtruck" id="idtruck" value="<?= $truck->idtruck ?>">
         <input type="hidden" name="idservice" id="idservice">
         <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
         <button type="submit" class="btn btn-success" id="btnsave">Save</button>

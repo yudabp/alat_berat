@@ -108,6 +108,7 @@ class Hrm extends CI_Controller {
                              ->get_where('employee',['employee.idcompany'=>$this->session->userdata('idcompany')])
                              ->result();
     $data['info'] = $this->db->get_where('company',['idcompany'=>$this->session->userdata('idcompany')])->row();
+    $data['roles'] = $this->db->get_where('role',['idcompany'=>$this->session->userdata('idcompany')])->result();
     $this->load->view('hrm/employee',$data);
   }
 

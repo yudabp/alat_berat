@@ -48,18 +48,19 @@
                           </tr>
                         </thead>
                         <tbody>
+                          <?php 
+                            foreach($truck_services as $truck){
+                          ?>
                           <tr class="text-center">
-                            <td><span class="btn btn-link" onclick="viewItem('coba');">coba</span></td>
-                            <td>coba</td>
-                            <td>coba</td>
-                            <!-- <td><?php echo $spart->reg_date;?></td> -->
-                            <!-- <td><?php echo $spart->stock; ?></td> -->
-                            <!-- <td>-</td> -->
+                            <td><span class="btn btn-link" onclick="viewItem('coba');"><?= $truck->service_date ?></span></td>
+                            <td><?= $truck->service_type ?></td>
+                            <td><?= $truck->driver_note ?></td>
                             <td>
-                              <button class="btn btn-link" onclick="prosesTruck();"><i class="fa fa-wrench"></i></button>
+                              <button class="btn btn-link" onclick="prosesTruck('<?= $truck->idservice ?>');"><i class="fa fa-wrench"></i></button>
                               <!-- <button class="btn btn-link" onclick="delItem('<?php echo $spart->idsparepart; ?>');"><i class="fa fa-trash-o"></i></button> -->
                             </td>
                           </tr>
+                        <?php } ?>
                         </tbody>
                       </table>
                     </div>
@@ -101,26 +102,24 @@
                           <tr class="text-center">
                             <th>Request Date</th>
                             <th>Type of Service</th>
-                            <th>Driver's Note</th>
-                            <!-- <th>Reg. Date</th> -->
-                            <!-- <th>Stock</th> -->
-                            <!-- <th>Status</th> -->
+                            <th>Description</th>
                             <th>Action</th>
                           </tr>
                         </thead>
                         <tbody>
+                          <?php 
+                            foreach($heq_services as $heq){
+                          ?>
                           <tr class="text-center">
-                            <td><span class="btn btn-link" onclick="viewItem('coba');">coba</span></td>
-                            <td>coba</td>
-                            <td>coba</td>
-                            <!-- <td><?php echo $spart->reg_date;?></td> -->
-                            <!-- <td><?php echo $spart->stock; ?></td> -->
-                            <!-- <td>-</td> -->
+                            <td><span class="btn btn-link" onclick="viewItem('coba');"><?= $heq->service_date ?></span></td>
+                            <td><?= $heq->service_type ?></td>
+                            <td><?= $heq->description ?></td>
                             <td>
-                              <button class="btn btn-link" onclick="prosesEquipment();"><i class="fa fa-wrench"></i></button>
+                              <button class="btn btn-link" onclick="prosesEquipment('<?= $heq->idservice ?>');"><i class="fa fa-wrench"></i></button>
                               <!-- <button class="btn btn-link" onclick="delItem('<?php echo $spart->idsparepart; ?>');"><i class="fa fa-trash-o"></i></button> -->
                             </td>
                           </tr>
+                        <?php } ?>
                         </tbody>
                       </table>
                     </div>

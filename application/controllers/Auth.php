@@ -63,6 +63,9 @@ class Auth extends CI_Controller{
     $remember = $this->input->post('remember');
     $inCheck = $this->AuthModel->getuseradm($user);
     $inGet = $inCheck->row();
+    // echo "<pre>";
+    // var_dump($inGet);
+    // exit;
     if($inCheck->num_rows()>0 && password_verify($pass,$inGet->password) && $inGet->suspended=='no'){
       $this->session->set_userdata(array(
 											'status_login'=>TRUE,

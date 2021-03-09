@@ -75,7 +75,7 @@
         </div> -->
       </div>
       <div class="modal-footer">
-        <input type="hidden" name="idhequipment" id="idhequipment">
+        <input type="hidden" name="idhequipment" id="idhequipment" value="<?= $equipment->idhequipment ?>">
         <input type="hidden" name="idservice" id="idservice">
         <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
         <button type="submit" class="btn btn-success" id="btnsave">Save</button>

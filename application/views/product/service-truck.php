@@ -29,7 +29,6 @@
                 <div class="card-body">
                   <div class="card-title row">
                     <div class="col-md-12">
-                      <?php foreach ($trucks as $key => $truck) {?>
                       <div class="row">
                         <div class="col-md-6">
                           <div class="row">
@@ -45,7 +44,7 @@
                           <div class="row">
                             <div class="col-md-5">Brand</div>
                             <div class="col-md-1">:</div>
-                            <div class="col-md-6"><?php echo $truck->brand; ?></div>
+                            <div class="col-md-6"><?php echo $truck->brand_name; ?></div>
                           </div>
                           <div class="row">
                             <div class="col-md-5">Chassis No.</div>
@@ -62,12 +61,12 @@
                           <div class="row">
                             <div class="col-md-5">Driver</div>
                             <div class="col-md-1">:</div>
-                            <div class="col-md-6"><?php echo $truck->driver; ?></div>
+                            <div class="col-md-6"><?php echo $truck->fname." ".$truck->mname." ".$truck->lname; ?></div>
                           </div>
                           <div class="row">
                             <div class="col-md-5">Type</div>
                             <div class="col-md-1">:</div>
-                            <div class="col-md-6"><?php echo $truck->type; ?></div>
+                            <div class="col-md-6"><?php echo $truck->type_name; ?></div>
                           </div>
                           <div class="row">
                             <div class="col-md-5">Machine No.</div>
@@ -76,7 +75,6 @@
                           </div>
                         </div>
                       </div>
-                      <?php } ?>
                       <div class="row text-right">
                         <div class="col-md-12">
                           <button class="btn btn-icons btn-inverse-success" id="buttonModal" data-toggle="modal" data-target="#formService"><i class="fa fa-plus"></i></button>
@@ -97,19 +95,18 @@
                             <!-- <th>Trips</th> -->
                             <th>Status</th>
                             <!-- <th>Status</th> -->
-                            <th>Action</th>
+                            <!-- <th>Action</th> -->
                           </tr>
                         </thead>
                         <tbody>
-                          <?php foreach($trucks as $key => $truck){
-                              $last_service = $this->db->order_by('service_date', 'DESC')->get_where('product_truck_service', ['idtruck'=>$truck->idtruck], 1)->result();
+                          <?php foreach($services as $key => $service){
                            ?>
                           <tr class="text-center">
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td><?= $service->service_date ?></td>
+                            <td><?= $service->service_type ?></td>
+                            <td><?= $service->driver_note ?></td>
+                            <td><strong><?= $service->status ?></strong></td>
+                            <!-- <td></td> -->
                           </tr>
                           <?php } ?>
                         </tbody>
@@ -136,7 +133,7 @@
   $this->load->view('template/footer');
   // $this->load->view('template/fixed-plugin');
   $this->load->view('template/js');
-  $this->load->view("product/js-crud/crud-truck");
+  // $this->load->view("product/js-crud/crud-truck");
   $this->load->view("product/js-crud/crud-truck-service");
 ?>
 

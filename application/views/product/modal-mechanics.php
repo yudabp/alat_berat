@@ -14,13 +14,14 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="truck_name">Truck Name</label>
-                      <input type="text" name="truck_name" id="truck_name" class="form-control form-control-lg" placeholder="Truck Name" disabled="">
+                      <!-- <input type="text" name="truck_name" id="truck_name" class="form-control form-control-lg" placeholder="Truck Name" readonly> -->
+                      <input type="text" name="truck_name" id="truck_name" class="form-control form-control-lg" placeholder="-" disabled="" style="font-size:24px;color:#666;background:transparent;border:none;font-weight: 600;padding-left:0px;">
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="plat_no">Plat No.</label>
-                      <input type="text" name="plat_no" id="plat_no" class="form-control form-control-lg" placeholder="Plat No." disabled="">
+                      <input type="text" name="plat_no" id="plat_no" class="form-control form-control-lg" placeholder="Plat No."  disabled="" style="font-size:24px;color:#666;background:transparent;border:none;font-weight: 600;padding-left:0px;">
                     </div>
                   </div>
                 </div>
@@ -28,13 +29,13 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="chassis_no">Chassis No</label>
-                      <input type="text" name="chassis_no" id="chassis_no" class="form-control form-control-lg" placeholder="Chassis No." disabled="">
+                      <input type="text" name="chassis_no" id="chassis_no" class="form-control form-control-lg" placeholder="Chassis No."  disabled="" style="font-size:24px;color:#666;background:transparent;border:none;font-weight: 600;padding-left:0px;">
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="machine_no">Machine No</label>
-                      <input type="text" name="machine_no" id="machine_no" class="form-control form-control-lg" placeholder="Machine No." disabled="">
+                      <input type="text" name="machine_no" id="machine_no" class="form-control form-control-lg" placeholder="Machine No."  disabled="" style="font-size:24px;color:#666;background:transparent;border:none;font-weight: 600;padding-left:0px;">
                     </div>
                   </div>
                 </div>
@@ -42,22 +43,18 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="service_date">Date</label>
-                      <div class="input-group date datepicker">
-                        <input type="text" id="service_date" name="service_date" class="form-control" disabled="">
-                        <span class="input-group-addon input-group-append border-left">
-                          <span class="mdi mdi-calendar input-group-text"></span>
-                        </span>
-                      </div>
+                      <input type="text" name="service_date" id="service_date" class="form-control form-control-lg" placeholder="Service Date"  disabled="" style="font-size:24px;color:#666;background:transparent;border:none;font-weight: 600;padding-left:0px;">
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="service_type">Type of Service</label>
-                      <select name="service_type" id="type_service" class="select2 single-select form-control services" style="width:100%;" disabled="">
-                        <option disabled="" selected="">-- Type of Service --</option>
+                      <input type="text" name="service_type" id="type_service" class="form-control form-control-lg" placeholder="Service Type"  disabled="" style="font-size:24px;color:#666;background:transparent;border:none;font-weight: 600;padding-left:0px;">
+                      <!-- <select name="service_type" id="type_service" class="select2 single-select form-control services" style="width:100%;" readonly>
+                        <option disabled selected="">-- Type of Service --</option>
                         <option value="Service" selected="">Service</option>
                         <option value="Repair">Repair</option>
-                      </select>
+                      </select> -->
                     </div>
                   </div>
                 </div>
@@ -67,7 +64,7 @@
                   <div class="col-md-12">
                     <div class="form-group">
                       <label for="driver_note">Driver's Note</label>
-                      <textarea name="driver_note" id="driver_note" class="form-control form-control-lg" placeholder="Driver's Note" disabled=""></textarea>
+                      <textarea name="driver_note" id="driver_note" class="form-control form-control-lg" placeholder="Driver's Note" readonly style="border:none;padding-left:0;background-color:white;font-size:20px"></textarea>
                     </div>
                   </div>
                 </div>
@@ -80,7 +77,7 @@
 
                           <div class="row" id="selected_action">
                             <div class="col-md-10" >
-                              <input type="text" class="form-control" rows="2" id="action" name="action[]" style="width: 100%;">
+                              <input type="text" class="form-control" rows="2" id="action_truck" name="action[]" style="width: 100%;">
                             </div>
                             <div class="col-md-2">
                               <button type="button" onclick="addActionT()" id="btnselect" class="btn btn-info btn-sm icon-btn mb-2" style="width:100% !important"><i class="mdi mdi-plus" style="margin:0"></i></button>
@@ -199,7 +196,7 @@
 
                           <div class="row" id="selected_action">
                             <div class="col-md-10" >
-                              <input type="text" class="form-control" rows="2" id="action" name="action[]" style="width: 100%;">
+                              <input type="text" class="form-control" rows="2" id="action_heq" name="action[]" style="width: 100%;">
                             </div>
                             <div class="col-md-2">
                               <button type="button" onclick="addActionH()" id="btnselect" class="btn btn-info btn-sm icon-btn mb-2" style="width:100% !important"><i class="mdi mdi-plus" style="margin:0"></i></button>

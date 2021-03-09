@@ -29,7 +29,7 @@
                 <div class="card-body">
                   <div class="card-title row">
                     <div class="col-md-12">
-                      <?php foreach ($equipments as $key => $equipment) {?>
+                      
                       <div class="row">
                         <div class="col-md-6">
                           <div class="row">
@@ -45,7 +45,7 @@
                           <div class="row">
                             <div class="col-md-5">Brand</div>
                             <div class="col-md-1">:</div>
-                            <div class="col-md-6"><?php echo $equipment->brand; ?></div>
+                            <div class="col-md-6"><?php echo $equipment->brand_name; ?></div>
                           </div>
                           <div class="row">
                             <div class="col-md-5">Chassis No.</div>
@@ -54,20 +54,15 @@
                           </div>
                         </div>
                         <div class="col-md-6">
-                          <!-- <div class="row">
-                            <div class="col-md-5">Plat No.</div>
-                            <div class="col-md-1">:</div>
-                            <div class="col-md-6"><?php echo $equipment->plat_no; ?></div>
-                          </div> -->
                           <div class="row">
                             <div class="col-md-5">Operator</div>
                             <div class="col-md-1">:</div>
-                            <div class="col-md-6"><?php echo $equipment->operator; ?></div>
+                            <div class="col-md-6"><?php echo $equipment->fname." ".$equipment->mname." ".$equipment->lname; ?></div>
                           </div>
                           <div class="row">
                             <div class="col-md-5">Type</div>
                             <div class="col-md-1">:</div>
-                            <div class="col-md-6"><?php echo $equipment->type; ?></div>
+                            <div class="col-md-6"><?php echo $equipment->type_name; ?></div>
                           </div>
                           <div class="row">
                             <div class="col-md-5">Machine No.</div>
@@ -76,7 +71,7 @@
                           </div>
                         </div>
                       </div>
-                      <?php } ?>
+                      
                       <div class="row text-right">
                         <div class="col-md-12">
                           <button class="btn btn-icons btn-inverse-success" id="buttonModal" data-toggle="modal" data-target="#formService"><i class="fa fa-plus"></i></button>
@@ -91,25 +86,21 @@
                           <tr class="text-center">
                             <th>Request Date</th>
                             <th>Type of Service</th>
-                            <th>Driver's Note</th>
-                            <!-- <th>Reg. Date</th> -->
-                            <!-- <th>Last Service</th> -->
-                            <!-- <th>Trips</th> -->
+                            <th>Description</th>
                             <th>Status</th>
-                            <!-- <th>Status</th> -->
-                            <th>Action</th>
+                            <!-- <th>Action</th> -->
                           </tr>
                         </thead>
                         <tbody>
-                          <?php foreach($equipments as $key => $equipment){
-                              // $last_service = $this->db->order_by('service_date', 'DESC')->get_where('product_truck_service', ['idtruck'=>$truck->idtruck], 1)->result();
+                          <?php
+                            foreach($services as $key => $service){
                            ?>
                           <tr class="text-center">
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td><?= $service->service_date ?></td>
+                            <td><?= $service->service_type ?></td>
+                            <td><?= $service->description ?></td>
+                            <td><?= $service->status ?></td>
+                            <!-- <td></td> -->
                           </tr>
                           <?php } ?>
                         </tbody>

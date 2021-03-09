@@ -16,6 +16,7 @@ $(document).ready(function(){
 
 function tambah_truck(){
   //alert('ok');
+  var name = $("#truck_name").val();
   var plat_no = $("#plat_no").val();
   var brand = $("#brand").val();
   var type = $("#type").val();
@@ -39,7 +40,7 @@ function tambah_truck(){
             type: "POST",
             dataType: "JSON",
             data: {
-                plat_no, brand, type, reg_date, driver, chassis_no, machine_no
+                name, plat_no, brand, type, reg_date, driver, chassis_no, machine_no
             }
     });
     $("#formAdd").modal("hide");
@@ -113,6 +114,7 @@ function edtItem(id){
             $("form").attr("data-id", truck.idtruck);
             $("form").attr("id",'update');
 
+            $("#truck_name").val(truck.name);
             $("#plat_no").val(truck.plat_no);
             $("#brand").val(truck.brand);
             $("#type").val(truck.type);
@@ -138,6 +140,7 @@ function edtItem(id){
 
 function update_truck(idtruck){
   //alert('ok');
+  var name = $("#truck_name").val();
   var plat_no = $("#plat_no").val();
   var brand = $("#brand").val();
   var type = $("#type").val();
@@ -163,6 +166,7 @@ function update_truck(idtruck){
             dataType: "JSON",
             data: {
                 idtruck,
+                name,
                 plat_no,
                 brand,
                 type,

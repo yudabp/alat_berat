@@ -579,6 +579,12 @@ $route['p-setting-brand_add'] = "product/brand_adding";
 $route['p-setting-brand_deleting'] = "product/brand_delete";
 $route['p-setting-brand_edit'] = "product/brand_edit";
 $route['p-setting-brand_update'] = "product/brand_update"; 
+
+// setting brand
+$route['p-setting-unit_add'] = "product/unit_adding";
+$route['p-setting-unit_deleting'] = "product/unit_delete";
+$route['p-setting-unit_edit'] = "product/unit_edit";
+$route['p-setting-unit_update'] = "product/unit_update"; 
 //------------- end Product --------------------
 
 //---------------- Services ---------------------

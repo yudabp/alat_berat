@@ -53,9 +53,9 @@
                               $last_service = $this->db->order_by('service_date', 'DESC')->get_where('product_truck_service', ['idtruck'=>$truck->idtruck], 1)->result();
                            ?>
                           <tr class="text-center">
-                            <td><span class="btn btn-link" onclick="viewItem('<?php echo $truck->idtruck; ?>');"><?php echo $truck->plat_no ?></span></td>
+                            <td><span class="btn btn-link" onclick="viewItem('<?php echo $truck->idtruck; ?>');"><?php echo $truck->name ?></span></td>
+                            <td> <?php echo $truck->plat_no ?> </td>
                             <td> <?php echo $truck->type_name ?> </td>
-                            <td> <?php echo $truck->brand_name ?> </td>
                             <td> <?php echo $truck->reg_date ?> </td>
                             <!-- <td>
                               <?php 

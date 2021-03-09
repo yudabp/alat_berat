@@ -75,6 +75,7 @@ class Product extends CI_Controller {
   public function saveTruck(){
     
     // ambil request
+    $name    = $this->input->post('name');
     $plat_no    = $this->input->post('plat_no');
     $brand      = $this->input->post('brand');
     $type       = $this->input->post('type');
@@ -88,6 +89,7 @@ class Product extends CI_Controller {
     $inSave       = $this->InsertModel->indata('product_truck',[
       'idtruck'   => $id,
       'idcompany' => $this->session->userdata('idcompany'),
+      'name'      => $name,
       'plat_no'   => $plat_no,
       'brand'     => $brand,
       'type'      => $type,
@@ -124,6 +126,7 @@ class Product extends CI_Controller {
   }
   public function uptTruck(){
     $idtruck    = $this->input->post('idtruck');
+    $name       = $this->input->post('name');
     $plat_no    = $this->input->post('plat_no');
     $type       = $this->input->post('type');
     $brand      = $this->input->post('brand');
@@ -133,6 +136,7 @@ class Product extends CI_Controller {
     $machine_no = $this->input->post('machine_no');
     
     $inUpt = $this->InsertModel->uptdata('product_truck',[
+      'name'      => $name,
       'plat_no'   => $plat_no,
       'type'      => $type,
       'brand'     => $brand,
@@ -149,7 +153,17 @@ class Product extends CI_Controller {
   public function service_truck()
   {
     $id = $this->uri->segment(2);
-    $data['trucks'] = $this->ShowModel->getDataWHere('product_truck',['idtruck'=>$id])->result();
+    // $data['trucks'] = $this->ShowModel->getDataWHere('product_truck',['idtruck'=>$id])->result();
+    $data['truck'] = $this->db->select('*')
+                             ->join('product_setting_type TYPE','TYPE.idtype = TRUCK.type')
+                             ->join('product_setting_brand BRAND','BRAND.idbrand = TRUCK.brand')
+                             ->join('employee DRIVER','DRIVER.mainid = TRUCK.driver')
+                             ->get_where('product_truck TRUCK',['TRUCK.idcompany'=>$this->session->userdata('idcompany'), 'idtruck'=>$id])
+                             ->row();
+     $data['services'] = $this->ShowModel->getDataWHere('product_truck_service', [
+      'idtruck'=>$id,
+      'idcompany' => $this->session->userdata('idcompany')
+    ])->result();
     $this->load->view('product/service-truck',$data);
   }
   // END SERVICE TRUCK
@@ -196,7 +210,11 @@ class Product extends CI_Controller {
 
   public function edtTruckService(){
     $id   = $this->input->post('id');
-    $data['service'] = $this->ShowModel->getDataWHere('product_truck_service',['idservice'=>$id])->row_array();
+    // $data['service'] = $this->ShowModel->getDataWHere('product_truck_service',['idservice'=>$id])->row_array();
+    $data['service'] = $this->db->select('*')
+                             ->join('product_truck TRUCK','TRUCK.idtruck = SERVICE.idtruck')
+                             ->get_where('product_truck_service SERVICE',['SERVICE.idcompany'=>$this->session->userdata('idcompany'), 'idservice'=>$id])
+                             ->row();
     $data['actions'] = $this->ShowModel->getDataWHere('product_truck_service_actions',['idservice'=>$id])->result();
     echo json_encode($data);
     // echo $data;
@@ -336,7 +354,17 @@ class Product extends CI_Controller {
   public function service_h_equipment()
   {
     $id = $this->uri->segment(2);
-    $data['equipments'] = $this->ShowModel->getDataWHere('product_h_equipment',['idhequipment'=>$id])->result();
+    // $data['equipments'] = $this->ShowModel->getDataWHere('product_h_equipment',['idhequipment'=>$id])->result();
+    $data['equipment'] = $this->db->select('*')
+                             ->join('product_setting_type TYPE','TYPE.idtype = HEQ.type')
+                             ->join('product_setting_brand BRAND','BRAND.idbrand = HEQ.brand')
+                             ->join('employee OPERATOR','OPERATOR.mainid = HEQ.operator')
+                             ->get_where('product_h_equipment HEQ',['HEQ.idcompany'=>$this->session->userdata('idcompany'), 'idhequipment'=>$id])
+                             ->row();
+     $data['services'] = $this->ShowModel->getDataWHere('product_h_equipment_service', [
+      'idhequipment'=>$id,
+      'idcompany' => $this->session->userdata('idcompany')
+    ])->result();
     $this->load->view('product/service-h-equipment',$data);
   }
   // END SERVICE HEAVY EQUIPMENT
@@ -502,7 +530,13 @@ class Product extends CI_Controller {
   {
     // $id = $this->uri->segment(2);
     // $data['trucks'] = $this->ShowModel->getDataWHere('product_truck',['idtruck'=>$id])->result();
-    $this->load->view('product/mechanics');
+    $data['truck_services'] = $this->ShowModel->getDataWHere('product_truck_service', [
+      'idcompany' => $this->session->userdata('idcompany')
+    ])->result();
+    $data['heq_services'] = $this->ShowModel->getDataWHere('product_h_equipment_service', [
+      'idcompany' => $this->session->userdata('idcompany')
+    ])->result();
+    $this->load->view('product/mechanics', $data);
   }
   // END MECHANICS
 
@@ -513,6 +547,9 @@ class Product extends CI_Controller {
       'idcompany' => $this->session->userdata('idcompany')
     ])->result();
     $data['brands'] = $this->ShowModel->getDataWHere('product_setting_brand', [
+      'idcompany' => $this->session->userdata('idcompany')
+    ])->result();
+    $data['units'] = $this->ShowModel->getDataWHere('product_setting_unit', [
       'idcompany' => $this->session->userdata('idcompany')
     ])->result();
     // echo "<pre>";
@@ -606,6 +643,52 @@ class Product extends CI_Controller {
     $idcompany = $this->session->userdata("idcompany");
 
     $this->db->delete("product_setting_brand", ['idbrand' => $idbrand, 'idcompany' => $idcompany]);
+
+    $data= array("callback" => "yes");
+    echo json_encode($data);
+  }
+  // END SETTING BRAND
+
+
+  // SETTING UNIT
+  public function unit_adding(){
+    $idcompany = $this->session->userdata("idcompany");
+    $idunit = $this->uuid->v4();
+    $unit_name = $this->input->post("unit_name");
+
+    $this->db->insert("product_setting_unit", ['idunit' => $idunit, "idcompany" => $idcompany, "unit_name" => $unit_name]);
+
+    $data = array("callback" => "yes");
+    echo json_encode($data);
+  }
+
+  public function unit_edit(){
+    $idunit = $this->input->post("unit_id");
+    $idcompany = $this->session->userdata("idcompany");
+
+    $data = $this->db->get_where("product_setting_unit", ['idunit' => $idunit, "idcompany" => $idcompany])->row_array();
+
+    echo json_encode($data);
+  }
+  
+  public function unit_update(){
+    $idunit = $this->input->post("unit_id");
+    $idcompany = $this->session->userdata("idcompany");
+    $unit_name = $this->input->post("unit_name");
+
+    $this->db->update("product_setting_unit", ['unit_name' => $unit_name], ['idunit' => $idunit, 'idcompany' => $idcompany]);
+
+    $data = array("callback" => "yes");
+    echo json_encode($data);
+  }
+
+  public function unit_delete(){
+    $idunit = $this->input->post("unit_id");
+    // echo $idbrand;
+    // exit;
+    $idcompany = $this->session->userdata("idcompany");
+
+    $this->db->delete("product_setting_unit", ['idunit' => $idunit, 'idcompany' => $idcompany]);
 
     $data= array("callback" => "yes");
     echo json_encode($data);
