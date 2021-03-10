@@ -37,7 +37,7 @@
                       <table id="heavyEquipment" class="table">
                         <thead>
                           <tr class="text-center">
-                            <th>Description</th>
+                            <th>Name</th>
                             <th>Type</th>
                             <th>Brand</th>
                             <th>Reg. Date</th>
@@ -120,8 +120,8 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group">
-                      <label for="description">Description</label>
-                      <input type="text" name="description" id="description" class="form-control form-control-lg" placeholder="Description">
+                      <label for="description">Name</label>
+                      <input type="text" name="description" id="description" class="form-control form-control-lg" placeholder="e.g. Bulldozer">
                     </div>
                   </div>
                   <!-- <div class="col-md-6">

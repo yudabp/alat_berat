@@ -39,6 +39,7 @@
                         <thead>
                           <tr class="text-center">
                             <th>Request Date</th>
+                            <th>Truck Name</th>
                             <th>Type of Service</th>
                             <th>Driver's Note</th>
                             <!-- <th>Reg. Date</th> -->
@@ -53,6 +54,7 @@
                           ?>
                           <tr class="text-center">
                             <td><span class="btn btn-link" onclick="viewItem('coba');"><?= $truck->service_date ?></span></td>
+                            <td><?= $truck->name ?></td>
                             <td><?= $truck->service_type ?></td>
                             <td><?= $truck->driver_note ?></td>
                             <td>
@@ -101,6 +103,7 @@
                         <thead>
                           <tr class="text-center">
                             <th>Request Date</th>
+                            <th>Name</th>
                             <th>Type of Service</th>
                             <th>Description</th>
                             <th>Action</th>
@@ -112,8 +115,9 @@
                           ?>
                           <tr class="text-center">
                             <td><span class="btn btn-link" onclick="viewItem('coba');"><?= $heq->service_date ?></span></td>
-                            <td><?= $heq->service_type ?></td>
                             <td><?= $heq->description ?></td>
+                            <td><?= $heq->service_type ?></td>
+                            <td><?= $heq->heq_desc ?></td>
                             <td>
                               <button class="btn btn-link" onclick="prosesEquipment('<?= $heq->idservice ?>');"><i class="fa fa-wrench"></i></button>
                               <!-- <button class="btn btn-link" onclick="delItem('<?php echo $spart->idsparepart; ?>');"><i class="fa fa-trash-o"></i></button> -->

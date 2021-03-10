@@ -530,12 +530,20 @@ class Product extends CI_Controller {
   {
     // $id = $this->uri->segment(2);
     // $data['trucks'] = $this->ShowModel->getDataWHere('product_truck',['idtruck'=>$id])->result();
-    $data['truck_services'] = $this->ShowModel->getDataWHere('product_truck_service', [
-      'idcompany' => $this->session->userdata('idcompany')
-    ])->result();
-    $data['heq_services'] = $this->ShowModel->getDataWHere('product_h_equipment_service', [
-      'idcompany' => $this->session->userdata('idcompany')
-    ])->result();
+    // $data['truck_services'] = $this->ShowModel->getDataWHere('product_truck_service', [
+    //   'idcompany' => $this->session->userdata('idcompany')
+    // ])->result();
+    $data['truck_services'] = $this->db->select('*')
+                             ->join('product_truck','product_truck.idtruck = product_truck_service.idtruck')
+                             ->get_where('product_truck_service',['product_truck_service.idcompany'=>$this->session->userdata('idcompany')])
+                             ->result();
+    $data['heq_services']   = $this->db->select('*, product_h_equipment_service.description as heq_desc')
+                             ->join('product_h_equipment','product_h_equipment.idhequipment = product_h_equipment_service.idhequipment')
+                             ->get_where('product_h_equipment_service',['product_h_equipment_service.idcompany'=>$this->session->userdata('idcompany')])
+                             ->result();
+    // $data['heq_services'] = $this->ShowModel->getDataWHere('product_h_equipment_service', [
+    //   'idcompany' => $this->session->userdata('idcompany')
+    // ])->result();
     $this->load->view('product/mechanics', $data);
   }
   // END MECHANICS
