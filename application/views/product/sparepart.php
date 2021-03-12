@@ -38,10 +38,10 @@
                         <thead>
                           <tr class="text-center">
                             <th>Sparepart Name</th>
+                            <th>Code</th>
                             <th>Type</th>
                             <th>Brand</th>
                             <th>Reg. Date</th>
-                            <th>Stock</th>
                             <!-- <th>Status</th> -->
                             <th>Action</th>
                           </tr>
@@ -49,11 +49,11 @@
                         <tbody>
                           <?php foreach ($sparts as $key => $spart) { ?>
                           <tr class="text-center">
-                            <td><span class="btn btn-link" onclick="viewItem('<?php echo $spart->idsparepart; ?>');"><?php echo $spart->name ?></span></td>
+                            <td><?php echo $spart->name ?></td>
+                            <td><?php echo $spart->code; ?></td>
                             <td><?php echo $spart->type_name; ?></td>
                             <td><?php echo $spart->brand_name;?></td>
                             <td><?php echo $spart->reg_date;?></td>
-                            <td><?php echo $spart->stock; ?></td>
                             <!-- <td>-</td> -->
                             <td>
                               <button class="btn btn-link" onclick="edtItem('<?php echo $spart->idsparepart; ?>');"><i class="fa fa-pencil"></i></button>
@@ -84,10 +84,16 @@
               <form class="saveSPart form" method="post" action="#" id="tambah" enctype="multipart/form-data">
               <div class="modal-body">
                 <div class="row">
-                  <div class="col-md-12">
+                  <div class="col-md-6">
                     <div class="form-group">
                       <label for="sparepart_name">Sparepart Name</label>
                       <input type="text" name="sparepart_name" id="sparepart_name" class="form-control form-control-lg" placeholder="Sparepart Name">
+                    </div>
+                  </div>
+									<div class="col-md-6">
+                    <div class="form-group">
+                      <label for="sparepart_code">Sparepart Code</label>
+                      <input type="text" name="sparepart_code" id="sparepart_code" class="form-control form-control-lg" placeholder="Sparepart Code">
                     </div>
                   </div>
                 </div>
@@ -129,13 +135,21 @@
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="stock">Stock</label>
-                      <input type="number" name="stock" id="stock" class="form-control form-control-lg" placeholder="Stock">
-                      <!-- <select name="stock" id="stock" class="single-select form-control">
-                        <option disabled="" selected="">-- Select Status --</option>
-                        <option>Available</option>
-                        <option>Not Available</option>
-                      </select> -->
+                      <label for="unit">Unit</label>
+                      <select name="unit" id="unit" class="single-select form-control select2" style="width:100%;">
+                        <option disabled="" selected="">-- Select Unit --</option>
+                        <?php foreach ($units as $key => $unit) { ?>
+                          <option value="<?php echo $unit->idunit?>"><?php echo $unit->unit_name ?></option>
+                        <?php } ?>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+								<div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="price">Price per Unit</label>
+                      <input type="text" name="price" id="price" class="form-control form-control-lg" placeholder="Price per Unit">
                     </div>
                   </div>
                 </div>
@@ -158,7 +172,7 @@
 ?>
 
 <script type="text/javascript">
-  $('#SparePart').DataTable({
+  	$('#SparePart').DataTable({
       "aLengthMenu": [
         [5, 10, 15, -1],
         [5, 10, 15, "All"]
@@ -172,8 +186,8 @@
       // "buttons": [
       //   'copy', 'csv', 'excel', 'pdf', 'print'
       // ]
-    });
-  $(document).ready(function() {
+  	});
+  	$(document).ready(function() {
       $('#buttonModal').click(function() {
           $('html').css('overflow', 'hidden');
           $('body').bind('touchmove', function(e) {
@@ -193,5 +207,9 @@
           $('body').unbind('touchmove');
       });
       $("#phone_no").inputmask({"mask": "(+62)8##-####-####"});
-    });
+			$('#price').inputmask({
+				alias: 'currency',
+				prefix: 'Rp. ',
+			});
+  	});
 </script>

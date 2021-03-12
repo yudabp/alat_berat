@@ -17,10 +17,12 @@ $(document).ready(function(){
 function tambah_spart(){
   //alert('ok');
   var sparepart_name = $("#sparepart_name").val();
+  var sparepart_code = $("#sparepart_code").val();
   var type = $("#type").val();
   var brand = $("#brand").val();
   var reg_date = $("#reg_date").val();
-  var stock = $("#stock").val();
+  var unit = $("#unit").val();
+  var price = $("#price").inputmask('unmaskedvalue');
 
   if(sparepart_name == "" ){
       swal({
@@ -38,7 +40,7 @@ function tambah_spart(){
             type: "POST",
             dataType: "JSON",
             data: {
-                sparepart_name, type, brand, reg_date, stock
+                sparepart_name, sparepart_code, type, brand, reg_date, unit, price
             }
     });
     $("#formAdd").modal("hide");
@@ -109,10 +111,12 @@ function edtItem(idsparepart){
             $("form").attr("id",'update');
 
             $("#sparepart_name").val(data.name);
+            $("#sparepart_code").val(data.code);
             $("#brand").val(data.brand);
             $("#type").val(data.type);
             $("#reg_date").val(data.reg_date);
-            $("#stock").val(data.stock);
+            $("#unit").val(data.unit);
+            $("#price").val(data.price);
 
             $('.select2').select2().trigger('change');
             $("#btnspart").text("Update Sparepart");
@@ -132,10 +136,12 @@ function edtItem(idsparepart){
 function update_spart(idsparepart){
   //alert('ok');
   var sparepart_name = $("#sparepart_name").val();
+  var sparepart_code = $("#sparepart_code").val();
   var type = $("#type").val();
   var brand = $("#brand").val();
   var reg_date = $("#reg_date").val();
-  var stock = $("#stock").val();
+  var unit = $("#unit").val();
+  var price = $("#price").inputmask('unmaskedvalue');
 
   if(sparepart_name == ""){
       swal({
@@ -153,7 +159,7 @@ function update_spart(idsparepart){
             type: "POST",
             dataType: "JSON",
             data: {
-                idsparepart, sparepart_name, type, brand, reg_date, stock
+                idsparepart, sparepart_name, sparepart_code, type, brand, reg_date, unit, price
             }
     });
     $("#formAdd").modal("hide");

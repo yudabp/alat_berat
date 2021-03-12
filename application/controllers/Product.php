@@ -461,9 +461,13 @@ class Product extends CI_Controller {
     $data['brands'] = $this->ShowModel->getDataWHere('product_setting_brand', [
       'idcompany' => $this->session->userdata('idcompany')
     ])->result();
+		$data['units'] = $this->ShowModel->getDataWHere('product_setting_unit', [
+      'idcompany' => $this->session->userdata('idcompany')
+    ])->result();
     $data['sparts'] = $this->db->select('*')
                              ->join('product_setting_type TYPE','TYPE.idtype = SP.type')
                              ->join('product_setting_brand BRAND','BRAND.idbrand = SP.brand')
+                             ->join('product_setting_unit UNIT','UNIT.idunit = SP.unit')
                              ->get_where('product_sparepart SP',['SP.idcompany'=>$this->session->userdata('idcompany')])
                              ->result();
     $this->load->view('product/sparepart', $data);
@@ -473,21 +477,25 @@ class Product extends CI_Controller {
     
     // ambil request
     $name    = $this->input->post('sparepart_name');
+    $code    = $this->input->post('sparepart_code');
     $type    = $this->input->post('type');
     $brand    = $this->input->post('brand');
     $reg_date    = $this->input->post('reg_date');
-    $stock    = $this->input->post('stock');
+    $unit    = $this->input->post('unit');
+    $price    = $this->input->post('price');
 
      // simpan ke database
     $id           = $this->uuid->v4();
     $inSave       = $this->InsertModel->indata('product_sparepart',[
       'idsparepart'   => $id,
-      'idcompany' => $this->session->userdata('idcompany'),
-      'name'   => $name,
-      'brand'     => $brand,
-      'type'      => $type,
-      'reg_date'  => $reg_date,
-      'stock'    => $stock
+      'idcompany' 		=> $this->session->userdata('idcompany'),
+      'name'   				=> $name,
+      'code'   				=> $code,
+      'brand'     		=> $brand,
+      'type'      		=> $type,
+      'reg_date'  		=> $reg_date,
+      'unit'    			=> $unit,
+			'price'					=> $price
     ]);
   }
   public function delSPart(){
@@ -509,17 +517,21 @@ class Product extends CI_Controller {
   public function uptSPart(){
     $idsparepart    = $this->input->post('idsparepart');
     $name    = $this->input->post('sparepart_name');
+    $code    = $this->input->post('sparepart_code');
     $type       = $this->input->post('type');
     $brand      = $this->input->post('brand');
     $reg_date   = $this->input->post('reg_date');
-    $stock     = $this->input->post('stock');
+    $unit     = $this->input->post('unit');
+    $price     = $this->input->post('price');
     
     $inUpt = $this->InsertModel->uptdata('product_sparepart',[
       'name'   => $name,
+      'code'   => $code,
       'brand'     => $brand,
       'type'      => $type,
       'reg_date'  => $reg_date,
-      'stock'    => $stock
+      'unit'    => $unit,
+      'price'    => $price
 
     ],['idsparepart'=>$idsparepart]);
   }
