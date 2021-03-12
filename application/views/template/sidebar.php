@@ -215,7 +215,8 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#service_sparepart" aria-expanded="false" aria-controls="service_sparepart">
-              <i class="menu-icon icon-layers"></i>
+              <!-- <i class="menu-icon icon-layers"></i> -->
+              <i class="menu-icon ti-hummer"></i>
               <span class="menu-title">Service & Sparepart</span>
             </a>
             <div class="collapse <?php if($url_1 == "p-setting" ||$url_1 == "sparepart" ||$url_1 == "mechanics" ||$url_1 == "truck" ||$url_1 == "service-truck" ||$url_1 == "service-h-equipment" ||$url_1 == "heavy-equipment" ||$url_1 == "product-overview"){echo "show"; } ?>" id="service_sparepart">
@@ -246,7 +247,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#production" aria-expanded="false" aria-controls="production">
-              <i class="menu-icon ti-package"></i>
+              <i class="menu-icon ti-truck"></i>
               <span class="menu-title">Production</span>
             </a>
             <div class="collapse <?php if($url_1 == "service-overview" ||$url_1 == "services-report" ||$url_1 == "p-truck" ||$url_1 == "equipment-service"){echo "show"; } ?>" id="production">
@@ -271,6 +272,12 @@
                 </li> -->
               </ul>
             </div>
+          </li>
+          <li class="nav-item <?php if ($url_1 == "warehouse") { echo "active"; }?>">
+            <a class="nav-link" href="<?php echo base_url('warehouse')?>">
+              <i class="menu-icon ti-package"></i>
+              <span class="menu-title">Warehouse</span>
+            </a>
           </li>
           <?php if($this->session->userdata('health') == "Yes"){?>
           <!-- <li class="nav-item">

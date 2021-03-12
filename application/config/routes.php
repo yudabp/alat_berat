@@ -1,3 +1,4 @@
+
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 error_reporting(0);
@@ -614,11 +615,18 @@ $route['edtPrice'] = "services/edtPrice";
 $route['uptPrice'] = "services/uptPrice";
 //------------- end Services --------------------
 
+
+//---------------- Warehouse ---------------------
+//warehouse
+$route['warehouse'] = "warehouse/index";
+//------------- End Warehouse --------------------
+
+
 //---------------- Assets ---------------------
 //warehouse
-$route['warehouse'] = "asset/warehouse";
+// $route['warehouse'] = "asset/warehouse";
 //stock
-$route['stock'] = "asset/stock";
+// $route['stock'] = "asset/stock";
 //------------- end Assets --------------------
 
 //---------------- Log User ---------------------
