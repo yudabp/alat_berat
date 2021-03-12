@@ -482,7 +482,7 @@ class Product extends CI_Controller {
     $brand    = $this->input->post('brand');
     $reg_date    = $this->input->post('reg_date');
     $unit    = $this->input->post('unit');
-    $price    = $this->input->post('price');
+    // $price    = $this->input->post('price');
 
      // simpan ke database
     $id           = $this->uuid->v4();
@@ -495,7 +495,7 @@ class Product extends CI_Controller {
       'type'      		=> $type,
       'reg_date'  		=> $reg_date,
       'unit'    			=> $unit,
-			'price'					=> $price
+			// 'price'					=> $price
     ]);
   }
   public function delSPart(){
@@ -522,7 +522,7 @@ class Product extends CI_Controller {
     $brand      = $this->input->post('brand');
     $reg_date   = $this->input->post('reg_date');
     $unit     = $this->input->post('unit');
-    $price     = $this->input->post('price');
+    // $price     = $this->input->post('price');
     
     $inUpt = $this->InsertModel->uptdata('product_sparepart',[
       'name'   => $name,
@@ -531,7 +531,7 @@ class Product extends CI_Controller {
       'type'      => $type,
       'reg_date'  => $reg_date,
       'unit'    => $unit,
-      'price'    => $price
+      // 'price'    => $price
 
     ],['idsparepart'=>$idsparepart]);
   }

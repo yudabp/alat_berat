@@ -22,7 +22,7 @@ function tambah_spart(){
   var brand = $("#brand").val();
   var reg_date = $("#reg_date").val();
   var unit = $("#unit").val();
-  var price = $("#price").inputmask('unmaskedvalue');
+  // var price = $("#price").inputmask('unmaskedvalue');
 
   if(sparepart_name == "" ){
       swal({
@@ -40,7 +40,7 @@ function tambah_spart(){
             type: "POST",
             dataType: "JSON",
             data: {
-                sparepart_name, sparepart_code, type, brand, reg_date, unit, price
+                sparepart_name, sparepart_code, type, brand, reg_date, unit
             }
     });
     $("#formAdd").modal("hide");
@@ -116,7 +116,7 @@ function edtItem(idsparepart){
             $("#type").val(data.type);
             $("#reg_date").val(data.reg_date);
             $("#unit").val(data.unit);
-            $("#price").val(data.price);
+            // $("#price").val(data.price);
 
             $('.select2').select2().trigger('change');
             $("#btnspart").text("Update Sparepart");
@@ -141,7 +141,7 @@ function update_spart(idsparepart){
   var brand = $("#brand").val();
   var reg_date = $("#reg_date").val();
   var unit = $("#unit").val();
-  var price = $("#price").inputmask('unmaskedvalue');
+  // var price = $("#price").inputmask('unmaskedvalue');
 
   if(sparepart_name == ""){
       swal({
@@ -159,7 +159,7 @@ function update_spart(idsparepart){
             type: "POST",
             dataType: "JSON",
             data: {
-                idsparepart, sparepart_name, sparepart_code, type, brand, reg_date, unit, price
+                idsparepart, sparepart_name, sparepart_code, type, brand, reg_date, unit
             }
     });
     $("#formAdd").modal("hide");

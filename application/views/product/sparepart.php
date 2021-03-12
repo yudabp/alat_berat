@@ -145,14 +145,14 @@
                     </div>
                   </div>
                 </div>
-								<div class="row">
+								<!-- <div class="row">
                   <div class="col-md-12">
                     <div class="form-group">
                       <label for="price">Price per Unit</label>
                       <input type="text" name="price" id="price" class="form-control form-control-lg" placeholder="Price per Unit">
                     </div>
                   </div>
-                </div>
+                </div> -->
               </div>
               <div class="modal-footer">
                 <button type="submit" class="btn btn-success" id="btnspart">Save</button>
