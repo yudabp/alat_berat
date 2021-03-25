@@ -39,11 +39,11 @@
                           <tr class="text-center">
                             <th>Delivery Order No.</th>
                             <th>Client</th>
-                            <th>Plat No.</th>
+                            <th>Truck Name</th>
                             <th>Date</th>
                             <!-- <th>Last Service</th> -->
-                            <th>Working Hours</th>
-                            <th>Exact Tonage</th>
+                            <th>Quary</th>
+                            <th>Total Trips</th>
                             <!-- <th>Status</th> -->
                             <th>Action</th>
                           </tr>
@@ -153,6 +153,7 @@
                         <option disabled="" selected="">-- Select Quary --</option>
                         <option value="quary_1">Quary 1</option>
                         <option value="quary_2">Quary 2</option>
+                        <option value="plant_service">Plant Service</option>
                       </select>
                     </div>
                   </div>
