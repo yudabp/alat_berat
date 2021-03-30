@@ -281,7 +281,13 @@ class Hrm extends CI_Controller {
 
   public function detailEmp()
   {
-    $this->load->view('hrm/detail employee');
+		$id = $this->input->get('id');
+    // $id = $this->input->post('id');
+    $data['leave'] = $this->db->select('*')
+							->from('leavereq')
+							->where('mainid', $id)
+		 					->get();
+    $this->load->view('hrm/detail employee', $data);
   }
 
   public function uptEmp(){

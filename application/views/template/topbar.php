@@ -26,7 +26,7 @@
     width: 45px;
   }
   .dropdown-menu {
-    min-width: 6rem;
+    min-width: 3rem;
   }
   .form-control{
     border-color: #E1E1E1;

@@ -35,7 +35,7 @@ function adding(){
                 type: "POST",
                 dataType: "JSON",
                 data: {
-                  employee_name:employee_name,
+                  employee_name :employee_name,
                   from_date :from_date ,
                   to_date :to_date ,
                   reason :reason ,

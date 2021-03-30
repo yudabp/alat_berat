@@ -13,7 +13,7 @@ class Leave extends CI_Controller{
   {
     $idcompany = $this->session->userdata('idcompany');
     $data['view'] = $this->db->get_where('employee',['idcompany'=>$this->session->userdata('idcompany')])->result();
-    $data['req'] = $this->db->query("SELECT *, sum(leavereq.days) as tot FROM `leavereq` JOIN employee on (employee.employeid = leavereq.mainid) where leavereq.idcompany='$idcompany' GROUP BY leavereq.mainid DESC")->result();
+    $data['req'] = $this->db->query("SELECT *, sum(leavereq.days) as tot, leavereq.mainid as mid FROM `leavereq` JOIN employee on (employee.mainid = leavereq.mainid) where leavereq.idcompany='$idcompany' GROUP BY leavereq.mainid")->result();
     $data['info'] = $this->db->get_where('company',['idcompany'=>$this->session->userdata('idcompany')])->row();
     $this->load->view('leave/request',$data);
   }
@@ -50,12 +50,12 @@ class Leave extends CI_Controller{
       }
     }
 
-    $inGet = $this->db->get_where('employee',['employeid'=>$empex[0],'idcompany'=>$this->session->userdata('idcompany')])->row();
+    $inGet = $this->db->get_where('employee',['mainid'=>$empex[0],'idcompany'=>$this->session->userdata('idcompany')])->row();
 
     $inCheck = $this->db->get_where('leavereq',['mainid'=>$inGet->mainid])->num_rows();
     if($inCheck > 0){
-      $inGet = $this->db->query("select sum(days) as total from leavereq where mainid='$inGet->mainid'")->row();
-      $asd = $inGet->total;
+      $toGet = $this->db->query("select sum(days) as total from leavereq where mainid='$inGet->mainid'")->row();
+      $asd = $toGet->total;
     }else {
       $asd = 0;
     }
@@ -63,8 +63,12 @@ class Leave extends CI_Controller{
 
     $left = $inGet->available - $asd;
 
+		// echo $asd;
+		// echo $qwe;
+		// echo $left;
+		// echo $inGet->available;
     if($left != 0){
-      if($days<12 && $qwe < 12 && $days <= $inGet->available){
+      if($days<=12 && $qwe <= 12 && $days <= $inGet->available){
         //$this->db->where(['mainid'=>$inGet->mainid,'idcompany'=>$this->session->userdata('idcompany')])
           //      ->update('employee',['available'=>$left]);
         $data = $this->InsertModel->indata('leavereq',[

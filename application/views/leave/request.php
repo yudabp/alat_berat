@@ -68,7 +68,7 @@
                                 <div class="dropdown-menu">
                                   <!--<button class="btn btn-link" onclick="edtItem('<?php echo $value->idann; ?>');"><i class="fa fa-pencil"></i></button>-->
                                   <!-- <button class="btn btn-link" onclick="delItem('<?php echo $value->employeid; ?>');"><i class="fa fa-trash-o"></i></button> -->
-                                  <button class="btn btn-link" onclick="viewItem('<?php  echo $value->employeid; ?>');"><i class="fa fa-list-alt"></i></button>
+                                  <button class="btn btn-link" onclick="viewItem('<?php  echo $value->mid; ?>');"><i class="fa fa-list-alt"></i></button>
                                 </div>
                               </div>
                             </td>
@@ -100,12 +100,12 @@
                     <div class="form-group">
                       <label for="employee_name">Employee Name</label>
                       <!-- <input type="text" list="browsers" name="employee_name" id="employee_name" class="form-control form-control-lg" placeholder="Employee Name"> -->
-                      <select class="form-control form-control-lg select2" style="width:100%">
+                      <select class="form-control form-control-lg select2" style="width:100%" name="employee_name" id="employee_name">
                         <?php foreach ($view as $vemp) {
                           $sql = $this->db->query("select sum(days) as tal from leavereq")->row();
                           if($sql->tal <=12 ){
                           ?>
-                        <option value="<?php echo $vemp->employeid." - ".$vemp->fname." ".$vemp->mname." ".$vemp->lname; ?>"><?php echo $vemp->employeid." - ".$vemp->fname." ".$vemp->mname." ".$vemp->lname; ?></option>
+                        <option value="<?php echo $vemp->mainid." - ".$vemp->fname." ".$vemp->mname." ".$vemp->lname; ?>"><?php echo $vemp->employeid." - ".$vemp->fname." ".$vemp->mname." ".$vemp->lname; ?></option>
                       <?php } }?>
                       </select>
                     </div>

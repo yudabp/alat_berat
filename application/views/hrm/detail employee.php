@@ -104,9 +104,9 @@
                           <li class="nav-item">
                             <a class="nav-link" id="depersonal-tab" data-toggle="tab" href="#depersonal" role="tab">Leave</a>
                           </li>
-                          <li class="nav-item">
+                          <!-- <li class="nav-item">
                             <a class="nav-link" id="depayroll-tab" data-toggle="tab" href="#depayroll" role="tab">Payroll</a>
-                          </li>
+                          </li> -->
                         </ul>
                         <div class="tab-content tab-content-basic">
                           <div class="tab-pane fade show active" id="debasic" role="tabpanel">
@@ -389,7 +389,7 @@
                                   <!-- <button type="submit" class="col-sm-3 btn btn-success">Update Job Information</button> -->
                                 </div>
                                 <div class="table-responsive mb-5">
-                                  <table class="table table-bordered">
+                                  <table class="table table-bordered" id="table-leave">
                                     <thead>
                                       <tr>
                                         <th>
@@ -404,13 +404,26 @@
                                         <th>
                                           Request
                                         </th>
-                                        <th>
+                                        <!-- <th>
                                           Status
-                                        </th>
+                                        </th> -->
                                       </tr>
                                     </thead>
                                     <tbody>
-                                      
+																		<?php
+																			// $leave = $this->db->select('*')
+																			// ->from('leavereq')
+																			// ->where('mainid', $id)
+																			// ->get();
+																			foreach ($leave->result() as $key => $value) { ?>
+																				<tr>
+																					<td style="width: 30%;"><?php echo $value->fromdate; ?> to <?php echo $value->todate; ?></td>
+																					<td style="width: 40%;"><?php echo $value->leavereson; ?></td>
+																					<td style="width: 30%;"><?php echo $value->days; ?> days</td>
+																				</tr>
+																		<?php	
+																			}
+																		?>
                                     </tbody>
                                   </table>
                                 </div>
@@ -660,6 +673,8 @@
         return null;
       }
     }
+
+		$('#table-leave').DataTable();
 
     function viewItem(){
     var id = getUrlVars("id");
