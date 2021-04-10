@@ -83,7 +83,7 @@ $db['default'] = array(
 
     // DB OFFLINE
     'username' => 'root',
-	'password' => '19990903',
+	'password' => '090399',
 	'database' => 'alat_berat',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',

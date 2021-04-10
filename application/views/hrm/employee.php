@@ -862,6 +862,24 @@ if ($(".datepicker").length) {
         $("#phone").inputmask({"mask": "(+62)####-#####"});
         $("#work_phone").inputmask({"mask": "(+62)8##-####-####"});
         $("#hand_phone").inputmask({"mask": "(+62)8##-####-####"});
+
+				$("#state").change(function(){
+            _this = $(this);
+            $.ajax({
+                url: '<?php echo base_url(); ?>getKab',
+								// type: 'POST',
+                dataType: 'JSON',
+                data: {provinsi_id:_this.val()},
+                success: function (data) {
+                    $("#city").html("");
+                    var options = "";
+                    for (let key in data) {
+                        options += `<option value="${data[key].id}">${data[key].name}</option>`;
+                    }
+                    $("#city").html(options);
+                }
+            });
+        });
     });
 
 </script>

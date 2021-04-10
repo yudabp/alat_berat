@@ -110,6 +110,8 @@ $route['edtEmp'] = "hrm/edtEmp";
 $route['uptEmp'] = "hrm/uptEmp";
 $route['detail-employee'] = "hrm/detailEmp";
 $route['detail-staff'] = "hrm/detailEmp";
+$route['viewEmp'] = "hrm/viewEmp";
+$route['getKab'] = "hrm/getKab";
 //Department
 $route['departments'] = "hrm/department";
 $route['saveDep'] = "hrm/saveDep";
@@ -430,24 +432,10 @@ $route['print-job-order/'.$data[2]] = "pdf_control/job_order";
 $route['patients-overview'] = "patient/overview";
 //case
 $route['cases'] = "patient/cases";
-$route['saveemployee'] = "hrm/saveemployee";
-$route['delEmp/'.$data[2]] = "hrm/delEmp";
-$route['edtEmp'] = "hrm/edtEmp";
-$route['uptEmp'] = "hrm/uptEmp";
-$route['viewEmp'] = "hrm/viewEmp";
 //admission
 $route['patient-admissions'] = "patient/admissions";
-$route['saveDep'] = "hrm/saveDep";
-$route['delDep'] = "hrm/delDep";
-$route['edtDep'] = "hrm/edtDep";
-$route['uptDep'] = "hrm/uptDep";
-$route['showSubDep'] = "hrm/showSubDep";
 //designation
 $route['case-handlers'] = "patient/case_handlers";
-$route['saveDes'] = "hrm/saveDes";
-$route['delDes/'.$data[2]] = "hrm/delDes";
-$route['edtDes'] = "hrm/edtDes";
-$route['uptDes'] = "hrm/uptDes";
 //------------- end Patients --------------------
 
 //---------------- Doctors ---------------------
@@ -455,24 +443,10 @@ $route['uptDes'] = "hrm/uptDes";
 $route['doctors-overview'] = "doctor/overview";
 //case
 $route['doctor-departments'] = "doctor/department";
-$route['saveemployee'] = "hrm/saveemployee";
-$route['delEmp/'.$data[2]] = "hrm/delEmp";
-$route['edtEmp'] = "hrm/edtEmp";
-$route['uptEmp'] = "hrm/uptEmp";
-$route['viewEmp'] = "hrm/viewEmp";
 //schedule
 $route['schedules'] = "doctor/schedule";
-$route['saveDep'] = "hrm/saveDep";
-$route['delDep'] = "hrm/delDep";
-$route['edtDep'] = "hrm/edtDep";
-$route['uptDep'] = "hrm/uptDep";
-$route['showSubDep'] = "hrm/showSubDep";
 //designation
 $route['prescriptions'] = "doctor/prescription";
-$route['saveDes'] = "hrm/saveDes";
-$route['delDes/'.$data[2]] = "hrm/delDes";
-$route['edtDes'] = "hrm/edtDes";
-$route['uptDes'] = "hrm/uptDes";
 //------------- end Doctors --------------------
 
 //-------------- Nurse ------------------------
@@ -490,24 +464,10 @@ $route['medicine-brands'] = "medicine/brand";
 $route['beds-overview'] = "bed/overview";
 //case
 $route['bed-list'] = "bed/bed_list";
-$route['saveemployee'] = "hrm/saveemployee";
-$route['delEmp/'.$data[2]] = "hrm/delEmp";
-$route['edtEmp'] = "hrm/edtEmp";
-$route['uptEmp'] = "hrm/uptEmp";
-$route['viewEmp'] = "hrm/viewEmp";
 //assign
 $route['bed-assigns'] = "bed/assign";
-$route['saveDep'] = "hrm/saveDep";
-$route['delDep'] = "hrm/delDep";
-$route['edtDep'] = "hrm/edtDep";
-$route['uptDep'] = "hrm/uptDep";
-$route['showSubDep'] = "hrm/showSubDep";
 //designation
 $route['designations'] = "hrm/designation";
-$route['saveDes'] = "hrm/saveDes";
-$route['delDes/'.$data[2]] = "hrm/delDes";
-$route['edtDes'] = "hrm/edtDes";
-$route['uptDes'] = "hrm/uptDes";
 //------------- end Beds --------------------
 
 //---------------- Activity ---------------------
@@ -515,18 +475,8 @@ $route['uptDes'] = "hrm/uptDes";
 $route['birth'] = "activity/birth";
 //death
 $route['death'] = "activity/death";
-$route['saveemployee'] = "hrm/saveemployee";
-$route['delEmp/'.$data[2]] = "hrm/delEmp";
-$route['edtEmp'] = "hrm/edtEmp";
-$route['uptEmp'] = "hrm/uptEmp";
-$route['viewEmp'] = "hrm/viewEmp";
 //operation
 $route['operation'] = "activity/operation";
-$route['saveDep'] = "hrm/saveDep";
-$route['delDep'] = "hrm/delDep";
-$route['edtDep'] = "hrm/edtDep";
-$route['uptDep'] = "hrm/uptDep";
-$route['showSubDep'] = "hrm/showSubDep";
 //------------- end Activity --------------------
 
 //---------------- Product ---------------------

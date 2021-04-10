@@ -1,4 +1,7 @@
 <?php
+
+use PhpParser\Node\Expr\PostInc;
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Hrm extends CI_Controller {
@@ -20,94 +23,98 @@ class Hrm extends CI_Controller {
     $data['birthdays'] = $this->db->select("fname, mname, lname, str_to_date(birth, '%d/%m/%Y') as birthday")->from('employee')->where(['idcompany'=>$this->session->userdata('idcompany')])->where('month(str_to_date(birth, "%d/%m/%Y")) = month(NOW())')->get()->result();
     $data['leavesThisMonth'] = $this->db->query("SELECT * FROM `leavereq` JOIN employee on (employee.employeid = leavereq.mainid) LEFT JOIN department on (department.iddepartment=employee.department) where leavereq.idcompany='".$this->session->userdata('idcompany')."' and month(str_to_date(fromdate, '%d/%m/%Y'))=month(now()) GROUP BY leavereq.mainid")->result();
     $data['leavesNextMonth'] = $this->db->query("SELECT * FROM `leavereq` JOIN employee on (employee.employeid = leavereq.mainid) LEFT JOIN department on (department.iddepartment=employee.department) where leavereq.idcompany='".$this->session->userdata('idcompany')."' and month(str_to_date(fromdate, '%d/%m/%Y'))=month(now() + INTERVAL 1 MONTH) GROUP BY leavereq.mainid")->result();
+		// var_dump($data);
+		// print_r($data);
     // var_dump($this->db->last_query());
     // echo "<pre>";
     // var_dump($this->session->userdata());
     // exit;
     $this->load->view('hrm/overview',$data);
   }
-
+	
   //department
   public function department()
   {
-    $data['view'] = $this->ShowModel->getDataWHere('department',['idcompany'=>$this->session->userdata('idcompany')])->result();
+		$data['view'] = $this->ShowModel->getDataWHere('department',['idcompany'=>$this->session->userdata('idcompany')])->result();
     // $data['view'] = $this->ShowModel->getDataWHere('department',['departmentstatus'=>'0','idcompany'=>$this->session->userdata('idcompany')])->result();
     $data['employe'] = $this->db->get_where('employee',['idcompany'=>$this->session->userdata('idcompany')])->result();
     $data['info'] = $this->db->get_where('company',['idcompany'=>$this->session->userdata('idcompany')])->row();
     $this->load->view('hrm/department',$data);
   }
   public function saveDep(){
-    $id = $this->uuid->v4();
+		$id = $this->uuid->v4();
     $department_title = $this->input->post('department_title');
     $description = $this->input->post('description');
     $department_lead = $this->input->post('department_lead');
     $parent_department = $this->input->post('parent_department');
     if($parent_department==""){
-      $depstatus = "0";
+			$depstatus = "0";
     }else{
-      $depstatus ="1";
+			$depstatus ="1";
     }
     $inSave = $this->InsertModel->indata('department',[
-      'iddepartment' =>$id,
+			'iddepartment' =>$id,
       'idcompany' =>$this->session->userdata('idcompany'),
       'departmenttitle' =>$department_title,
       'departmentdesc'=>$description,
       'departmentlead' =>$department_lead,
       'parentdepartment' =>$parent_department,
       'departmentstatus'=>$depstatus
-    ]);
-  }
-  public function delDep(){
-    $id = $this->input->post('id');
-    $inGet = $this->db->get_where('department',['iddepartment'=>$id])->row();
-    if($inGet->departmentstatus == 0){
-        $this->DeleteModel->delItem('department',['parentdepartment'=>$inGet->departmenttitle,'idcompany'=>$this->session->userdata('idcompany')]);
-    }
-    $this->DeleteModel->delItem('department',['iddepartment'=>$id]);
-    $this->session->set_flashdata('suc','Data has been deleted');
-  }
-  public function edtDep(){
-    $id = $this->input->post('id');
-    $data = $this->ShowModel->getDataWHere('department',['iddepartment'=>$id])->row_array();
-    echo json_encode($data);
-  }
-  public function showSubDep(){
-    $id = $this->input->post('id');
-    $data = $this->ShowModel->getDataWHere('department',['parentdepartment'=>$id,'idcompany'=>$this->session->userdata('idcompany')])->result();
-    echo json_encode($data);
-  }
-  public function uptDep(){
-    $id_dep = $this->input->post('id_dep');
-    $department_title = $this->input->post('department_title');
-    $description = $this->input->post('description');
-    $department_lead = $this->input->post('department_lead');
-    $parent_department = $this->input->post('parent_department');
-    $inUpt = $this->InsertModel->uptdata('department',[
-      'departmenttitle' =>$department_title,
-      'departmentdesc'=>$description,
-      'departmentlead' =>$department_lead,
-      'parentdepartment' =>$parent_department
-    ],['iddepartment'=>$id_dep]);
-  }
-
-  //employee
-  public function employee()
-  {
-    $data['viewdep'] = $this->ShowModel->getDataWHere('department',['departmentstatus'=>'0','idcompany'=>$this->session->userdata('idcompany')])->result();
-    $data['viewdes'] = $this->ShowModel->getDataWHere('designation',['idcompany'=>$this->session->userdata('idcompany')])->result();
-    $data['viewloc'] = $this->ShowModel->getDataWHere('branch_office',['idcompany'=>$this->session->userdata('idcompany')])->result();
-    $data['viewlead'] = $this->ShowModel->getDataWHere('department',['departmentstatus'=>'1','idcompany'=>$this->session->userdata('idcompany')])->result();
-    $data['view'] = $this->db->select('*')
-                             ->join('department','department.iddepartment = employee.department')
-                             ->join('designation','designation.iddesignation = employee.jobtitle')
-                             ->join('employee_access','employee_access.mainid = employee.mainid')
-                             ->get_where('employee',['employee.idcompany'=>$this->session->userdata('idcompany')])
-                             ->result();
-    $data['view'] = $this->db->select('*')
-                             ->join('employee_access','employee_access.mainid = employee.mainid')
-                             ->get_where('employee',['employee.idcompany'=>$this->session->userdata('idcompany')])
-                             ->result();
-    $data['info'] = $this->db->get_where('company',['idcompany'=>$this->session->userdata('idcompany')])->row();
+			]);
+		}
+		public function delDep(){
+			$id = $this->input->post('id');
+			$inGet = $this->db->get_where('department',['iddepartment'=>$id])->row();
+			if($inGet->departmentstatus == 0){
+				$this->DeleteModel->delItem('department',['parentdepartment'=>$inGet->departmenttitle,'idcompany'=>$this->session->userdata('idcompany')]);
+			}
+			$this->DeleteModel->delItem('department',['iddepartment'=>$id]);
+			$this->session->set_flashdata('suc','Data has been deleted');
+		}
+		public function edtDep(){
+			$id = $this->input->post('id');
+			$data = $this->ShowModel->getDataWHere('department',['iddepartment'=>$id])->row_array();
+			echo json_encode($data);
+		}
+		public function showSubDep(){
+			$id = $this->input->post('id');
+			$data = $this->ShowModel->getDataWHere('department',['parentdepartment'=>$id,'idcompany'=>$this->session->userdata('idcompany')])->result();
+			echo json_encode($data);
+		}
+		public function uptDep(){
+			$id_dep = $this->input->post('id_dep');
+			$department_title = $this->input->post('department_title');
+			$description = $this->input->post('description');
+			$department_lead = $this->input->post('department_lead');
+			$parent_department = $this->input->post('parent_department');
+			$inUpt = $this->InsertModel->uptdata('department',[
+				'departmenttitle' =>$department_title,
+				'departmentdesc'=>$description,
+				'departmentlead' =>$department_lead,
+				'parentdepartment' =>$parent_department
+			],['iddepartment'=>$id_dep]);
+		}
+		
+		//employee
+		public function employee()
+		{
+			$get_url = file_get_contents('http://api.literasia.co.id/static/api/provinces.json');
+			$data['provinsi'] = json_decode($get_url);
+			$data['viewdep'] = $this->ShowModel->getDataWHere('department',['departmentstatus'=>'0','idcompany'=>$this->session->userdata('idcompany')])->result();
+			$data['viewdes'] = $this->ShowModel->getDataWHere('designation',['idcompany'=>$this->session->userdata('idcompany')])->result();
+			$data['viewloc'] = $this->ShowModel->getDataWHere('branch_office',['idcompany'=>$this->session->userdata('idcompany')])->result();
+			$data['viewlead'] = $this->ShowModel->getDataWHere('department',['departmentstatus'=>'1','idcompany'=>$this->session->userdata('idcompany')])->result();
+			$data['view'] = $this->db->select('*')
+			->join('department','department.iddepartment = employee.department')
+			->join('designation','designation.iddesignation = employee.jobtitle')
+			->join('employee_access','employee_access.mainid = employee.mainid')
+			->get_where('employee',['employee.idcompany'=>$this->session->userdata('idcompany')])
+			->result();
+			$data['view'] = $this->db->select('*')
+			->join('employee_access','employee_access.mainid = employee.mainid')
+			->get_where('employee',['employee.idcompany'=>$this->session->userdata('idcompany')])
+			->result();
+			$data['info'] = $this->db->get_where('company',['idcompany'=>$this->session->userdata('idcompany')])->row();
     $data['roles'] = $this->db->get_where('role',['idcompany'=>$this->session->userdata('idcompany')])->result();
     $this->load->view('hrm/employee',$data);
   }
@@ -146,6 +153,7 @@ class Hrm extends CI_Controller {
     $username = $this->input->post('username');
     $password = $this->input->post('password');
     $allow = $this->input->post('allow');
+		$role = $this->input->post('role');
     $avai = explode('/',$date_of_hire);
     $ava = 12 - $avai[1];
 
@@ -231,7 +239,11 @@ class Hrm extends CI_Controller {
         'password' => password_hash($password,PASSWORD_DEFAULT)
       ]);
 
-      if($inEnter==TRUE && $inSave){
+			$inRole = $this->db->insert('employee_role',[
+				'mainid'=>$mainid,
+				'role_id'=>$role
+			]);
+      if($inEnter==TRUE && $inSave && $inRole){
         $this->session->set_flashdata('suc','Data has been added');
         redirect('employees');
       }else{
@@ -252,8 +264,10 @@ class Hrm extends CI_Controller {
       }
     }
     $inDel = $this->DeleteModel->delItem('employee',['mainid'=>$id]);
-    $inDell = $this->DeleteModel->delItem('employee_access',['mainid'=>$id]);
-    if($inDel && $inDell){
+    $inDelAccess = $this->DeleteModel->delItem('employee_access',['mainid'=>$id]);
+    $inDelLeave = $this->DeleteModel->delItem('leavereq',['mainid'=>$id]);
+    $inDelRole = $this->DeleteModel->delItem('employee_role',['mainid'=>$id]);
+    if($inDel && $inDelAccess && $inDelLeave && $inDelRole){
       $this->session->set_flashdata('suc','Data has been deleted');
       redirect('employees');
     }
@@ -263,6 +277,7 @@ class Hrm extends CI_Controller {
     $id = $this->input->post('id');
     //$data = $this->ShowModel->getDataWHere('employee',['mainid'=>$id])->row_array();
     $data = $this->db->join('employee_access','employee_access.mainid = employee.mainid')
+														->join('employee_role','employee_role.mainid = employee.mainid')
                             ->get_where('employee',['employee.mainid'=>$id])
                             ->row_array();
     echo json_encode($data);
@@ -271,10 +286,18 @@ class Hrm extends CI_Controller {
   public function viewEmp(){
     // $id = $this->input->get('id');
     $id = $this->input->post('id');
-    $data = $this->db->join('department','department.iddepartment = employee.department')
+    $data['data'] = $this->db->join('department','department.iddepartment = employee.department')
+														->join('employee_role','employee_role.mainid = employee.mainid')
                             ->join('designation','designation.iddesignation = employee.jobtitle')
                             ->get_where('employee',['employee.mainid'=>$id])
                             ->row_array();
+		$prov_id = $data['data']['state'];
+		$city_id = $data['data']['city'];
+		$get_prov = file_get_contents("http://api.literasia.co.id/static/api/province/".$prov_id.".json");
+		$get_city = file_get_contents("http://api.literasia.co.id/static/api/regency/".$city_id.".json");
+		$data['provinsi'] = json_decode($get_prov);
+		$data['city'] = json_decode($get_city);
+		// print_r($data['provinsi']);
     echo json_encode($data);
     // $this->load->view('hrm/detail employee');
   }
@@ -282,6 +305,7 @@ class Hrm extends CI_Controller {
   public function detailEmp()
   {
 		$id = $this->input->get('id');
+    $data['roles'] = $this->db->get_where('role',['idcompany'=>$this->session->userdata('idcompany')])->result();
     // $id = $this->input->post('id');
     $data['leave'] = $this->db->select('*')
 							->from('leavereq')
@@ -586,7 +610,12 @@ class Hrm extends CI_Controller {
     $this->load->view('hrm/report',$data);
   }
 
-
+	public function getKab(){
+		$provinsi_id = $this->input->get('provinsi_id');
+		$get_url = file_get_contents('http://api.literasia.co.id/static/api/regencies/'.$provinsi_id.'.json');
+		print_r($get_url);
+		json_decode($get_url);
+	}
 
 }
 ?>
