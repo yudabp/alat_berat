@@ -7,6 +7,14 @@
   a:hover{
     text-decoration: none;
   }
+  #employee-status{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: none;
+    background: none;
+    font-size: inherit;
+    font-weight: 600;
+  }
 </style>
       <!-- partial -->
       <div class="main-panel">
@@ -244,27 +252,25 @@
                             <!-- <div class="card"> -->
                               <!-- <div class="card-body"> -->
                                 <h2 style="font-size: 18px;">Employee Main Status</h2>
-                                <form class="forms-sample mb-4">
-                                  <div class="form-group row">
-                                    <label for="employeestatus" class="col-sm-1 col-form-label">Status</label>
-                                    <div class="col-sm-3">
-                                      <select name="employee-status" id="employee-status" class="single-select form-control" >
-                                        <option selected="selected" disabled="disabled"> - Select Status - </option>
-                                        <option value="active">Active</option>
-                                        <option value="terminate">Terminated</option>
-                                        <option value="deceased">Deceased</option>
-                                        <option value="resigned">Resigned</option>
-                                      </select>
-                                    </div>
-                                    <div class="col-sm-2">
-                                      <button type="submit" class="btn btn-success btn-block mr-2">Update</button>
-                                    </div>
-                                  </div>
+                                <form class="forms-sample mb-4" action="post">
                                   <!-- <button class="btn btn-light">Cancel</button> -->
                                 </form>
                                 <div class="row mb-2 mr-0">
-                                  <h2 class="col-sm-8" style="font-size: 18px;" >Employee Status</h2>
-                                  <button type="submit" class="col-sm-4 btn btn-success">Update Status</button>
+                                  <div class="col-sm-8">
+																		<div class="row" style="font-size: medium;font-weight: 600;">
+																			<label for="employeestatus" class="col-3 col-form-label">Status</label>
+                                      <label class="col-1 col-form-label"> : </label>
+																			<select name="employee-status" id="employee-status" class="single-select form-control col-7" disabled>
+																				<option selected="selected" disabled="disabled"> - Select Status - </option>
+																				<option value="active">Active</option>
+																				<option value="terminate">Terminated</option>
+																				<option value="deceased">Deceased</option>
+																				<option value="resigned">Resigned</option>
+																			</select>
+																		</div>
+																	</div>
+                                  <!-- <h2 class="col-sm-8" style="font-size: 18px;" >Employee Status</h2> -->
+                                  <button class="col-sm-4 btn btn-success" id="btnUptStatus" data-toggle="modal" data-target="#formStatus">Update Status</button>
                                 </div>
                                 <div class="table-responsive mb-5 mr-0">
                                   <table class="table table-bordered">
@@ -617,6 +623,62 @@
           </div>
         </div>
         <!-- content-wrapper ends -->
+        
+        <!-- Modal -->
+        <div class="modal fade" id="formStatus" tabindex="-1" role="dialog" aria-labelledby="formStatusLabel">
+					<div class="modal-dialog" role="document" style="margin-top: 15px;margin-bottom: 0">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="formStatusLabel">Update Status</h5>
+								<button type="button" class="close btn-close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+      				<?php echo form_open_multipart('update-status',['class'=>'form-sample','id'=>'tambah']); ?>
+							<div class="modal-body">
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<label for="date">Date</label>
+											<div class="input-group date datepicker">
+												<input type="text" id="date" name="date" class="form-control" >
+												<span class="input-group-addon input-group-append border-left">
+													<span class="mdi mdi-calendar input-group-text"></span>
+												</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label for="update_status">Employee Status</label>
+											<select name="update_status" id="update_status" class="single-select form-control" >
+												<option selected="selected" disabled="disabled"> - Select Status - </option>
+												<option value="active">Active</option>
+												<option value="terminated">Terminated</option>
+												<option value="deceased">Deceased</option>
+												<option value="resigned">Resigned</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<div class="form-group">
+											<label for="comment">Comment</label>
+											<textarea name="comment" id="comment" class="form-control" placeholder="Comment"></textarea>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="submit" class="btn btn-success">Submit</button>
+								<button type="button" class="btn btn-light btn-close" data-dismiss="modal">Cancel</button>
+							</div>
+							<?php echo form_close(); ?>
+						</div>
+					</div>
+				</div>
+        <!-- End Modal -->
 
 <?php 
   $this->load->view('template/footer');
@@ -646,6 +708,15 @@
     }
 
 		$('#table-leave').DataTable();
+		
+		if ($(".datepicker").length) {
+			$('.datepicker').datepicker({
+				enableOnReadonly: true,
+				todayHighlight: true,
+				autoclose: true,
+				format: "dd/mm/yyyy"
+			});
+		}
 
     function viewItem(){
     var id = getUrlVars("id");
