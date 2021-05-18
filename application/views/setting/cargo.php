@@ -461,43 +461,26 @@
                               <label for="label_quote_number">Branch Office</label>
                               <input type="text" class="form-control" name="branch_office" id="branch_office" placeholder="Branch Office" required>
                             </div>
+														<div class="form-group">
+                                <label for="type">Type</label>
+                                <select class="form-control form-control-sm" id="type" name="type" required>
+																	<option value="">- Type -</option>
+																	<option value="Office">Office</option>
+																	<option value="Warehouse">Warehouse</option>
+                                </select>
+                            </div>
                             <div class="form-group">
                                 <label for="state">State</label>
                                 <select class="form-control form-control-sm" id="state" name="state" required>
-                                  <option selected="selected" disabled="disabled"> - Select State - </option>
-                                  <option value="Aceh">Aceh</option>
-                                  <option value="Bali">Bali</option>
-                                  <option value="Banten">Banten</option>
-                                  <option value="Bengkulu">Bengkulu</option>
-                                  <option value="Gorontalo">Gorontalo</option>
-                                  <option value="Jakarta">Jakarta</option>
-                                  <option value="Jambi">Jambi</option>
-                                  <option value="Jawa Barat">Jawa Barat</option>
-                                  <option value="Jawa Tengah">Jawa Tengah</option>
-                                  <option value="Jawa Timur">Jawa Timur</option>
-                                  <option value="Kalimantan Barat">Kalimantan Barat</option>
-                                  <option value="Kalimantan Selatan">Kalimantan Selatan</option>
-                                  <option value="Kalimantan Tengah">Kalimantan Tengah</option>
-                                  <option value="Kalimantan Timur">Kalimantan Timur</option>
-                                  <option value="Kalimantan Utara">Kalimantan Utara</option>
-                                  <option value="Kepulauan Bangka Belitung">Kepulauan Bangka Belitung</option>
-                                  <option value="Kepulauan Riau">Kepulauan Riau</option>
-                                  <option value="Lampung">Lampung</option>
-                                  <option value="Maluku">Maluku</option>
-                                  <option value="Maluku Utara">Maluku Utara</option>
-                                  <option value="Nusa Tenggara Timur">Nusa Tenggara Timur</option>
-                                  <option value="Nusa Tenggara Barat">Nusa Tenggara Barat</option>
-                                  <option value="Papua">Papua</option>
-                                  <option value="Papua Barat">Papua Barat</option>
-                                  <option value="Sulawesi Barat">Sulawesi Barat</option>
-                                  <option value="Sulawesi Selatan">Sulawesi Selatan</option>
-                                  <option value="Sulawesi Tengah">Sulawesi Tengah</option>
-                                  <option value="Sulawesi Tenggara">Sulawesi Tenggara</option>
-                                  <option value="Sulawesi Utara">Sulawesi Utara</option>
-                                  <option value="Sumatera Barat">Sumatera Barat</option>
-                                  <option value="Sumatera Selatan">Sumatera Selatan</option>
-                                  <option value="Sumatera Utara">Sumatera Utara</option>
-                                  <option value="Yogyakarta">Yogyakarta</option>
+																	<option value="">- State -</option>
+																	<?php
+																		foreach ($provinsi as $val)
+																		{
+																			?>
+																	<option value="<?php echo $val->id ?>"><?php echo $val->name ?></option>
+																	<?php 
+																		}
+																		?>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -694,6 +677,7 @@
 
     function branch_office_add(){
       var branch_office = $("#branch_office").val();
+      var type = $("#type").val();
       var state = $("#state").val();
       var address = $("#address").val();
       var zip = $("#zip").val();
@@ -778,6 +762,7 @@
           $("#branch_office_form").attr("action", "branch_office_update");
           $("#branch_office").val(data.branch);
           $("#branch_id").val(data.branch_id);
+          $("#type").val(data.type);
           $("#state").val(data.state);
           $("#address").val(data.address);
           $("#zip").val(data.zip);
@@ -795,6 +780,7 @@
     function branch_office_update(){
       var branch_office = $("#branch_office").val();
       var branch_id = $("#branch_id").val();
+      var type = $("#type").val();
       var state = $("#state").val();
       var address = $("#address").val();
       var zip = $("#zip").val();

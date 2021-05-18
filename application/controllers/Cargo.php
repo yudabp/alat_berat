@@ -823,6 +823,8 @@ class Cargo extends CI_Controller {
   public function setting()
   {
     // $id_quotation = $this->input->post('id');
+		$get_url = file_get_contents('http://api.literasia.co.id/static/api/provinces.json');
+		$data['provinsi'] = json_decode($get_url);
     $data['info'] = $this->db->get_where('company',['idcompany'=>$this->session->userdata('idcompany')])->row();
 
     $data['branch_office'] = $this->db->get_where('branch_office', ['idcompany' => $this->session->userdata("idcompany")])->result();
@@ -834,6 +836,7 @@ class Cargo extends CI_Controller {
     $idcompany = $this->session->userdata("idcompany");
     $branch_id = $this->uuid->v4();
     $branch_office = $this->input->post("branch_office");
+    $branch_office = $this->input->post("type");
     $state = $this->input->post("state");
     $address = $this->input->post("address");
     $zip = $this->input->post("zip");
@@ -857,6 +860,7 @@ class Cargo extends CI_Controller {
     $branch_id = $this->input->post("branch_id");
     $idcompany = $this->session->userdata("idcompany");
     $branch_office = $this->input->post("branch_office");
+    $state = $this->input->post("type");
     $state = $this->input->post("state");
     $address = $this->input->post("address");
     $zip = $this->input->post("zip");

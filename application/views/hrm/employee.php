@@ -285,7 +285,17 @@ if ($(".datepicker").length) {
                         options += `<option value="${data[key].id}">${data[key].name}</option>`;
                     }
                     $("#city").html(options);
-                }
+										console.log(data);
+                },
+								error : function(jqXHR, textStatus, errorThrown){
+									swal({
+												title: 'Failed!',
+												text: 'Cannot get data.',
+												type: 'error',
+												confirmButtonClass: "btn btn-danger",
+												buttonsStyling: false
+										}).catch(swal.noop)
+								}
             });
         });
     });
