@@ -61,6 +61,8 @@ function edtItem(id){
             $("#mainid").val(data.mainid);
             $("#username").val(data.username);
             $("#password").removeAttr('required','');
+            var role = data.role_id;
+						console.log(role)
             var cek = data.sendnotif;
             var allow = data.allow;
             if(cek == "yes"){
@@ -69,6 +71,22 @@ function edtItem(id){
             if(allow == "yes"){
               $("#allow").attr('checked','checked');
             }
+						if(role == "2dea1ed8-a7c7-4f44-b076-f50b0ca4a851"){
+							$("#role1").attr('checked','checked');
+						}else if(role == "31279819-6b9f-46c2-a28a-beec145fa31e") {
+							$("#role2").attr('checked','checked');
+						}else if(role == "35027eed-d317-4bc4-b74f-37e5f7d84544") {
+							$("#role3").attr('checked','checked');
+						}else if(role == "5073ed9b-00a9-4d18-863b-8fa69988090f") {
+							$("#role4").attr('checked','checked');
+						}else if(role == "a75f3ed5-0fee-47ad-a7ab-64fbc8c3e7c0") {
+							$("#role5").attr('checked','checked');
+						}else if(role == "bb91a898-f12b-47a9-94df-6c7c773714f4") {
+							$("#role6").attr('checked','checked');
+						}else if(role == "c962f62f-d67a-4d87-a476-42a3bfca5dd1") {
+							$("#role7").attr('checked','checked');
+						}
+
             $("#btnok").text("Update Department");
     },
     error : function(jqXHR, textStatus, errorThrown){

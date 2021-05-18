@@ -37,8 +37,8 @@
   <script src="<?php echo base_url(); ?>assets/chroma/js/todolist.js"></script>
   <!-- <script src="<?php echo base_url(); ?>assets/chroma/js/dashboard.js"></script> -->
   <script src="<?php echo base_url(); ?>assets/chroma/js/avgrund.js"></script>
-  <script src="<?php echo base_url(); ?>assets/chroma/js/bt-maxLenght.js"></script>
-  <script src="<?php echo base_url(); ?>assets/chroma/js/c3.js"></script>
+  <!-- <script src="<?php echo base_url(); ?>assets/chroma/js/bt-maxLenght.js"></script> -->
+  <!-- <script src="<?php echo base_url(); ?>assets/chroma/js/c3.js"></script> -->
   <!--<script src="<?php echo base_url(); ?>assets/chroma/js/calendar.js"></script>-->
   <script src="<?php echo base_url(); ?>assets/chroma/js/chart.js"></script>
   <script src="<?php echo base_url(); ?>assets/chroma/js/chartist.js"></script>
@@ -47,9 +47,9 @@
   <script src="<?php echo base_url(); ?>assets/chroma/js/context-menu.js"></script>
   <script src="<?php echo base_url(); ?>assets/chroma/js/data-table.js"></script>
   <script src="<?php echo base_url(); ?>assets/chroma/js/db.js"></script>
-  <script src="<?php echo base_url(); ?>assets/chroma/js/dekstop-notification.js"></script>
+  <!-- <script src="<?php echo base_url(); ?>assets/chroma/js/dekstop-notification.js"></script> -->
   <script src="<?php echo base_url(); ?>assets/chroma/js/dragula.js"></script>
-  <script src="<?php echo base_url(); ?>assets/chroma/js/dropity.js"></script>
+  <!-- <script src="<?php echo base_url(); ?>assets/chroma/js/dropity.js"></script> -->
   <script src="<?php echo base_url(); ?>assets/chroma/js/dropzone.js"></script>
   <script src="<?php echo base_url(); ?>assets/chroma/js/editorDemo.js"></script>
   <script src="<?php echo base_url(); ?>assets/chroma/js/file-upload.js"></script>
@@ -58,7 +58,7 @@
   <script src="<?php echo base_url(); ?>assets/chroma/js/form-repeater.js"></script>
   <script src="<?php echo base_url(); ?>assets/chroma/js/form-validation.js"></script>
   <script src="<?php echo base_url(); ?>assets/chroma/js/formpickers.js"></script>
-  <script src="<?php echo base_url(); ?>assets/chroma/js/google-charts.js"></script>
+  <!-- <script src="<?php echo base_url(); ?>assets/chroma/js/google-charts.js"></script> -->
   <script src="<?php echo base_url(); ?>assets/chroma/js/google-maps.js"></script>
   <script src="<?php echo base_url(); ?>assets/chroma/js/horizontal-menu.js"></script>
   <script src="<?php echo base_url(); ?>assets/chroma/js/iCheck.js"></script>
@@ -68,7 +68,7 @@
   <script src="<?php echo base_url(); ?>assets/chroma/js/select2.js"></script>
   <script src="<?php echo base_url(); ?>assets/chroma/js/morris.js"></script>
   <script src="<?php echo base_url(); ?>assets/chroma/js/js-grid.js"></script>
-  <script src="<?php echo base_url(); ?>assets/chroma/js/just-gage.js"></script>
+  <!-- <script src="<?php echo base_url(); ?>assets/chroma/js/just-gage.js"></script> -->
   <script src="<?php echo base_url(); ?>assets/chroma/js/light-gallery.js"></script>
   <script src="<?php echo base_url(); ?>assets/chroma/js/mapeal.js"></script>
   <script src="<?php echo base_url(); ?>assets/chroma/js/mapeal_example_2.js"></script>
@@ -88,7 +88,7 @@
   <script src="<?php echo base_url(); ?>assets/chroma/js/tight-grid.js"></script>
   <script src="<?php echo base_url(); ?>assets/chroma/js/toastDemo.js"></script>
   <script src="<?php echo base_url(); ?>assets/chroma/js/tooltips.js"></script>
-  <script src="<?php echo base_url(); ?>assets/chroma/js/typehead.js"></script>
+  <!-- <script src="<?php echo base_url(); ?>assets/chroma/js/typehead.js"></script> -->
   <script src="<?php echo base_url(); ?>assets/chroma/js/wizard.js"></script>
   <script src="<?php echo base_url(); ?>assets/chroma/js/x-editable.js"></script>
 

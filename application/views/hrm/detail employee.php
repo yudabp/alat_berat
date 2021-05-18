@@ -7,6 +7,14 @@
   a:hover{
     text-decoration: none;
   }
+  #employee-status{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: none;
+    background: none;
+    font-size: inherit;
+    font-weight: 600;
+  }
 </style>
       <!-- partial -->
       <div class="main-panel">
@@ -44,48 +52,19 @@
                             </label>
                           </div> -->
                           <div class="form-group">
-                            <div class="form-radio">
-                              <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="user_access" id="hrd" value="hrd"> HRD
-                                <i class="input-helper"></i>
-                              </label>
-                            </div>
-                            <div class="form-radio">
-                              <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="user_access" id="purchasing" value="purchasing"> Purchasing
-                                <i class="input-helper"></i>
-                              </label>
-                            </div>
-                            <div class="form-radio">
-                              <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="user_access" id="sales" value="sales"> Sales
-                                <i class="input-helper"></i>
-                              </label>
-                            </div>
-                            <div class="form-radio">
-                              <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="user_access" id="accounting_manager" value="accounting_manager"> Accounting Manager
-                                <i class="input-helper"></i>
-                              </label>
-                            </div>
-                            <div class="form-radio">
-                              <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="user_access" id="warehouse" value="warehouse"> Warehouse
-                                <i class="input-helper"></i>
-                              </label>
-                            </div>
-                            <div class="form-radio">
-                              <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="user_access" id="administrator" value="administrator"> Administrator
-                                <i class="input-helper"></i>
-                              </label>
-                            </div>
-                            <div class="form-radio">
-                              <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="user_access" id="employee" value="employee"> Employee
-                                <i class="input-helper"></i>
-                              </label>
-                            </div>
+													<?php 
+													$i = 1;
+													foreach($roles as $role){
+													?>
+													<div class="form-radio">
+														<label class="form-check-label">
+															<input type="radio" class="form-check-input" name="role" id="role<?= $i ?>" value="<?= $role->id?>"><?= $role->name ?>
+															<i class="input-helper"></i>
+														</label>
+													</div>
+													<?php
+													$i++;	
+													} ?>
                           </div>
                         </div>
                       </div>
@@ -273,29 +252,27 @@
                             <!-- <div class="card"> -->
                               <!-- <div class="card-body"> -->
                                 <h2 style="font-size: 18px;">Employee Main Status</h2>
-                                <form class="forms-sample mb-4">
-                                  <div class="form-group row">
-                                    <label for="employeestatus" class="col-sm-1 col-form-label">Status</label>
-                                    <div class="col-sm-3">
-                                      <select name="employee-status" id="employee-status" class="single-select form-control" >
-                                        <option selected="selected" disabled="disabled"> - Select Status - </option>
-                                        <option value="Active">Active</option>
-                                        <option value="Terminated">Terminated</option>
-                                        <option value="Deceased">Deceased</option>
-                                        <option value="Resigned">Resigned</option>
-                                      </select>
-                                    </div>
-                                    <div class="col-sm-2">
-                                      <button type="submit" class="btn btn-success btn-block mr-2">Update</button>
-                                    </div>
-                                  </div>
+                                <form class="forms-sample mb-4" action="post">
                                   <!-- <button class="btn btn-light">Cancel</button> -->
                                 </form>
-                                <div class="row mb-2">
-                                  <h2 class="col-sm-10" style="font-size: 18px;" >Employee Status</h2>
-                                  <button type="submit" class="col-sm-2 btn btn-success">Update Status</button>
+                                <div class="row mb-2 mr-0">
+                                  <div class="col-sm-8">
+																		<div class="row" style="font-size: medium;font-weight: 600;">
+																			<label for="employeestatus" class="col-3 col-form-label">Status</label>
+                                      <label class="col-1 col-form-label"> : </label>
+																			<select name="employee-status" id="employee-status" class="single-select form-control col-7" disabled>
+																				<option selected="selected" disabled="disabled"> - Select Status - </option>
+																				<option value="active">Active</option>
+																				<option value="terminate">Terminated</option>
+																				<option value="deceased">Deceased</option>
+																				<option value="resigned">Resigned</option>
+																			</select>
+																		</div>
+																	</div>
+                                  <!-- <h2 class="col-sm-8" style="font-size: 18px;" >Employee Status</h2> -->
+                                  <button class="col-sm-4 btn btn-success" id="btnUptStatus" data-toggle="modal" data-target="#formStatus">Update Status</button>
                                 </div>
-                                <div class="table-responsive mb-5">
+                                <div class="table-responsive mb-5 mr-0">
                                   <table class="table table-bordered">
                                     <thead>
                                       <tr>
@@ -315,11 +292,11 @@
                                     </tbody>
                                   </table>
                                 </div>
-                                <div class="row mb-2">
-                                  <h2 class="col-sm-9" style="font-size: 18px;" >Compensation</h2>
-                                  <button type="submit" class="col-sm-3 btn btn-success">Update Compensation</button>
+                                <div class="row mb-2 mr-0">
+                                  <h2 class="col-sm-8" style="font-size: 18px;" >Compensation</h2>
+                                  <button type="submit" class="col-sm-4 btn btn-success">Update Compensation</button>
                                 </div>
-                                <div class="table-responsive mb-5">
+                                <div class="table-responsive mb-5 mr-0">
                                   <table class="table table-bordered">
                                     <thead>
                                       <tr>
@@ -345,11 +322,11 @@
                                     </tbody>
                                   </table>
                                 </div>
-                                <div class="row mb-2">
-                                  <h2 class="col-sm-9" style="font-size: 18px;" >Job Information</h2>
-                                  <button type="submit" class="col-sm-3 btn btn-success">Update Job Information</button>
+                                <div class="row mb-2 mr-0">
+                                  <h2 class="col-sm-8" style="font-size: 18px;" >Job Information</h2>
+                                  <button type="submit" class="col-sm-4 btn btn-success">Update Job Information</button>
                                 </div>
-                                <div class="table-responsive mb-5">
+                                <div class="table-responsive mb-5 mr-0">
                                   <table class="table table-bordered">
                                     <thead>
                                       <tr>
@@ -646,6 +623,62 @@
           </div>
         </div>
         <!-- content-wrapper ends -->
+        
+        <!-- Modal -->
+        <div class="modal fade" id="formStatus" tabindex="-1" role="dialog" aria-labelledby="formStatusLabel">
+					<div class="modal-dialog" role="document" style="margin-top: 15px;margin-bottom: 0">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="formStatusLabel">Update Status</h5>
+								<button type="button" class="close btn-close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+      				<?php echo form_open_multipart('update-status',['class'=>'form-sample','id'=>'tambah']); ?>
+							<div class="modal-body">
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<label for="date">Date</label>
+											<div class="input-group date datepicker">
+												<input type="text" id="date" name="date" class="form-control" >
+												<span class="input-group-addon input-group-append border-left">
+													<span class="mdi mdi-calendar input-group-text"></span>
+												</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label for="update_status">Employee Status</label>
+											<select name="update_status" id="update_status" class="single-select form-control" >
+												<option selected="selected" disabled="disabled"> - Select Status - </option>
+												<option value="active">Active</option>
+												<option value="terminated">Terminated</option>
+												<option value="deceased">Deceased</option>
+												<option value="resigned">Resigned</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<div class="form-group">
+											<label for="comment">Comment</label>
+											<textarea name="comment" id="comment" class="form-control" placeholder="Comment"></textarea>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="submit" class="btn btn-success">Submit</button>
+								<button type="button" class="btn btn-light btn-close" data-dismiss="modal">Cancel</button>
+							</div>
+							<?php echo form_close(); ?>
+						</div>
+					</div>
+				</div>
+        <!-- End Modal -->
 
 <?php 
   $this->load->view('template/footer');
@@ -675,6 +708,15 @@
     }
 
 		$('#table-leave').DataTable();
+		
+		if ($(".datepicker").length) {
+			$('.datepicker').datepicker({
+				enableOnReadonly: true,
+				todayHighlight: true,
+				autoclose: true,
+				format: "dd/mm/yyyy"
+			});
+		}
 
     function viewItem(){
     var id = getUrlVars("id");
@@ -687,43 +729,63 @@
         },
         success : function(view){
                 // $("#detailStaff").modal("show");
-                $("#first_named").html(view.fname);
-                $("#middle_named").html(view.mname);
-                $("#last_named").html(view.lname);
-                $("#employee_idd").html(view.employeid);
-                $("#emaild").html(view.email);
-                $("#employee_typed").html(view.employetype);
-                $("#employee_statusd").html(view.employestatus);
-                $("#date_of_hired").html(view.datehire);
-                $("#departmentd").html(view.departmenttitle);
-                $("#job_titled").html(view.designationtitle);
-                $("#locationd").html(view.location);
-                $("#reporting_tod").html(view.departmentlead);
-                $("#source_of_hired").html(view.sourceofhire);
-                $("#payrated").html(view.payrate);
-                $("#pay_typed").html(view.paytype);
-                $("#work_phoned").html(view.workphone);
-                $("#phoned").html(view.phone);
-                $("#hand_phoned").html(view.handphone);
-                $("#other_emaild").html(view.otheremail);
-                $("#date_of_birthd").html(view.birth);
-                $("#nationalityd").html(view.nationality);
-                $("#genderd").html(view.gender);
-                $("#marital_statusd").html(view.status);
-                $("#driving_licensed").html(view.drivinglicense);
-                $("#addressd").html(view.address);
-                $("#cityd").html(view.city);
-                $("#stated").html(view.state);
-                $("#zip_coded").html(view.zipcode);
-                $("#mainid").html(view.mainid);
-                var cek = view.sendnotif;
-                var cekimg = view.photo;
+                $("#first_named").html(view.data.fname);
+                $("#middle_named").html(view.data.mname);
+                $("#last_named").html(view.data.lname);
+                $("#employee_idd").html(view.data.employeid);
+                $("#emaild").html(view.data.email);
+                $("#employee_typed").html(view.data.employetype);
+                $("#employee_statusd").html(view.data.employestatus);
+                $("#date_of_hired").html(view.data.datehire);
+                $("#departmentd").html(view.data.departmenttitle);
+                $("#job_titled").html(view.data.designationtitle);
+                $("#locationd").html(view.data.location);
+                $("#reporting_tod").html(view.data.departmentlead);
+                $("#source_of_hired").html(view.data.sourceofhire);
+                $("#payrated").html(view.data.payrate);
+                $("#pay_typed").html(view.data.paytype);
+                $("#work_phoned").html(view.data.workphone);
+                $("#phoned").html(view.data.phone);
+                $("#hand_phoned").html(view.data.handphone);
+                $("#other_emaild").html(view.data.otheremail);
+                $("#date_of_birthd").html(view.data.birth);
+                $("#nationalityd").html(view.data.nationality);
+                $("#genderd").html(view.data.gender);
+                $("#marital_statusd").html(view.data.status);
+                $("#driving_licensed").html(view.data.drivinglicense);
+                $("#addressd").html(view.data.address);
+                $("#cityd").html(view.city.name);
+                $("#stated").html(view.provinsi.name);
+                $("#zip_coded").html(view.data.zipcode);
+                $("#mainid").html(view.data.mainid);
+								var role = view.data.role_id;
+								// console.log(view.city);
+								//Job
+								$("#employee-status").val(view.data.employestatus);
+                var cek = view.data.sendnotif;
+                var cekimg = view.data.photo;
                 if(cekimg !=""){
                   $("#userimg").attr('src','<?php echo base_url(); ?>assets/staffprofil/'+cekimg);
                 }
                 if(cek == "yes"){
                   $("#notification").attr('checked','checked');
                 }
+
+								if(role == "2dea1ed8-a7c7-4f44-b076-f50b0ca4a851"){
+									$("#role1").attr('checked','checked');
+								}else if(role == "31279819-6b9f-46c2-a28a-beec145fa31e") {
+									$("#role2").attr('checked','checked');
+								}else if(role == "35027eed-d317-4bc4-b74f-37e5f7d84544") {
+									$("#role3").attr('checked','checked');
+								}else if(role == "5073ed9b-00a9-4d18-863b-8fa69988090f") {
+									$("#role4").attr('checked','checked');
+								}else if(role == "a75f3ed5-0fee-47ad-a7ab-64fbc8c3e7c0") {
+									$("#role5").attr('checked','checked');
+								}else if(role == "bb91a898-f12b-47a9-94df-6c7c773714f4") {
+									$("#role6").attr('checked','checked');
+								}else if(role == "c962f62f-d67a-4d87-a476-42a3bfca5dd1") {
+									$("#role7").attr('checked','checked');
+								}
                 // alert(data.fname);
         },
         error : function(jqXHR, textStatus, errorThrown){

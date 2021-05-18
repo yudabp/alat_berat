@@ -34,15 +34,18 @@
                   </div> -->
                   <div class="form-group">
                     <?php 
+										$i = 1;
                     foreach($roles as $role){
                     ?>
                     <div class="form-radio">
                       <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="role[]" id="hrd" value="<?= $role->id?>"><?= $role->name ?>
+                        <input type="radio" class="form-check-input" name="role" id="role<?= $i ?>" value="<?= $role->id?>"><?= $role->name ?>
                         <i class="input-helper"></i>
                       </label>
                     </div>
-                    <?php } ?>
+                    <?php
+										$i++;	
+										} ?>
                   </div>
                 </div>
               </div>
@@ -344,51 +347,28 @@
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label for="city">City</label>
-                          <input type="text" name="city" id="city" class="form-control" placeholder="City">
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
                           <label for="state">State</label>
                           <select name="state" id="state" class="single-select form-control">
                             <option selected="selected" disabled="disabled"> - Select State - </option>
-                            <option value="Aceh">Aceh</option>
-                            <option value="Bali">Bali</option>
-                            <option value="Banten">Banten</option>
-                            <option value="Bengkulu">Bengkulu</option>
-                            <option value="Gorontalo">Gorontalo</option>
-                            <option value="Jakarta">Jakarta</option>
-                            <option value="Jambi">Jambi</option>
-                            <option value="Jawa Barat">Jawa Barat</option>
-                            <option value="Jawa Tengah">Jawa Tengah</option>
-                            <option value="Jawa Timur">Jawa Timur</option>
-                            <option value="Kalimantan Barat">Kalimantan Barat</option>
-                            <option value="Kalimantan Selatan">Kalimantan Selatan</option>
-                            <option value="Kalimantan Tengah">Kalimantan Tengah</option>
-                            <option value="Kalimantan Timur">Kalimantan Timur</option>
-                            <option value="Kalimantan Utara">Kalimantan Utara</option>
-                            <option value="Kepulauan Bangka Belitung">Kepulauan Bangka Belitung</option>
-                            <option value="Kepulauan Riau">Kepulauan Riau</option>
-                            <option value="Lampung">Lampung</option>
-                            <option value="Maluku">Maluku</option>
-                            <option value="Maluku Utara">Maluku Utara</option>
-                            <option value="Nusa Tenggara Timur">Nusa Tenggara Timur</option>
-                            <option value="Nusa Tenggara Barat">Nusa Tenggara Barat</option>
-                            <option value="Papua">Papua</option>
-                            <option value="Papua Barat">Papua Barat</option>
-                            <option value="Sulawesi Barat">Sulawesi Barat</option>
-                            <option value="Sulawesi Selatan">Sulawesi Selatan</option>
-                            <option value="Sulawesi Tengah">Sulawesi Tengah</option>
-                            <option value="Sulawesi Tenggara">Sulawesi Tenggara</option>
-                            <option value="Sulawesi Utara">Sulawesi Utara</option>
-                            <option value="Sumatera Barat">Sumatera Barat</option>
-                            <option value="Sumatera Selatan">Sumatera Selatan</option>
-                            <option value="Sumatera Utara">Sumatera Utara</option>
-                            <option value="Yogyakarta">Yogyakarta</option>
+														<?php
+															foreach ($provinsi as $val)
+															{
+																?>
+                            <option value="<?php echo $val->id ?>"><?php echo $val->name ?></option>
+														<?php 
+															}
+															?>
                           </select>
                         </div>
                       </div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label for="city">City</label>
+                          <select name="city" id="city" class="single-select form-control">
+													<!-- <input type="text" name="city" id="city" class="form-control" placeholder="City"> -->
+													</select>
+												</div>
+											</div>
                     </div>
                     <div class="row">
                       <div class="col-md-6">
@@ -432,3 +412,5 @@
   </div>
 </div>
 <!-- Modal Ends -->
+
+
