@@ -68,29 +68,9 @@
 																							<td>31</td>
 																							<td>IDR. 400.00</td>
 																							<td>
-																								<button class="btn btn-link" onclick="edtItem('<?php echo $truck->idtruck; ?>');"><i class="fa fa-plus"></i></button>
-																								<button class="btn btn-link" onclick="delItem('<?php echo $truck->idtruck; ?>');"><i class="fa fa-angle-left"></i></button>
-																								<button class="btn btn-link" onclick="serviceItem('<?php echo $truck->idtruck; ?>');"><i class="fa fa-angle-right"></i></button>
-																							</td>
-																						</tr>
-																						<tr>
-																							<td>SP0008</td>
-																							<td>08</td>
-																							<td>IDR. 200.00</td>
-																							<td>
-																								<button class="btn btn-link" onclick="edtItem('<?php echo $truck->idtruck; ?>');"><i class="fa fa-plus"></i></button>
-																								<button class="btn btn-link" onclick="delItem('<?php echo $truck->idtruck; ?>');"><i class="fa fa-angle-left"></i></button>
-																								<button class="btn btn-link" onclick="serviceItem('<?php echo $truck->idtruck; ?>');"><i class="fa fa-angle-right"></i></button>
-																							</td>
-																						</tr>
-																						<tr>
-																							<td>SP0010</td>
-																							<td>26</td>
-																							<td>IDR. 900.00</td>
-																							<td>
-																								<button class="btn btn-link" onclick="edtItem('<?php echo $truck->idtruck; ?>');"><i class="fa fa-plus"></i></button>
-																								<button class="btn btn-link" onclick="delItem('<?php echo $truck->idtruck; ?>');"><i class="fa fa-angle-left"></i></button>
-																								<button class="btn btn-link" onclick="serviceItem('<?php echo $truck->idtruck; ?>');"><i class="fa fa-angle-right"></i></button>
+																								<button class="btn btn-link" onclick="addStock();"><i class="fa fa-plus"></i></button>
+																								<button class="btn btn-link" onclick="requestStock();"><i class="fa fa-angle-left"></i></button>
+																								<button class="btn btn-link" onclick="transferStock();"><i class="fa fa-angle-right"></i></button>
 																							</td>
 																						</tr>
 																					</tbody>
@@ -125,29 +105,9 @@
 																							<td>31</td>
 																							<td>IDR. 400.00</td>
 																							<td>
-																								<button class="btn btn-link" onclick="edtItem('<?php echo $truck->idtruck; ?>');"><i class="fa fa-plus"></i></button>
-																								<button class="btn btn-link" onclick="delItem('<?php echo $truck->idtruck; ?>');"><i class="fa fa-angle-left"></i></button>
-																								<button class="btn btn-link" onclick="serviceItem('<?php echo $truck->idtruck; ?>');"><i class="fa fa-angle-right"></i></button>
-																							</td>
-																						</tr>
-																						<tr>
-																							<td>SP0008</td>
-																							<td>08</td>
-																							<td>IDR. 200.00</td>
-																							<td>
-																								<button class="btn btn-link" onclick="edtItem('<?php echo $truck->idtruck; ?>');"><i class="fa fa-plus"></i></button>
-																								<button class="btn btn-link" onclick="delItem('<?php echo $truck->idtruck; ?>');"><i class="fa fa-angle-left"></i></button>
-																								<button class="btn btn-link" onclick="serviceItem('<?php echo $truck->idtruck; ?>');"><i class="fa fa-angle-right"></i></button>
-																							</td>
-																						</tr>
-																						<tr>
-																							<td>SP0010</td>
-																							<td>26</td>
-																							<td>IDR. 900.00</td>
-																							<td>
-																								<button class="btn btn-link" onclick="edtItem('<?php echo $truck->idtruck; ?>');"><i class="fa fa-plus"></i></button>
-																								<button class="btn btn-link" onclick="delItem('<?php echo $truck->idtruck; ?>');"><i class="fa fa-angle-left"></i></button>
-																								<button class="btn btn-link" onclick="serviceItem('<?php echo $truck->idtruck; ?>');"><i class="fa fa-angle-right"></i></button>
+																								<button class="btn btn-link" onclick="addStock();"><i class="fa fa-plus"></i></button>
+																								<button class="btn btn-link" onclick="requestStock();"><i class="fa fa-angle-left"></i></button>
+																								<button class="btn btn-link" onclick="transferStock();"><i class="fa fa-angle-right"></i></button>
 																							</td>
 																						</tr>
 																					</tbody>
@@ -182,29 +142,9 @@
 																							<td>31</td>
 																							<td>IDR. 400.00</td>
 																							<td>
-																								<button class="btn btn-link" onclick="edtItem('<?php echo $truck->idtruck; ?>');"><i class="fa fa-plus"></i></button>
-																								<button class="btn btn-link" onclick="delItem('<?php echo $truck->idtruck; ?>');"><i class="fa fa-angle-left"></i></button>
-																								<button class="btn btn-link" onclick="serviceItem('<?php echo $truck->idtruck; ?>');"><i class="fa fa-angle-right"></i></button>
-																							</td>
-																						</tr>
-																						<tr>
-																							<td>SP0008</td>
-																							<td>08</td>
-																							<td>IDR. 200.00</td>
-																							<td>
-																								<button class="btn btn-link" onclick="edtItem('<?php echo $truck->idtruck; ?>');"><i class="fa fa-plus"></i></button>
-																								<button class="btn btn-link" onclick="delItem('<?php echo $truck->idtruck; ?>');"><i class="fa fa-angle-left"></i></button>
-																								<button class="btn btn-link" onclick="serviceItem('<?php echo $truck->idtruck; ?>');"><i class="fa fa-angle-right"></i></button>
-																							</td>
-																						</tr>
-																						<tr>
-																							<td>SP0010</td>
-																							<td>26</td>
-																							<td>IDR. 900.00</td>
-																							<td>
-																								<button class="btn btn-link" onclick="edtItem('<?php echo $truck->idtruck; ?>');"><i class="fa fa-plus"></i></button>
-																								<button class="btn btn-link" onclick="delItem('<?php echo $truck->idtruck; ?>');"><i class="fa fa-angle-left"></i></button>
-																								<button class="btn btn-link" onclick="serviceItem('<?php echo $truck->idtruck; ?>');"><i class="fa fa-angle-right"></i></button>
+																								<button class="btn btn-link" onclick="addStock();"><i class="fa fa-plus"></i></button>
+																								<button class="btn btn-link" onclick="requestStock();"><i class="fa fa-angle-left"></i></button>
+																								<button class="btn btn-link" onclick="transferStock();"><i class="fa fa-angle-right"></i></button>
 																							</td>
 																						</tr>
 																					</tbody>
@@ -219,40 +159,18 @@
 					</div>
 					<!-- content-wrapper ends -->
 
+					<!-- Modal -->
+					<?php 
+						$this->load->view('warehouse/modal-warehouse');
+					?>
+					<!-- End Modal -->
 	<?php
 		$this->load->view('template/footer');
 		// $this->load->view('template/fixed-plugin');
 		$this->load->view('template/js');
 	?>
 	<script type="text/javascript">
-		var btnaddselect = $('#btnselect');
-			var btnDelete;
-			var loopID = <?php echo $numadd; ?>;
-			btnaddselect.on('click', function(){
-				//console.log("ok");
-			loopID++;
-			var headHtml = $('#alamat');
-			var html = `
-			<div class="alamat`+loopID+`">
-				<div class="row mt-2">
-					<div class="col-md-11">
-						<textarea type="text" name="company_address[]" id="company_address" class="form-control form-control-lg" placeholder="Address"></textarea>
-					</div>
-					<div class="col-md-1">
-						<button type="button"  class="btn btn-danger btn-just-icon add btn-sm btnDelete" data="alamat`+loopID+`"><i class="fa fa-minus"></i></button>
-					</div>
-				</div>
-			</div>
-			`;
-			headHtml.append(html);
-			btnDelete = $('.btnDelete')
-			btnDelete.click(function(){
-				var id_div = $(this).attr('data');
-				console.log(id_div);
-				$('.'+id_div).remove();
-			});
-		});
-
+		
 		$(document).ready(function() {
 			$('#buttonModal').click(function() {
 					$('html').css('overflow', 'hidden');
@@ -272,5 +190,21 @@
 					format: "dd/mm/yyyy"
 			});
 			$("#phone_no").inputmask({"mask": "(+62)8##-####-####"});
+			$('#price').inputmask({
+				alias: 'currency',
+				prefix: 'IDR. ',
+			});
 		});
+
+		function addStock(){
+			$("#addStock").modal("show");
+		}
+
+		function requestStock(){
+			$("#requestStock").modal("show");
+		}
+
+		function transferStock(){
+			$("#transferStock").modal("show");
+		}
 	</script>
