@@ -25,11 +25,10 @@ class Warehouse extends CI_Controller {
     // $data['info'] = $this->db->get_where('company',['idcompany'=>$this->session->userdata('idcompany')])->row();
     // $this->load->view('hrm/employee',$data);
 		$data["warehouse"] = $this->db->select('*')->get_where('branch_office', ["type" => "Warehouse",'idcompany'=>$this->session->userdata('idcompany')])->result();
-
 		$data["sparepart"] = $this->db->select("*")->get_where("product_sparepart", ['idcompany'=>$this->session->userdata('idcompany')])->result();
-
-		var_dump($data);
-    $this->load->view('warehouse/warehouse',$data);
+		$data["sparepart_detail"] = $this->db->select("*")->get_where("branch_sparepart", ["idcompany" => $this->session->userdata('idcompany')])->result();
+		// var_dump($data);
+		$this->load->view('warehouse/warehouse',$data);
   }
 
 

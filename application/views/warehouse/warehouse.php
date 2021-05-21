@@ -63,8 +63,16 @@
 																						<?php foreach($sparepart as $i=>$s) : ?>
 																							<tr>
 																								<td><?= $s->code; ?></td>
-																								<td>31</td>
-																								<td>IDR. 400.00</td>
+																								<?php foreach ($sparepart_detail as $i=>$sd) {
+																									if($w->branch_id == $sd->idbranch && $s->idsparepart == $sd->idsparepart){
+																										echo "<td>".$sd->stock."</td>";
+																										echo "<td>".$sd->price."</td>";
+																									}else{
+																										echo "<td>0</td>
+																										<td>0</td>";
+																									}
+																								} ?>
+																								
 																								<td>
 																									<button class="btn btn-link" onclick="addStock();"><i class="fa fa-plus"></i></button>
 																									<button class="btn btn-link" onclick="requestStock();"><i class="fa fa-angle-left"></i></button>
