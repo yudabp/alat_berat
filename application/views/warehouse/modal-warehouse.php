@@ -8,7 +8,8 @@
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
-			<!-- <?php echo form_open_multipart('update-status',['class'=>'form-sample','id'=>'tambah']); ?> -->
+			<!-- <?php echo form_open_multipart('add-sparepart',['class'=>'form-sample','id'=>'tambah']); ?> -->
+			<form action="#" method="post" enctype="multipart/form-data" class="form-sample" id="tambah">
 			<div class="modal-body">
 				<div class="row">
 					<div class="col-md-6">
@@ -25,9 +26,7 @@
 					<div class="col-md-6">
 						<div class="form-group">
 							<label for="sparepart">Sparepart</label>
-							<select name="sparepart" id="sparepart" class="single-select form-control" >
-								<option selected="selected" disabled="disabled"> - Sparepart - </option>
-							</select>
+							<input type="text"name="sparepart" id="modal-add" class="form-control" readonly>
 						</div>
 					</div>
 				</div>
@@ -50,6 +49,7 @@
 				<button type="submit" class="btn btn-success">Submit</button>
 				<button type="button" class="btn btn-light btn-close" data-dismiss="modal">Cancel</button>
 			</div>
+			</form>
 			<!-- <?php echo form_close(); ?> -->
 		</div>
 	</div>
@@ -66,7 +66,8 @@
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
-			<!-- <?php echo form_open_multipart('update-status',['class'=>'form-sample','id'=>'tambah']); ?> -->
+			<!-- <?php echo form_open_multipart('request-sparepart',['class'=>'form-sample','id'=>'request']); ?> -->
+			<form action="#" method="post" enctype="multipart/form-data" class="form-sample" id="request">
 			<div class="modal-body">
 				<div class="row">
 					<div class="col-md-6">
@@ -83,9 +84,7 @@
 					<div class="col-md-6">
 						<div class="form-group">
 							<label for="sparepart">Sparepart</label>
-							<select name="sparepart" id="sparepart" class="single-select form-control" >
-								<option selected="selected" disabled="disabled"> - Sparepart - </option>
-							</select>
+							<input type="text"name="sparepart" id="modal-request" class="form-control" readonly>
 						</div>
 					</div>
 				</div>
@@ -110,6 +109,7 @@
 				<button type="submit" class="btn btn-success">Submit</button>
 				<button type="button" class="btn btn-light btn-close" data-dismiss="modal">Cancel</button>
 			</div>
+			</from>
 			<!-- <?php echo form_close(); ?> -->
 		</div>
 	</div>
@@ -126,7 +126,8 @@
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
-			<!-- <?php echo form_open_multipart('update-status',['class'=>'form-sample','id'=>'tambah']); ?> -->
+			<!-- <?php echo form_open_multipart('transfer-sparepart',['class'=>'form-sample','id'=>'transfer']); ?> -->
+			<form action="#" method="post" enctype="multipart/form-data" class="form-sample" id="transfer">
 			<div class="modal-body">
 				<div class="row">
 					<div class="col-md-6">
@@ -143,9 +144,7 @@
 					<div class="col-md-6">
 						<div class="form-group">
 							<label for="sparepart">Sparepart</label>
-							<select name="sparepart" id="sparepart" class="single-select form-control" >
-								<option selected="selected" disabled="disabled"> - Sparepart - </option>
-							</select>
+							<input type="text"name="sparepart" id="modal-transfer" class="form-control" readonly>
 						</div>
 					</div>
 				</div>
@@ -170,6 +169,7 @@
 				<button type="submit" class="btn btn-success">Submit</button>
 				<button type="button" class="btn btn-light btn-close" data-dismiss="modal">Cancel</button>
 			</div>
+			</form>
 			<!-- <?php echo form_close(); ?> -->
 		</div>
 	</div>

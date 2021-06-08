@@ -569,6 +569,10 @@ $route['uptPrice'] = "services/uptPrice";
 //---------------- Warehouse ---------------------
 //warehouse
 $route['warehouse'] = "warehouse/index";
+$route['update-warehouse'] = "warehouse/index";
+$route['add-sparepart'] = "warehouse/add_sparepart";
+$route['request-sparepart'] = "warehouse/request_sparepart";
+$route['transfer-sparepart'] = "warehouse/transfer_sparepart";
 //------------- End Warehouse --------------------
 
 

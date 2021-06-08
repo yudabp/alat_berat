@@ -74,9 +74,9 @@
 																								} ?>
 																								
 																								<td>
-																									<button class="btn btn-link" onclick="addStock();"><i class="fa fa-plus"></i></button>
-																									<button class="btn btn-link" onclick="requestStock();"><i class="fa fa-angle-left"></i></button>
-																									<button class="btn btn-link" onclick="transferStock();"><i class="fa fa-angle-right"></i></button>
+																									<button class="btn btn-link" data-sparepartname="<?= $s->name ?>" data-branchid="<?= $w->branch_id ?>" data-idsparepart="<?=$s->idsparepart?>" onclick="addStock(this);"><i class="fa fa-plus"></i></button>
+																									<button class="btn btn-link" data-sparepartname="<?= $s->name ?>" data-branchid="<?= $w->branch_id ?>" data-idsparepart="<?=$s->idsparepart?>" onclick="requestStock(this);"><i class="fa fa-angle-left"></i></button>
+																									<button class="btn btn-link" data-sparepartname="<?= $s->name ?>" data-branchid="<?= $w->branch_id ?>" data-idsparepart="<?=$s->idsparepart?>" onclick="transferStock(this);"><i class="fa fa-angle-right"></i></button>
 																								</td>
 																							</tr>
 																						<?php endforeach; ?>
@@ -128,17 +128,46 @@
 				alias: 'currency',
 				prefix: 'IDR. ',
 			});
+			
+			// form submit
+			$("form").submit(function(e){
+				e.preventDefault();
+				let atribut = $(this).attr("id");
+				if(atribut == "tambah"){
+					addStockPart();
+				}
+				else if(atribut == "request"){
+					let id_dep = $(this).data("id");
+					reqStockPart();
+
+				}
+				else if(atribut == "transfer"){
+					let id_dep = $(this).data("id");
+					transStockPart(id_dep);
+				}
+			});
 		});
 
-		function addStock(){
+		// submit event func
+		function spareStock(...params){
+			
+		}
+
+		// modal event
+		function addStock(event){
 			$("#addStock").modal("show");
+			$("#modal-add").val($(event).data("sparepartname"))
 		}
 
-		function requestStock(){
+		function requestStock(event){
 			$("#requestStock").modal("show");
+			$("#modal-request").val($(event).data("sparepartname"))
 		}
 
-		function transferStock(){
+		function transferStock(event){
 			$("#transferStock").modal("show");
+			$("#modal-transfer").val($(event).data("sparepartname"))
 		}
+
+
 	</script>

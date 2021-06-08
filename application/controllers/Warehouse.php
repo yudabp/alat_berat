@@ -27,9 +27,21 @@ class Warehouse extends CI_Controller {
 		$data["warehouse"] = $this->db->select('*')->get_where('branch_office', ["type" => "Warehouse",'idcompany'=>$this->session->userdata('idcompany')])->result();
 		$data["sparepart"] = $this->db->select("*")->get_where("product_sparepart", ['idcompany'=>$this->session->userdata('idcompany')])->result();
 		$data["sparepart_detail"] = $this->db->select("*")->get_where("branch_sparepart", ["idcompany" => $this->session->userdata('idcompany')])->result();
-		// var_dump($data);
 		$this->load->view('warehouse/warehouse',$data);
   }
+
+	public function add_sparepart(){
+		echo json_encode(["callback" => "yes"]);
+	}
+
+	public function request_sparepart(){
+		echo json_encode(["msg" => "request part"]);
+	}
+
+	public function transfer_sparepart(){
+		echo json_encode(["msg" => "transfer part"]);
+	}
+
 
 
 
