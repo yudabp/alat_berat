@@ -31,10 +31,12 @@
 													<ul class="nav nav-tabs tab-basic" role="tablist">
 															<?php foreach($warehouse as $i=>$w): ?>
 																<li class="nav-item">
-																		<a class="nav-link <?= $i == false ? "active show" : "" ?>" aria-selected="<?= $i == FALSE ? "true" : "false" ?>" id="debasic-tab" data-toggle="tab" href="#<?= $w->branch_id ?>" role="tab"><?= $w->branch ?></a>
+																		<a class="nav-link <?= $i == false ? "active show" : "" ?>" aria-selected="<?= $i == FALSE ? "true" : "false" ?>" id="debasic-tab" data-toggle="tab" href="#<?= $w->branch_id ?>" data-branchid="<?=$w->branch_id?>" role="tab" onClick="currentBranch(this)"><?= $w->branch ?></a>
 																</li>
 															<?php endforeach; ?>
 													</ul>
+													<input type="hidden" name="current_branch_id" id="current_branch_id" value="<?= $warehouse[0]->branch_id ?>"  />
+													<input type="hidden" name="id_company" id="id_company" value="<?= $this->session->userdata('idcompany') ?>"  />
 													<div class="tab-content tab-content-basic">
 														<?php foreach($warehouse as $i=>$w): ?>
 																<div class="tab-pane fade <?= $i == false ? "active show" : "" ?>" id="<?= $w->branch_id ?>" role="tabpanel">
@@ -153,20 +155,45 @@
 			
 		}
 
+		// current branch
+		function currentBranch(event){
+			$("#current_branch_id").val($(event).data("branch_id"))
+		}
+
+		// api current branch
+		function apiCurrentBranch(id=false){
+			$.get({
+				url: "<?= base_url();?>branch-comp",
+				success: function (data){
+					let res = JSON.parse(data).warehouse;
+					if(id){
+						res.map(d => {
+							if(d.branch_id != 	$("#current_branch_id").val()){
+								$(`#${id}`).append(`<option value="${d.branch_id}" > ${d.branch} </option>`)
+							}
+						})
+					}
+				},
+			})
+		}
+
 		// modal event
 		function addStock(event){
 			$("#addStock").modal("show");
 			$("#modal-add").val($(event).data("sparepartname"))
+			apiCurrentBranch();
 		}
 
 		function requestStock(event){
 			$("#requestStock").modal("show");
 			$("#modal-request").val($(event).data("sparepartname"))
+			apiCurrentBranch("request-option")
 		}
 
 		function transferStock(event){
 			$("#transferStock").modal("show");
 			$("#modal-transfer").val($(event).data("sparepartname"))
+			apiCurrentBranch("transfer-option")
 		}
 
 

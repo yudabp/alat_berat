@@ -42,6 +42,11 @@ class Warehouse extends CI_Controller {
 		echo json_encode(["msg" => "transfer part"]);
 	}
 
+	public function branchBycompany(){
+		$data["warehouse"] = $this->db->select('*')->get_where('branch_office', ["type" => "Warehouse",'idcompany'=>$this->session->userdata('idcompany')])->result();
+		echo json_encode($data);
+	}
+
 
 
 

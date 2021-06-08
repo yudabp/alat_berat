@@ -92,7 +92,7 @@
 					<div class="col-md-6">
 						<div class="form-group">
 							<label for="request">Request from</label>
-							<select name="request" id="request" class="single-select form-control" >
+							<select name="request" id="request-option" class="single-select form-control" >
 								<option selected="selected" disabled="disabled"> - Warehouse - </option>
 							</select>
 						</div>
@@ -152,7 +152,7 @@
 					<div class="col-md-6">
 						<div class="form-group">
 							<label for="transfer">Transfer to</label>
-							<select name="transfer" id="transfer" class="single-select form-control" >
+							<select name="transfer" id="transfer-option" class="single-select form-control" >
 								<option selected="selected" disabled="disabled"> - Warehouse - </option>
 							</select>
 						</div>
