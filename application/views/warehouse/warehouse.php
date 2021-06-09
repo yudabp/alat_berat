@@ -31,7 +31,7 @@
 													<ul class="nav nav-tabs tab-basic" role="tablist">
 															<?php foreach($warehouse as $i=>$w): ?>
 																<li class="nav-item">
-																		<a class="nav-link <?= $i == false ? "active show" : "" ?>" aria-selected="<?= $i == FALSE ? "true" : "false" ?>" id="debasic-tab" data-toggle="tab" href="#<?= $w->branch_id ?>" data-branchid="<?=$w->branch_id?>" role="tab" onClick="currentBranch(this)"><?= $w->branch ?></a>
+																		<a class="nav-link <?= $i == false ? "active show" : "" ?>" aria-selected="<?= $i == FALSE ? "true" : "false" ?>" id="debasic-tab" data-toggle="tab" href="#<?= $w->branch_id ?>" data-branchid="<?=$w->branch_id?>" role="tab" onclick="currentBranch(this)"><?= $w->branch ?></a>
 																</li>
 															<?php endforeach; ?>
 													</ul>
@@ -157,7 +157,7 @@
 
 		// current branch
 		function currentBranch(event){
-			$("#current_branch_id").val($(event).data("branch_id"))
+			$("#current_branch_id").val($(event).data("branchid"))
 		}
 
 		// api current branch
@@ -167,9 +167,11 @@
 				success: function (data){
 					let res = JSON.parse(data).warehouse;
 					if(id){
+						$(`#${id}`).html("");
+						$(`#${id}`).append(`<option selected="selected" disabled="disabled"> - Warehouse - </option>`)
 						res.map(d => {
-							if(d.branch_id != 	$("#current_branch_id").val()){
-								$(`#${id}`).append(`<option value="${d.branch_id}" > ${d.branch} </option>`)
+							if(d.branch_id != $("#current_branch_id").val()){
+								$(`#${id}`).append(`<option value="${d.branch_id}"> ${d.branch} </option>`)
 							}
 						})
 					}
