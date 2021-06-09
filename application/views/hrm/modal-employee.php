@@ -23,33 +23,7 @@
                 </div>
               </div>
             </div>
-            <div class="row grid-margin">
-              <div class="card col-md-12">
-                <div class="card-body">
-                  <h4 class="card-title d-flex">User Access</h4>
-                  <!-- <div class="form-check">
-                    <label class="form-check-label">
-                      <input type="checkbox" class="form-check-input" name="allow" value="yes" id="allow"> Allow Application Login
-                    </label>
-                  </div> -->
-                  <div class="form-group">
-                    <?php 
-										$i = 1;
-                    foreach($roles as $role){
-                    ?>
-                    <div class="form-radio">
-                      <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="role" id="role<?= $i ?>" value="<?= $role->id?>"><?= $role->name ?>
-                        <i class="input-helper"></i>
-                      </label>
-                    </div>
-                    <?php
-										$i++;	
-										} ?>
-                  </div>
-                </div>
-              </div>
-            </div>
+            
           </div>
           <div class="col-md-8">
             <div class="card">

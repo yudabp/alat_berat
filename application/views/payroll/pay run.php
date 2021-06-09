@@ -42,12 +42,28 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr class="text-center">
-                            <td>Gaji 1</td>
+													<tr class="text-center">
+                            <td><a href="#">Gaji 2</a></td>
                             <td>Monthly</td>
                             <td>Monday</td>
                             <td>
-															<button data-toggle="tooltip" data-placement="left" title="Approve" class="btn btn-icons btn-rounded btn-primary"><i class="icon-check	"></i></button>
+															<div class="dropdown">
+                                  <button type="button" class="btn btn-icons btn-rounded text-center" data-toggle="dropdown">
+                                    <i class="ti-more-alt"></i>
+                                  </button>
+                                  <div class="dropdown-menu">
+																		<button data-toggle="tooltip" data-placement="left" title="Approve" class="btn btn-link"><i class="icon-check"></i></button>
+                                    <button data-toggle="tooltip" data-placement="left" title="Delete" class="btn btn-link" onclick="delItem('<?php echo $value->mainid; ?>');"><i class="fa fa-trash-o"></i></button>
+                                  </div>
+                                </div>
+                            </td>
+                          </tr>
+													<tr class="text-center">
+                            <td><a href="#viewEmp" data-toggle="modal" >Gaji 1</a></td>
+                            <td>Monthly</td>
+                            <td>Monday</td>
+                            <td>
+															<button data-toggle="tooltip" data-placement="left" title="Approved" class="btn btn-icons btn-rounded btn-primary"><i class="icon-check"></i></button>
                             </td>
                           </tr>
                         </tbody>
@@ -60,6 +76,60 @@
           </div>
         </div>
         <!-- content-wrapper ends -->
+
+				<div class="modal fade" id="viewEmp" tabindex="-1" role="dialog"aria-labelledby="viewEmpLabel" data-backdrop="static" data-keyboard="false">
+          <div class="modal-dialog modal-lg" role="document" style="margin-top: 15px;margin-bottom: 0">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="viewEmpLabel">Gaji 1</h5>
+                <button type="button" class="close btn-close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+								<table id="tablepay" class="table">
+									<thead>
+										<tr class="text-center">
+											<th>Employee</th>
+											<th>Email</th>
+											<th>Department</th>
+											<th>Designation</th>
+											<!-- <th>Actions</th> -->
+										</tr>
+									</thead>
+									<tbody>
+										<tr class="text-center">
+											<td>Alex</td>
+											<td>benialexsandro22@gmail.com</td>
+											<td>finance</td>
+											<td>-</td>
+											<!-- <td>
+												<button type="button" class="btn btn-icons btn-rounded text-center" data-toggle="dropdown">
+													<i class="fa fa-trash-o"></i>
+												</button>
+												<div class="dropdown">
+													<button type="button" class="btn btn-icons btn-rounded text-center" data-toggle="dropdown">
+														<i class="ti-more-alt"></i>
+													</button>
+													<div class="dropdown-menu">
+														<button class="btn btn-link"><i class="fa fa-pencil"></i></button>
+														<button class="btn btn-link"><i class="fa fa-trash-o"></i></button>
+														<button class="btn btn-icons btn-inverse-primary"><i class="fa  fa-trash-o"></i></button>
+													</div>
+												</div>
+											</td> -->
+										</tr>
+									</tbody>
+								</table>
+              </div>
+              <div class="modal-footer">
+                <!-- <button type="button" class="btn btn-success">Add Employee To List</button> -->
+                <button type="button" class="btn btn-light btn-close" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal Ends -->
 
 <?php 
   $this->load->view('template/footer');
