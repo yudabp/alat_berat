@@ -120,14 +120,15 @@ class Auth extends CI_Controller{
     $inCheck = $this->AuthModel->getroot($user);
     $inGet = $inCheck->row();
     if($inCheck->num_rows()>0 && password_verify($pass,$inGet->password)){
-      $this->session->set_userdata(array(
-                      'status_login'=>TRUE,
-                      'iduser'=>$inGet->idroot,
-                      'name'=>$inGet->nama,
-                      'username'=>$inGet->username,
-                      'ip'=>$inGet->ip,
-                      'level' =>'root',
-                  ));
+        
+        $this->session->set_userdata(array(
+            'status_login'=>TRUE,
+            'iduser'=>$inGet->idroot,
+            'name'=>$inGet->nama,
+            'username'=>$inGet->username,
+            'ip'=>$inGet->ip,
+            'level' =>'root',
+        ));
       if(isset($remember)){
         $this->input->set_cookie([
            'name'   => 'uname',

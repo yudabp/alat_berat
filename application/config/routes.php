@@ -112,6 +112,8 @@ $route['detail-employee'] = "hrm/detailEmp";
 $route['detail-staff'] = "hrm/detailEmp";
 $route['viewEmp'] = "hrm/viewEmp";
 $route['getKab'] = "hrm/getKab";
+// User Access
+$route['user-access'] = "hrm/userAccess";
 //Department
 $route['departments'] = "hrm/department";
 $route['saveDep'] = "hrm/saveDep";

@@ -44,6 +44,9 @@
                 <li class="nav-item <?php if($url_1 == "employees"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>employees">Employees</a>
                 </li>
+                <li class="nav-item <?php if($url_1 == "user-access"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>user-access">User Access</a>
+                </li>
                 <li class="nav-item <?php if($url_1 == "announcement"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>announcement">Announcement</a>
                 </li>

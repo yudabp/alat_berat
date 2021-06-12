@@ -39,6 +39,9 @@
                       <li class="nav-item mb-4">
                         <a class="nav-link active" id="tab-6-1" data-toggle="tab" href="#home-6-1" role="tab" aria-controls="home-6-1" aria-selected="true">Attendace</a>
                       </li>
+                      <li class="nav-item mb-4"> 
+                        <a class="nav-link text-left" id="tab-6-9" data-toggle="tab" href="#work-6-9" role="tab" aria-controls="work-6-9" aria-selected="false">Access</a>
+                      </li>
                       <!-- <li class="nav-item mb-4">
                         <a class="nav-link" id="tab-6-2" data-toggle="tab" href="#profile-6-2" role="tab" aria-controls="profile-6-2" aria-selected="false">Company</a>
                       </li> -->
@@ -67,6 +70,13 @@
                         <?php
                           // Load View Workdays
                           $this->load->view('setting/hr-setting-attendance');
+                        ?>
+                      </div>
+
+                      <div class="tab-pane fade" id="work-6-9" role="tabpanel" aria-labelledby="tab-6-9">
+                        <?php
+                          // Load View Access
+                          $this->load->view('setting/hr-setting-access');
                         ?>
                       </div>
 
