@@ -65,21 +65,17 @@
 																						<?php foreach($sparepart as $i=>$s) : ?>
 																							<tr>
 																								<td><?= $s->code; ?></td>
-																								<?php foreach ($sparepart_detail as $i=>$sd) {
-																									if($w->branch_id == $sd->idbranch && $s->idsparepart == $sd->idsparepart){
-																										echo "<td>".$sd->stock."</td>";
-																										echo "<td>".$sd->price."</td>";
-																									}else{
-																										echo "<td>0</td>
-																										<td>0</td>";
-																									}
-																								} ?>
-																								
-																								<td>
-																									<button class="btn btn-link" data-sparepartname="<?= $s->name ?>" data-branchid="<?= $w->branch_id ?>" data-idsparepart="<?=$s->idsparepart?>" onclick="addStock(this);"><i class="fa fa-plus"></i></button>
-																									<button class="btn btn-link" data-sparepartname="<?= $s->name ?>" data-branchid="<?= $w->branch_id ?>" data-idsparepart="<?=$s->idsparepart?>" onclick="requestStock(this);"><i class="fa fa-angle-left"></i></button>
-																									<button class="btn btn-link" data-sparepartname="<?= $s->name ?>" data-branchid="<?= $w->branch_id ?>" data-idsparepart="<?=$s->idsparepart?>" onclick="transferStock(this);"><i class="fa fa-angle-right"></i></button>
-																								</td>
+																								<?php foreach ($sparepart_detail as $i=>$sd) :?>
+																									<?php if($w->branch_id == $sd->idbranch && $s->idsparepart == $sd->idsparepart): ?>
+																										<td> <?=$sd->stock;?></td>
+																										<td> <?=$sd->price;?></td>
+																										<td>
+																											<button class="btn btn-link" data-sparepartname="<?= $s->name ?>" data-branchid="<?= $w->branch_id ?>" data-idsparepart="<?=$s->idsparepart?>" data-idBranchsparepart="<?= $sd->idBranchsparepart ?>" onclick="addStock(this);"><i class="fa fa-plus"></i></button>
+																											<button class="btn btn-link" data-sparepartname="<?= $s->name ?>" data-branchid="<?= $w->branch_id ?>" data-idsparepart="<?=$s->idsparepart?>" data-idBranchsparepart="<?= $sd->idBranchsparepart ?>" onclick="requestStock(this);"><i class="fa fa-angle-left"></i></button>
+																											<button class="btn btn-link" data-sparepartname="<?= $s->name ?>" data-branchid="<?= $w->branch_id ?>" data-idsparepart="<?=$s->idsparepart?>" data-idBranchsparepart="<?= $sd->idBranchsparepart ?>" onclick="transferStock(this);" <?= $sd->stock == 0 ? "disabled" : "" ?>><i class="fa fa-angle-right"></i></button>
+																										</td>
+																									<?php endif; ?>
+																								<?php endforeach; ?>
 																							</tr>
 																						<?php endforeach; ?>
 																						</tbody>
@@ -132,28 +128,67 @@
 			});
 			
 			// form submit
-			$("form").submit(function(e){
-				e.preventDefault();
-				let atribut = $(this).attr("id");
-				if(atribut == "tambah"){
-					addStockPart();
-				}
-				else if(atribut == "request"){
-					let id_dep = $(this).data("id");
-					reqStockPart();
+			// $("form").submit(function(e){
+			// 	e.preventDefault();
+			// 	let atribut = $(this).attr("id");
+			// 	if(atribut == "tambah"){
+			// 		addStockPart();
+			// 	}
+			// 	else if(atribut == "request"){
+			// 		let id_dep = $(this).data("id");
+			// 		reqStockPart();
 
-				}
-				else if(atribut == "transfer"){
-					let id_dep = $(this).data("id");
-					transStockPart(id_dep);
-				}
-			});
+			// 	}
+			// 	else if(atribut == "transfer"){
+			// 		let id_dep = $(this).data("id");
+			// 		transStockPart(id_dep);
+			// 	}
+			// });
 		});
 
-		// submit event func
-		function spareStock(...params){
-			
-		}
+		// add stock
+		$("#add").submit(function(e){
+			e.preventDefault()
+			let formData = $(this).serializeArray(); 
+			let idbranchsparepart = $("#idBranchsparepart").val()
+			let idbranch = $("#idbranch").val()
+			let idsparepart = $("#idsparepart").val()
+			let idcompany = $("#id_company").val()
+			// data = [...]
+			let data = {};
+			formData.map(d => data[d.name] = d.value)
+			data = {...data,idbranchsparepart,idbranch,idsparepart,idcompany }
+			console.log(data)
+			$.ajax({
+				type: "POST",
+				url: "<?=base_url()?>add-sparepart",
+				dataType: "json",
+				data: data,
+				success: function (data) {
+					console.log(data)
+				},
+			});
+			// console.log(data, idbranchsparepart, idbranch, idsparepart)
+		});
+
+		// transfer stock
+		$("#transfer").submit(function(e){
+			e.preventDefault()
+			let data = $('#transfer').serializeArray(); 
+			let idBranchsparepart = $("#idBranchsparepart").val()
+			let idbranch = $("#idbranch").val()
+			let idsparepart = $("#idsparepart").val()
+		});
+		
+		// request stock
+		$("#request").submit(function(e){
+			e.preventDefault()
+			let data = $('#request').serializeArray(); 
+			let idBranchsparepart = $("#idBranchsparepart").val()
+			let idbranch = $("#idbranch").val()
+			let idsparepart = $("#idsparepart").val()
+			console.log(data)
+		});
 
 		// current branch
 		function currentBranch(event){
@@ -183,18 +218,33 @@
 		function addStock(event){
 			$("#addStock").modal("show");
 			$("#modal-add").val($(event).data("sparepartname"))
+
+			$("#idBranchsparepart").val($(event).data("idBranchsparepart"))
+			$("#idbranch").val($(event).data("branchid"))
+			$("#idsparepart").val($(event).data("idsparepart"))
+
 			apiCurrentBranch();
 		}
 
 		function requestStock(event){
 			$("#requestStock").modal("show");
 			$("#modal-request").val($(event).data("sparepartname"))
+
+			$("#idBranchsparepart").val($(event).data("idBranchsparepart"))
+			$("#idbranch").val($(event).data("branchid"))
+			$("#idsparepart").val($(event).data("idsparepart"))
+
 			apiCurrentBranch("request-option")
 		}
 
 		function transferStock(event){
 			$("#transferStock").modal("show");
 			$("#modal-transfer").val($(event).data("sparepartname"))
+
+			$("#idBranchsparepart").val($(event).data("idBranchsparepart"))
+			$("#idbranch").val($(event).data("branchid"))
+			$("#idsparepart").val($(event).data("idsparepart"))
+
 			apiCurrentBranch("transfer-option")
 		}
 

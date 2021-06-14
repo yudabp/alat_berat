@@ -570,8 +570,8 @@ $route['uptPrice'] = "services/uptPrice";
 //warehouse
 $route['warehouse'] = "warehouse/index";
 $route['update-warehouse'] = "warehouse/index";
-$route['add-sparepart'] = "warehouse/add_sparepart";
 $route['branch-comp'] = "warehouse/branchBycompany";
+$route['add-sparepart'] = "warehouse/add_sparepart";
 $route['request-sparepart'] = "warehouse/request_sparepart";
 $route['transfer-sparepart'] = "warehouse/transfer_sparepart";
 //------------- End Warehouse --------------------

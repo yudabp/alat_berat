@@ -1,3 +1,8 @@
+<div id="hidden_gang">
+	<input type="hidden" id="idBranchsparepart">
+	<input type="hidden" id="idsparepart">
+	<input type="hidden" id="idbranch">
+</div>
 <!-- Modal Add Stock -->
 <div class="modal fade" id="addStock" tabindex="-1" role="dialog" aria-labelledby="addStockLabel">
 	<div class="modal-dialog" role="document" style="margin-top: 15px;margin-bottom: 0">
@@ -9,7 +14,7 @@
 				</button>
 			</div>
 			<!-- <?php echo form_open_multipart('add-sparepart',['class'=>'form-sample','id'=>'tambah']); ?> -->
-			<form action="#" method="post" enctype="multipart/form-data" class="form-sample" id="tambah">
+			<form action="#" method="post" enctype="multipart/form-data" class="form-sample" id="add">
 			<div class="modal-body">
 				<div class="row">
 					<div class="col-md-6">
