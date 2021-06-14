@@ -117,7 +117,7 @@ class Hrm extends CI_Controller {
 		// ->get_where('employee',['employee.idcompany'=>$this->session->userdata('idcompany')])
 		// ->result();
 		$data['info'] = $this->db->get_where('company',['idcompany'=>$this->session->userdata('idcompany')])->row();
-		$data['roles'] = $this->db->get_where('role',['idcompany'=>$this->session->userdata('idcompany')])->result();
+		// $data['roles'] = $this->db->get_where('role',['idcompany'=>$this->session->userdata('idcompany')])->result();
 		// var_export($data);
 		$this->load->view('hrm/employee',$data);
   }
@@ -284,7 +284,7 @@ class Hrm extends CI_Controller {
     $id = $this->input->post('id');
     //$data = $this->ShowModel->getDataWHere('employee',['mainid'=>$id])->row_array();
     $data = $this->db->join('employee_access','employee_access.mainid = employee.mainid')
-														->join('employee_role','employee_role.mainid = employee.mainid')
+														// ->join('employee_role','employee_role.mainid = employee.mainid')
                             ->get_where('employee',['employee.mainid'=>$id])
                             ->row_array();
     echo json_encode($data);

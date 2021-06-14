@@ -300,6 +300,8 @@ $route['customers'] = "accounting/customers";
 $route['payroll-overview'] = "payroll/pay_overview";
 //calendar
 $route['pay-calendar'] = "payroll/pay_calendar";
+$route['savePayCal'] = "payroll/savePayCal";
+$route['delPayCal'] = "payroll/delPayCal";
 //payrun
 $route['pay-run'] = "payroll/pay_run";
 //payreport
