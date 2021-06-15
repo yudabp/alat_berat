@@ -27,7 +27,7 @@ class Warehouse extends CI_Controller {
     // $this->load->view('hrm/employee',$data);
 		$data["warehouse"] = $this->db->select('*')->get_where('branch_office', ["type" => "Warehouse",'idcompany'=>$this->session->userdata('idcompany')])->result();
 		$data["sparepart"] = $this->db->select("*")->get_where("product_sparepart", ['idcompany'=>$this->session->userdata('idcompany')])->result();
-		$data["sparepart_detail"] = $this->db->select("*")->get_where("branch_sparepart", ["idcompany" => $this->session->userdata('idcompany')])->result();
+		$data["sparepart_detail"] = $this->db->select("*")->get_where("warehouse_stok", ["idcompany" => $this->session->userdata('idcompany')])->result();
 
 		$spareitems = [];
 		foreach ($data['sparepart'] as $i => $s) {
@@ -40,9 +40,9 @@ class Warehouse extends CI_Controller {
 			]);
 		}
 
-		$items = [];
+		$warehouse = [];
 		foreach ($data["warehouse"] as $k => $v) {
-			array_push($items, (object)[
+			array_push($warehouse, (object)[
 				"idcompany" => $v->idcompany,
 				"branch_id" => $v->branch_id,
 				"name" => $v->branch,
@@ -50,22 +50,32 @@ class Warehouse extends CI_Controller {
 			]);
 		}
 
-		foreach ($data["sparepart_detail"] as $k1 => $v1) {
-			foreach ($items as $k2 => $v2) {
-				echo "$v2->branch_id == $v1->idbranch ";
-				if($v2->branch_id == $v1->idbranch){
-					echo "masuk $v1->stock";
-					$items[$k2]->sparepart->stock = $v1->stock;
-					$items[$k2]->sparepart->price = $v1->price;
-					break;
-				}
-				echo "<br><br>";
-			}
-			echo "<br>====================<br>";
-		}
+		$warehouse[1]->sparepart[1]->stock =  12;
 
-		// die(var_dump($items[1]));
+		// foreach ($data["sparepart_detail"] as $k1 => $v1) {
+		// 	foreach ($warehouse as $k2 => $v2) {
+		// 		// echo "warehouse $v2->branch_id == $v1->idbranch<br>";
+		// 		foreach ($v2->sparepart as $k3 => $v3) {
+		// 			echo "$v2->name => $v3->name ? ";
+		// 			if($v1->idsparepart == $v3->idsparepart && $v2->branch_id == $v1->idbranch){
+		// 				echo "[masuk]";
+		// 				// echo "masuk di $v2->name -> $v3->name sebanyak $v1->stock harganya $v1->price--->[$k2][$k3]<br>";
+		// 				$warehouse[$k2]->sparepart[$k3]->stock = $v1->stock;
+		// 				// $warehouse[$k2]->sparepart[$k3]->price = $v1->price;
+		// 			}
+		// 		}
+		// 		echo "<br>==========<br>";
+		// 	}
+		// }
+
+		// print_r($warehouse[1]->sparepart[0]->stock);
+		print_r($warehouse);
+
+		// var_dump($data["sparepart_detail"]);
+
+		// die(var_dump($warehouse));
 		// die(var_dump($data["test"]));
+		die();
 		$this->load->view('warehouse/warehouse',$data);
   }
 
