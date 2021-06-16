@@ -178,24 +178,51 @@
 					location.reload();
 				},
 			});
-			// console.log(data, idbranchsparepart, idbranch, idsparepart)
 		});
 
 		// transfer stock
 		$("#transfer").submit(function(e){
 			e.preventDefault()
-			let data = $('#transfer').serializeArray(); 
+			let formData = $(this).serializeArray(); 
 			let idbranch = $("#idbranch").val()
 			let idsparepart = $("#idsparepart").val()
+			let idcompany = $("#id_company").val()
+			let data = {};
+			formData.map(d => data[d.name] = d.value)
+			data = {...data,idbranch,idsparepart,idcompany, type:"transfer"}
+			console.log(data)
+			$.ajax({
+				type: "POST",
+				url: "<?=base_url()?>transfer-sparepart",
+				dataType: "json",
+				data: data,
+				success: function (data) {
+					// location.reload();
+					console.log(data)
+				},
+			});
 		});
 		
 		// request stock
 		$("#request").submit(function(e){
 			e.preventDefault()
-			let data = $('#request').serializeArray(); 
+			let formData = $(this).serializeArray(); 
 			let idbranch = $("#idbranch").val()
 			let idsparepart = $("#idsparepart").val()
+			let idcompany = $("#id_company").val()
+			let data = {};
+			formData.map(d => data[d.name] = d.value)
+			data = {...data,idbranch,idsparepart,idcompany, type:"request"}
 			console.log(data)
+			$.ajax({
+				type: "POST",
+				url: "<?=base_url()?>request-sparepart",
+				dataType: "json",
+				data: data,
+				success: function (data) {
+					location.reload();
+				},
+			});
 		});
 
 		// current branch
