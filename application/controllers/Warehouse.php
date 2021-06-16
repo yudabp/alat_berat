@@ -110,7 +110,34 @@ class Warehouse extends CI_Controller {
 	}
 
 	public function request_sparepart(){
-		echo json_encode(["msg" => "request part"]);
+		$data = [
+			"idwarehouseaction" => $this->uuid->v4(),
+			"idcompany" => $this->input->post("idcompany"),
+			"idbranch" => $this->input->post("idbranch"),
+			"idsparepart" => $this->input->post("idsparepart"),
+			"type" => $this->input->post("type"),
+			"jumlah" => $this->input->post("stock"),
+			"created_at" => $this->input->post("date")
+		];
+		$stok = $this->db->insert("warehouse_action",  $data);
+
+
+		$where =  ['idsparepart' => $this->input->post("idsparepart"), "idbranch" => $this->input->post("idbranch")];
+		$where2 =  ['idsparepart' => $this->input->post("idsparepart"), "idbranch" => $this->input->post("transfer-to")];
+		$cek = $query = $this->db->get_where('warehouse_stok',$where)->row();
+		$cek2 = $query = $this->db->get_where('warehouse_stok',$where2)->row();
+
+		$currentStock =  $cek->stock + $this->input->post("stock");
+		$this->db->where($where)->update("warehouse_stok", [
+			"stock" => $currentStock
+		]);
+
+		$currentStock =  $cek2->stock - $this->input->post("stock");
+		$this->db->where($where2)->update("warehouse_stok", [
+			"stock" => $currentStock
+		]);
+
+		echo json_encode(["msg" => "success"]);
 	}
 
 	public function transfer_sparepart(){
@@ -133,13 +160,11 @@ class Warehouse extends CI_Controller {
 
 		$currentStock =  $cek->stock - $this->input->post("stock");
 		$this->db->where($where)->update("warehouse_stok", [
-			"price" => $this->input->post("price"),
 			"stock" => $currentStock
 		]);
 
 		$currentStock =  $cek2->stock + $this->input->post("stock");
 		$this->db->where($where2)->update("warehouse_stok", [
-			"price" => $this->input->post("price"),
 			"stock" => $currentStock
 		]);
 
@@ -150,9 +175,6 @@ class Warehouse extends CI_Controller {
 		$data["warehouse"] = $this->db->select('*')->get_where('branch_office', ["type" => "Warehouse",'idcompany'=>$this->session->userdata('idcompany')])->result();
 		echo json_encode($data);
 	}
-
-
-
 
 }
 ?>

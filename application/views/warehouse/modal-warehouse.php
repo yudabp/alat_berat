@@ -96,7 +96,7 @@
 					<div class="col-md-6">
 						<div class="form-group">
 							<label for="request">Request from</label>
-							<select name="request" id="request-option" class="single-select form-control" >
+							<select name="transfer-to" id="request-option" class="single-select form-control" >
 								<option selected="selected" disabled="disabled"> - Warehouse - </option>
 							</select>
 						</div>
@@ -104,7 +104,7 @@
 					<div class="col-md-6">
 						<div class="form-group">
 							<label for="request">Stock Request</label>
-							<input type="number" name="request" id="request" class="form-control">
+							<input type="number" name="stock" id="request" class="form-control">
 						</div>
 					</div>
 				</div>

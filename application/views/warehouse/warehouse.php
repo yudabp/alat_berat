@@ -197,8 +197,7 @@
 				dataType: "json",
 				data: data,
 				success: function (data) {
-					// location.reload();
-					console.log(data)
+					location.reload();
 				},
 			});
 		});
