@@ -134,10 +134,10 @@
 					format: "dd/mm/yyyy"
 			});
 			$("#phone_no").inputmask({"mask": "(+62)8##-####-####"});
-			$('#price').inputmask({
-				alias: 'currency',
-				prefix: 'IDR. ',
-			});
+			// $('#price').inputmask({
+			// 	alias: 'currency',
+			// 	prefix: 'IDR. ',
+			// });
 			
 			// form submit
 			// $("form").submit(function(e){
@@ -162,22 +162,20 @@
 		$("#add").submit(function(e){
 			e.preventDefault()
 			let formData = $(this).serializeArray(); 
-			let idbranchsparepart = $("#idBranchsparepart").val()
 			let idbranch = $("#idbranch").val()
 			let idsparepart = $("#idsparepart").val()
 			let idcompany = $("#id_company").val()
 			// data = [...]
 			let data = {};
 			formData.map(d => data[d.name] = d.value)
-			data = {...data,idbranchsparepart,idbranch,idsparepart,idcompany }
-			console.log(data)
+			data = {...data,idbranch,idsparepart,idcompany, type:"add" }
 			$.ajax({
 				type: "POST",
 				url: "<?=base_url()?>add-sparepart",
 				dataType: "json",
 				data: data,
 				success: function (data) {
-					console.log(data)
+					location.reload();
 				},
 			});
 			// console.log(data, idbranchsparepart, idbranch, idsparepart)
@@ -187,7 +185,6 @@
 		$("#transfer").submit(function(e){
 			e.preventDefault()
 			let data = $('#transfer').serializeArray(); 
-			let idBranchsparepart = $("#idBranchsparepart").val()
 			let idbranch = $("#idbranch").val()
 			let idsparepart = $("#idsparepart").val()
 		});
@@ -196,7 +193,6 @@
 		$("#request").submit(function(e){
 			e.preventDefault()
 			let data = $('#request').serializeArray(); 
-			let idBranchsparepart = $("#idBranchsparepart").val()
 			let idbranch = $("#idbranch").val()
 			let idsparepart = $("#idsparepart").val()
 			console.log(data)
@@ -215,7 +211,7 @@
 					let res = JSON.parse(data).warehouse;
 					if(id){
 						$(`#${id}`).html("");
-						$(`#${id}`).append(`<option selected="selected" disabled="disabled"> - Warehouse - </option>`)
+						$(`#${id}`).append(`<option selected="selected"> - Warehoxuse - </option>`)
 						res.map(d => {
 							if(d.branch_id != $("#current_branch_id").val()){
 								$(`#${id}`).append(`<option value="${d.branch_id}"> ${d.branch} </option>`)
@@ -231,7 +227,6 @@
 			$("#addStock").modal("show");
 			$("#modal-add").val($(event).data("sparepartname"))
 
-			$("#idBranchsparepart").val($(event).data("idBranchsparepart"))
 			$("#idbranch").val($(event).data("branchid"))
 			$("#idsparepart").val($(event).data("idsparepart"))
 

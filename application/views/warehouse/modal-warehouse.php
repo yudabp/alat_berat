@@ -1,5 +1,4 @@
 <div id="hidden_gang">
-	<input type="hidden" id="idBranchsparepart">
 	<input type="hidden" id="idsparepart">
 	<input type="hidden" id="idbranch">
 </div>

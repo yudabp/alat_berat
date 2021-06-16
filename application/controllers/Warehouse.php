@@ -74,27 +74,39 @@ class Warehouse extends CI_Controller {
   }
 
 	public function add_sparepart(){
-		if($this->input->post("idbranchsparepart") == ""){
-			$this->InsertModel->indata('branch_sparepart',[
-				"idbranchsparepart" => $this->uuid->v4(),
-				"idsparepart" => $this->input->post("idsparepart"),
-				"idbranch" => $this->input->post("idbranch"),
-				"idcompany" => $this->input->post("idcompany"),
-				"stock" => $this->input->post("in"),
-				// "price" => $this->input->post("price"),
-				"price" => 30000,
+		$data = [
+			"idwarehouseaction" => $this->uuid->v4(),
+			"idcompany" => $this->input->post("idcompany"),
+			"idbranch" => $this->input->post("idbranch"),
+			"idsparepart" => $this->input->post("idsparepart"),
+			"type" => $this->input->post("type"),
+			"jumlah" => $this->input->post("in"),
+			"created_at" => $this->input->post("date")
+		];
+		$stok = $this->db->insert("warehouse_action",  $data);
+
+		$where =  ['idsparepart' => $this->input->post("idsparepart"), "idbranch" => $this->input->post("idbranch")];
+		$cek = $query = $this->db->get_where('warehouse_stok',$where)->row();
+
+		if(count($cek)){
+			$currentStock =  $cek->stock + $this->input->post("in");
+			$this->db->where($where)->update("warehouse_stok", [
+				"price" => $this->input->post("price"),
+				"stock" => $currentStock
 			]);
 		}else{
-			$this->InsertModel->uptdata('branch_sparepart',[
-				"idsparepart" => $this->input->post("idsparepart"),
-				"idbranch" => $this->input->post("idbranch"),
+			$data = [
+				"idwarehousestock" => $this->uuid->v4(),
 				"idcompany" => $this->input->post("idcompany"),
-				"stock" => $this->input->post("in"),
+				"idbranch" => $this->input->post("idbranch"),
+				"idsparepart" => $this->input->post("idsparepart"),
 				"price" => $this->input->post("price"),
-			],["idBranchsparepart" => $this->input->post("idbranchsparepart")]);
+				"stock" => $this->input->post("in"),
+			];
+			$this->db->insert("warehouse_stok", $data);
 		}
-	
-		echo json_encode(["callback" => $this->input->post("idbranchsparepart")]);
+
+		echo json_encode(["msg" => "success"]);
 	}
 
 	public function request_sparepart(){
