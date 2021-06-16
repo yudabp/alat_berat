@@ -27,11 +27,11 @@ class Warehouse extends CI_Controller {
     // $this->load->view('hrm/employee',$data);
 		$data["warehouse"] = $this->db->select('*')->get_where('branch_office', ["type" => "Warehouse",'idcompany'=>$this->session->userdata('idcompany')])->result();
 		$data["sparepart"] = $this->db->select("*")->get_where("product_sparepart", ['idcompany'=>$this->session->userdata('idcompany')])->result();
-		$data["sparepart_detail"] = $this->db->select("*")->get_where("branch_sparepart", ["idcompany" => $this->session->userdata('idcompany')])->result();
+		$data["sparepart_detail"] = $this->db->select("*")->get_where("warehouse_stok", ["idcompany" => $this->session->userdata('idcompany')])->result();
 
 		$spareitems = [];
 		foreach ($data['sparepart'] as $i => $s) {
-			array_push($spareitems, (object)[
+			array_push($spareitems, [
 				"idsparepart" => $s->idsparepart,
 				"name" => $s->name,
 				"code" => $s->code,
@@ -40,9 +40,9 @@ class Warehouse extends CI_Controller {
 			]);
 		}
 
-		$items = [];
+		$warehouse = [];
 		foreach ($data["warehouse"] as $k => $v) {
-			array_push($items, (object)[
+			array_push($warehouse, [
 				"idcompany" => $v->idcompany,
 				"branch_id" => $v->branch_id,
 				"name" => $v->branch,
@@ -51,21 +51,25 @@ class Warehouse extends CI_Controller {
 		}
 
 		foreach ($data["sparepart_detail"] as $k1 => $v1) {
-			foreach ($items as $k2 => $v2) {
-				echo "$v2->branch_id == $v1->idbranch ";
-				if($v2->branch_id == $v1->idbranch){
-					echo "masuk $v1->stock";
-					$items[$k2]->sparepart->stock = $v1->stock;
-					$items[$k2]->sparepart->price = $v1->price;
-					break;
+			foreach ($warehouse as $k2 => $v2) {
+				foreach ($v2["sparepart"] as $k3 => $v3) {
+					// echo $v2["branch_id"]." == $v1->idbranch |=| ";
+					// echo $v2["name"]." | ". $v3["name"];
+					if($v2["branch_id"] == $v1->idbranch && $v1->idsparepart == $v3["idsparepart"]){
+						// echo "|masuk|". " |=> ".$k2."[]".$k3;
+						$warehouse[$k2]["sparepart"][$k3]["stock"] = $v1->stock;
+						$warehouse[$k2]["sparepart"][$k3]["price"] = $v1->price;
+						// echo "<br>";
+						break;
+					}	
+					// echo "<br>";
 				}
-				echo "<br><br>";
 			}
-			echo "<br>====================<br>";
+			// echo "<br>================================================<br>";
 		}
-
-		// die(var_dump($items[1]));
-		// die(var_dump($data["test"]));
+		// print_r($warehouse);
+		// die();
+		$data["items"] = $warehouse;
 		$this->load->view('warehouse/warehouse',$data);
   }
 

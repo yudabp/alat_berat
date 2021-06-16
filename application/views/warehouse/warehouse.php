@@ -38,10 +38,10 @@
 													<input type="hidden" name="current_branch_id" id="current_branch_id" value="<?= $warehouse[0]->branch_id ?>"  />
 													<input type="hidden" name="id_company" id="id_company" value="<?= $this->session->userdata('idcompany') ?>"  />
 													<div class="tab-content tab-content-basic">
-														<?php foreach($warehouse as $i=>$w): ?>
-																<div class="tab-pane fade <?= $i == false ? "active show" : "" ?>" id="<?= $w->branch_id ?>" role="tabpanel">
+														<?php foreach($items as $i=>$item): ?>
+																<div class="tab-pane fade <?= $i == false ? "active show" : "" ?>" id="<?= $item["branch_id"] ?>" role="tabpanel">
 																		<div class="row mb-2">
-																				<h2 class="col-sm-9" style="font-size: 18px;">Sparepart <?= $w->branch ?> </h2>
+																				<h2 class="col-sm-9" style="font-size: 18px;">Sparepart <?= $item["name"] ?> </h2>
 																		</div>
 																		<div class="table-responsive mb-5">
 																				<table class="table table-bordered">
@@ -62,22 +62,34 @@
 																								</tr>
 																						</thead>
 																						<tbody>
-																						<?php foreach($sparepart as $i=>$s) : ?>
-																							<tr>
-																								<td><?= $s->code; ?></td>
-																								<?php foreach ($sparepart_detail as $i=>$sd) :?>
-																									<?php if($w->branch_id == $sd->idbranch && $s->idsparepart == $sd->idsparepart): ?>
-																										<td> <?=$sd->stock;?></td>
-																										<td> <?=$sd->price;?></td>
+																							<?php foreach($item["sparepart"] as $j=>$sp) : ?>
+																								<tr>
+																									<td><?= $sp["code"]; ?></td>
+																										<td> <?=$sp["stock"];?></td>
+																										<td> <?=$sp["price"];?></td>
 																										<td>
-																											<button class="btn btn-link" data-sparepartname="<?= $s->name ?>" data-branchid="<?= $w->branch_id ?>" data-idsparepart="<?=$s->idsparepart?>" data-idBranchsparepart="<?= $sd->idBranchsparepart ?>" onclick="addStock(this);"><i class="fa fa-plus"></i></button>
-																											<button class="btn btn-link" data-sparepartname="<?= $s->name ?>" data-branchid="<?= $w->branch_id ?>" data-idsparepart="<?=$s->idsparepart?>" data-idBranchsparepart="<?= $sd->idBranchsparepart ?>" onclick="requestStock(this);"><i class="fa fa-angle-left"></i></button>
-																											<button class="btn btn-link" data-sparepartname="<?= $s->name ?>" data-branchid="<?= $w->branch_id ?>" data-idsparepart="<?=$s->idsparepart?>" data-idBranchsparepart="<?= $sd->idBranchsparepart ?>" onclick="transferStock(this);" <?= $sd->stock == 0 ? "disabled" : "" ?>><i class="fa fa-angle-right"></i></button>
+																											<button class="btn btn-link" data-sparepartname="<?= $sp["name"] ?>" data-branchid="<?= $item["branch_id"] ?>" data-idsparepart="<?=$sp["idsparepart"]?>"  onclick="addStock(this);"><i class="fa fa-plus"></i></button>
+																											<button class="btn btn-link" data-sparepartname="<?= $sp["name"] ?>" data-branchid="<?= $item["branch_id"] ?>" data-idsparepart="<?=$sp["idsparepart"]?>"  onclick="requestStock(this);"><i class="fa fa-angle-left"></i></button>
+																											<button class="btn btn-link" data-sparepartname="<?= $sp["name"] ?>" data-branchid="<?= $item["branch_id"] ?>" data-idsparepart="<?=$sp["idsparepart"]?>"  onclick="transferStock(this);" <?= $sp["stock"] == 0 ? "disabled" : "" ?>><i class="fa fa-angle-right"></i></button>
 																										</td>
-																									<?php endif; ?>
-																								<?php endforeach; ?>
-																							</tr>
-																						<?php endforeach; ?>
+																								</tr>
+																							<?php endforeach; ?>
+																							<!-- <?php foreach($sparepart as $i=>$s) : ?>
+																								<tr>
+																									<td><?= $s->code; ?></td>
+																									<?php foreach ($sparepart_detail as $i=>$sd) :?>
+																										<?php if($w->branch_id == $sd->idbranch && $s->idsparepart == $sd->idsparepart): ?>
+																											<td> <?=$sd->stock;?></td>
+																											<td> <?=$sd->price;?></td>
+																											<td>
+																												<button class="btn btn-link" data-sparepartname="<?= $s->name ?>" data-branchid="<?= $w->branch_id ?>" data-idsparepart="<?=$s->idsparepart?>" data-idBranchsparepart="<?= $sd->idBranchsparepart ?>" onclick="addStock(this);"><i class="fa fa-plus"></i></button>
+																												<button class="btn btn-link" data-sparepartname="<?= $s->name ?>" data-branchid="<?= $w->branch_id ?>" data-idsparepart="<?=$s->idsparepart?>" data-idBranchsparepart="<?= $sd->idBranchsparepart ?>" onclick="requestStock(this);"><i class="fa fa-angle-left"></i></button>
+																												<button class="btn btn-link" data-sparepartname="<?= $s->name ?>" data-branchid="<?= $w->branch_id ?>" data-idsparepart="<?=$s->idsparepart?>" data-idBranchsparepart="<?= $sd->idBranchsparepart ?>" onclick="transferStock(this);" <?= $sd->stock == 0 ? "disabled" : "" ?>><i class="fa fa-angle-right"></i></button>
+																											</td>
+																										<?php endif; ?>
+																									<?php endforeach; ?>
+																								</tr>
+																							<?php endforeach; ?> -->
 																						</tbody>
 																				</table>
 																		</div>
