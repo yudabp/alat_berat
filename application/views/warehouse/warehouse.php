@@ -29,128 +29,54 @@
 									<div class="card">
 											<div class="card-body">
 													<ul class="nav nav-tabs tab-basic" role="tablist">
-															<li class="nav-item">
-																	<a class="nav-link active" id="debasic-tab" data-toggle="tab" href="#dewh1" role="tab">Warehouse 1</a>
-															</li>
-															<li class="nav-item">
-																	<a class="nav-link" id="dework-tab" data-toggle="tab" href="#dewh2" role="tab">Warehouse 2</a>
-															</li>
-															<li class="nav-item">
-																	<a class="nav-link" id="depersonal-tab" data-toggle="tab" href="#dewh3" role="tab">Warehouse 3</a>
-															</li>
+															<?php foreach($warehouse as $i=>$w): ?>
+																<li class="nav-item">
+																		<a class="nav-link <?= $i == false ? "active show" : "" ?>" aria-selected="<?= $i == FALSE ? "true" : "false" ?>" id="debasic-tab" data-toggle="tab" href="#<?= $w->branch_id ?>" role="tab"><?= $w->branch ?></a>
+																</li>
+															<?php endforeach; ?>
 													</ul>
 													<div class="tab-content tab-content-basic">
-															<div class="tab-pane fade show active" id="dewh1" role="tabpanel">
-																	<div class="row mb-2">
-																			<h2 class="col-sm-9" style="font-size: 18px;">Sparepart Warehouse 1</h2>
-																	</div>
-																	<div class="table-responsive mb-5">
-																			<table class="table table-bordered">
-																					<thead>
+														<?php foreach($warehouse as $i=>$w): ?>
+																<div class="tab-pane fade <?= $i == false ? "active show" : "" ?>" id="<?= $w->branch_id ?>" role="tabpanel">
+																		<div class="row mb-2">
+																				<h2 class="col-sm-9" style="font-size: 18px;">Sparepart <?= $w->branch ?> </h2>
+																		</div>
+																		<div class="table-responsive mb-5">
+																				<table class="table table-bordered">
+																						<thead>
+																								<tr>
+																										<th>
+																												Sparepart Code
+																										</th>
+																										<th>
+																												Stock
+																										</th>
+																										<th>
+																												Price
+																										</th>
+																										<th>
+																												Action
+																										</th>
+																								</tr>
+																						</thead>
+																						<tbody>
+																						<?php foreach($sparepart as $i=>$s) : ?>
 																							<tr>
-																									<th>
-																											Sparepart Code
-																									</th>
-																									<th>
-																											Stock
-																									</th>
-																									<th>
-																											Price
-																									</th>
-																									<th>
-																											Action
-																									</th>
+																								<td><?= $s->code; ?></td>
+																								<td>31</td>
+																								<td>IDR. 400.00</td>
+																								<td>
+																									<button class="btn btn-link" onclick="addStock();"><i class="fa fa-plus"></i></button>
+																									<button class="btn btn-link" onclick="requestStock();"><i class="fa fa-angle-left"></i></button>
+																									<button class="btn btn-link" onclick="transferStock();"><i class="fa fa-angle-right"></i></button>
+																								</td>
 																							</tr>
-																					</thead>
-																					<tbody>
-																						<tr>
-																							<td>SP0007</td>
-																							<td>31</td>
-																							<td>IDR. 400.00</td>
-																							<td>
-																								<button class="btn btn-link" onclick="addStock();"><i class="fa fa-plus"></i></button>
-																								<button class="btn btn-link" onclick="requestStock();"><i class="fa fa-angle-left"></i></button>
-																								<button class="btn btn-link" onclick="transferStock();"><i class="fa fa-angle-right"></i></button>
-																							</td>
-																						</tr>
-																					</tbody>
-																			</table>
-																	</div>
-															</div>
-															<div class="tab-pane fade" id="dewh2" role="tabpanel">
-																	<div class="row mb-2">
-																			<h2 class="col-sm-9" style="font-size: 18px;">Sparepart Warehouse 2</h2>
-																	</div>
-																	<div class="table-responsive mb-5">
-																			<table class="table table-bordered">
-																					<thead>
-																							<tr>
-																									<th>
-																											Sparepart Code
-																									</th>
-																									<th>
-																											Stock
-																									</th>
-																									<th>
-																											Price
-																									</th>
-																									<th>
-																											Action
-																									</th>
-																							</tr>
-																					</thead>
-																					<tbody>
-																					<tr>
-																							<td>SP0007</td>
-																							<td>31</td>
-																							<td>IDR. 400.00</td>
-																							<td>
-																								<button class="btn btn-link" onclick="addStock();"><i class="fa fa-plus"></i></button>
-																								<button class="btn btn-link" onclick="requestStock();"><i class="fa fa-angle-left"></i></button>
-																								<button class="btn btn-link" onclick="transferStock();"><i class="fa fa-angle-right"></i></button>
-																							</td>
-																						</tr>
-																					</tbody>
-																			</table>
-																	</div>
-															</div>
-															<div class="tab-pane fade" id="dewh3" role="tabpanel">
-																	<div class="row mb-2">
-																			<h2 class="col-sm-9" style="font-size: 18px;">Sparepart Warehouse 3</h2>
-																	</div>
-																	<div class="table-responsive mb-5">
-																			<table class="table table-bordered">
-																					<thead>
-																							<tr>
-																									<th>
-																											Sparepart Code
-																									</th>
-																									<th>
-																											Stock
-																									</th>
-																									<th>
-																											Price
-																									</th>
-																									<th>
-																											Action
-																									</th>
-																							</tr>
-																					</thead>
-																					<tbody>
-																					<tr>
-																							<td>SP0007</td>
-																							<td>31</td>
-																							<td>IDR. 400.00</td>
-																							<td>
-																								<button class="btn btn-link" onclick="addStock();"><i class="fa fa-plus"></i></button>
-																								<button class="btn btn-link" onclick="requestStock();"><i class="fa fa-angle-left"></i></button>
-																								<button class="btn btn-link" onclick="transferStock();"><i class="fa fa-angle-right"></i></button>
-																							</td>
-																						</tr>
-																					</tbody>
-																			</table>
-																	</div>
-															</div>
+																						<?php endforeach; ?>
+																						</tbody>
+																				</table>
+																		</div>
+																</div>
+														<?php endforeach; ?>
 													</div>
 											</div>
 									</div>
