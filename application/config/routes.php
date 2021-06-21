@@ -112,6 +112,7 @@ $route['detail-employee'] = "hrm/detailEmp";
 $route['detail-staff'] = "hrm/detailEmp";
 $route['viewEmp'] = "hrm/viewEmp";
 $route['getKab'] = "hrm/getKab";
+$route['saveBasic'] = "hrm/saveBasic";
 //Department
 $route['departments'] = "hrm/department";
 $route['saveDep'] = "hrm/saveDep";
@@ -298,6 +299,8 @@ $route['customers'] = "accounting/customers";
 $route['payroll-overview'] = "payroll/pay_overview";
 //calendar
 $route['pay-calendar'] = "payroll/pay_calendar";
+$route['savePayCal'] = "payroll/savePayCal";
+$route['delPayCal'] = "payroll/delPayCal";
 //payrun
 $route['pay-run'] = "payroll/pay_run";
 //payreport

@@ -87,16 +87,19 @@
                             <td>finance</td>
                             <td>-</td>
                             <td>
-                              <div class="dropdown">
+															<button type="button" class="btn btn-icons btn-rounded text-center" data-toggle="dropdown">
+																<i class="fa fa-trash-o"></i>
+															</button>
+                              <!-- <div class="dropdown">
                                 <button type="button" class="btn btn-icons btn-rounded text-center" data-toggle="dropdown">
                                   <i class="ti-more-alt"></i>
                                 </button>
                                 <div class="dropdown-menu">
                                   <button class="btn btn-link"><i class="fa fa-pencil"></i></button>
                                   <button class="btn btn-link"><i class="fa fa-trash-o"></i></button>
-                                  <!-- <button class="btn btn-icons btn-inverse-primary"><i class="fa  fa-trash-o"></i></button> -->
+                                  <button class="btn btn-icons btn-inverse-primary"><i class="fa  fa-trash-o"></i></button>
                                 </div>
-                              </div>
+                              </div> -->
                             </td>
                           </tr>
                         </tbody>
@@ -118,45 +121,40 @@
           <div class="modal-dialog" role="document" style="margin-top: 15px;margin-bottom: 0">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="formStaffLabel">Add Employe</h5>
+                <h5 class="modal-title" id="formStaffLabel">Add Employee</h5>
                 <button type="button" class="close btn-close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
+							<form action="#" id="tambah">
               <div class="modal-body">
                 <div class="row">
                   <div class="col-md-12">
-                    <div class="form-group">
-                      <label for="select_employee">Select Employee</label>
-                      <select class="form-control" id="select_employee">
-                        <option selected="selected" disabled="disabled"> - Select Employee - </option>
+										<div class="form-group">
+                      <label for="select_employee">Employee</label>
+                      <select name="select_employee" id="select_employee" class="single-select form-control select2" style="width:100%;">
+                        <option disabled="" selected="">-- Select Employee --</option>
+                        <?php foreach ($emp as $key => $em) { ?>
+                          <option value="<?php echo $em->mainid ?>"><?php echo $em->fname." ".$em->mname." ".$em->lname ?></option>
+                        <?php } ?>
                       </select>
                     </div>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="select_department">Select Department</label>
-                      <select class="form-control" id="select_department">
-                        <option selected="selected" disabled="disabled"> - Select Department - </option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="select_designation">Select Designation</label>
-                      <select class="form-control" id="select_designation">
-                        <option selected="selected" disabled="disabled"> - Select Designation - </option>
-                      </select>
+								<div class="row">
+                  <div class="col-md-12">
+										<div class="form-group">
+                      <label for="salary">Salary</label>
+                      <input type="text" id="salary" name="salary" class="form-control">
                     </div>
                   </div>
                 </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-success">Add Employee To List</button>
+                <button type="submit" class="btn btn-success">Add Employee To List</button>
                 <button type="button" class="btn btn-light btn-close" data-dismiss="modal">Cancel</button>
               </div>
+							</form>
             </div>
           </div>
         </div>
@@ -165,6 +163,7 @@
   $this->load->view('template/footer');
   // $this->load->view('template/fixed-plugin');
   $this->load->view('template/js');
+  $this->load->view('payroll/js-crud/crud-pay_calendar');
 ?>
 <script type="text/javascript">
   $('#tablepay').DataTable({
@@ -193,5 +192,9 @@
           $('html').css('overflow',);
           $('body').unbind('touchmove');
       });
+			$('#salary').inputmask({
+				alias: 'currency',
+				prefix: 'Rp ',
+			});
     });
 </script>

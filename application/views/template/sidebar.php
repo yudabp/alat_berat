@@ -80,7 +80,7 @@
           </li>
 
           <?php if($this->session->userdata('health')!="Yes"){ ?>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#attendance" aria-expanded="false" aria-controls="attendance">
               <i class="menu-icon icon-calendar"></i>
               <span class="menu-title">Attendance</span>
@@ -98,7 +98,7 @@
                 </li>
               </ul>
             </div>
-          </li>
+          </li> -->
 
           <?php } if($this->session->userdata('paket')=="Premium"){ ?>
           <!-- <li class="nav-item">
@@ -301,7 +301,7 @@
           </li> -->
         <?php } } ?>
 
-        <?php  if($this->session->userdata('paket')=="Premium" && $this->session->userdata('health') == "Yes") { ?>
+        <?php  if($this->session->userdata('paket')=="Premium" || $this->session->userdata('health') == "Yes") { ?>
           <li class="nav-item <?php if ($url_1 == "log-user") { echo "active"; }?>">
             <a class="nav-link" href="<?php echo base_url('log-user')?>">
               <i class="menu-icon icon-key"></i>

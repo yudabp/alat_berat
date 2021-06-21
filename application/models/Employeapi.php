@@ -14,7 +14,7 @@ class Employeapi extends CI_Model{
     }
     public function created($saveone,$savetwo){
       return  $this->db->insert('employee',$saveone);
-      return  $this->db->insert('employee_access',$sevetwo);
+      return  $this->db->insert('employee_access',$savetwo);
     }
     public function delete($id){
         $this->db->delete('regis_api', ['idcompany'=>$id]);
