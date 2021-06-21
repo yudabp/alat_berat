@@ -294,7 +294,7 @@ class Hrm extends CI_Controller {
     // $id = $this->input->get('id');
     $id = $this->input->post('id');
     $data['data'] = $this->db->join('department','department.iddepartment = employee.department')
-														->join('employee_role','employee_role.mainid = employee.mainid')
+														// ->join('employee_role','employee_role.mainid = employee.mainid')
                             ->join('designation','designation.iddesignation = employee.jobtitle')
                             ->get_where('employee',['employee.mainid'=>$id])
                             ->row_array();
@@ -305,6 +305,7 @@ class Hrm extends CI_Controller {
 		$data['provinsi'] = json_decode($get_prov);
 		$data['city'] = json_decode($get_city);
 		// print_r($data['provinsi']);
+    // exit;
     echo json_encode($data);
     // $this->load->view('hrm/detail employee');
   }
@@ -312,8 +313,10 @@ class Hrm extends CI_Controller {
   public function detailEmp()
   {
 		$id = $this->input->get('id');
-    $data['roles'] = $this->db->get_where('role',['idcompany'=>$this->session->userdata('idcompany')])->result();
-    // $id = $this->input->post('id');
+    $data['val'] = $this->db->join('department','department.iddepartment = employee.department')
+                  ->join('designation','designation.iddesignation = employee.jobtitle')
+                  ->get_where('employee',['employee.mainid'=>$id])
+                  ->row();
     $data['leave'] = $this->db->select('*')
 							->from('leavereq')
 							->where('mainid', $id)
@@ -639,6 +642,41 @@ class Hrm extends CI_Controller {
         $data['employees'] = $this->ShowModel->getDataWHere('employee',['idcompany'=>$this->session->userdata('idcompany')])->result();
         $this->load->view('hrm/user-access', $data);
     }
+
+	public function saveBasic()
+	{
+		$id = $this->input->post('id');
+		$basic_pay = $this->input->post('basic_pay');
+		$tax_number = $this->input->post('tax_number');
+		$bank_account_number = $this->input->post('bank_account_number');
+		$bank_account_name = $this->input->post('bank_account_name');
+		$bank_name = $this->input->post('bank_name');
+
+		$inCheck = $this->ShowModel->getDataWHere('payroll_basic',['mainid'=>$id,'idcompany'=>$this->session->userdata('idcompany')]);
+
+		if ($inCheck->num_rows() > 0) {
+			$data = $this->InsertModel->uptdata('payroll_basic',[
+				'basic_pay'=>$basic_pay,
+				'tax_number'=>$tax_number,
+				'bank_account_number'=>$bank_account_name,
+				'bank_account_name'=>$bank_account_name,
+				'bank_name'=>$bank_name,
+			],['mainid' =>$id]);
+			echo json_encode($data);
+		}else {
+			$data = $this->InsertModel->indata('payroll_basic',[
+				'id' =>$this->uuid->v4(),
+				'idcompany'=>$this->session->userdata('idcompany'),
+				'mainid' =>$id,
+				'basic_pay'=>$basic_pay,
+				'tax_number'=>$tax_number,
+				'bank_account_number'=>$bank_account_name,
+				'bank_account_name'=>$bank_account_name,
+				'bank_name'=>$bank_name,
+			]);
+			echo json_encode($data);
+		}
+	}
 
 }
 ?>
