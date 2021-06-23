@@ -124,7 +124,7 @@
               </div>
             </form>
           </li>
-          <?php if ($level == "superakses") { ?>
+          <?php if ($level == "superakses" || $level=="user") { ?>
           <li class="nav-item dropdown d-none d-xl-inline-block user-dropdown">
             <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
               <div class="dropdown-toggle-wrapper">

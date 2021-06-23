@@ -62,48 +62,81 @@ class Auth extends CI_Controller{
     $pass = $this->input->post('password');
     $remember = $this->input->post('remember');
     $inCheck = $this->AuthModel->getuseradm($user);
+    $inCheckUser = $this->AuthModel->getuser($user);
     $inGet = $inCheck->row();
+    $inGetUser = $inCheckUser->row();
     // echo "<pre>";
     // var_dump($inGet);
     // exit;
     if($inCheck->num_rows()>0 && password_verify($pass,$inGet->password) && $inGet->suspended=='no'){
-      $this->session->set_userdata(array(
-											'status_login'=>TRUE,
-											'iduser'=>$inGet->iduser,
-                      'name'=>$inGet->name,
-                      'username'=>$inGet->username,
-                      'ip'=>$inGet->ip,
-                      'idcompany'=>$inGet->idcompany,
-                      'suspended'=>$inGet->suspended,
-                      'paket'=>$inGet->paket,
-                      'level' =>'superakses',
-                      'health'=>$inGet->health,
-                      'hospitality'=>$inGet->hospitality,
-                      'architecture'=>$inGet->architecture,
-                      'cargo'=>$inGet->cargo,
-                      'maintenance'=>$inGet->maintenance,
-									));
-      if(isset($remember)){
-        $this->input->set_cookie([
-           'name'   => 'uname',
-           'value'  => $user,
-           'expire' => 3600 * 24,
-           'secure' => TRUE]);
-        $this->input->set_cookie([
-            'name'   => 'upass',
-            'value'  => $pass,
-            'expire' => 3600 * 24,
-            'secure' => TRUE]);
-      }
-      $a = $this->AuthModel->ubahip('superakses',['ip'=>$this->getRealIpAddr()],['username'=>$user]);
-      if($a){
-          $this->log();
-          redirect('beranda');
-      }else{
-        $this->session->set_flashdata('item', 'Gagal mendapatkan alamat ip');
-        session_destroy();
-        redirect('');
-      }
+        $this->session->set_userdata(array(
+            'status_login'=>TRUE,
+            'iduser'=>$inGet->iduser,
+            'name'=>$inGet->name,
+            'username'=>$inGet->username,
+            'ip'=>$inGet->ip,
+            'idcompany'=>$inGet->idcompany,
+            'suspended'=>$inGet->suspended,
+            'level' =>'superakses',
+        ));
+        if(isset($remember)){
+            $this->input->set_cookie([
+                'name'   => 'uname',
+                'value'  => $user,
+                'expire' => 3600 * 24,
+                'secure' => TRUE
+            ]);
+            $this->input->set_cookie([
+                'name'   => 'upass',
+                'value'  => $pass,
+                'expire' => 3600 * 24,
+                'secure' => TRUE
+            ]);
+        }
+        $a = $this->AuthModel->ubahip('superakses',['ip'=>$this->getRealIpAddr()],['username'=>$user]);
+        if($a){
+            $this->log();
+            redirect('beranda');
+        }else{
+            $this->session->set_flashdata('item', 'Gagal mendapatkan alamat ip');
+            session_destroy();
+            redirect('');
+        }
+    }else if($inCheckUser->num_rows()>0 && password_verify($pass,$inGetUser->password) && $inGetUser->suspended=='no'){
+        $access = $this->db->get_where('employee_access',['mainid'=>$inGetUser->mainid])->row();
+        $this->session->set_userdata(array(
+            'status_login'=>TRUE,
+            'iduser'=>$inGetUser->mainid,
+            'name'=>$inGetUser->fname,
+            'username'=>$inGetUser->username,
+            'ip'=>$inGetUser->ip,
+            'idcompany'=>$inGetUser->idcompany,
+            'access'=>$access,
+            'level' =>'user'
+        ));
+        if(isset($remember)){
+            $this->input->set_cookie([
+                'name'   => 'uname',
+                'value'  => $user,
+                'expire' => 3600 * 24,
+                'secure' => TRUE
+            ]);
+            $this->input->set_cookie([
+                'name'   => 'upass',
+                'value'  => $pass,
+                'expire' => 3600 * 24,
+                'secure' => TRUE
+            ]);
+        }
+        $a = $this->AuthModel->ubahip('employee_access',['ip'=>$this->getRealIpAddr()],['username'=>$user]);
+        if($a){
+            $this->log();
+            redirect('beranda');
+        }else{
+            $this->session->set_flashdata('item', 'Gagal mendapatkan alamat ip');
+            session_destroy();
+            redirect('');
+        }
     }else if($inCheck->num_rows()>0 && $inGet->suspended=="yes"){
       $this->session->set_flashdata('item', 'Mohon maaf akun anda telah disuspend');
       redirect('');

@@ -37,7 +37,7 @@
                 <div class="card-body">
                     <div class="card-block">
                         <div class="toolbar">
-                            <h6>Keterangan : <?= $this->session->userdata() ?></h6>
+                        <h6>Keterangan : <?= $this->session->userdata() ?></h6>
                             <ol>
                                 <div class="row">
                                     <div class="col-md-4">
@@ -82,32 +82,84 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <?php for ($i=0;$i<10;$i++) { ?>
+                                <?php foreach ($employees as $key=>$employee) { ?>
                                     <tr class="text-center">
-                                        <td style="text-align:left;"><?php echo $value->fname." ".$value->mname." ".$value->lname; ?></td>
+                                        <td style="text-align:left;"><?php echo $employee->fname." ".$employee->mname." ".$employee->lname; ?></td>
                                         <td>
-                                            <div class="checkbox-radios">
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                    <input class="form-check-input" type="checkbox" <?= $pegawai->access->kalender==1?"checked":"" ?> id="dbr{{ $i }}" onclick="check('{{ $pegawai->id }}', '#kalender{{ $i }}', 'kalender');">
-                                                    <span class="form-check-sign">
-                                                        <span class="check"></span>
-                                                    </span>
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                <input type="checkbox" class="form-check-input" <?= $employee->dbr==1?"checked":"" ?> id="dbr<?= $key ?>" onclick="check('<?= $employee->mainid ?>', '#dbr<?= $key ?>', 'dbr');"> &nbsp;
                                                 </label>
-                                                </div>
                                             </div>
                                         </td>
-                                        <th>HRM</th>
-                                        <th>LV</th>
-                                        <th>CLN</th>
-                                        <th>ACC</th>
-                                        <th>PRL</th>
-                                        <th>SRV</th>
-                                        <th>PRD</th>
-                                        <th>WRH</th>
-                                        <th>MCH</th>
-                                        <th>LGU</th>
-                                        <th>STG</th>
+                                        <td>
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                <input type="checkbox" class="form-check-input" <?= $employee->hrm==1?"checked":"" ?> id="hrm<?= $key ?>" onclick="check('<?= $employee->mainid ?>', '#hrm<?= $key ?>', 'hrm');"> &nbsp;
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                <input type="checkbox" class="form-check-input" <?= $employee->lve==1?"checked":"" ?> id="lve<?= $key ?>" onclick="check('<?= $employee->mainid ?>', '#lve<?= $key ?>', 'lve');"> &nbsp;
+                                                </label>
+                                            </div>
+                                        </td><td>
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                <input type="checkbox" class="form-check-input" <?= $employee->cln==1?"checked":"" ?> id="cln<?= $key ?>" onclick="check('<?= $employee->mainid ?>', '#cln<?= $key ?>', 'cln');"> &nbsp;
+                                                </label>
+                                            </div>
+                                        </td><td>
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                <input type="checkbox" class="form-check-input" <?= $employee->acc==1?"checked":"" ?> id="acc<?= $key ?>" onclick="check('<?= $employee->mainid ?>', '#acc<?= $key ?>', 'acc');"> &nbsp;
+                                                </label>
+                                            </div>
+                                        </td><td>
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                <input type="checkbox" class="form-check-input" <?= $employee->prl==1?"checked":"" ?> id="prl<?= $key ?>" onclick="check('<?= $employee->mainid ?>', '#prl<?= $key ?>', 'prl');"> &nbsp;
+                                                </label>
+                                            </div>
+                                        </td><td>
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                <input type="checkbox" class="form-check-input" <?= $employee->srv==1?"checked":"" ?> id="srv<?= $key ?>" onclick="check('<?= $employee->mainid ?>', '#srv<?= $key ?>', 'srv');"> &nbsp;
+                                                </label>
+                                            </div>
+                                        </td><td>
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                <input type="checkbox" class="form-check-input" <?= $employee->prd==1?"checked":"" ?> id="prd<?= $key ?>" onclick="check('<?= $employee->mainid ?>', '#prd<?= $key ?>', 'prd');"> &nbsp;
+                                                </label>
+                                            </div>
+                                        </td><td>
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                <input type="checkbox" class="form-check-input" <?= $employee->wrh==1?"checked":"" ?> id="wrh<?= $key ?>" onclick="check('<?= $employee->mainid ?>', '#wrh<?= $key ?>', 'wrh');"> &nbsp;
+                                                </label>
+                                            </div>
+                                        </td><td>
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                <input type="checkbox" class="form-check-input" <?= $employee->mch==1?"checked":"" ?> id="mch<?= $key ?>" onclick="check('<?= $employee->mainid ?>', '#mch<?= $key ?>', 'mch');"> &nbsp;
+                                                </label>
+                                            </div>
+                                        </td><td>
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                <input type="checkbox" class="form-check-input" <?= $employee->lgu==1?"checked":"" ?> id="lgu<?= $key ?>" onclick="check('<?= $employee->mainid ?>', '#lgu<?= $key ?>', 'lgu');"> &nbsp;
+                                                </label>
+                                            </div>
+                                        </td><td>
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                <input type="checkbox" class="form-check-input" <?= $employee->stg==1?"checked":"" ?> id="stg<?= $key ?>" onclick="check('<?= $employee->mainid ?>', '#stg<?= $key ?>', 'stg');"> &nbsp;
+                                                </label>
+                                            </div>
+                                        </td>
                                     </tr>
                                 <?php } ?>
                                 </tbody>
@@ -121,208 +173,29 @@
         </div>
         <!-- content-wrapper ends -->
 
-				<!-- Modal -->
-        <?php 
-          $this->load->view('hrm/modal-employee');
-        ?>
-				<!-- End Modal -->
-
+<script type="text/javascript">
+    window.onload = function(){
+        $(document).ready(function() {
+            
+        });
+    }
+    function check(mainid, id_check_form, structure){
+                var isChecked = $(id_check_form).is(":checked");
+                $.ajax({
+                    url : "<?php echo base_url('hrm/changeUserAccess'); ?>",
+                    type: "POST",
+                    data: {
+                        mainid,
+                        isChecked,
+                        structure
+                    }
+                });
+            }
+</script>
 <?php
   $this->load->view('template/footer');
   // $this->load->view('template/fixed-plugin');
   $this->load->view('template/js');
-  $this->load->view("hrm/js-crud/crud-employee");
-  require_once(APPPATH."views/component/message.php");
+//   $this->load->view("hrm/js-crud/crud-employee");
+//   require_once(APPPATH."views/component/message.php");
 ?>
-<script type="text/javascript">
-  function next_work() {
-    $('#basic').removeClass('active show');
-    $('#basic-tab').removeClass('active');
-    $('#work').addClass('active show');
-    $('#work-tab').addClass('active');
-  }
-  function next_workd() {
-    $('#debasic').removeClass('active show');
-    $('#debasic-tab').removeClass('active');
-    $('#dework').addClass('active show');
-    $('#dework-tab').addClass('active');
-  }
-  function back_basic() {
-    $('#work').removeClass('active show');
-    $('#work-tab').removeClass('active');
-    $('#basic').addClass('active show');
-    $('#basic-tab').addClass('active');
-  }
-  function back_basicd() {
-    $('#dework').removeClass('active show');
-    $('#dework-tab').removeClass('active');
-    $('#debasic').addClass('active show');
-    $('#debasic-tab').addClass('active');
-  }
-  function next_personal() {
-    $('#work').removeClass('active show');
-    $('#work-tab').removeClass('active');
-    $('#personal').addClass('active show');
-    $('#personal-tab').addClass('active');
-  }
-  function next_personald() {
-    $('#dework').removeClass('active show');
-    $('#dework-tab').removeClass('active');
-    $('#depersonal').addClass('active show');
-    $('#depersonal-tab').addClass('active');
-  }
-  function back_work() {
-    $('#personal').removeClass('active show');
-    $('#personal-tab').removeClass('active');
-    $('#work').addClass('active show');
-    $('#work-tab').addClass('active');
-  }
-  function back_workd() {
-    $('#depersonal').removeClass('active show');
-    $('#depersonal-tab').removeClass('active');
-    $('#dework').addClass('active show');
-    $('#dework-tab').addClass('active');
-  }
-  function showpass() {
-    var x = document.getElementById("password");
-    var y = document.getElementById("eye");
-    // var x = document.getElementsByClassName("password")[0];
-    if (x.type == "password") {
-        x.type = "text";
-        $('#eye').removeClass('fa fa-eye-slash');
-        $('#eye').addClass('fa fa-eye');
-    } else {
-        x.type = "password";
-        $('#eye').removeClass('fa fa-eye');
-        $('#eye').addClass('fa fa-eye-slash');
-    }
-  }
-  $('#tableEmployee').DataTable({
-      "aLengthMenu": [
-        [5, 10, 15, -1],
-        [5, 10, 15, "All"]
-      ],
-      "iDisplayLength": 10,
-      "language": {
-        search: ""
-      },
-      // "bSort" : false,
-      // "dom": 'Bfrtip',
-      // "buttons": [
-      //   'copy', 'csv', 'excel', 'pdf', 'print'
-      // ]
-    });
-if ($(".datepicker").length) {
-    $('.datepicker').datepicker({
-      enableOnReadonly: true,
-      todayHighlight: true,
-      autoclose: true,
-      format: "dd/mm/yyyy"
-    });
-  }
-  // $(".single-select").select2({
-  //   width: '100%',
-  //   dropdownParent: $('#formStaff'),
-  // });
-
-  // $('#employee_type').select2({
-  //   width: '100%',
-  //   dropdownParent: $('#formStaff')
-  // });
-  // $('#employee_status').select2({
-  //   width: '100%',
-  //   dropdownParent: $('#formStaff')
-  // });
-  // $('#department').select2({
-  //   width: '100%',
-  //   dropdownParent: $('#formStaff')
-  // });
-  // $('#job_title').select2({
-  //   width: '100%',
-  //   dropdownParent: $('#formStaff')
-  // });
-  // $('#location').select2({
-  //   width: '100%',
-  //   dropdownParent: $('#formStaff')
-  // });
-  // $('#reporting_to').select2({
-  //   width: '100%',
-  //   dropdownParent: $('#formStaff')
-  // });
-  // $('#source_of_hire').select2({
-  //   width: '100%',
-  //   dropdownParent: $('#formStaff')
-  // });
-  // $('#pay_type').select2({
-  //   width: '100%',
-  //   dropdownParent: $('#formStaff')
-  // });
-  // $('#gender').select2({
-  //   width: '100%',
-  //   dropdownParent: $('#formStaff')
-  // });
-  // $('#marital_status').select2({
-  //   width: '100%',
-  //   dropdownParent: $('#formStaff')
-  // });
-  // $('#state').select2({
-  //   width: '100%',
-  //   dropdownParent: $('#formStaff')
-  // });
-
-  // if ($(".select-employee").length) {
-  //   $(".select-employee").select2({
-  //     width: '100%',
-  //     dropdownParent: $('#formStaff')
-  //   });
-  // }
-  $(document).ready(function() {
-        $('#buttonModal').click(function() {
-            $('html').css('overflow', 'hidden');
-            $('body').bind('touchmove', function(e) {
-                e.preventDefault()
-            });
-        });
-        $('.btn-close').click(function() {
-            $('html').css('overflow', 'scroll');
-            $('body').unbind('touchmove');
-        });
-        // $("#payrate").inputmask({ alias : "currency", mask : "Rp 0.00" });
-        $('#payrate').inputmask({
-          alias: 'currency',
-          prefix: 'Rp ',
-        });
-        $("#phone").inputmask({"mask": "(+62)####-#####"});
-        $("#work_phone").inputmask({"mask": "(+62)8##-####-####"});
-        $("#hand_phone").inputmask({"mask": "(+62)8##-####-####"});
-
-				$("#state").change(function(){
-            _this = $(this);
-            $.ajax({
-                url: '<?php echo base_url(); ?>getKab',
-								// type: 'POST',
-                dataType: 'JSON',
-                data: {provinsi_id:_this.val()},
-                success: function (data) {
-                    $("#city").html("");
-                    var options = "";
-                    for (let key in data) {
-                        options += `<option value="${data[key].id}">${data[key].name}</option>`;
-                    }
-                    $("#city").html(options);
-										console.log(data);
-                },
-								error : function(jqXHR, textStatus, errorThrown){
-									swal({
-												title: 'Failed!',
-												text: 'Cannot get data.',
-												type: 'error',
-												confirmButtonClass: "btn btn-danger",
-												buttonsStyling: false
-										}).catch(swal.noop)
-								}
-            });
-        });
-    });
-
-</script>

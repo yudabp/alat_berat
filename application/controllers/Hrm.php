@@ -639,8 +639,21 @@ class Hrm extends CI_Controller {
     public function userAccess()
     {
         $data['info'] = $this->db->get_where('company',['idcompany'=>$this->session->userdata('idcompany')])->row();
-        $data['employees'] = $this->ShowModel->getDataWHere('employee',['idcompany'=>$this->session->userdata('idcompany')])->result();
+        $data['employees'] = $this->db->join('employee_access','employee_access.mainid = employee.mainid')
+        ->get_where('employee',['employee.idcompany'=>$this->session->userdata('idcompany')])
+        ->result();
         $this->load->view('hrm/user-access', $data);
+    }
+
+    public function changeUserAccess()
+    {
+        $mainid = $this->input->post('mainid');
+		$isChecked = $this->input->post('isChecked')=='true'?1:0;
+		$structure = $this->input->post('structure');
+		$this->InsertModel->uptdata('employee_access',[
+			$structure => $isChecked,
+		],['mainid'=>$mainid]);
+        var_dump($this->db->last_query());
     }
 
 	public function saveBasic()
