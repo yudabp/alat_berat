@@ -15,7 +15,9 @@ class Hrm extends CI_Controller {
 
   //overview
   public function hrm_overview(){
-    $data['emnum'] = $this->db->get_where('employee',['idcompany'=>$this->session->userdata('idcompany')])->num_rows();
+    $data['emnum'] = $this->db->get_where('employee',[
+        'idcompany'=>$this->session->userdata('idcompany')
+        ])->num_rows();
     $data['depnum'] = $this->db->get_where('department',['idcompany'=>$this->session->userdata('idcompany')])->num_rows();
     $data['desnum'] = $this->db->get_where('designation',['idcompany'=>$this->session->userdata('idcompany')])->num_rows();
     $data['announ'] = $this->db->order_by('id','desc')->get_where('announcement',['idcompany'=>$this->session->userdata('idcompany')])->result();
@@ -233,9 +235,9 @@ class Hrm extends CI_Controller {
         'allow' =>$allowed,
         'available'=>$ava
       ]);
-      $inGet = $this->db->order_by('created_at','desc')
-                        ->get_where('employee',['idcompany'=>$this->session->userdata('idcompany')])
-                        ->row();
+      $inGet    =   $this->db->order_by('created_at','desc')
+                    ->get_where('employee',['idcompany'=>$this->session->userdata('idcompany')])
+                    ->row();
       $inSave = $this->db->insert('employee_access',[
         'idaccess'=>$mainid,
         'idcompany' =>$this->session->userdata('idcompany'),
@@ -631,12 +633,32 @@ class Hrm extends CI_Controller {
   }
 
 	public function getKab(){
-		$provinsi_id = $this->input->get('provinsi_id');
-		$get_url = file_get_contents('http://api.literasia.co.id/static/api/regencies/'.$provinsi_id.'.json');
-		print_r($get_url);
-		// json_decode($get_url);
+			$provinsi_id = $this->input->get('provinsi_id');
+			$get_url = file_get_contents('http://api.literasia.co.id/static/api/regencies/'.$provinsi_id.'.json');
+			// print_r($get_url);
+			json_decode($get_url);
 	}
-	
+
+	public function userAccess()
+	{
+			$data['info'] = $this->db->get_where('company',['idcompany'=>$this->session->userdata('idcompany')])->row();
+			$data['employees'] = $this->db->join('employee_access','employee_access.mainid = employee.mainid')
+			->get_where('employee',['employee.idcompany'=>$this->session->userdata('idcompany')])
+			->result();
+			$this->load->view('hrm/user-access', $data);
+	}
+
+	public function changeUserAccess()
+	{
+			$mainid = $this->input->post('mainid');
+	$isChecked = $this->input->post('isChecked')=='true'?1:0;
+	$structure = $this->input->post('structure');
+	$this->InsertModel->uptdata('employee_access',[
+		$structure => $isChecked,
+	],['mainid'=>$mainid]);
+			var_dump($this->db->last_query());
+	}
+
 	public function showBasic(){
 		// $id = $this->input->get('id');
 		$id = $this->input->post('id');
