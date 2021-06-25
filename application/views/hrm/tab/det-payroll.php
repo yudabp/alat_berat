@@ -6,36 +6,84 @@
                 <h3 class="card-title mb-4">Detail information at a glance</h3>
                 <h3 style="font-size: 16px;">Fixed Allowance</h2>
                 <div class="row pt-2 mb-4" style="background-color: #DDDDDD">
-                    <label class="col-sm-3" style="font-size: 10px;">Pay Item</label>
+                    <!-- <label class="col-sm-3" style="font-size: 10px;">Pay Item</label>
                     <div class="col-sm-3">
                         
                     </div>
                     <label class="col-sm-4" style="font-size: 10px;">Pay Item Amount</label>
                     <div class="col-sm-2">
                         
-                    </div>
+                    </div> -->
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th style="font-size: 11px;  width: 45%;">Pay Item</th>
+								<th style="font-size: 11px;  width: 45%;">Pay Amount</th>
+								<th style="font-size: 11px;  width: 10%;"></th>
+							</tr>
+						</thead>
+						<tbody id="show_data">
+						<!-- <?php 
+							foreach ($p_allowance as $key => $allow) {
+						?>	
+							<tr>
+								<td style="font-size: 11px;"><?= $allow->item; ?></td>
+								<td style="font-size: 11px;"><?= $allow->amount; ?></td>
+								<td style="font-size: 11px;">
+									<button class="btn btn-link" onclick="delAllowance('<?= $allow->id; ?>')"><i class="fa fa-trash-o"></i></button>
+								</td>
+							</tr>
+						<?php }?> -->
+						</tbody>
+					</table>
                 </div>
+				<hr>
                 <h3 style="font-size: 16px;">Fixed Deduction</h2>
                 <div class="row pt-2 mb-4" style="background-color: #DDDDDD">
-                    <label class="col-sm-3" style="font-size: 10px;">Deduction Item</label>
+                    <!-- <label class="col-sm-3" style="font-size: 10px;">Deduction Item</label>
                     <div class="col-sm-3">
                         
                     </div>
                     <label class="col-sm-4" style="font-size: 10px;">Deduction Amount</label>
                     <div class="col-sm-2">
                         
-                    </div>
+                    </div> -->
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th style="font-size: 11px;  width: 45%;">Deduction Item</th>
+								<th style="font-size: 11px;  width: 45%;">Deduction Amount</th>
+								<th style="font-size: 11px;  width: 10%;"></th>
+							</tr>
+						</thead>
+						<tbody id="show_deduction">
+							
+						</tbody>
+					</table>
                 </div>
+				<hr>
                 <h3 style="font-size: 16px;">Fixed Tax</h2>
                 <div class="row pt-2 mb-4" style="background-color: #DDDDDD">
-                    <label class="col-sm-3" style="font-size: 10px;">Tax Caption</label>
+                    <!-- <label class="col-sm-3" style="font-size: 10px;">Tax Caption</label>
                     <div class="col-sm-3">
                         
                     </div>
                     <label class="col-sm-4" style="font-size: 10px;">Tax Amount</label>
                     <div class="col-sm-2">
                         
-                    </div>
+                    </div> -->
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th style="font-size: 11px;  width: 45%;">Tax Caption</th>
+								<th style="font-size: 11px;  width: 45%;">Tax Amount</th>
+								<th style="font-size: 11px;  width: 10%;"></th>
+							</tr>
+						</thead>
+						<tbody id="show_tax">
+							
+						</tbody>
+					</table>
                 </div>
                 </div>
             </div>
@@ -78,7 +126,7 @@
                     <div class="row">
                         <div class="col-sm-8"></div>
                         <div class="col-sm-4">
-                            <button type="button" class="btn btn-success btn-block mr-2" onclick="saveBasic()">Save</button>
+                            <button type="button" class="btn btn-success btn-block mr-2" id="btn_basic">Save</button>
                         </div>
                     </div>
                     <!-- <button class="btn btn-light">Cancel</button> -->
@@ -104,7 +152,7 @@
                         <div class="row">
                             <div class="col-sm-8"></div>
                             <div class="col-sm-4">
-                                <button type="submit" class="btn btn-success btn-block mr-2">Save</button>
+                                <button type="button" class="btn btn-success btn-block mr-2" id="btn_allowance">Save</button>
                             </div>
                         </div>
                         <!-- <button class="btn btn-light">Cancel</button> -->
@@ -130,7 +178,7 @@
                         <div class="row">
                             <div class="col-sm-8"></div>
                             <div class="col-sm-4">
-                                <button type="submit" class="btn btn-success btn-block mr-2">Save</button>
+                                <button type="button" class="btn btn-success btn-block mr-2" id="btn_deduction">Save</button>
                             </div>
                         </div>
                         <!-- <button class="btn btn-light">Cancel</button> -->
@@ -148,15 +196,15 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="tax_amount" class="col-sm-5 col-form-label font-11">Tax Amount</label>
+                            <label for="tax_payment" class="col-sm-5 col-form-label font-11">Tax Amount</label>
                             <div class="col-sm-7">
-                                <input name="tax_amount" id="tax_amount" class="form-control">
+                                <input name="tax_payment" id="tax_payment" class="form-control">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-8"></div>
                             <div class="col-sm-4">
-                                <button type="submit" class="btn btn-success btn-block mr-2">Save</button>
+                                <button type="button" class="btn btn-success btn-block mr-2" id="btn_tax">Save</button>
                             </div>
                         </div>
                         <!-- <button class="btn btn-light">Cancel</button> -->
@@ -181,7 +229,7 @@
                         <div class="row">
                             <div class="col-sm-8"></div>
                             <div class="col-sm-4">
-                                <button type="submit" class="btn btn-success btn-block mr-2">Save</button>
+                                <button type="button" class="btn btn-success btn-block mr-2" id="btn_payment">Save</button>
                             </div>
                         </div>
                         <!-- <button class="btn btn-light">Cancel</button> -->

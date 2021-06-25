@@ -113,6 +113,8 @@ $route['detail-staff'] = "hrm/detailEmp";
 $route['viewEmp'] = "hrm/viewEmp";
 $route['getKab'] = "hrm/getKab";
 $route['saveBasic'] = "hrm/saveBasic";
+$route['saveAllowance'] = "hrm/saveAllowance";
+$route['delAllowance'] = "hrm/delAllowance";
 //Department
 $route['departments'] = "hrm/department";
 $route['saveDep'] = "hrm/saveDep";
