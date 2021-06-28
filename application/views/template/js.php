@@ -103,8 +103,8 @@
 <script type="text/javascript">
   var d = new Date();
   var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-  document.getElementById("bulan").innerHTML = months[d.getMonth()];
-  document.getElementById("tahun").innerHTML = d.getFullYear();
+  // document.getElementById("bulan").innerHTML = months[d.getMonth()];
+  // document.getElementById("tahun").innerHTML = d.getFullYear();
   $('.dropify').dropify();
 </script>
 <script type="text/javascript">

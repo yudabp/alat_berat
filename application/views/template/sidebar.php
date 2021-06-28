@@ -194,11 +194,11 @@
                 <li class="nav-item <?php if($url_1 == "payroll-overview"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>payroll-overview">Overview</a>
                 </li>
-                 <li class="nav-item <?php if($url_1 == "pay-run"){echo "active"; } ?>">
-                  <a class="nav-link" href="<?php echo base_url() ?>pay-run">Pay Run</a>
-                </li>
                 <li class="nav-item <?php if($url_1 == "pay-calendar"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>pay-calendar">Pay Calendar</a>
+                </li>
+                <li class="nav-item <?php if($url_1 == "pay-run"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>pay-run">Pay Run</a>
                 </li>
                 <!-- <li class="nav-item <?php if($url_1 == "payroll-report"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>payroll-report">Reports</a>
