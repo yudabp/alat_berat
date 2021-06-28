@@ -31,7 +31,9 @@
 													<ul class="nav nav-tabs tab-basic" role="tablist">
 															<?php foreach($warehouse as $i=>$w): ?>
 																<li class="nav-item">
+
 																		<a class="nav-link <?= $i == false ? "active show" : "" ?>" aria-selected="<?= $i == FALSE ? "true" : "false" ?>" id="debasic-tab" data-toggle="tab" href="#<?= $w->branch_id ?>" data-branchid="<?=$w->branch_id?>" role="tab" onclick="currentBranch(this)"><?= $w->branch ?></a>
+
 																</li>
 															<?php endforeach; ?>
 													</ul>

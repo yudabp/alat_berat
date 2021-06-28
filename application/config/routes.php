@@ -112,7 +112,12 @@ $route['detail-employee'] = "hrm/detailEmp";
 $route['detail-staff'] = "hrm/detailEmp";
 $route['viewEmp'] = "hrm/viewEmp";
 $route['getKab'] = "hrm/getKab";
+// User Access
+$route['user-access'] = "hrm/userAccess";
+$route['change-user-access'] = "hrm/changeUserAccess";
 $route['saveBasic'] = "hrm/saveBasic";
+$route['saveAllowance'] = "hrm/saveAllowance";
+$route['delAllowance'] = "hrm/delAllowance";
 //Department
 $route['departments'] = "hrm/department";
 $route['saveDep'] = "hrm/saveDep";

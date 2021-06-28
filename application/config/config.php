@@ -23,7 +23,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://'.$_SERVER['HTTP_HOST'].str_replace(basename($_SERVER['SCRIPT_NAME']),"",$_SERVER['SCRIPT_NAME']);
+// $server_name = !empty($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : 'localhost:80';
+// $base = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $server_name . '/';
+// $config['base_url'] = 'https://'.$_SERVER['HTTP_HOST'].str_replace(basename($_SERVER['SCRIPT_NAME']),"",$_SERVER['SCRIPT_NAME']);
+// $config['base_url'] = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $server_name . '/';
+// $config['base_url'] = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http");
+// $config['base_url'] .= "://" . $_SERVER['HTTP_HOST'];
+// $config['base_url'] .= str_replace(basename($_SERVER['SCRIPT_NAME']), "", $_SERVER['SCRIPT_NAME']);
+
+$config['base_url'] = "https://localhost/alat_berat";
+
 
 /*
 |--------------------------------------------------------------------------
@@ -52,7 +61,8 @@ $config['index_page'] = '';
 |
 | WARNING: If you set this to 'PATH_INFO', URIs will always be URL-decoded!
 */
-$config['uri_protocol']	= 'REQUEST_URI';
+$config['uri_protocol'] = 'AUTO';
+$config['uri_protocol']	= isset($_SERVER['REQUEST_URI']) ? 'PATH_INFO' : 'CLI';
 
 /*
 |--------------------------------------------------------------------------

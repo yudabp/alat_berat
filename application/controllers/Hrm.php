@@ -15,7 +15,9 @@ class Hrm extends CI_Controller {
 
   //overview
   public function hrm_overview(){
-    $data['emnum'] = $this->db->get_where('employee',['idcompany'=>$this->session->userdata('idcompany')])->num_rows();
+    $data['emnum'] = $this->db->get_where('employee',[
+        'idcompany'=>$this->session->userdata('idcompany')
+        ])->num_rows();
     $data['depnum'] = $this->db->get_where('department',['idcompany'=>$this->session->userdata('idcompany')])->num_rows();
     $data['desnum'] = $this->db->get_where('designation',['idcompany'=>$this->session->userdata('idcompany')])->num_rows();
     $data['announ'] = $this->db->order_by('id','desc')->get_where('announcement',['idcompany'=>$this->session->userdata('idcompany')])->result();
@@ -233,9 +235,9 @@ class Hrm extends CI_Controller {
         'allow' =>$allowed,
         'available'=>$ava
       ]);
-      $inGet = $this->db->order_by('created_at','desc')
-                        ->get_where('employee',['idcompany'=>$this->session->userdata('idcompany')])
-                        ->row();
+      $inGet    =   $this->db->order_by('created_at','desc')
+                    ->get_where('employee',['idcompany'=>$this->session->userdata('idcompany')])
+                    ->row();
       $inSave = $this->db->insert('employee_access',[
         'idaccess'=>$mainid,
         'idcompany' =>$this->session->userdata('idcompany'),
@@ -244,11 +246,11 @@ class Hrm extends CI_Controller {
         'password' => password_hash($password,PASSWORD_DEFAULT)
       ]);
 
-			$inRole = $this->db->insert('employee_role',[
-				'mainid'=>$mainid,
-				'role_id'=>$role
-			]);
-      if($inEnter==TRUE && $inSave && $inRole){
+			// $inRole = $this->db->insert('employee_role',[
+			// 	'mainid'=>$mainid,
+			// 	'role_id'=>$role
+			// ]);
+      if($inEnter==TRUE && $inSave){
         $this->session->set_flashdata('suc','Data has been added');
         redirect('employees');
       }else{
@@ -302,6 +304,7 @@ class Hrm extends CI_Controller {
 		$get_city = file_get_contents("http://api.literasia.co.id/static/api/regency/".$city_id.".json");
 		$data['provinsi'] = json_decode($get_prov);
 		$data['city'] = json_decode($get_city);
+		$data['p_basic'] = $this->db->get_where('payroll_basic',['mainid'=>$id])->row();
 		// print_r($data['provinsi']);
     // exit;
     echo json_encode($data);
@@ -319,6 +322,8 @@ class Hrm extends CI_Controller {
 							->from('leavereq')
 							->where('mainid', $id)
 		 					->get();
+		$data['p_basic'] = $this->db->get_where('payroll_basic',['mainid'=>$id])->row();
+		// $data['p_allowance'] = $this->db->get_where('payroll_allowance',['mainid'=>$id])->result();
     $this->load->view('hrm/detail employee', $data);
   }
 
@@ -628,10 +633,37 @@ class Hrm extends CI_Controller {
   }
 
 	public function getKab(){
-		$provinsi_id = $this->input->get('provinsi_id');
-		$get_url = file_get_contents('http://api.literasia.co.id/static/api/regencies/'.$provinsi_id.'.json');
-		print_r($get_url);
-		// json_decode($get_url);
+			$provinsi_id = $this->input->get('provinsi_id');
+			$get_url = file_get_contents('http://api.literasia.co.id/static/api/regencies/'.$provinsi_id.'.json');
+			// print_r($get_url);
+			json_decode($get_url);
+	}
+
+	public function userAccess()
+	{
+			$data['info'] = $this->db->get_where('company',['idcompany'=>$this->session->userdata('idcompany')])->row();
+			$data['employees'] = $this->db->join('employee_access','employee_access.mainid = employee.mainid')
+			->get_where('employee',['employee.idcompany'=>$this->session->userdata('idcompany')])
+			->result();
+			$this->load->view('hrm/user-access', $data);
+	}
+
+	public function changeUserAccess()
+	{
+			$mainid = $this->input->post('mainid');
+	$isChecked = $this->input->post('isChecked')=='true'?1:0;
+	$structure = $this->input->post('structure');
+	$this->InsertModel->uptdata('employee_access',[
+		$structure => $isChecked,
+	],['mainid'=>$mainid]);
+			var_dump($this->db->last_query());
+	}
+
+	public function showBasic(){
+		// $id = $this->input->get('id');
+		$id = $this->input->post('id');
+		$data['p_basic'] = $this->db->get_where('payroll_basic',['mainid'=>$id])->row();
+		echo json_encode($data);
 	}
 
 	public function saveBasic()
@@ -649,7 +681,7 @@ class Hrm extends CI_Controller {
 			$data = $this->InsertModel->uptdata('payroll_basic',[
 				'basic_pay'=>$basic_pay,
 				'tax_number'=>$tax_number,
-				'bank_account_number'=>$bank_account_name,
+				'bank_account_number'=>$bank_account_number,
 				'bank_account_name'=>$bank_account_name,
 				'bank_name'=>$bank_name,
 			],['mainid' =>$id]);
@@ -661,13 +693,110 @@ class Hrm extends CI_Controller {
 				'mainid' =>$id,
 				'basic_pay'=>$basic_pay,
 				'tax_number'=>$tax_number,
-				'bank_account_number'=>$bank_account_name,
+				'bank_account_number'=>$bank_account_number,
 				'bank_account_name'=>$bank_account_name,
 				'bank_name'=>$bank_name,
 			]);
 			echo json_encode($data);
 		}
 	}
+
+	public function showAllowance(){
+		// $id = $this->input->get('id');
+		$id = $this->input->post('id');
+		$data = $this->db->get_where('payroll_allowance',['mainid'=>$id])->result();
+		echo json_encode($data);
+	}
+
+	public function saveAllowance(){
+    $id = $this->uuid->v4();
+		$mainid = $this->input->post('id');
+    $item = $this->input->post('item');
+    $payment = $this->input->post('payment');
+    $data = $this->InsertModel->indata('payroll_allowance',[
+      'id' =>$id,
+			'mainid' =>$mainid,
+      'idcompany'=>$this->session->userdata('idcompany'),
+      'item' =>$item,
+      'amount'=>$payment,
+    ]);
+		echo json_encode($data);
+  }
+
+	public function delAllowance(){
+    $id = $this->input->post('id');
+    $this->DeleteModel->delItem('payroll_allowance',['id'=>$id]);
+  }
+
+	public function showDeduction(){
+		// $id = $this->input->get('id');
+		$id = $this->input->post('id');
+		$data = $this->db->get_where('payroll_deduction',['mainid'=>$id])->result();
+		echo json_encode($data);
+	}
+
+	public function saveDeduction(){
+    $id = $this->uuid->v4();
+		$mainid = $this->input->post('id');
+    $item = $this->input->post('item');
+    $payment = $this->input->post('payment');
+    $data = $this->InsertModel->indata('payroll_deduction',[
+      'id' =>$id,
+			'mainid' =>$mainid,
+      'idcompany'=>$this->session->userdata('idcompany'),
+      'item' =>$item,
+      'amount'=>$payment,
+    ]);
+		echo json_encode($data);
+  }
+
+	public function delDeduction(){
+    $id = $this->input->post('id');
+    $this->DeleteModel->delItem('payroll_deduction',['id'=>$id]);
+  }
+
+	public function showTax(){
+		// $id = $this->input->get('id');
+		$id = $this->input->post('id');
+		$data = $this->db->get_where('payroll_tax',['mainid'=>$id])->result();
+		echo json_encode($data);
+	}
+
+	public function saveTax(){
+    $id = $this->uuid->v4();
+		$mainid = $this->input->post('id');
+    $item = $this->input->post('item');
+    $payment = $this->input->post('payment');
+    $data = $this->InsertModel->indata('payroll_tax',[
+      'id' =>$id,
+			'mainid' =>$mainid,
+      'idcompany'=>$this->session->userdata('idcompany'),
+      'item' =>$item,
+      'amount'=>$payment,
+    ]);
+		echo json_encode($data);
+  }
+
+	public function delTax(){
+    $id = $this->input->post('id');
+    $this->DeleteModel->delItem('payroll_tax',['id'=>$id]);
+  }
+
+	public function showPayment(){
+		// $id = $this->input->get('id');
+		$id = $this->input->post('id');
+		$data = $this->db->get_where('payroll_basic',['mainid'=>$id])->row();
+		echo json_encode($data);
+	}
+
+	public function savePayment(){
+		$mainid = $this->input->post('id');
+    $payment = $this->input->post('payment_method');
+    $data = $this->InsertModel->uptdata('payroll_basic',[
+      'payment_method'=>$payment,
+    ],['mainid'=>$mainid]);
+		echo json_encode($data);
+  }
 
 }
 ?>
