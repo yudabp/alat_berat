@@ -23,8 +23,7 @@ function tambah_spart(){
   var reg_date = $("#reg_date").val();
   var unit = $("#unit").val();
   // var price = $("#price").inputmask('unmaskedvalue');
-
-  if(sparepart_name == "" ){
+  if(sparepart_name === "" || sparepart_code === "" || type === "" || brand === "" || reg_date === "" || unit === ""){
       swal({
         title: "Empty field!",
           text: "Please check again.",
@@ -143,7 +142,7 @@ function update_spart(idsparepart){
   var unit = $("#unit").val();
   // var price = $("#price").inputmask('unmaskedvalue');
 
-  if(sparepart_name == ""){
+  if(sparepart_name === "" || sparepart_code === "" || type === "" || brand === "" || reg_date === "" || unit === ""){
       swal({
         title: "Empty field!",
           text: "Please check again.",
