@@ -127,16 +127,32 @@ class Warehouse extends CI_Controller {
 		$cek = $query = $this->db->get_where('warehouse_stok',$where)->row();
 		$cek2 = $query = $this->db->get_where('warehouse_stok',$where2)->row();
 
-		$currentStock =  $cek->stock + $this->input->post("stock");
-		$this->db->where($where)->update("warehouse_stok", [
-			"stock" => $currentStock
-		]);
+		if(count($cek)){
+			$currentStock = $cek->stock + $this->input->post("stock");
+			$this->db->where($where)->update("warehouse_stok", [
+				"stock" => $currentStock
+			]);
 
-		$currentStock =  $cek2->stock - $this->input->post("stock");
-		$this->db->where($where2)->update("warehouse_stok", [
-			"stock" => $currentStock
-		]);
+			$currentStock =  $cek2->stock - $this->input->post("stock");
+			$this->db->where($where2)->update("warehouse_stok", [
+				"stock" => $currentStock
+			]);
+		}else{
+			$data = [
+				"idwarehousestock" => $this->uuid->v4(),
+				"idcompany" => $this->input->post("idcompany"),
+				"idbranch" => $this->input->post("idbranch"),
+				"idsparepart" => $this->input->post("idsparepart"),
+				"price" => $cek2->price,
+				"stock" => $this->input->post("stock"),
+			];
+			$this->db->insert("warehouse_stok", $data);
 
+			$currentStock =  $cek2->stock - $this->input->post("stock");
+			$this->db->where($where2)->update("warehouse_stok", [
+				"stock" => $currentStock
+			]);
+		}
 		echo json_encode(["msg" => "success"]);
 	}
 
@@ -158,23 +174,39 @@ class Warehouse extends CI_Controller {
 		$cek = $query = $this->db->get_where('warehouse_stok',$where)->row();
 		$cek2 = $query = $this->db->get_where('warehouse_stok',$where2)->row();
 
-		$currentStock =  $cek->stock - $this->input->post("stock");
-		$this->db->where($where)->update("warehouse_stok", [
-			"stock" => $currentStock
-		]);
-
-		$currentStock =  $cek2->stock + $this->input->post("stock");
-		$this->db->where($where2)->update("warehouse_stok", [
-			"stock" => $currentStock
-		]);
-
-		echo json_encode(["msg" => "success"]);
+		if(count($cek2)){
+			$currentStock =  $cek->stock - $this->input->post("stock");
+			$this->db->where($where)->update("warehouse_stok", [
+				"stock" => $currentStock
+			]);
+	
+			$currentStock =  $cek2->stock + $this->input->post("stock");
+			$this->db->where($where2)->update("warehouse_stok", [
+				"stock" => $currentStock
+			]);
+		}else{
+			$data = [
+				"idwarehousestock" => $this->uuid->v4(),
+				"idcompany" => $this->input->post("idcompany"),
+				"idbranch" => $this->input->post("transfer-to"),
+				"idsparepart" => $this->input->post("idsparepart"),
+				"price" => $cek->price,
+				"stock" => $this->input->post("stock"),
+			];
+			$this->db->insert("warehouse_stok", $data);
+			
+			$currentStock =  $cek->stock - $this->input->post("stock");
+			$this->db->where($where)->update("warehouse_stok", [
+				"stock" => $currentStock
+			]);
+		}
+		
+		echo json_encode(["msg" => "success", "cek" => $cek]);
 	}
 
 	public function branchBycompany(){
 		$data["warehouse"] = $this->db->select('*')->get_where('branch_office', ["type" => "Warehouse",'idcompany'=>$this->session->userdata('idcompany')])->result();
 		echo json_encode($data);
 	}
-
 }
 ?>
