@@ -106,7 +106,7 @@ class Warehouse extends CI_Controller {
 			$this->db->insert("warehouse_stok", $data);
 		}
 
-		echo json_encode(["msg" => "success"]);
+		echo json_encode(["success" => true, "msg"=>"berhasil tambah sparepart"]);
 	}
 
 	public function request_sparepart(){
@@ -121,11 +121,15 @@ class Warehouse extends CI_Controller {
 		];
 		$stok = $this->db->insert("warehouse_action",  $data);
 
-
 		$where =  ['idsparepart' => $this->input->post("idsparepart"), "idbranch" => $this->input->post("idbranch")];
 		$where2 =  ['idsparepart' => $this->input->post("idsparepart"), "idbranch" => $this->input->post("transfer-to")];
-		$cek = $query = $this->db->get_where('warehouse_stok',$where)->row();
-		$cek2 = $query = $this->db->get_where('warehouse_stok',$where2)->row();
+		$cek =  $this->db->get_where('warehouse_stok',$where)->row();
+		$cek2 =  $this->db->get_where('warehouse_stok',$where2)->row();
+		$branch = $this->db->get_where('branch_office',["branch_id"=>$cek2->idbranch])->row();
+		if($data["jumlah"] >= $cek2->stock){
+			echo json_encode(["success" => false, "msg"=>"stok sparepart pada branch '$branch->branch' tidak mencukupi!"]);
+			return;
+		}
 
 		if(count($cek)){
 			$currentStock = $cek->stock + $this->input->post("stock");
@@ -153,7 +157,7 @@ class Warehouse extends CI_Controller {
 				"stock" => $currentStock
 			]);
 		}
-		echo json_encode(["msg" => "success"]);
+		echo json_encode(["success" => true, "msg"=>"berhasil request sparepart"]);
 	}
 
 	public function transfer_sparepart(){
@@ -173,6 +177,11 @@ class Warehouse extends CI_Controller {
 		$where2 =  ['idsparepart' => $this->input->post("idsparepart"), "idbranch" => $this->input->post("transfer-to")];
 		$cek = $query = $this->db->get_where('warehouse_stok',$where)->row();
 		$cek2 = $query = $this->db->get_where('warehouse_stok',$where2)->row();
+
+		if($data["jumlah"] >= $cek->stock){
+			echo json_encode(["success" => false, "msg"=>"stok sparepart tidak mencukupi untuk di transfer!"]);
+			return;
+		}
 
 		if(count($cek2)){
 			$currentStock =  $cek->stock - $this->input->post("stock");
@@ -201,7 +210,7 @@ class Warehouse extends CI_Controller {
 			]);
 		}
 		
-		echo json_encode(["msg" => "success", "cek" => $cek]);
+		echo json_encode(["success" => true, "msg"=>"berhasil transfer sparepart"]);
 	}
 
 	public function branchBycompany(){
