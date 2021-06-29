@@ -1,7 +1,6 @@
 <?php
   $url_1 = $this->uri->segment(1);
   $url_2 = $this->uri->segment(2);
-
   $level = $this->session->userdata("level");
 ?>
     <?php if ($level == "superakses") { ?>
@@ -219,7 +218,7 @@
               <i class="menu-icon ti-hummer"></i>
               <span class="menu-title">Service & Sparepart</span>
             </a>
-            <div class="collapse <?php if($url_1 == "p-setting" ||$url_1 == "sparepart" ||$url_1 == "mechanics" ||$url_1 == "truck" ||$url_1 == "service-truck" ||$url_1 == "service-h-equipment" ||$url_1 == "heavy-equipment" ||$url_1 == "product-overview"){echo "show"; } ?>" id="service_sparepart">
+            <div class="collapse <?php if($url_1 == "p-setting" ||$url_1 == "sparepart" ||$url_1 == "truck" ||$url_1 == "service-truck" ||$url_1 == "service-h-equipment" ||$url_1 == "heavy-equipment" ||$url_1 == "product-overview"){echo "show"; } ?>" id="service_sparepart">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item <?php if($url_1 == "product-overview"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>product-overview">Overview</a>
@@ -232,9 +231,6 @@
                 </li>
                 <li class="nav-item <?php if($url_1 == "sparepart"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>sparepart">Spare Part</a>
-                </li>
-                <li class="nav-item <?php if($url_1 == "mechanics"){echo "active"; } ?>">
-                  <a class="nav-link" href="<?php echo base_url() ?>mechanics">Mechanics</a>
                 </li>
                 <li class="nav-item <?php if($url_1 == "p-setting"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>p-setting">Product Setting</a>
@@ -272,6 +268,12 @@
                 </li> -->
               </ul>
             </div>
+          </li>
+          <li class="nav-item <?php if ($url_1 == "mechanics") { echo "active"; }?>">
+            <a class="nav-link" href="<?php echo base_url('mechanics')?>">
+              <i class="menu-icon fa fa-wrench"></i>
+              <span class="menu-title">Mechanics</span>
+            </a>
           </li>
           <li class="nav-item <?php if ($url_1 == "warehouse") { echo "active"; }?>">
             <a class="nav-link" href="<?php echo base_url('warehouse')?>">

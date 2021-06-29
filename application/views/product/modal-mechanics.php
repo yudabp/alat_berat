@@ -84,6 +84,17 @@
                             </div>
                           </div>
 
+													<div class="row mt-2" id="sparepart-items">
+														<div class="col-md-10">
+														<select name="sparepart" id="sparepart" class="single-select form-control" >
+															<option selected="selected" value=""> - Sparepart - </option>
+															<?php foreach($sparepart as $spare) :?>
+																<option value="<?= $spare->idsparepart ?>"><?= $spare->name ?> </option>
+															<?php endforeach;?>
+														</select>
+														</div>
+													</div>
+
                         </div>
                         <div id="ulang" data="1"></div>
                       </div>
@@ -105,8 +116,8 @@
                 <input type="hidden" name="idtruck" id="idtruck">
                 <input type="hidden" name="idservice" id="idservice">
                 <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
-                <button type="submit" class="btn btn-success" id="btnsave">Save</button>
-                <button type="button" class="btn btn-primary" id="btndone" disabled="">Done</button>
+                <button type="submit" class="btn btn-success" id="truck-btnsave">Save</button>
+                <button type="button" class="btn btn-primary" id="truck-btndone" disabled="">Done</button>
               </div>
             </form>
             </div>
@@ -124,7 +135,7 @@
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <form class="saveTruckService form" method="post" action="#" id="tambah" enctype="multipart/form-data">
+              <form class="saveHeavyService form" method="post" action="#" id="tambah" enctype="multipart/form-data">
               <div class="modal-body">
                 <div class="row">
                   <div class="col-md-12">
@@ -224,11 +235,12 @@
                 <input type="hidden" name="idtruck" id="idtruck">
                 <input type="hidden" name="idservice" id="idservice">
                 <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
-                <button type="submit" class="btn btn-success" id="btnsave">Save</button>
-                <button type="button" class="btn btn-primary" id="btndone" disabled="">Done</button>
+                <button type="submit" class="btn btn-success" id="heavy-btnsave">Save</button>
+                <button type="button" class="btn btn-primary" id="heavy-btndone" disabled="">Done</button>
               </div>
             </form>
             </div>
           </div>
         </div>
         <!-- End Service Heavy Equipment -->
+

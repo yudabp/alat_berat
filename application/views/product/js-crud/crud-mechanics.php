@@ -1,5 +1,6 @@
 <script type="text/javascript">
 	function prosesTruck(idservice) {
+		console.log("prosesTruck", idservice)
 		$.ajax({
 		    url : "<?php echo base_url(); ?>edtTruckService",
 		    type: "POST",
@@ -52,6 +53,7 @@
 	}
 
 	function prosesEquipment(idservice) {
+		console.log("prosesEquipment",idservice)
 		$.ajax({
 		    url : "<?php echo base_url(); ?>edtHEqService",
 		    type: "POST",
@@ -101,6 +103,7 @@
 	}
 
 	function addActionT(action="", editing=false){
+		console.log("ok")
 	  loopID++;
 	  var headHtml = $('#p_action');
 	  if(editing){
@@ -115,6 +118,7 @@
 	    `;
 	  }
 	  else{
+		const spareitems = document.getElementById("sparepart-items");
 	    var html = `
 	    <div class="p_action`+loopID+`">
 	      <div class="row mt-2">
@@ -125,7 +129,11 @@
 	          <button type="button" class="btn btn-danger btn-just-icon add btn-sm btnDelete" data="p_action`+loopID+`" style="width:100% !important"><i class="fa fa-minus" style="margin:0"></i></button>
 	        </div>
 	      </div>
+				<div class="row mt-2">
+				  ${spareitems.innerHTML}
+				</>
 	    </div>
+			<hr>
 	    `;
 	  }
 	  headHtml.append(html);
@@ -138,6 +146,7 @@
 	}
 
 	function resetActionT(){
+		const spareitems = document.getElementById("sparepart-items");
 	  var html=`<div class="p_action1">
 	              <div class="row" id="selected_action">
 	                <div class="col-md-10" >
@@ -147,6 +156,9 @@
 	                  <button type="button" onclick="addActionT()" id="btnselect" class="btn btn-info btn-sm icon-btn mb-2" style="width:100% !important"><i class="mdi mdi-plus" style="margin:0"></i></button>
 	                </div>
 	              </div>
+								<div class="row mt-2" id="sparepart-items">
+									${spareitems.innerHTML}
+								</div>
 	            </div>`;
 	  $("#p_action").html(html);
 	}
@@ -183,7 +195,6 @@
 	  btnDelete = $('.btnDelete')
 	  btnDelete.click(function(){
 	    var id_div = $(this).attr('data');
-	    console.log(id_div);
 	    $('.'+id_div).remove();
 	  });
 	}

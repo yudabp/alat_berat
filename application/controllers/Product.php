@@ -556,6 +556,7 @@ class Product extends CI_Controller {
     // $data['heq_services'] = $this->ShowModel->getDataWHere('product_h_equipment_service', [
     //   'idcompany' => $this->session->userdata('idcompany')
     // ])->result();
+		$data["sparepart"] = $this->db->select('*')->get_where('product_sparepart', ['idcompany'=>$this->session->userdata('idcompany')])->result();
     $this->load->view('product/mechanics', $data);
   }
   // END MECHANICS

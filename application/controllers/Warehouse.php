@@ -53,22 +53,14 @@ class Warehouse extends CI_Controller {
 		foreach ($data["sparepart_detail"] as $k1 => $v1) {
 			foreach ($warehouse as $k2 => $v2) {
 				foreach ($v2["sparepart"] as $k3 => $v3) {
-					// echo $v2["branch_id"]." == $v1->idbranch |=| ";
-					// echo $v2["name"]." | ". $v3["name"];
 					if($v2["branch_id"] == $v1->idbranch && $v1->idsparepart == $v3["idsparepart"]){
-						// echo "|masuk|". " |=> ".$k2."[]".$k3;
 						$warehouse[$k2]["sparepart"][$k3]["stock"] = $v1->stock;
 						$warehouse[$k2]["sparepart"][$k3]["price"] = $v1->price;
-						// echo "<br>";
 						break;
 					}	
-					// echo "<br>";
 				}
 			}
-			// echo "<br>================================================<br>";
 		}
-		// print_r($warehouse);
-		// die();
 		$data["items"] = $warehouse;
 		$this->load->view('warehouse/warehouse',$data);
   }
