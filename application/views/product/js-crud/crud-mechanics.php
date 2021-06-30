@@ -1,6 +1,5 @@
 <script type="text/javascript">
 	function prosesTruck(idservice) {
-		console.log("prosesTruck", idservice)
 		$.ajax({
 		    url : "<?php echo base_url(); ?>edtTruckService",
 		    type: "POST",
@@ -12,6 +11,7 @@
 		            let service = data.service;
 		            let actions = data.actions;
 		            window.idservice = service.idservice;
+		            $("#idservice").val(service.idservice);
 		            $("#truck_name").val(service.name);
 		            $("#plat_no").val(service.plat_no);
 		            $("#chassis_no").val(service.chassis_no);
@@ -23,14 +23,14 @@
 		            $('.select2').select2().trigger('change');
 		            // console.log(actions);
 		            resetActionT();
-		            for(let [key, action] of Object.entries(actions)){
-		              if(key=="0"){
-		                $("#action_truck").val(action.action); 
-		              }
-		              else{
-		                addActionT(action.action, true);
-		              }
-		            }
+								addActionT(actions, true);
+		            // for(let [key, action] of Object.entries(actions)){
+		            //   if(key=="0"){
+		            //     $("#action_truck").val(action.action); 
+		            //   }
+		            //   else{
+		            //   }
+		            // }
 		            $("#formTruck").modal("show");
 		            // $("#formAdd").modal("show");
 		            // $("#formTruckLabel").text("Edit Truck");
@@ -53,7 +53,6 @@
 	}
 
 	function prosesEquipment(idservice) {
-		console.log("prosesEquipment",idservice)
 		$.ajax({
 		    url : "<?php echo base_url(); ?>edtHEqService",
 		    type: "POST",
@@ -102,23 +101,32 @@
 		loopID=1;
 	}
 
-	function addActionT(action="", editing=false){
-		console.log("ok")
+	function addActionT(action=[], editing=false){
 	  loopID++;
 	  var headHtml = $('#p_action');
-	  if(editing){
-	    var html = `
-	    <div class="p_action`+loopID+`">
-	      <div class="row mt-2">
-	        <div class="col-md-10">
-	          <input type="text" class="form-control" rows="2" id="action_truck" name="action[]" style="width: 100%;" value="`+action+`">
-	        </div>
-	      </div>
-	    </div>
-	    `;
+	  if(editing && action.length){
+			headHtml[0].innerHTML = ""
+			var html = ""
+			action.map(act => {
+				html += `
+				<div class="p_action`+loopID+`">
+					<div class="row mt-2">
+						<div class="col-md-10">
+							<input type="text" class="form-control" rows="2" id="action_truck" name="action[]" style="width: 100%;" value="`+act.action+`" readonly>
+						</div>
+					</div>
+					<div class="row mt-2" id="sparepart-items">
+						<div class="col-md-10">
+							<select name="sparepart" id="sparepart" class="single-select form-control" readonly>
+								<option selected="selected" value="${act.idsparepart}"> ${act.name} </option>
+							</select>
+						</div>
+					</div>
+				</div>
+				`;
+			})
 	  }
 	  else{
-		const spareitems = document.getElementById("sparepart-items");
 	    var html = `
 	    <div class="p_action`+loopID+`">
 	      <div class="row mt-2">
@@ -129,9 +137,16 @@
 	          <button type="button" class="btn btn-danger btn-just-icon add btn-sm btnDelete" data="p_action`+loopID+`" style="width:100% !important"><i class="fa fa-minus" style="margin:0"></i></button>
 	        </div>
 	      </div>
-				<div class="row mt-2">
-				  ${spareitems.innerHTML}
-				</>
+				<div class="row mt-2" id="sparepart-items">
+					<div class="col-md-10">
+						<select name="sparepart" id="sparepart" class="single-select form-control" >
+							<option selected="selected" value=""> - Sparepart - </option>
+							<?php foreach($sparepart as $spare) :?>
+								<option value="<?= $spare->idsparepart ?>"><?= $spare->name ?> </option>
+							<?php endforeach;?>
+						</select>
+					</div>
+				</div>
 	    </div>
 			<hr>
 	    `;
@@ -157,59 +172,69 @@
 	                </div>
 	              </div>
 								<div class="row mt-2" id="sparepart-items">
-									${spareitems.innerHTML}
+									<div class="col-md-10">
+										<select name="sparepart" id="sparepart" class="single-select form-control" >
+											<option selected="selected" value=""> - Sparepart - </option>
+											<?php foreach($sparepart as $spare) :?>
+												<option value="<?= $spare->idsparepart ?>"><?= $spare->name ?> </option>
+											<?php endforeach;?>
+										</select>
+									</div>
 								</div>
 	            </div>`;
 	  $("#p_action").html(html);
 	}
 
-	function addActionH(action="", editing=false){
-	  loopID++;
-	  var headHtml = $('#p_action_h');
-	  if(editing){
-	    var html = `
-	    <div class="p_action_h`+loopID+`">
-	      <div class="row mt-2">
-	        <div class="col-md-10">
-	          <input type="text" class="form-control" rows="2" id="action_heq" name="action[]" style="width: 100%;" value="`+action+`">
-	        </div>
-	      </div>
-	    </div>
-	    `;
-	  }
-	  else{
-	    var html = `
-	    <div class="p_action_h`+loopID+`">
-	      <div class="row mt-2">
-	        <div class="col-md-10">
-	          <input type="text" class="form-control" rows="2" id="action_heq" name="action[]" style="width: 100%;" value="`+action+`">
-	        </div>
-	        <div class="col-md-2">
-	          <button type="button" class="btn btn-danger btn-just-icon add btn-sm btnDelete" data="p_action_h`+loopID+`" style="width:100% !important"><i class="fa fa-minus" style="margin:0"></i></button>
-	        </div>
-	      </div>
-	    </div>
-	    `;
-	  }
-	  headHtml.append(html);
-	  btnDelete = $('.btnDelete')
-	  btnDelete.click(function(){
-	    var id_div = $(this).attr('data');
-	    $('.'+id_div).remove();
-	  });
-	}
+	
+	$(document).on("click", "#truck-btnrequest", function(e){
+		e.preventDefault();
+		let data = {};
+		let actions = []
+		let action = [];
+		let formdata = $("#saveTruckService").serializeArray()
+		formdata.map(da => {
+			if(da.name === "action[]"){
+				if(action.length) actions.push(action)
+				action = []
+				action.push(da.value)
+			}else if(da.name === "sparepart"){
+				action.push(da.value)
+			}else{
+				data[da.name] = da.value
+			}
+		})
 
-	function resetActionH(){
-	  var html=`<div class="p_action_h1">
-	              <div class="row" id="selected_action">
-	                <div class="col-md-10" >
-	                  <input type="text" class="form-control" rows="2" id="action_heq" name="action[]" style="width: 100%;">
-	                </div>
-	                <div class="col-md-2">
-	                  <button type="button" onclick="addActionH()" id="btnselect" class="btn btn-info btn-sm icon-btn mb-2" style="width:100% !important"><i class="mdi mdi-plus" style="margin:0"></i></button>
-	                </div>
-	              </div>
-	            </div>`;
-	  $("#p_action_h").html(html);
-	}
+		data["action"] = actions;
+		console.log("final", data)
+
+		$.ajax({
+		    url : "<?php echo base_url(); ?>actionTruck",
+		    type: "POST",
+		    dataType: "JSON",
+		    data: data,
+		    success : function(data){
+					console.log(data)
+				}
+		})
+		// alert("truck request")
+	})
+
+	$(document).on("click", "#truck-btndone", function(e){
+		// e.preventDefault();
+		console.log("truck done")
+		alert("truck done")
+	})
+
+	$(document).on("click", "#heavy-btnrequest", function(e){
+		// e.preventDefault();
+		console.log("heavy request")
+		alert("heavy request")
+	})
+	
+	$(document).on("click", "#heavy-btndone", function(e){
+		// e.preventDefault();
+		console.log("heavy done")
+		alert("heavy done")
+	})
+
 </script>
