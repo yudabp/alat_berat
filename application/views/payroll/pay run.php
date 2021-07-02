@@ -10,6 +10,10 @@
 	.btn-link:hover{
     text-decoration: none;
   }
+
+	.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+	padding: 5px !important;
+	}
 </style>
       <!-- partial -->
       <div class="main-panel">
@@ -42,30 +46,29 @@
                           </tr>
                         </thead>
                         <tbody>
+												<?php
+													foreach($payRun as $run) {
+												?>
 													<tr class="text-center">
-                            <td><a href="#">Gaji 2</a></td>
-                            <td>Monthly</td>
-                            <td>Monday</td>
-                            <td>
+														<td><a href="#"><?= $run->calendar_name; ?></a></td>
+														<td><?= $run->calendar_type; ?></td>
+														<td><?= $run->normal_pay_day; ?></td>
+														<td>
 															<div class="dropdown">
-                                  <button type="button" class="btn btn-icons btn-rounded text-center" data-toggle="dropdown">
-                                    <i class="ti-more-alt"></i>
-                                  </button>
-                                  <div class="dropdown-menu">
-																		<button data-toggle="tooltip" data-placement="left" title="Approve" class="btn btn-link"><i class="icon-check"></i></button>
-                                    <button data-toggle="tooltip" data-placement="left" title="Delete" class="btn btn-link" onclick="delItem('<?php echo $value->mainid; ?>');"><i class="fa fa-trash-o"></i></button>
-                                  </div>
-                                </div>
-                            </td>
-                          </tr>
-													<tr class="text-center">
-                            <td><a href="#viewEmp" data-toggle="modal" >Gaji 1</a></td>
-                            <td>Monthly</td>
-                            <td>Monday</td>
-                            <td>
-															<button data-toggle="tooltip" data-placement="left" title="Approved" class="btn btn-icons btn-rounded btn-primary"><i class="icon-check"></i></button>
-                            </td>
-                          </tr>
+																<button type="button" class="btn btn-icons btn-rounded text-center" data-toggle="dropdown">
+																	<i class="ti-more-alt"></i>
+																</button>
+																<div class="dropdown-menu">
+																	<button data-toggle="tooltip" title="Pay Run" class="btn btn-link" onclick="runItem('<?= $run->id; ?>');"><i class="icon-control-forward"></i></button>
+																	<button data-toggle="tooltip" title="Edit" class="btn btn-link" onclick="editItem('<?= $run->id; ?>');"><i class="fa fa-pencil"></i></button>
+																	<button data-toggle="tooltip" title="Delete" class="btn btn-link" onclick="delItem('<?= $run->id; ?>');"><i class="fa fa-trash-o"></i></button>
+																</div>
+															</div>
+														</td>
+													</tr>
+												<?php	
+													}
+												?>
                         </tbody>
                       </table>
                     </div>
@@ -123,7 +126,46 @@
 								</table>
               </div>
               <div class="modal-footer">
-                <!-- <button type="button" class="btn btn-success">Add Employee To List</button> -->
+                <!-- <button type="button" class="btn btn-success" onclick="btnAprove()">Aprove</button> -->
+                <button type="button" class="btn btn-light btn-close" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal Ends -->
+
+				<div class="modal fade" id="payRun" tabindex="-1" role="dialog"aria-labelledby="payRunLabel" data-backdrop="static" data-keyboard="false">
+          <div class="modal-dialog modal-lg" role="document" style="margin-top: 15px;margin-bottom: 0">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="payRunLabel">Gaji 1</h5>
+                <button type="button" class="close btn-close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+								<table id="tablepayrun" class="table table-responsive-sm">
+									<thead>
+										<tr class="text-center">
+											<th>Employee</th>
+											<th>Email</th>
+											<th>Department</th>
+											<th>Designation</th>
+											<th>Basic Pay</th>
+											<th>Total Allowance</th>
+											<th>Total Deduction</th>
+											<!-- <th>Tax</th> -->
+											<th>Final Pay</th>
+											<!-- <th>Actions</th> -->
+										</tr>
+									</thead>
+									<tbody id="view_run">
+										
+									</tbody>
+								</table>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="btnAprove()">Aprove</button>
                 <button type="button" class="btn btn-light btn-close" data-dismiss="modal">Close</button>
               </div>
             </div>
@@ -135,6 +177,7 @@
   $this->load->view('template/footer');
   // $this->load->view('template/fixed-plugin');
   $this->load->view('template/js');
+  $this->load->view('payroll/js-crud/crud-pay_run');
 ?>
 
 <script type="text/javascript">
@@ -161,7 +204,7 @@
           });
       });
       $('.btn-close').click(function() {
-          $('html').css('overflow',);
+          $('html').css('overflow', 'auto');
           $('body').unbind('touchmove');
       });
     });

@@ -266,6 +266,7 @@ if ($(".datepicker").length) {
         $('#payrate').inputmask({
           alias: 'currency',
           prefix: 'Rp ',
+					autoUnmask:true,
         });
         $("#phone").inputmask({"mask": "(+62)####-#####"});
         $("#work_phone").inputmask({"mask": "(+62)8##-####-####"});
