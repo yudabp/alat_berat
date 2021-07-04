@@ -6,6 +6,35 @@ $(document).ready(function () {
 	showDeduction();
 	showTax();
 	showPayment();
+
+	$('#basic_pay').inputmask({
+		alias: 'currency',
+		prefix: 'Rp ',
+		autoUnmask:true,
+    });
+
+	$('#pay_item_payment').inputmask({
+		alias: 'currency',
+		prefix: 'Rp ',
+		autoUnmask:true,
+    });
+
+	$('#deduction_payment').inputmask({
+		alias: 'currency',
+		prefix: 'Rp ',
+		autoUnmask:true,
+    });
+
+	$('#tax_payment').inputmask({
+		alias: 'currency',
+		prefix: 'Rp ',
+		autoUnmask:true,
+    });
+
+	$('.currency').inputmask({
+		alias: 'currency',
+		prefix: 'Rp ',
+    });
 	
     function getUrlVars(param=null)
     {
@@ -79,6 +108,8 @@ $(document).ready(function () {
                 $("#stated").html(view.provinsi.name);
                 $("#zip_coded").html(view.data.zipcode);
                 $("#mainid").html(view.data.mainid);
+
+				$("#basic_pay").val(view.data.payrate);
 								// var role = view.data.role_id;
 								// console.log(view.city);
 								//Job
@@ -115,11 +146,15 @@ $(document).ready(function () {
 			dataType : 'JSON',
 			data : { id : id},
 			success : function(data){
-				$("#basic_pay").val(data.p_basic.basic_pay);
-				$("#tax_number").val(data.p_basic.tax_number);
-				$("#bank_account_number").val(data.p_basic.bank_account_number);
-				$("#bank_account_name").val(data.p_basic.bank_account_name);
-				$("#bank_name").val(data.p_basic.bank_name);
+				if (data.p_basic != null){
+					$("#basic_pay").val(data.p_basic.basic_pay);
+					$("#tax_number").val(data.p_basic.tax_number);
+					$("#bank_account_number").val(data.p_basic.bank_account_number);
+					$("#bank_account_name").val(data.p_basic.bank_account_name);
+					$("#bank_name").val(data.p_basic.bank_name);
+				}else{
+					$("#basic_pay").val(data.p_emplo.payrate);
+				}
 			}
 		});
 	}
@@ -182,7 +217,7 @@ $(document).ready(function () {
 					for(i=0; i<data.length; i++){
 						html += '<tr>'+
 						'<td style="font-size: 11px;">'+data[i].item+'</td>'+
-						'<td style="font-size: 11px;">'+data[i].amount+'</td>'+
+						'<td class="currency" style="font-size: 11px;">'+data[i].amount+'</td>'+
 						'<td style="font-size: 11px;">'+
 						'<button class="btn btn-link item_hapus" data="'+data[i].id+'"><i class="fa fa-trash-o"></i></button>'+
 						'</td>'+
@@ -294,7 +329,7 @@ $(document).ready(function () {
 					for(i=0; i<data.length; i++){
 						html += '<tr>'+
 						'<td style="font-size: 11px;">'+data[i].item+'</td>'+
-						'<td style="font-size: 11px;">'+data[i].amount+'</td>'+
+						'<td class="currency" style="font-size: 11px;">'+data[i].amount+'</td>'+
 						'<td style="font-size: 11px;">'+
 						'<button class="btn btn-link item_hapus" data="'+data[i].id+'"><i class="fa fa-trash-o"></i></button>'+
 						'</td>'+
@@ -406,7 +441,7 @@ $(document).ready(function () {
 					for(i=0; i<data.length; i++){
 						html += '<tr>'+
 						'<td style="font-size: 11px;">'+data[i].item+'</td>'+
-						'<td style="font-size: 11px;">'+data[i].amount+'</td>'+
+						'<td class="currency" style="font-size: 11px;">'+data[i].amount+'</td>'+
 						'<td style="font-size: 11px;">'+
 						'<button class="btn btn-link item_hapus" data="'+data[i].id+'"><i class="fa fa-trash-o"></i></button>'+
 						'</td>'+

@@ -651,17 +651,18 @@ class Hrm extends CI_Controller {
 	public function changeUserAccess()
 	{
 			$mainid = $this->input->post('mainid');
-	$isChecked = $this->input->post('isChecked')=='true'?1:0;
-	$structure = $this->input->post('structure');
-	$this->InsertModel->uptdata('employee_access',[
-		$structure => $isChecked,
-	],['mainid'=>$mainid]);
+			$isChecked = $this->input->post('isChecked')=='true'?1:0;
+			$structure = $this->input->post('structure');
+			$this->InsertModel->uptdata('employee_access',[
+				$structure => $isChecked,
+				],['mainid'=>$mainid]);
 			var_dump($this->db->last_query());
 	}
 
 	public function showBasic(){
 		// $id = $this->input->get('id');
 		$id = $this->input->post('id');
+		$data['p_emplo'] = $this->db->get_where('employee',['mainid'=>$id])->row();
 		$data['p_basic'] = $this->db->get_where('payroll_basic',['mainid'=>$id])->row();
 		echo json_encode($data);
 	}
@@ -685,6 +686,9 @@ class Hrm extends CI_Controller {
 				'bank_account_name'=>$bank_account_name,
 				'bank_name'=>$bank_name,
 			],['mainid' =>$id]);
+			$upEmp = $this->InsertModel->uptdata('employee',[
+				'payrate'=>$basic_pay,
+			],['mainid' =>$id]);
 			echo json_encode($data);
 		}else {
 			$data = $this->InsertModel->indata('payroll_basic',[
@@ -697,6 +701,9 @@ class Hrm extends CI_Controller {
 				'bank_account_name'=>$bank_account_name,
 				'bank_name'=>$bank_name,
 			]);
+			$upEmp = $this->InsertModel->uptdata('employee',[
+				'payrate'=>$basic_pay,
+			],['mainid' =>$id]);
 			echo json_encode($data);
 		}
 	}
