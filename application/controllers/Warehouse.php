@@ -53,22 +53,14 @@ class Warehouse extends CI_Controller {
 		foreach ($data["sparepart_detail"] as $k1 => $v1) {
 			foreach ($warehouse as $k2 => $v2) {
 				foreach ($v2["sparepart"] as $k3 => $v3) {
-					// echo $v2["branch_id"]." == $v1->idbranch |=| ";
-					// echo $v2["name"]." | ". $v3["name"];
 					if($v2["branch_id"] == $v1->idbranch && $v1->idsparepart == $v3["idsparepart"]){
-						// echo "|masuk|". " |=> ".$k2."[]".$k3;
 						$warehouse[$k2]["sparepart"][$k3]["stock"] = $v1->stock;
 						$warehouse[$k2]["sparepart"][$k3]["price"] = $v1->price;
-						// echo "<br>";
 						break;
 					}	
-					// echo "<br>";
 				}
 			}
-			// echo "<br>================================================<br>";
 		}
-		// print_r($warehouse);
-		// die();
 		$data["items"] = $warehouse;
 		$this->load->view('warehouse/warehouse',$data);
   }
@@ -106,7 +98,7 @@ class Warehouse extends CI_Controller {
 			$this->db->insert("warehouse_stok", $data);
 		}
 
-		echo json_encode(["msg" => "success"]);
+		echo json_encode(["success" => true, "msg"=>"berhasil tambah sparepart"]);
 	}
 
 	public function request_sparepart(){
@@ -121,23 +113,43 @@ class Warehouse extends CI_Controller {
 		];
 		$stok = $this->db->insert("warehouse_action",  $data);
 
-
 		$where =  ['idsparepart' => $this->input->post("idsparepart"), "idbranch" => $this->input->post("idbranch")];
 		$where2 =  ['idsparepart' => $this->input->post("idsparepart"), "idbranch" => $this->input->post("transfer-to")];
-		$cek = $query = $this->db->get_where('warehouse_stok',$where)->row();
-		$cek2 = $query = $this->db->get_where('warehouse_stok',$where2)->row();
+		$cek =  $this->db->get_where('warehouse_stok',$where)->row();
+		$cek2 =  $this->db->get_where('warehouse_stok',$where2)->row();
+		$branch = $this->db->get_where('branch_office',["branch_id"=>$cek2->idbranch])->row();
+		if($data["jumlah"] >= $cek2->stock){
+			echo json_encode(["success" => false, "msg"=>"stok sparepart pada branch '$branch->branch' tidak mencukupi!"]);
+			return;
+		}
 
-		$currentStock =  $cek->stock + $this->input->post("stock");
-		$this->db->where($where)->update("warehouse_stok", [
-			"stock" => $currentStock
-		]);
+		if(count($cek)){
+			$currentStock = $cek->stock + $this->input->post("stock");
+			$this->db->where($where)->update("warehouse_stok", [
+				"stock" => $currentStock
+			]);
 
-		$currentStock =  $cek2->stock - $this->input->post("stock");
-		$this->db->where($where2)->update("warehouse_stok", [
-			"stock" => $currentStock
-		]);
+			$currentStock =  $cek2->stock - $this->input->post("stock");
+			$this->db->where($where2)->update("warehouse_stok", [
+				"stock" => $currentStock
+			]);
+		}else{
+			$data = [
+				"idwarehousestock" => $this->uuid->v4(),
+				"idcompany" => $this->input->post("idcompany"),
+				"idbranch" => $this->input->post("idbranch"),
+				"idsparepart" => $this->input->post("idsparepart"),
+				"price" => $cek2->price,
+				"stock" => $this->input->post("stock"),
+			];
+			$this->db->insert("warehouse_stok", $data);
 
-		echo json_encode(["msg" => "success"]);
+			$currentStock =  $cek2->stock - $this->input->post("stock");
+			$this->db->where($where2)->update("warehouse_stok", [
+				"stock" => $currentStock
+			]);
+		}
+		echo json_encode(["success" => true, "msg"=>"berhasil request sparepart"]);
 	}
 
 	public function transfer_sparepart(){
@@ -158,23 +170,44 @@ class Warehouse extends CI_Controller {
 		$cek = $query = $this->db->get_where('warehouse_stok',$where)->row();
 		$cek2 = $query = $this->db->get_where('warehouse_stok',$where2)->row();
 
-		$currentStock =  $cek->stock - $this->input->post("stock");
-		$this->db->where($where)->update("warehouse_stok", [
-			"stock" => $currentStock
-		]);
+		if($data["jumlah"] >= $cek->stock){
+			echo json_encode(["success" => false, "msg"=>"stok sparepart tidak mencukupi untuk di transfer!"]);
+			return;
+		}
 
-		$currentStock =  $cek2->stock + $this->input->post("stock");
-		$this->db->where($where2)->update("warehouse_stok", [
-			"stock" => $currentStock
-		]);
-
-		echo json_encode(["msg" => "success"]);
+		if(count($cek2)){
+			$currentStock =  $cek->stock - $this->input->post("stock");
+			$this->db->where($where)->update("warehouse_stok", [
+				"stock" => $currentStock
+			]);
+	
+			$currentStock =  $cek2->stock + $this->input->post("stock");
+			$this->db->where($where2)->update("warehouse_stok", [
+				"stock" => $currentStock
+			]);
+		}else{
+			$data = [
+				"idwarehousestock" => $this->uuid->v4(),
+				"idcompany" => $this->input->post("idcompany"),
+				"idbranch" => $this->input->post("transfer-to"),
+				"idsparepart" => $this->input->post("idsparepart"),
+				"price" => $cek->price,
+				"stock" => $this->input->post("stock"),
+			];
+			$this->db->insert("warehouse_stok", $data);
+			
+			$currentStock =  $cek->stock - $this->input->post("stock");
+			$this->db->where($where)->update("warehouse_stok", [
+				"stock" => $currentStock
+			]);
+		}
+		
+		echo json_encode(["success" => true, "msg"=>"berhasil transfer sparepart"]);
 	}
 
 	public function branchBycompany(){
 		$data["warehouse"] = $this->db->select('*')->get_where('branch_office', ["type" => "Warehouse",'idcompany'=>$this->session->userdata('idcompany')])->result();
 		echo json_encode($data);
 	}
-
 }
 ?>

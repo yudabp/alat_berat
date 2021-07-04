@@ -2,7 +2,7 @@
 $(document).ready(function(){
   $("form.saveTruckService").submit(function(e){
     e.preventDefault();
-    // alert('test');
+    alert('test');
     var atribut = $(this).attr("id");
     if(atribut == "tambah"){
       tambah_truck_service();

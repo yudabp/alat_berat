@@ -149,7 +149,7 @@
 
 <script type="text/javascript">
   $('#tableTruck').DataTable({
-      "aLengthMenu": [
+		"aLengthMenu": [
         [5, 10, 15, -1],
         [5, 10, 15, "All"]
       ],
@@ -162,7 +162,7 @@
       // "buttons": [
       //   'copy', 'csv', 'excel', 'pdf', 'print'
       // ]
-    });
+	});
 
   $('#tableHEquipment').DataTable({
       "aLengthMenu": [
