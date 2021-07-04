@@ -9,6 +9,13 @@ class AuthModel extends CI_Model{
                   ->get_where('superakses',['username'=>$user]);
     return $a;
   }
+
+  public function getuser($user){
+    $user = $this->db->join('company','company.idcompany=employee_access.idcompany')
+        ->join('employee', 'employee.mainid=employee_access.mainid')
+        ->get_where('employee_access',['username'=>$user]);
+    return $user;
+  }
   public function getroot($user){
     $a = $this->db->get_where('root',['username'=>$user]);
     return $a;

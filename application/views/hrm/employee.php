@@ -42,7 +42,7 @@
                 <div class="card-body">
                   <div class="card-title row">
                     <div class="col-md-12 text-right">
-                      <button class="btn btn-icons btn-inverse-success" id="buttonModal" data-toggle="modal" data-target="#formStaff"><i class="fa fa-plus"></i></button>
+                      <button class="btn btn-icons btn-inverse-success" id="buttonModal" data-toggle="modal" data-target="#formStaff" onclick="clearModal()"><i class="fa fa-plus"></i></button>
                     </div>
                   </div>
                   <div class="row">

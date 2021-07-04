@@ -1,9 +1,10 @@
 <?php
   $url_1 = $this->uri->segment(1);
   $url_2 = $this->uri->segment(2);
+
   $level = $this->session->userdata("level");
+  $access = $this->session->userdata('access');
 ?>
-    <?php if ($level == "superakses") { ?>
       <!-- partial -->
       <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas sidebar-dark" id="sidebar">
@@ -17,6 +18,7 @@
 
             <p class="text-center font-weight-medium"><?php echo $info->companyname; ?></p>
           </li>
+          <?php if(($this->session->userdata('level')=="superakses") || ($level=="user" && $access->dbr==true)){ ?>
           <li class="nav-item <?php if ($url_1 == "" || $url_1 == "beranda") { echo "active"; }?>">
             <a class="nav-link" href="<?php echo base_url("beranda"); ?>">
               <i class="menu-icon icon-grid"></i>
@@ -24,6 +26,10 @@
               <!-- <div class="badge badge-success">3</div> -->
             </a>
           </li>
+          <!-- HR Management -->
+          <?php 
+          }
+          if(($this->session->userdata('level')=="superakses") || ($level=="user" && $access->hrm==true)){ ?>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#hr_management" aria-expanded="false" aria-controls="hr_management">
               <i class="menu-icon icon-people"></i>
@@ -43,6 +49,9 @@
                 <li class="nav-item <?php if($url_1 == "employees"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>employees">Employees</a>
                 </li>
+                <li class="nav-item <?php if($url_1 == "user-access"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>user-access">User Access</a>
+                </li>
                 <li class="nav-item <?php if($url_1 == "announcement"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>announcement">Announcement</a>
                 </li>
@@ -52,6 +61,11 @@
               </ul>
             </div>
           </li>
+
+          <!-- Leave -->
+          <?php 
+          }
+          if(($this->session->userdata('level')=="superakses") || ($level=="user" && $access->lve==true)){ ?>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#leave" aria-expanded="false" aria-controls="leave">
               <i class="menu-icon icon-directions"></i>
@@ -77,9 +91,7 @@
               </ul>
             </div>
           </li>
-
-          <?php if($this->session->userdata('health')!="Yes"){ ?>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#attendance" aria-expanded="false" aria-controls="attendance">
               <i class="menu-icon icon-calendar"></i>
               <span class="menu-title">Attendance</span>
@@ -122,6 +134,11 @@
               </ul>
             </div>
           </li> -->
+
+          <!-- Clients -->
+          <?php 
+          }
+          if(($this->session->userdata('level')=="superakses") || ($level=="user" && $access->cln==true)){ ?>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#clients" aria-expanded="false" aria-controls="clients">
               <i class="menu-icon icon-briefcase"></i>
@@ -144,10 +161,11 @@
               </ul>
             </div>
           </li>
-        <?php } if($this->session->userdata('health')!="Yes"){ ?>
 
-
-          <?php } if($this->session->userdata('paket')=="Premium" || $this->session->userdata('health')=="Yes"){ ?>
+          <!-- Accounting -->
+          <?php 
+          }
+          if(($this->session->userdata('level')=="superakses") || ($level=="user" && $access->acc==true)){ ?>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#accounting" aria-expanded="false" aria-controls="accounting">
               <i class="menu-icon icon-calculator"></i>
@@ -186,7 +204,10 @@
             </div>
           </li>
 
-
+          <!-- Clients -->
+          <?php 
+          }
+          if(($this->session->userdata('level')=="superakses") || ($level=="user" && $access->cln==true)){ ?>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#payroll" aria-expanded="false" aria-controls="payroll">
               <i class="menu-icon icon-wallet"></i>
@@ -197,11 +218,11 @@
                 <li class="nav-item <?php if($url_1 == "payroll-overview"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>payroll-overview">Overview</a>
                 </li>
-                 <li class="nav-item <?php if($url_1 == "pay-run"){echo "active"; } ?>">
-                  <a class="nav-link" href="<?php echo base_url() ?>pay-run">Pay Run</a>
-                </li>
                 <li class="nav-item <?php if($url_1 == "pay-calendar"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>pay-calendar">Pay Calendar</a>
+                </li>
+                <li class="nav-item <?php if($url_1 == "pay-run"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>pay-run">Pay Run</a>
                 </li>
                 <!-- <li class="nav-item <?php if($url_1 == "payroll-report"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>payroll-report">Reports</a>
@@ -212,6 +233,11 @@
               </ul>
             </div>
           </li>
+
+          <!-- Service and Sparepart -->
+          <?php 
+          }
+          if(($this->session->userdata('level')=="superakses") || ($level=="user" && $access->srv==true)){ ?>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#service_sparepart" aria-expanded="false" aria-controls="service_sparepart">
               <!-- <i class="menu-icon icon-layers"></i> -->
@@ -241,6 +267,11 @@
               </ul>
             </div>
           </li>
+
+          <!-- Production -->
+          <?php 
+          }
+          if(($this->session->userdata('level')=="superakses") || ($level=="user" && $access->prd==true)){ ?>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#production" aria-expanded="false" aria-controls="production">
               <i class="menu-icon ti-truck"></i>
@@ -275,13 +306,17 @@
               <span class="menu-title">Mechanics</span>
             </a>
           </li>
+
+          <!-- Warehouse -->
+          <?php 
+          }
+          if(($this->session->userdata('level')=="superakses") || ($level=="user" && $access->wrh==true)){ ?>
           <li class="nav-item <?php if ($url_1 == "warehouse") { echo "active"; }?>">
             <a class="nav-link" href="<?php echo base_url('warehouse')?>">
               <i class="menu-icon ti-package"></i>
               <span class="menu-title">Warehouse</span>
             </a>
           </li>
-          <?php if($this->session->userdata('health') == "Yes"){?>
           <!-- <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#asset" aria-expanded="false" aria-controls="asset">
               <i class="menu-icon icon-notebook"></i>
@@ -301,15 +336,22 @@
               </ul>
             </div>
           </li> -->
-        <?php } } ?>
 
-        <?php  if($this->session->userdata('paket')=="Premium" && $this->session->userdata('health') == "Yes") { ?>
+          <!-- Log User -->
+          <?php 
+          }
+          if(($this->session->userdata('level')=="superakses") || ($level=="user" && $access->lgu==true)){ ?>
           <li class="nav-item <?php if ($url_1 == "log-user") { echo "active"; }?>">
             <a class="nav-link" href="<?php echo base_url('log-user')?>">
               <i class="menu-icon icon-key"></i>
               <span class="menu-title">Log User</span>
             </a>
           </li>
+
+          <!-- Clients -->
+          <?php 
+          }
+          if(($this->session->userdata('level')=="superakses") || ($level=="user" && $access->stg==true)){ ?>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#setting" aria-expanded="false" aria-controls="setting">
               <i class="menu-icon icon-settings"></i>
@@ -344,7 +386,7 @@
               </ul>
             </div>
           </li>
-        <?php } ?>
+          <?php } ?>
           <li class="nav-item ">
             <a class="nav-link" href="<?= base_url('proout'); ?>">
               <i class="menu-icon icon-logout"></i>
@@ -353,7 +395,7 @@
           </li>
         </ul>
       </nav>
-    <?php }elseif ($level == "root") { ?>
+    <?php if ($level == "root") { ?>
       <!-- partial -->
       <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas sidebar-dark" id="sidebar">

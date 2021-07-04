@@ -587,7 +587,6 @@ $route['uptServiceHEQ'] = "services/uptServiceHEQ";
 $route['getServicePrice'] = "services/getServicePrice";
 //jasa tambang
 $route['mining'] = "services/jasa_tambang";
-
 $route['saveMining'] = "services/saveMining";
 $route['delMining'] = "services/delMining";
 $route['edtMining'] = "services/edtMining";
