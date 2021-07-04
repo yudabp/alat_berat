@@ -177,7 +177,17 @@
 				dataType: "json",
 				data: data,
 				success: function (data) {
-					location.reload();
+					swal({
+                title: data.success ? "Berhasil" : "Gagal",
+                text: data.msg,
+                type: data.success ? 'success' : 'error',
+                confirmButtonClass: data.success ? "btn btn-primary" : "btn btn-danger",
+                buttonsStyling: false
+					},()=>{
+						if(data.success){
+							location.reload();
+						}
+					})
 				},
 			});
 		});
@@ -199,7 +209,18 @@
 				dataType: "json",
 				data: data,
 				success: function (data) {
-					location.reload();
+					console.log(data)
+					swal({
+                title: data.success ? "Berhasil" : "Gagal",
+                text: data.msg,
+                type: data.success ? 'success' : 'error',
+                confirmButtonClass: data.success ? "btn btn-primary" : "btn btn-danger",
+                buttonsStyling: false,
+					},()=>{
+						if(data.success){
+							location.reload();
+						}
+					})
 				},
 			});
 		});
@@ -221,7 +242,17 @@
 				dataType: "json",
 				data: data,
 				success: function (data) {
-					location.reload();
+					swal({
+                title: data.success ? "Berhasil" : "Gagal",
+                text: data.msg,
+                type: data.success ? 'success' : 'error',
+                confirmButtonClass: data.success ? "btn btn-primary" : "btn btn-danger",
+                buttonsStyling: false
+					},()=>{
+						if(data.success){
+							location.reload();
+						}
+					})
 				},
 			});
 		});

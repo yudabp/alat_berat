@@ -215,7 +215,10 @@ class Product extends CI_Controller {
                              ->join('product_truck TRUCK','TRUCK.idtruck = SERVICE.idtruck')
                              ->get_where('product_truck_service SERVICE',['SERVICE.idcompany'=>$this->session->userdata('idcompany'), 'idservice'=>$id])
                              ->row();
-    $data['actions'] = $this->ShowModel->getDataWHere('product_truck_service_actions',['idservice'=>$id])->result();
+    // $data['actions'] = $this->ShowModel->getDataWHere('product_truck_service_actions',['idservice'=>$id])->result();
+		$data['actions'] = $this->db->select("*")
+														->join("product_sparepart spare", "spare.idsparepart = action.idsparepart")
+														->get_where('product_truck_service_actions action',['idservice'=>$id])->result();
     echo json_encode($data);
     // echo $data;
   }
@@ -556,8 +559,29 @@ class Product extends CI_Controller {
     // $data['heq_services'] = $this->ShowModel->getDataWHere('product_h_equipment_service', [
     //   'idcompany' => $this->session->userdata('idcompany')
     // ])->result();
+		$data["sparepart"] = $this->db->select('*')->get_where('product_sparepart', ['idcompany'=>$this->session->userdata('idcompany')])->result();
     $this->load->view('product/mechanics', $data);
   }
+
+	public function updateActionTruck(){
+		$this->db->where(["idservice" => $this->input->post("idservice")])->update("product_truck_service",["mechanic_note"=>$this->input->post("mechanic_note")]);
+
+		foreach ($this->input->post("action") as $key => $value) {
+			$this->db->insert("product_truck_service_actions", [
+				"idaction" => $this->uuid->v4(),
+				"idservice" => $this->input->post("idservice"),
+				"idcompany" => $this->session->userdata('idcompany'),
+				"action" => $value[0],
+				"idsparepart" => $value[1]
+			]);
+		}
+		echo json_encode(["success" => true, "msg" => "berhasil request action"]);
+	}
+	
+	public function updateActionHeavy(){
+		echo json_encode(["msg"=> "update action heavy"]);
+	}
+
   // END MECHANICS
 
   public function setting()

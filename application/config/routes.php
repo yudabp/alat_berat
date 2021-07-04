@@ -526,6 +526,8 @@ $route['edtSPart'] = "product/edtSPart";
 $route['uptSPart'] = "product/uptSPart";
 //mechanics
 $route['mechanics'] = "product/mechanics";
+$route['actionTruck'] = "product/updateActionTruck";
+$route['actionHeavy'] = "product/updateActionHeavy";
 //setting
 $route['p-setting'] = "product/setting";
 // setting type

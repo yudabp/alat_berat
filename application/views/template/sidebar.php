@@ -109,6 +109,30 @@
                 </li>
               </ul>
             </div>
+          </li>
+
+          <?php } if($this->session->userdata('paket')=="Premium"){ ?>
+          <!-- <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#recruitment" aria-expanded="false" aria-controls="recruitment">
+              <i class="menu-icon icon-user-follow"></i>
+              <span class="menu-title">Recruitment</span>
+            </a>
+            <div class="collapse <?php if($url_1 == "job-opening" ||$url_1 == "candidates" ||$url_1 == "recruitment-calendar" ||$url_1 == "recruitment-reports"){echo "show"; } ?>" id="recruitment">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item <?php if($url_1 == "job-opening"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>job-opening">Job Opening</a>
+                </li>
+                <li class="nav-item <?php if($url_1 == "candidates"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>candidates">Candidates</a>
+                </li>
+                <li class="nav-item <?php if($url_1 == "recruitment-calendar"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>recruitment-calendar">Calendar</a>
+                </li>
+                  <li class="nav-item <?php if($url_1 == "recruitment-reports"){echo "active"; } ?>">
+                  <a class="nav-link" href="<?php echo base_url() ?>recruitment-reports">Reports</a>
+                </li>
+              </ul>
+            </div>
           </li> -->
 
           <!-- Clients -->
@@ -220,7 +244,7 @@
               <i class="menu-icon ti-hummer"></i>
               <span class="menu-title">Service & Sparepart</span>
             </a>
-            <div class="collapse <?php if($url_1 == "p-setting" ||$url_1 == "sparepart" ||$url_1 == "mechanics" ||$url_1 == "truck" ||$url_1 == "service-truck" ||$url_1 == "service-h-equipment" ||$url_1 == "heavy-equipment" ||$url_1 == "product-overview"){echo "show"; } ?>" id="service_sparepart">
+            <div class="collapse <?php if($url_1 == "p-setting" ||$url_1 == "sparepart" ||$url_1 == "truck" ||$url_1 == "service-truck" ||$url_1 == "service-h-equipment" ||$url_1 == "heavy-equipment" ||$url_1 == "product-overview"){echo "show"; } ?>" id="service_sparepart">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item <?php if($url_1 == "product-overview"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>product-overview">Overview</a>
@@ -233,9 +257,6 @@
                 </li>
                 <li class="nav-item <?php if($url_1 == "sparepart"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>sparepart">Spare Part</a>
-                </li>
-                <li class="nav-item <?php if($url_1 == "mechanics"){echo "active"; } ?>">
-                  <a class="nav-link" href="<?php echo base_url() ?>mechanics">Mechanics</a>
                 </li>
                 <li class="nav-item <?php if($url_1 == "p-setting"){echo "active"; } ?>">
                   <a class="nav-link" href="<?php echo base_url() ?>p-setting">Product Setting</a>
@@ -278,6 +299,12 @@
                 </li> -->
               </ul>
             </div>
+          </li>
+          <li class="nav-item <?php if ($url_1 == "mechanics") { echo "active"; }?>">
+            <a class="nav-link" href="<?php echo base_url('mechanics')?>">
+              <i class="menu-icon fa fa-wrench"></i>
+              <span class="menu-title">Mechanics</span>
+            </a>
           </li>
 
           <!-- Warehouse -->
