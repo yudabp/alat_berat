@@ -109,30 +109,6 @@
                 </li>
               </ul>
             </div>
-          </li>
-
-          <?php } if($this->session->userdata('paket')=="Premium"){ ?>
-          <!-- <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#recruitment" aria-expanded="false" aria-controls="recruitment">
-              <i class="menu-icon icon-user-follow"></i>
-              <span class="menu-title">Recruitment</span>
-            </a>
-            <div class="collapse <?php if($url_1 == "job-opening" ||$url_1 == "candidates" ||$url_1 == "recruitment-calendar" ||$url_1 == "recruitment-reports"){echo "show"; } ?>" id="recruitment">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item <?php if($url_1 == "job-opening"){echo "active"; } ?>">
-                  <a class="nav-link" href="<?php echo base_url() ?>job-opening">Job Opening</a>
-                </li>
-                <li class="nav-item <?php if($url_1 == "candidates"){echo "active"; } ?>">
-                  <a class="nav-link" href="<?php echo base_url() ?>candidates">Candidates</a>
-                </li>
-                <li class="nav-item <?php if($url_1 == "recruitment-calendar"){echo "active"; } ?>">
-                  <a class="nav-link" href="<?php echo base_url() ?>recruitment-calendar">Calendar</a>
-                </li>
-                  <li class="nav-item <?php if($url_1 == "recruitment-reports"){echo "active"; } ?>">
-                  <a class="nav-link" href="<?php echo base_url() ?>recruitment-reports">Reports</a>
-                </li>
-              </ul>
-            </div>
           </li> -->
 
           <!-- Clients -->
@@ -300,7 +276,7 @@
               </ul>
             </div>
           </li>
-          <li class="nav-item <?php if ($url_1 == "mechanics") { echo "active"; }?>">
+					<li class="nav-item <?php if ($url_1 == "mechanics") { echo "active"; }?>">
             <a class="nav-link" href="<?php echo base_url('mechanics')?>">
               <i class="menu-icon fa fa-wrench"></i>
               <span class="menu-title">Mechanics</span>
