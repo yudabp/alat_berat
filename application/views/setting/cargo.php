@@ -681,7 +681,7 @@
       var state = $("#state").val();
       var address = $("#address").val();
       var zip = $("#zip").val();
-      if(branch_office == "" || state == "" || address == "" || zip == ""){
+      if(branch_office == "" || type == "" || state == "" || address == "" || zip == ""){
         swal({
           title : "Oops!",
           text : "All data must be filled",
@@ -692,7 +692,7 @@
         $.ajax({
           type: "POST",
           url: "<?php echo base_url(); ?>branch_office_add",
-          data: { branch_office : branch_office, state : state, address : address, zip : zip },
+          data: { branch_office : branch_office, type : type, state : state, address : address, zip : zip },
           dataType: "JSON",
           success: function (data) {
             swal({
